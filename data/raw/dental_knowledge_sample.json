@@ -1,0 +1,30 @@
+[
+  {
+    "id": "DENT-001",
+    "title": "Viêm tủy răng (Pulpitis)",
+    "category": "Bệnh lý răng",
+    "content": "Viêm tủy răng là tình trạng phản ứng viêm của mô tủy răng. Triệu chứng điển hình gồm: đau răng buốt dữ dội thành từng cơn, đau tăng lên khi tiếp xúc với kích thích nhiệt độ (nóng, lạnh) và thường nhức nhối về đêm. Nguyên nhân phổ biến nhất là sâu răng không được điều trị kịp thời lan vào buồng tủy. Phác đồ điều trị thường là lấy tủy (chữa tủy nội nha) sau đó trám hoặc bọc sứ bảo tồn thân răng.",
+    "keywords": ["viêm tủy", "đau buốt", "nước lạnh", "nhức về đêm", "sâu răng", "chữa tủy"]
+  },
+  {
+    "id": "DENT-002",
+    "title": "Mòn cổ răng và Ê buốt răng (Dentin Hypersensitivity)",
+    "category": "Tổn thương mô cứng",
+    "content": "Mòn cổ răng (tiêu ngót men răng vùng cổ) dẫn đến lộ lớp ngà răng. Khi ngà răng bị lộ, các ống ngà truyền kích thích trực tiếp đến tủy, gây cảm giác buốt thoáng qua khi chải răng, ăn đồ chua ngọt hoặc uống nước lạnh. Điều trị bao gồm: sử dụng kem đánh răng chống ê buốt, trám cổ răng bằng composite hoặc GIC, và hướng dẫn chải răng đúng cách bằng bàn chải lông mềm.",
+    "keywords": ["mòn cổ răng", "ê buốt", "lộ ngà", "chải răng", "trám cổ răng"]
+  },
+  {
+    "id": "DENT-003",
+    "title": "Viêm nướu và Viêm nha chu (Gingivitis & Periodontitis)",
+    "category": "Bệnh lý nha chu",
+    "content": "Viêm nướu là giai đoạn đầu của bệnh nha chu, biểu hiện bởi nướu sưng đỏ, dễ chảy máu khi đánh răng hoặc dùng chỉ nha khoa, hơi thở có mùi. Nếu không điều trị, vi khuẩn phá hủy xương ổ răng dẫn đến tụt nướu, răng lung lay và rụng răng. Điều trị cốt lõi là cạo vôi răng (lấy cao răng) định kỳ 6 tháng/lần, vệ sinh mảng bám dưới nướu và súc miệng bằng Chlorhexidine 0.12%.",
+    "keywords": ["viêm nướu", "chảy máu chân răng", "nha chu", "tụt nướu", "cao răng", "hôi miệng"]
+  },
+  {
+    "id": "DENT-004",
+    "title": "Răng khôn mọc lệch / Mọc ngầm (Impacted Third Molar)",
+    "category": "Tiểu phẫu răng miệng",
+    "content": "Răng số 8 (răng khôn) thường mọc ở độ tuổi 17 - 25. Khi cung hàm thiếu chỗ, răng khôn dễ mọc lệch, mọc kẹt hoặc ngầm, gây viêm lợi trùm, đau nhức góc hàm, há miệng hạn chế, giắt thức ăn làm sâu hỏng răng số 7 bên cạnh. Chỉ định phổ biến là nhổ bỏ bằng phẫu thuật răng khôn kèm chụp phim cận chóp hoặc Panorama/ConeBeam CT.",
+    "keywords": ["răng khôn", "răng số 8", "mọc lệch", "lợi trùm", "nhổ răng", "đau góc hàm"]
+  }
+]

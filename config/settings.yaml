@@ -1,0 +1,34 @@
+# =====================================================================
+# CẤU HÌNH CHI TIẾT HỆ THỐNG MULTI-AGENT & HYBRID RAG NHA KHOA
+# =====================================================================
+
+app:
+  name: "Dental Multi-Agent System"
+  version: "0.1.0"
+  locale: "vi-VN"
+
+agents:
+  supervisor:
+    model: "gemini-2.5-flash"
+    temperature: 0.1
+    max_steps: 6
+  rag_retriever:
+    top_k: 3
+    dense_weight: 0.6
+    sparse_weight: 0.4
+    rrf_k: 60
+  dental_consultant:
+    model: "gemini-2.5-flash"
+    temperature: 0.3
+    specialty: "General & Endodontic Dentistry"
+
+hybrid_rag:
+  bm25:
+    language: "vi"
+    k1: 1.5
+    b: 0.75
+  vectorstore:
+    type: "chromadb"
+    collection_name: "dental_knowledge_base"
+    persist_directory: "./data/vectorstore"
+    embedding_model: "models/gemini-embedding-001"
