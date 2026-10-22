@@ -30,7 +30,8 @@ def load_sample_dental_documents(file_path: str = DEFAULT_DATA_PATH) -> List[Den
                 title=item.get("title", ""),
                 content=item.get("content", ""),
                 category=item.get("category", "Chung"),
-                keywords=item.get("keywords", [])
+                keywords=item.get("keywords", []),
+                metadata=item.get("metadata", {})
             )
             for i, item in enumerate(data)
         ]

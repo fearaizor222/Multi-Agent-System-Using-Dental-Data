@@ -1,21 +1,9 @@
-# Core Agent Framework
-langchain>=0.2.0
-langchain-core>=0.2.0
-langchain-community>=0.2.0
-langgraph>=0.2.0
-
-# LLM Provider: Google Gemini
-langchain-google-genai>=1.0.0
-
-# Hybrid RAG & Embeddings
-rank-bm25>=0.2.2
-chromadb>=0.5.0
-
-# Configuration & Utilities
-pydantic>=2.7.0
-pydantic-settings>=2.2.0
-python-dotenv>=1.0.1
-rich>=13.7.0
-
-# Testing & Dev
-pytest>=8.0.0
+# Kho công khai. Python 3.11.
+pydantic==2.13.5
+requests==2.34.2
+beautifulsoup4==4.14.3
+protego==0.4.0
+pypdf==6.20.1
+pdfplumber==0.11.10
+transformers==4.48.3
+pytest==9.1.1

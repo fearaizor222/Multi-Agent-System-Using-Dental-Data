@@ -1,0 +1,7 @@
+-r requirements.txt
+numpy==2.4.6
+torch==2.6.0
+sentence-transformers==3.4.1
+langchain-core==1.6.6
+pydantic-settings==2.15.0
+rank-bm25==0.2.2

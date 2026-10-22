@@ -1,76 +1,80 @@
-"""Hybrid Retriever implementing Reciprocal Rank Fusion (RRF) between Dense and Sparse retrieval."""
+"""Ghép thứ hạng vector và BM25 bằng weighted Reciprocal Rank Fusion."""
+import math
 
-from typing import List, Dict, Optional
-from collections import defaultdict
-from src.rag.base import BaseRetriever, DentalDocument
+from src.core.config import settings
+from src.rag.base import BaseRetriever
 from src.rag.bm25_retriever import BM25Retriever
 from src.rag.vector_store import DenseVectorRetriever
-from src.core.config import settings
-from src.core.logger import get_logger
-
-logger = get_logger("rag.hybrid")
 
 
 class HybridRetriever(BaseRetriever):
-    """Hybrid Retriever combining Dense Vector and Sparse BM25 search via Reciprocal Rank Fusion (RRF)."""
+    def __init__(self, documents=None, dense_retriever=None, sparse_retriever=None,
+                 dense_weight=None, sparse_weight=None, rrf_k=None, candidate_k=30):
+        self.documents = list(documents) if documents is not None else []
+        self.dense_weight = settings.DENSE_WEIGHT if dense_weight is None else dense_weight
+        self.sparse_weight = settings.SPARSE_WEIGHT if sparse_weight is None else sparse_weight
+        self.rrf_k = settings.RRF_K if rrf_k is None else rrf_k
+        self.candidate_k = candidate_k
+        weights = [self.dense_weight, self.sparse_weight]
+        if any(not math.isfinite(w) or w < 0 for w in weights) or sum(weights) <= 0:
+            raise ValueError("Trọng số phải hữu hạn, không âm và có tổng > 0")
+        if not isinstance(self.rrf_k, int) or self.rrf_k < 1 or candidate_k < 1:
+            raise ValueError("rrf_k và candidate_k phải dương")
+        self.dense_retriever = dense_retriever if dense_retriever is not None else DenseVectorRetriever(self.documents)
+        self.sparse_retriever = sparse_retriever if sparse_retriever is not None else BM25Retriever(self.documents)
+        self._read_only = False
 
-    def __init__(
-        self,
-        documents: Optional[List[DentalDocument]] = None,
-        dense_retriever: Optional[DenseVectorRetriever] = None,
-        sparse_retriever: Optional[BM25Retriever] = None,
-        dense_weight: float = None,
-        sparse_weight: float = None,
-        rrf_k: int = None
-    ):
-        self.documents = documents or []
-        self.dense_retriever = dense_retriever or DenseVectorRetriever(self.documents)
-        self.sparse_retriever = sparse_retriever or BM25Retriever(self.documents)
+    @classmethod
+    def from_disk(cls, directory, encoder=None, **kwargs):
+        dense = DenseVectorRetriever.from_disk(directory, encoder=encoder)
+        result = cls(documents=dense.documents, dense_retriever=dense,
+                     sparse_retriever=BM25Retriever(dense.documents), **kwargs)
+        result._read_only = True
+        return result
 
-        self.dense_weight = dense_weight if dense_weight is not None else settings.DENSE_WEIGHT
-        self.sparse_weight = sparse_weight if sparse_weight is not None else settings.SPARSE_WEIGHT
-        self.rrf_k = rrf_k if rrf_k is not None else settings.RRF_K
+    def add_documents(self, documents):
+        if self._read_only:
+            raise ValueError("Index lưu trên đĩa chỉ đọc; tạo index mới khi dữ liệu đổi")
+        additions = list(documents)
+        ids = [doc.id for doc in self.documents + additions]
+        if len(ids) != len(set(ids)):
+            raise ValueError("Trùng ID chunk")
+        self.dense_retriever.add_documents(additions)
+        self.sparse_retriever.add_documents(additions)
+        self.documents.extend(additions)
 
-    def add_documents(self, documents: List[DentalDocument]) -> None:
-        """Add documents to both dense and sparse indexes."""
-        self.documents.extend(documents)
-        self.dense_retriever.add_documents(documents)
-        self.sparse_retriever.add_documents(documents)
+    def retrieve(self, query, top_k=None, source=None, language=None):
+        top_k = settings.RAG_TOP_K if top_k is None else top_k
+        if top_k < 1:
+            raise ValueError("top_k phải dương")
+        if not query.strip():
+            raise ValueError("Câu hỏi rỗng")
+        candidate_k = max(top_k, self.candidate_k)
+        options = {"top_k": candidate_k, "source": source, "language": language}
+        dense = self.dense_retriever.retrieve(query, **options) if self.dense_weight else []
+        sparse = self.sparse_retriever.retrieve(query, **options) if self.sparse_weight else []
+        return self.fuse(dense, sparse, top_k=top_k)
 
-    def retrieve(self, query: str, top_k: int = None) -> List[DentalDocument]:
-        """Perform Hybrid Search using Reciprocal Rank Fusion (RRF)."""
-        top_k = top_k or settings.RAG_TOP_K
-
-        # Retrieve candidates from both sources with wider candidate window
-        candidate_k = top_k * 3
-        dense_results = self.dense_retriever.retrieve(query, top_k=candidate_k)
-        sparse_results = self.sparse_retriever.retrieve(query, top_k=candidate_k)
-
-        logger.info(
-            f"Hybrid Search cho query: '{query[:40]}...' "
-            f"(Dense: {len(dense_results)}, Sparse: {len(sparse_results)})"
-        )
-
-        doc_by_id: Dict[str, DentalDocument] = {}
-        rrf_scores: Dict[str, float] = defaultdict(float)
-
-        # 1. Process Dense Ranks
-        for rank, doc in enumerate(dense_results, start=1):
-            doc_by_id[doc.id] = doc
-            rrf_scores[doc.id] += self.dense_weight * (1.0 / (self.rrf_k + rank))
-
-        # 2. Process Sparse Ranks
-        for rank, doc in enumerate(sparse_results, start=1):
-            doc_by_id[doc.id] = doc
-            rrf_scores[doc.id] += self.sparse_weight * (1.0 / (self.rrf_k + rank))
-
-        # 3. Sort by aggregated RRF score
-        sorted_doc_ids = sorted(rrf_scores.keys(), key=lambda did: rrf_scores[did], reverse=True)
-
-        hybrid_results: List[DentalDocument] = []
-        for did in sorted_doc_ids[:top_k]:
-            doc_copy = doc_by_id[did].model_copy()
-            doc_copy.score = round(rrf_scores[did], 6)
-            hybrid_results.append(doc_copy)
-
-        return hybrid_results
+    def fuse(self, dense, sparse, top_k):
+        """Lưu thứ hạng/điểm từng nhánh; score đầu ra là RRF, không phải xác suất."""
+        documents, scores, details = {}, {}, {}
+        for method, hits, weight in [("dense", dense, self.dense_weight), ("bm25", sparse, self.sparse_weight)]:
+            if not weight:
+                continue
+            seen = set()
+            for rank, doc in enumerate(hits, 1):
+                if doc.id in seen:
+                    continue
+                seen.add(doc.id)
+                documents.setdefault(doc.id, doc)
+                scores[doc.id] = scores.get(doc.id, 0) + weight / (self.rrf_k + rank)
+                details.setdefault(doc.id, {}).update({method + "_rank": rank, method + "_score": doc.score})
+        ranked = sorted(scores, key=lambda doc_id: (-scores[doc_id], doc_id))[:top_k]
+        results = []
+        for doc_id in ranked:
+            doc = documents[doc_id].model_copy(deep=True, update={"score": scores[doc_id]})
+            doc.metadata["retrieval"] = {"method": "hybrid", "rrf_k": self.rrf_k,
+                "dense_weight": self.dense_weight, "bm25_weight": self.sparse_weight,
+                "candidate_k": max(top_k, self.candidate_k), **details[doc_id]}
+            results.append(doc)
+        return results

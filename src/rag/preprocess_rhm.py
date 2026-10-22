@@ -1,399 +1,306 @@
-"""Data Preprocessing Pipeline for Gnathology & Occlusion Textbook (RHM1 khop can hoc.pdf).
-
-This module extracts, cleans OCR artifacts, structures, and converts all 13 educational chapters
-from the Dental Occlusion & Temporomandibular Joint (TMJ) textbook into standardized
-DentalDocument objects ready for Hybrid RAG.
-"""
-
-import os
+"""Trích lớp chữ OCR của giáo trình Cắn khớp học, giữ nguồn và chia theo token."""
+import argparse
+import bisect
+import hashlib
+import json
 import re
 import sys
-import json
-import unicodedata
-from typing import List, Dict, Any, Optional, Tuple
-import pypdf
+from pathlib import Path
+
+from pypdf import PdfReader
 
 from src.rag.base import DentalDocument
-from src.core.logger import get_logger
+from src.rag.ocr_review import (
+    DEFAULT_REVIEW, NORMALIZATION_VERSION, apply_reviewed_corrections, normalize_ocr_text,
+)
 
-logger = get_logger("rag.preprocess_rhm")
+ROOT = Path(__file__).resolve().parents[2]
+MODEL_NAME = "intfloat/multilingual-e5-small"
 
-# Table of 13 Chapters and their page boundaries
+# Số trang PDF đã đối chiếu với bản scan; chương 1 bị đảo trang 3 và 4.
 CHAPTER_METADATA = [
-    {
-        "num": 1,
-        "title": "Mở đầu - Giới thiệu môn học Cắn khớp",
-        "start_page": 11,
-        "end_page": 17,
-        "topics": ["định nghĩa cắn khớp", "hệ thống nhai", "lịch sử cắn khớp học"]
-    },
-    {
-        "num": 2,
-        "title": "Giải phẫu chức năng hệ thống nhai",
-        "start_page": 18,
-        "end_page": 40,
-        "topics": ["xương hàm trên", "xương hàm dưới", "cơ nhai", "cơ chân bướm", "khớp thái dương hàm", "lồi cầu", "đĩa khớp", "bao khớp"]
-    },
-    {
-        "num": 3,
-        "title": "Khớp cắn và quan niệm về khớp cắn",
-        "start_page": 41,
-        "end_page": 72,
-        "topics": ["khớp cắn răng sữa", "khớp cắn răng vĩnh viễn", "lồng múi tối đa", "phân loại Angle", "cung răng"]
-    },
-    {
-        "num": 4,
-        "title": "Động học cắn khớp",
-        "start_page": 73,
-        "end_page": 89,
-        "topics": ["động học hàm dưới", "vận động biên", "sơ đồ Posselt", "góc Bennett", "vận động sang bên", "vận động ra trước"]
-    },
-    {
-        "num": 5,
-        "title": "Hoạt động chức năng và cận chức năng",
-        "start_page": 90,
-        "end_page": 109,
-        "topics": ["động tác nhai", "động tác nuốt", "cận chức năng", "nghiến răng", "siết chặt răng", "mòn răng do nghiến"]
-    },
-    {
-        "num": 6,
-        "title": "Vận động và các vị trí của hàm dưới trong thực hành",
-        "start_page": 110,
-        "end_page": 122,
-        "topics": ["tương quan trung tâm CR", "khớp cắn trung tâm CO", "kích thước dọc cắn khớp VDO", "tư thế nghỉ sinh lý"]
-    },
-    {
-        "num": 7,
-        "title": "Khám cắn khớp và hệ thống nhai",
-        "start_page": 123,
-        "end_page": 146,
-        "topics": ["hỏi bệnh sử cắn khớp", "khám khớp thái dương hàm", "tiếng kêu khớp", "khám cơ nhai", "sờ nắn cơ"]
-    },
-    {
-        "num": 8,
-        "title": "Khám các tiếp xúc cắn khớp",
-        "start_page": 147,
-        "end_page": 180,
-        "topics": ["tiếp xúc cắn khớp", "tiếp xúc sớm", "cản trở cắn khớp", "giấy cắn", "hướng dẫn răng nanh", "hướng dẫn nhóm"]
-    },
-    {
-        "num": 9,
-        "title": "Đại cương điều trị cắn khớp và mài điều chỉnh khớp cắn",
-        "start_page": 181,
-        "end_page": 206,
-        "topics": ["điều trị cắn khớp", "mài chỉnh khớp cắn", "quy tắc mài chỉnh", "mài chỉnh ở tương quan trung tâm", "loại bỏ cản trở cắn khớp"]
-    },
-    {
-        "num": 10,
-        "title": "Giá khớp và sử dụng giá khớp",
-        "start_page": 207,
-        "end_page": 235,
-        "topics": ["giá khớp", "phân loại giá khớp", "giá khớp bản lề", "giá khớp bán thích ứng", "giá khớp thích ứng hoàn toàn", "cài đặt giá khớp"]
-    },
-    {
-        "num": 11,
-        "title": "Cung mặt và lên giá khớp",
-        "start_page": 236,
-        "end_page": 257,
-        "topics": ["cung mặt", "ghi dấu cung mặt", "lên giá khớp hàm trên", "vô giá khớp", "sai lầm khi lên giá khớp"]
-    },
-    {
-        "num": 12,
-        "title": "Máng nhai",
-        "start_page": 258,
-        "end_page": 268,
-        "topics": ["máng nhai", "phân loại máng nhai", "máng nhai thư giãn", "máng nhai định vị lại", "chỉ định máng nhai"]
-    },
-    {
-        "num": 13,
-        "title": "Thực hành máng nhai và điều trị rối loạn khớp thái dương hàm",
-        "start_page": 269,
-        "end_page": 284,
-        "topics": ["điều trị rối loạn tmd", "chế tạo máng nhai", "chỉnh máng nhai", "vật lý trị liệu tmd", "tiên lượng tmd"]
-    },
-    {
-        "num": 14,
-        "title": "Bảng thuật ngữ Cắn khớp học chuyên sâu",
-        "start_page": 285,
-        "end_page": 294,
-        "topics": ["thuật ngữ cắn khớp", "tương quan trung tâm", "khớp cắn lồng múi", "gysi", "bennett", "posselt"]
+    {"num": 1, "title": "Mở đầu - Giới thiệu môn học Cắn khớp", "start_page": 10, "end_page": 17,
+     "page_order": [11, 10, 12, 13, 14, 15, 16, 17]},
+    {"num": 2, "title": "Giải phẫu chức năng hệ thống nhai", "start_page": 18, "end_page": 40},
+    {"num": 3, "title": "Khớp cắn và quan niệm về khớp cắn", "start_page": 41, "end_page": 72},
+    {"num": 4, "title": "Động học cắn khớp", "start_page": 73, "end_page": 89},
+    {"num": 5, "title": "Hoạt động chức năng và cận chức năng", "start_page": 90, "end_page": 109},
+    {"num": 6, "title": "Vận động và các vị trí của hàm dưới, khía cạnh thực hành", "start_page": 110, "end_page": 122},
+    {"num": 7, "title": "Khám cắn khớp", "start_page": 124, "end_page": 146},
+    {"num": 8, "title": "Khám các tiếp xúc cắn khớp", "start_page": 147, "end_page": 180},
+    {"num": 9, "title": "Đại cương điều trị cắn khớp và điều chỉnh khớp cắn", "start_page": 181, "end_page": 206},
+    {"num": 10, "title": "Giá khớp và sử dụng giá khớp", "start_page": 208, "end_page": 235},
+    {"num": 11, "title": "Cung mặt và lên giá khớp", "start_page": 236, "end_page": 257},
+    {"num": 12, "title": "Máng nhai", "start_page": 259, "end_page": 268},
+    {"num": 13, "title": "Thực hành máng nhai", "start_page": 269, "end_page": 277},
+]
+
+GLOSSARY_METADATA = [
+    {"id": "CKH-GLOSSARY-DEFINITIONS", "title": "Giải nghĩa thuật ngữ cắn khớp",
+     "start_page": 278, "end_page": 283, "kind": "definitions"},
+    {"id": "CKH-GLOSSARY-TRANSLATIONS", "title": "Đối chiếu thuật ngữ Việt - Anh - Pháp",
+     "start_page": 284, "end_page": 292, "kind": "translation_table"},
+]
+
+# Chỉ đánh dấu các dạng OCR đáng ngờ; việc xác nhận phải đối chiếu bản scan.
+OCR_SUSPECT = re.compile(
+    r"\b(?:uà|uù|uê|rỡng|bhớp|bhóp|hhớp|hhop|lỗi\s+cầu|lôi\s+cầu|thái\s+đương)\b", re.I
+)
+
+
+def sha256(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def clean_rhm_ocr_text(text):
+    """Chuẩn hóa cơ học, giữ nguyên từ OCR để có thể đối chiếu với nguồn."""
+    return normalize_ocr_text(text)
+
+
+def extract_keywords_rhm(title, text):
+    vocabulary = (
+        "khớp cắn", "cắn khớp", "hệ thống nhai", "khớp thái dương hàm", "tmd",
+        "lồi cầu", "đĩa khớp", "cơ nhai", "vận động hàm dưới", "tương quan trung tâm",
+        "lồng múi tối đa", "cản trở cắn khớp", "mài chỉnh khớp cắn", "máng nhai",
+        "nghiến răng", "giá khớp", "cung mặt", "lên giá khớp",
+    )
+    lower = (title + " " + text).lower()
+    return sorted({word for word in vocabulary if word in lower})
+
+
+def embedding_text(document):
+    return "passage: " + document.title + "\n" + document.content
+
+
+def chapter_pages(chapter):
+    return chapter.get("page_order", list(range(chapter["start_page"], chapter["end_page"] + 1)))
+
+
+def make_parent(identifier, title, numbers, pages, source_sha, *, page_texts=None, ocr_review=None, **extra):
+    page_texts = page_texts or {number: clean_rhm_ocr_text(pages[number]) for number in numbers}
+    review_pages = (ocr_review or {}).get("pages", {})
+    parts, spans, position = [], [], 0
+    for number in numbers:
+        text = page_texts[number]
+        if parts:
+            position += 2
+        spans.append({"pdf_page": number, "start": position, "end": position + len(text),
+                      "raw_text_sha256": sha256(pages[number].encode("utf-8")),
+                      "page_text_sha256": sha256(text.encode("utf-8")),
+                      "ocr_correction_count": len(review_pages.get(number, {}).get("changes", []))})
+        parts.append(text)
+        position += len(text)
+    content = "\n\n".join(parts)
+    if not content.strip():
+        raise ValueError(f"Không có lớp chữ OCR trong {identifier}")
+    flags = ["ocr_text_requires_review"]
+    if numbers != sorted(numbers):
+        flags.append("source_page_order_corrected")
+    if any(not clean_rhm_ocr_text(pages[number]) for number in numbers):
+        flags.append("empty_ocr_page")
+    layout_pages = [number for number in numbers if review_pages.get(number, {}).get("layout_flags")]
+    if layout_pages:
+        flags.append("table_layout_requires_review")
+    revision = sha256(json.dumps([source_sha, numbers, NORMALIZATION_VERSION,
+                                  [span["page_text_sha256"] for span in spans]], ensure_ascii=False).encode("utf-8"))
+    metadata = {
+        "source": "RHM1 khop can hoc.pdf", "source_name": "Giáo trình Cắn khớp học",
+        "source_type": "internal", "language": "vi", "doc_level": "master",
+        "source_sha256": source_sha, "source_revision": revision,
+        "normalization_version": NORMALIZATION_VERSION,
+        "extraction_method": "existing_pdf_ocr_text_layer", "page_start": min(numbers),
+        "page_end": max(numbers), "pdf_pages": numbers, "page_spans": spans,
+        "quality_flags": flags, "layout_review_pages": layout_pages,
+        "page_text_basis": "normalized_ocr_with_reviewed_corrections",
+        "ocr_review": {"sha256": (ocr_review or {}).get("sha256"), "scope": (ocr_review or {}).get("scope", "none"),
+                       "corrected_pdf_pages": [number for number in numbers if review_pages.get(number, {}).get("changes")],
+                       "applied_corrections": sum(span["ocr_correction_count"] for span in spans)}, **extra,
     }
-]
-
-# Vocabulary for Dental Occlusion keywords extraction
-RHM_KEYWORD_VOCAB = [
-    "khớp cắn", "cắn khớp", "hệ thống nhai", "khớp thái dương hàm", "tmd",
-    "lồi cầu", "đĩa khớp", "bao khớp", "dây chằng", "cơ cắn", "cơ thái dương", "cơ chân bướm",
-    "sơ đồ posselt", "góc bennett", "vận động biên", "vận động sang bên", "vận động ra trước",
-    "tương quan trung tâm", "khớp cắn trung tâm", "lồng múi tối đa", "kích thước dọc", "tư thế nghỉ",
-    "hướng dẫn răng nanh", "hướng dẫn nhóm", "cản trở cắn khớp", "tiếp xúc sớm",
-    "mài chỉnh khớp cắn", "giấy cắn", "máng nhai", "máng nhai thư giãn", "nghiến răng",
-    "giá khớp", "giá khớp bản lề", "giá khớp bán thích ứng", "cung mặt", "lên giá khớp"
-]
+    return DentalDocument(id=identifier, title=title, content=content, category="Cắn khớp học & TMJ",
+                          keywords=extract_keywords_rhm(title, content), metadata=metadata)
 
 
-def clean_rhm_ocr_text(text: str) -> str:
-    """Normalize OCR text artifacts and correct known Vietnamese OCR misrecognitions."""
-    if not text:
-        return ""
-
-    # Common OCR typo corrections
-    replacements = [
-        (r'\buù\b', 'và'),
-        (r'\buà\b', 'và'),
-        (r'\buê\b', 'về'),
-        (r'\bcúa\b', 'của'),
-        (r'\bbể\b', 'kể'),
-        (r'\brỡng\b', 'răng'),
-        (r'\bbhóp\b', 'khớp'),
-        (r'\bshép\b', 'khớp'),
-        (r'\bthái đương\b', 'thái dương'),
-        (r'\bđương hàm\b', 'dương hàm'),
-        (r'\buì\b', 'vi'),
-        (r'\bhỳ\b', 'kỳ'),
-        (r'\bchúe\b', 'chức'),
-        (r'\bdưới\b', 'dưới'),
-        (r'\bđướt\b', 'dưới'),
-        (r'\bhàm đướt\b', 'hàm dưới'),
-        (r'\bkháo cắn\b', 'khớp cắn'),
-    ]
-
-    for pattern, repl in replacements:
-        text = re.sub(pattern, repl, text, flags=re.IGNORECASE)
-
-    # Normalize Unicode NFC
-    text = unicodedata.normalize('NFC', text)
-
-    # Fix horn characters
-    text = text.replace('ƣ', 'ư').replace('Ƣ', 'Ư')
-
-    # Remove repeated blank lines & multiple spaces
-    text = re.sub(r'[ \t]+', ' ', text)
-    text = re.sub(r'\n{3,}', '\n\n', text)
-    return text.strip()
+def table_units(parent, ocr_review):
+    units = []
+    review_pages = (ocr_review or {}).get("pages", {})
+    for page in parent.metadata["page_spans"]:
+        for change in review_pages.get(page["pdf_page"], {}).get("changes", []):
+            if change.get("kind") != "table_rows":
+                continue
+            offset = page["start"] + change["corrected_start"]
+            for index, match in enumerate(re.finditer(r"\S[\s\S]*?(?=\n\n|\Z)", change["after"]), 1):
+                units.append({"id": f"CKH-TABLE-{page['pdf_page']}-{index}",
+                              "start": offset + match.start(), "end": offset + match.end()})
+    return units
 
 
-def extract_keywords_rhm(title: str, text: str) -> List[str]:
-    """Extract relevant gnathology keywords from text."""
-    keywords = set()
-
-    # Add words from title
-    clean_title = re.sub(r'^\d+\.\s*', '', title).strip().lower()
-    keywords.add(clean_title)
-    for w in re.split(r'[\s\-\(\)\/,:]+', clean_title):
-        if len(w) >= 3 and w not in {"các", "của", "cho", "trong", "với", "những"}:
-            keywords.add(w)
-
-    lower_text = text.lower()
-    for kw in RHM_KEYWORD_VOCAB:
-        if kw in lower_text:
-            keywords.add(kw)
-
-    keywords.add("cắn khớp học & tmj")
-    return sorted(list(keywords))
-
-
-def chunk_chapter_content(
-    chapter_num: int,
-    chapter_title: str,
-    chapter_text: str,
-    start_page: int,
-    end_page: int,
-    target_chunk_size: int = 1800,
-    overlap: int = 200
-) -> List[DentalDocument]:
-    """Split chapter text into cohesive, readable chunks of 500-800 tokens."""
-    # Split paragraphs by double newline
-    paragraphs = [p.strip() for p in chapter_text.split('\n\n') if p.strip()]
-    if not paragraphs:
-        # Fallback to single newline split
-        paragraphs = [p.strip() for p in chapter_text.split('\n') if len(p.strip()) > 30]
-
-    chunks = []
-    current_chunk = []
-    current_len = 0
-    chunk_index = 1
-
-    for p in paragraphs:
-        p_len = len(p)
-        if current_len + p_len > target_chunk_size and current_chunk:
-            chunk_content = "\n\n".join(current_chunk)
-            # Find subheader if any in chunk
-            first_line = current_chunk[0].split('\n')[0].strip()
-            sub_title = first_line[:50] if len(first_line) > 5 else f"Phần {chunk_index}"
-
-            doc_id = f"CKH-CH{chapter_num:02d}-{chunk_index:02d}"
-            title = f"Chương {chapter_num}: {chapter_title} - {sub_title}"
-            keywords = extract_keywords_rhm(title, chunk_content)
-
-            doc = DentalDocument(
-                id=doc_id,
-                title=title,
-                content=chunk_content,
-                category="Cắn khớp học & TMJ",
-                keywords=keywords,
-                metadata={
-                    "source": "RHM1 khop can hoc.pdf",
-                    "source_name": "Giáo trình Cắn khớp học - ĐH Y Dược TP.HCM",
-                    "chapter_number": chapter_num,
-                    "chapter_title": chapter_title,
-                    "chunk_index": chunk_index,
-                    "doc_level": "section",
-                    "page_start": start_page,
-                    "page_end": end_page
-                }
-            )
-            chunks.append(doc)
-            chunk_index += 1
-
-            # Keep last paragraph for overlap
-            current_chunk = [current_chunk[-1]] if len(current_chunk[-1]) < overlap else []
-            current_len = sum(len(x) for x in current_chunk)
-
-        current_chunk.append(p)
-        current_len += p_len
-
-    # Add final remaining chunk
-    if current_chunk:
-        chunk_content = "\n\n".join(current_chunk)
-        first_line = current_chunk[0].split('\n')[0].strip()
-        sub_title = first_line[:50] if len(first_line) > 5 else f"Phần {chunk_index}"
-
-        doc_id = f"CKH-CH{chapter_num:02d}-{chunk_index:02d}"
-        title = f"Chương {chapter_num}: {chapter_title} - {sub_title}"
-        keywords = extract_keywords_rhm(title, chunk_content)
-
-        doc = DentalDocument(
-            id=doc_id,
-            title=title,
-            content=chunk_content,
-            category="Cắn khớp học & TMJ",
-            keywords=keywords,
-            metadata={
-                "source": "RHM1 khop can hoc.pdf",
-                "source_name": "Giáo trình Cắn khớp học - ĐH Y Dược TP.HCM",
-                "chapter_number": chapter_num,
-                "chapter_title": chapter_title,
-                "chunk_index": chunk_index,
-                "doc_level": "section",
-                "page_start": start_page,
-                "page_end": end_page
-            }
-        )
-        chunks.append(doc)
-
+def chunk_chapter_content(parent, tokenizer, max_tokens=380, overlap_words=16, ocr_review=None):
+    """Chia theo token, lưu offset chính xác trong chương và từng trang PDF."""
+    if not 64 <= max_tokens <= 500 or overlap_words < 0:
+        raise ValueError("max_tokens cần trong khoảng 64–500, overlap_words không âm")
+    words = list(re.finditer(r"\S+", parent.content))
+    starts = [word.start() for word in words]
+    tables = table_units(parent, ocr_review)
+    for unit in tables:
+        unit["word_start"] = bisect.bisect_left(starts, unit["start"])
+        unit["word_end"] = bisect.bisect_left(starts, unit["end"])
+    chunks, start = [], 0
+    while start < len(words):
+        index = len(chunks) + 1
+        title = f"{parent.title} - Đoạn {index}"
+        begin = words[start].start()
+        low, high, end = start + 1, len(words), start
+        while low <= high:
+            middle = (low + high) // 2
+            content = parent.content[begin:words[middle - 1].end()]
+            count = len(tokenizer.encode("passage: " + title + "\n" + content, verbose=False))
+            if count <= max_tokens:
+                end, low = middle, middle + 1
+            else:
+                high = middle - 1
+        if end == start:
+            raise ValueError(f"Một từ hoặc tiêu đề vượt giới hạn token: {parent.id}")
+        for unit in tables:
+            if unit["word_start"] < end < unit["word_end"]:
+                end = unit["word_start"]
+                if end <= start:
+                    raise ValueError(f"Hàng bảng vượt giới hạn token: {unit['id']}")
+        stop = words[end - 1].end()
+        source_spans = []
+        for span in parent.metadata["page_spans"]:
+            a, b = max(begin, span["start"]), min(stop, span["end"])
+            if a < b:
+                source_spans.append({"pdf_page": span["pdf_page"],
+                                     "start": a - span["start"], "end": b - span["start"],
+                                     "chapter_start": a, "chapter_end": b})
+        numbers = [span["pdf_page"] for span in source_spans]
+        content = parent.content[begin:stop]
+        metadata = {key: value for key, value in parent.metadata.items() if key != "page_spans"}
+        metadata["layout_review_pages"] = [number for number in numbers if number in parent.metadata["layout_review_pages"]]
+        metadata["quality_flags"] = [flag for flag in parent.metadata["quality_flags"]
+                                     if flag != "table_layout_requires_review" or metadata["layout_review_pages"]]
+        review_pages = (ocr_review or {}).get("pages", {})
+        applied = [(span["pdf_page"], change) for span in source_spans
+                   for change in review_pages.get(span["pdf_page"], {}).get("changes", [])
+                   if change["corrected_start"] < span["end"] and change["corrected_end"] > span["start"]]
+        metadata["ocr_review"] = {"sha256": parent.metadata["ocr_review"]["sha256"],
+                                  "scope": parent.metadata["ocr_review"]["scope"],
+                                  "corrected_pdf_pages": list(dict.fromkeys(number for number, _ in applied)),
+                                  "applied_corrections": len(applied),
+                                  "correction_ids": [change["id"] for _, change in applied]}
+        metadata.update(parent_id=parent.id, doc_level="section", chunk_index=index,
+                        chapter_span={"start": begin, "end": stop}, source_spans=source_spans,
+                        pdf_pages=numbers, page_start=min(numbers), page_end=max(numbers),
+                        tokenizer=MODEL_NAME, max_tokens=max_tokens, overlap_words=overlap_words,
+                        token_count=len(tokenizer.encode("passage: " + title + "\n" + content, verbose=False)),
+                        ocr_suspects=sorted(set(match.group(0) for match in OCR_SUSPECT.finditer(content))))
+        metadata["table_row_ids"] = [unit["id"] for unit in tables if begin <= unit["start"] and stop >= unit["end"]]
+        metadata["embedding_ready"] = not metadata["ocr_suspects"] and not metadata["layout_review_pages"]
+        signature = sha256(json.dumps([parent.metadata["source_revision"], begin, stop, max_tokens, overlap_words]).encode())[:10]
+        chunks.append(DentalDocument(id=f"CKH-CH{metadata['chapter_number']:02d}-{index:04d}-{signature}",
+                                     title=title, content=content, category=parent.category,
+                                     keywords=extract_keywords_rhm(title, content), metadata=metadata))
+        if end == len(words):
+            break
+        next_start = max(start + 1, end - min(overlap_words, end - start - 1))
+        for unit in tables:
+            if unit["word_start"] < next_start < unit["word_end"]:
+                next_start = unit["word_start"] if unit["word_start"] > start else end
+        start = next_start
     return chunks
 
 
 class RHMDataPreprocessor:
-    """Preprocessor for Gnathology & Occlusion Textbook (RHM1 khop can hoc.pdf)."""
+    def __init__(self, pdf_path, output_dir, *, page_cache=None, max_tokens=380, overlap_words=16, ocr_review_path=DEFAULT_REVIEW):
+        self.pdf_path, self.output_dir = Path(pdf_path), Path(output_dir)
+        self.page_cache = Path(page_cache) if page_cache else None
+        self.max_tokens, self.overlap_words = max_tokens, overlap_words
+        self.ocr_review_path = ocr_review_path
 
-    def __init__(self, pdf_path: str, output_dir: str):
-        self.pdf_path = pdf_path
-        self.output_dir = output_dir
-        os.makedirs(output_dir, exist_ok=True)
+    def read_pages(self):
+        source_sha = sha256(self.pdf_path.read_bytes())
+        reader = PdfReader(self.pdf_path)
+        if len(reader.pages) != 314:
+            raise ValueError("Cần rà lại khoảng trang: bản giáo trình này phải có 314 trang PDF")
+        if self.page_cache:
+            info = json.loads(self.page_cache.with_name("source.json").read_text(encoding="utf-8"))
+            if info["sha256"] != source_sha:
+                raise ValueError("Cache lớp chữ không khớp SHA-256 của PDF")
+            records = [json.loads(line) for line in self.page_cache.read_text(encoding="utf-8").splitlines() if line.strip()]
+            pages = {item["pdf_page"]: item["text"] for item in records}
+            if len(records) != len(pages) or set(pages) != set(range(1, 315)):
+                raise ValueError("Cache thiếu trang hoặc trùng trang")
+        else:
+            pages = {}
+            for number, page in enumerate(reader.pages, 1):
+                pages[number] = page.extract_text() or ""
+                if number % 50 == 0:
+                    print(f"Đã đọc {number}/314 trang", flush=True)
+        return pages, source_sha
 
-    def run(self) -> Dict[str, Any]:
-        """Execute extraction, cleaning and chunking across all 13 chapters."""
-        logger.info(f"Đang đọc file Giáo trình Cắn khớp học: {self.pdf_path}...")
-        reader = pypdf.PdfReader(self.pdf_path)
-        total_pages = len(reader.pages)
-        logger.info(f"Tổng số trang: {total_pages}. Đang trích xuất theo 13 chương...")
+    def run(self):
+        from transformers import AutoTokenizer
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, local_files_only=True)
+        pages, source_sha = self.read_pages()
+        page_texts, ocr_review = apply_reviewed_corrections(pages, source_sha, self.ocr_review_path)
+        chapters, chunks, glossary = [], [], []
+        for chapter in CHAPTER_METADATA:
+            number = chapter["num"]
+            numbers = chapter_pages(chapter)
+            if not re.search(rf"chương\s+{number}\s*:", pages[numbers[0]][:350], re.I):
+                raise ValueError(f"Trang mở đầu không khớp chương {number}")
+            parent = make_parent(f"CKH-CH{number:02d}-FULL", f"Chương {number}: {chapter['title']}",
+                                 numbers, pages, source_sha, chapter_number=number,
+                                 chapter_title=chapter["title"], page_texts=page_texts, ocr_review=ocr_review)
+            pieces = chunk_chapter_content(parent, tokenizer, self.max_tokens, self.overlap_words, ocr_review)
+            chapters.append(parent)
+            chunks.extend(pieces)
+            print(f"Chương {number}: {len(numbers)} trang, {len(pieces)} chunk", flush=True)
+        for item in GLOSSARY_METADATA:
+            numbers = list(range(item["start_page"], item["end_page"] + 1))
+            parent = make_parent(item["id"], item["title"], numbers, pages, source_sha,
+                                 doc_level="appendix", appendix_kind=item["kind"], retrieval_ready=False,
+                                 page_texts=page_texts, ocr_review=ocr_review)
+            parent.metadata["quality_flags"].append("multi_column_layout_requires_review")
+            glossary.append(parent)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        names = {"chapters": "khop_can_hoc_chapters.json", "sections": "khop_can_hoc_sections.json",
+                 "glossary_review": "khop_can_hoc_glossary_review.json"}
+        for key, documents in [("chapters", chapters), ("sections", chunks), ("glossary_review", glossary)]:
+            target = self.output_dir / names[key]
+            temporary = target.with_suffix(target.suffix + ".tmp")
+            temporary.write_text(json.dumps([document.model_dump() for document in documents],
+                                            ensure_ascii=False, indent=2), encoding="utf-8")
+            temporary.replace(target)
+        return {"total_chapters": len(chapters), "total_search_chunks": len(chunks),
+                "chapter_pdf_pages": sum(len(chapter_pages(item)) for item in CHAPTER_METADATA),
+                "glossary_documents_for_review": len(glossary), "max_tokens": self.max_tokens,
+                "reviewed_corrections": sum(len(item["changes"]) for item in ocr_review["pages"].values()),
+                "pages_with_reviewed_corrections": len(ocr_review["pages"]),
+                "files_saved": {key: str(self.output_dir / name) for key, name in names.items()}}
 
-        all_section_docs: List[DentalDocument] = []
-        all_chapter_docs: List[DentalDocument] = []
 
-        for ch in CHAPTER_METADATA:
-            ch_num = ch["num"]
-            ch_title = ch["title"]
-            start_p = ch["start_page"]
-            end_p = min(ch["end_page"], total_pages)
-
-            # Collect text for this chapter
-            ch_pages_text = []
-            for p_idx in range(start_p - 1, end_p):
-                raw_text = reader.pages[p_idx].extract_text() or ""
-                cleaned = clean_rhm_ocr_text(raw_text)
-                if cleaned:
-                    ch_pages_text.append(cleaned)
-
-            full_chapter_text = "\n\n".join(ch_pages_text)
-            if not full_chapter_text.strip():
-                logger.warning(f"Chương {ch_num} không có text!")
-                continue
-
-            # 1. Full Chapter Document (Parent DocStore)
-            master_id = f"CKH-CH{ch_num:02d}-FULL"
-            master_title = f"Chương {ch_num}: {ch_title}"
-            ch_keywords = extract_keywords_rhm(master_title, full_chapter_text)
-
-            chapter_doc = DentalDocument(
-                id=master_id,
-                title=master_title,
-                content=full_chapter_text,
-                category="Cắn khớp học & TMJ",
-                keywords=ch_keywords,
-                metadata={
-                    "source": "RHM1 khop can hoc.pdf",
-                    "source_name": "Giáo trình Cắn khớp học - ĐH Y Dược TP.HCM",
-                    "chapter_number": ch_num,
-                    "chapter_title": ch_title,
-                    "doc_level": "master",
-                    "page_start": start_p,
-                    "page_end": end_p
-                }
-            )
-            all_chapter_docs.append(chapter_doc)
-
-            # 2. Granular Section Chunks (Search Index)
-            sec_chunks = chunk_chapter_content(
-                chapter_num=ch_num,
-                chapter_title=ch_title,
-                chapter_text=full_chapter_text,
-                start_page=start_p,
-                end_page=end_p
-            )
-            for sc in sec_chunks:
-                sc.metadata["parent_id"] = master_id
-            all_section_docs.extend(sec_chunks)
-
-            logger.info(f"Đã xử lý Chương {ch_num:2d}: '{ch_title}' -> Tạo {len(sec_chunks)} Chunks.")
-
-        # Save to JSON
-        sections_output_path = os.path.join(self.output_dir, "khop_can_hoc_sections.json")
-        chapters_output_path = os.path.join(self.output_dir, "khop_can_hoc_chapters.json")
-
-        with open(sections_output_path, "w", encoding="utf-8") as f:
-            json.dump([doc.model_dump() for doc in all_section_docs], f, ensure_ascii=False, indent=2)
-
-        with open(chapters_output_path, "w", encoding="utf-8") as f:
-            json.dump([doc.model_dump() for doc in all_chapter_docs], f, ensure_ascii=False, indent=2)
-
-        stats = {
-            "total_chapters": len(all_chapter_docs),
-            "total_search_chunks": len(all_section_docs),
-            "files_saved": {
-                "sections": sections_output_path,
-                "chapters_docstore": chapters_output_path
-            }
-        }
-        logger.info(f"Hoàn thành tiền xử lý Cắn khớp học: {len(all_section_docs)} chunks tìm kiếm lưu tại {sections_output_path}")
-        return stats
+def main():
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--pdf", type=Path, default=ROOT / "data/raw/RHM1 khop can hoc.pdf")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "data/processed")
+    parser.add_argument("--page-cache", type=Path)
+    parser.add_argument("--max-tokens", type=int, default=380)
+    parser.add_argument("--overlap-words", type=int, default=16)
+    parser.add_argument("--ocr-review", type=Path, default=DEFAULT_REVIEW)
+    args = parser.parse_args()
+    try:
+        result = RHMDataPreprocessor(args.pdf, args.output_dir, page_cache=args.page_cache,
+                                     max_tokens=args.max_tokens, overlap_words=args.overlap_words,
+                                     ocr_review_path=args.ocr_review).run()
+    except Exception as exc:
+        print(f"Không xử lý được giáo trình: {exc}", file=sys.stderr)
+        return 1
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
 
 
 if __name__ == "__main__":
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    pdf_file = os.path.join(base_dir, "data", "raw", "RHM1 khop can hoc.pdf")
-    output_directory = os.path.join(base_dir, "data", "processed")
-
-    preprocessor = RHMDataPreprocessor(pdf_file, output_directory)
-    results = preprocessor.run()
-
-    print("\n" + "=" * 60)
-    print(" BÁO CÁO TIỀN XỬ LÝ GIÁO TRÌNH CẮN KHỚP HỌC (RHM1)")
-    print("=" * 60)
-    print(f"- Tổng số chương lý thuyết đã bóc tách: {results['total_chapters']} chương")
-    print(f"- Tổng số Section Chunks tạo cho RAG: {results['total_search_chunks']} chunks")
-    print(f"- File Chunks tìm kiếm: {results['files_saved']['sections']}")
-    print(f"- File DocStore toàn văn: {results['files_saved']['chapters_docstore']}")
-    print("=" * 60)
+    raise SystemExit(main())

@@ -1,10 +1,11 @@
-"""LLM and Embeddings factory module configured for Google Gemini."""
+"""Chọn LLM và embedding theo cấu hình."""
 
 import os
 from typing import Optional
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.embeddings import Embeddings
 from langchain_core.messages import AIMessage
+from langchain_core.outputs import ChatGeneration, ChatResult
 from src.core.config import settings
 from src.core.logger import get_logger
 
@@ -21,7 +22,7 @@ class MockChatModel(BaseChatModel):
             "Đây là phản hồi thử nghiệm từ hệ thống Dental Multi-Agent. "
             "Vui lòng cấu hình GOOGLE_API_KEY trong .env để dùng mô hình Google Gemini thực tế."
         )
-        return {"generations": [{"text": content, "message": AIMessage(content=content)}]}
+        return ChatResult(generations=[ChatGeneration(message=AIMessage(content=content))])
 
     @property
     def _llm_type(self) -> str:
@@ -43,14 +44,17 @@ def get_llm(
     streaming: bool = True,
     override_provider: Optional[str] = None
 ) -> BaseChatModel:
-    """Factory to instantiate the configured Chat LLM (Google Gemini default)."""
+    """Khởi tạo LLM đã chọn; báo lỗi nếu thiếu model hoặc cấu hình."""
     provider = override_provider or settings.LLM_PROVIDER.lower()
+
+    if provider == "huggingface":
+        from src.core.local_chat import LocalChatModel
+        return LocalChatModel()
 
     if provider == "google":
         api_key = settings.GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY")
         if not api_key:
-            logger.warning("GOOGLE_API_KEY chưa được cấu hình. Tự động chuyển sang Mock LLM.")
-            return MockChatModel()
+            raise ValueError("Chưa có GOOGLE_API_KEY; cấu hình API hoặc dùng provider huggingface")
         try:
             from langchain_google_genai import ChatGoogleGenerativeAI
             return ChatGoogleGenerativeAI(
@@ -60,8 +64,7 @@ def get_llm(
                 streaming=streaming,
             )
         except Exception as e:
-            logger.error(f"Lỗi khởi tạo ChatGoogleGenerativeAI: {e}")
-            return MockChatModel()
+            raise RuntimeError("Không khởi tạo được Google LLM") from e
 
     elif provider == "ollama":
         try:
@@ -72,16 +75,24 @@ def get_llm(
                 temperature=temperature,
             )
         except Exception as e:
-            logger.error(f"Lỗi khởi tạo ChatOllama: {e}")
-            return MockChatModel()
+            raise RuntimeError("Không khởi tạo được Ollama LLM") from e
 
-    logger.info("Sử dụng Mock Chat Model mặc định.")
-    return MockChatModel()
+    if provider == "mock":
+        return MockChatModel()
+    raise ValueError("LLM provider chưa được hỗ trợ: " + provider)
 
 
 def get_embeddings() -> Embeddings:
-    """Factory to instantiate the configured Embedding model (Google Gemini default)."""
+    """Chọn embedding thật theo cấu hình; mock chỉ được dùng khi chọn rõ."""
     provider = settings.EMBEDDING_PROVIDER.lower()
+
+    if provider == "huggingface":
+        from src.rag.local_embeddings import MODEL, LocalE5Embeddings
+        if settings.HF_EMBEDDING_MODEL != MODEL:
+            raise ValueError(f"Kho hiện dùng {MODEL}; cần đổi đồng thời model và tạo lại index")
+        return LocalE5Embeddings()
+    if provider == "mock":
+        return MockEmbeddings()
 
     if provider == "google":
         api_key = settings.GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY")
@@ -93,8 +104,8 @@ def get_embeddings() -> Embeddings:
                     google_api_key=api_key,
                 )
             except Exception as e:
-                logger.error(f"Lỗi khởi tạo GoogleGenerativeAIEmbeddings: {e}")
+                raise RuntimeError("Không khởi tạo được Google embedding") from e
         else:
-            logger.warning("GOOGLE_API_KEY chưa được đặt cho Embeddings, sử dụng MockEmbeddings.")
+            raise ValueError("Chưa có GOOGLE_API_KEY cho Google embedding")
 
-    return MockEmbeddings()
+    raise ValueError(f"Chưa hỗ trợ embedding provider: {provider}")

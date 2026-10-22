@@ -1,0 +1,3 @@
+-r requirements-embedding.txt
+langgraph==1.2.12
+sentencepiece==0.2.1

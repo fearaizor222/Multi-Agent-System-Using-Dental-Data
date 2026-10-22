@@ -1,5 +1,1 @@
-"""
-Dental Multi-Agent System with LangGraph and Hybrid RAG.
-"""
-
-__version__ = "0.1.0"
+"""Thu thập và xử lý kho dữ liệu nha khoa công khai."""

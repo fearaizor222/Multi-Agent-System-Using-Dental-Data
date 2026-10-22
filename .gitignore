@@ -1,51 +1,24 @@
-# Byte-compiled / optimized / DLL files
+# Python và tests
 __pycache__/
 *.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
+.pytest_cache/
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+build/
+dist/
 
-# Virtual Environments
-.env
-.venv
-env/
+# Môi trường và cấu hình riêng
+.venv/
 venv/
-ENV/
-env.bak/
-venv.bak/
-
-# IDE files
+env/
+.env
+.env.*
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# Project specific
-data/vectorstore/*
-!data/vectorstore/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
 *.log
-logs/
-.pytest_cache/
+
+# Bản gốc tải về, dữ liệu xử lý và kết quả chạy chỉ lưu cục bộ
+data/raw/
+data/processed/
+data/vectorstore/
+data/models/
+outputs/

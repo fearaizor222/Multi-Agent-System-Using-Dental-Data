@@ -20,10 +20,10 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     LOG_LEVEL: str = "INFO"
 
-    # LLM Provider Configuration (Google Gemini default)
-    LLM_PROVIDER: Literal["google", "ollama", "mock"] = Field(
-        default="google",
-        description="LLM provider: 'google', 'ollama', or 'mock'"
+    # Model nhỏ local để thử pipeline; có thể đổi provider qua .env.
+    LLM_PROVIDER: Literal["huggingface", "google", "ollama", "mock"] = Field(
+        default="huggingface",
+        description="LLM provider: 'huggingface', 'google', 'ollama', or 'mock'"
     )
     GOOGLE_MODEL_NAME: str = "gemini-2.5-flash"
     OLLAMA_MODEL_NAME: str = "llama3.1:8b"
@@ -33,9 +33,9 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: Optional[str] = None
 
     # Embedding Configuration
-    EMBEDDING_PROVIDER: Literal["google", "huggingface", "ollama", "mock"] = "google"
+    EMBEDDING_PROVIDER: Literal["google", "huggingface", "ollama", "mock"] = "huggingface"
     GOOGLE_EMBEDDING_MODEL: str = "models/gemini-embedding-001"
-    HF_EMBEDDING_MODEL: str = "BAAI/bge-m3"
+    HF_EMBEDDING_MODEL: str = "intfloat/multilingual-e5-small"
 
     # Hybrid RAG parameters
     RAG_TOP_K: int = 4
