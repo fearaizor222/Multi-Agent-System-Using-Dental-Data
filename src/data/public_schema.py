@@ -126,8 +126,8 @@ class PublicDocument(Record):
     document_id: str = Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
     revision_id: str = Field(pattern=r"^[0-9a-f]{64}$")
     title: str = Field(min_length=1)
-    source: Literal["byt", "msd", "pmc"]
-    source_type: Literal["public"] = "public"
+    source: Literal["byt", "msd", "pmc", "rhm1", "internal", "nidcr", "dph"]
+    source_type: Literal["public", "internal"] = "public"
     language: str
     source_url: str
     content_type: Literal["full_text", "abstract"] = "full_text"
