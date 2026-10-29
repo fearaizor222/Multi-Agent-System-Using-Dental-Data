@@ -9,8 +9,19 @@ from src.rag.base import DentalDocument
 from src.rag.hybrid_retriever import HybridRetriever
 from src.rag.vector_store import DenseVectorRetriever
 
+from pydantic import BaseModel, Field
+
 logger = get_logger("agents.internal_rag")
 ROOT_DIR = Path(__file__).resolve().parents[2]
+
+
+class InternalSpecialistAssessment(BaseModel):
+    """Báo cáo hội chẩn chuyên khoa của Agent 2 (Cắn khớp học & Khớp Thái Dương Hàm)."""
+    specialist_role: str = "Bác sĩ Chuyên khoa Cắn khớp học & Khớp Thái Dương Hàm (Kho nội bộ)"
+    query_perspective: str = Field(description="Lăng kính chuyên khoa cắn khớp khi phân tích triệu chứng")
+    is_applicable: bool = Field(description="Ca bệnh có chỉ định can thiệp cắn khớp/TMJ hay không")
+    evidence: List[Evidence] = Field(default_factory=list, description="Danh sách chứng cứ trích dẫn [I]")
+    specialist_opinion: str = Field(description="Ý kiến hội chẩn chuyên môn của Bác sĩ Cắn khớp")
 
 
 class ChromaLocalEmbeddings:
@@ -59,26 +70,76 @@ class ClosedDataRAGAgent:
         return HybridRetriever(documents=documents, dense_retriever=dense)
 
     def retrieve(self, query: str, top_k: int = 3) -> List[Evidence]:
-        """Tìm kiếm Hybrid RAG trên kho đóng và trả về bằng chứng y văn nội bộ [I1, I2...]."""
-        hits = self.retriever.retrieve(query, top_k=top_k)
-        if not hits:
-            logger.warning("[Agent 2] Không tìm thấy dữ liệu đóng phù hợp.")
-            return []
+        """Truy xuất danh sách Evidence (tương thích ngược)."""
+        assessment = self.consult(query, top_k=top_k)
+        return assessment.evidence
 
-        # Lọc nhiễu chuyên khoa: Nếu câu hỏi hỏi về các bệnh ngoài phạm vi cắn khớp (như sâu răng, tẩy trắng, nướu...)
-        # và tài liệu cắn khớp học không thực sự chứa thực thể đó thì không trả về tài liệu lạc đề (máng nhai/đắp lẹm)
+    def consult(self, query: str, top_k: int = 3) -> InternalSpecialistAssessment:
+        """Tác tử Bác sĩ Chuyên khoa Cắn khớp & TMJ: Phân tích ca bệnh, truy xuất và hội chẩn chuyên sâu."""
         q_lower = query.lower()
+        is_occlusal_related = any(term in q_lower for term in [
+            "thái dương hàm", "khớp cắn", "máng nhai", "kêu lục cục", "tiếng click",
+            "há miệng", "mỏi hàm", "nghiến răng", "cắn sâu", "cắn chéo", "chấn thương khớp cắn",
+            "mài chỉnh", "lồi cầu", "đĩa khớp", "cơ cắn", "cơ thái dương"
+        ])
+
+        # 1. Nếu triệu chứng hoàn toàn ngoài phạm vi cắn khớp (sâu răng, tủy, nướu thông thường)
+        if not is_occlusal_related and any(term in q_lower for term in ["sâu răng", "răng sâu", "tẩy trắng", "trám răng", "chảy máu chân răng"]):
+            logger.info("[Agent 2] Hội chẩn: Ca bệnh không thuộc phạm vi cắn khớp/TMJ, chuyển giao toàn quyền cho Agent 3.")
+            return InternalSpecialistAssessment(
+                query_perspective="Đánh giá cơ sinh học nhai & rối loạn khớp thái dương hàm (TMJ)",
+                is_applicable=False,
+                evidence=[],
+                specialist_opinion=(
+                    "Dưới góc độ Chuyên khoa Cắn khớp: Triệu chứng người bệnh mô tả thuộc về bệnh lý mô cứng hoặc mô nha chu thông thường, "
+                    "không xuất phát từ nguyên nhân sai lệch khớp cắn hay chấn thương cơ khớp thái dương hàm. "
+                    "Giáo trình Cắn khớp học RHM1 không có chỉ định can thiệp máng nhai hay mài chỉnh cắn cho ca bệnh này."
+                )
+            )
+
+        # 2. Truy xuất tài liệu cắn khớp học
+        hits = self.retriever.retrieve(query, top_k=top_k)
         filtered = []
         for h in hits:
             text = (h.title + " " + h.content).lower()
             if any(term in q_lower for term in ["sâu răng", "răng sâu"]) and "sâu răng" not in text:
                 continue
-            if any(term in q_lower for term in ["chảy máu chân răng", "viêm nướu", "viêm lợi"]) and not any(k in text for k in ["nướu", "lợi", "nha chu"]):
-                continue
             filtered.append(h)
 
         if not filtered:
-            logger.info("[Agent 2] Không có tài liệu cắn khớp học chuyên biệt cho câu hỏi này (chuyển giao cho dữ liệu mở Agent 3).")
-            return []
+            return InternalSpecialistAssessment(
+                query_perspective="Đánh giá cơ sinh học nhai & rối loạn khớp thái dương hàm (TMJ)",
+                is_applicable=False,
+                evidence=[],
+                specialist_opinion="Giáo trình Cắn khớp học không tìm thấy tài liệu phù hợp cho trường hợp này."
+            )
 
-        return evidence_bundle(filtered, prefix="I", warehouse="internal")
+        evidence = evidence_bundle(filtered, prefix="I", warehouse="internal")
+
+        # 3. Hội chẩn chuyên khoa cắn khớp dựa trên chứng cứ trích xuất
+        if any(k in q_lower for k in ["kêu lục cục", "tiếng click", "thái dương hàm", "há miệng"]):
+            opinion = (
+                "Hội chẩn Chuyên khoa Cắn khớp & TMJ: Triệu chứng đau và tiếng kêu lục cục khi há miệng là biểu hiện điển hình của "
+                "Rối loạn nội khớp Thái dương hàm (tiếng click do lệch đĩa khớp ra trước có hồi phục). "
+                "Theo Chương 13 Giáo trình RHM1: Chỉ định can thiệp bảo tồn hàng đầu là làm máng nhai ổn định (stabilization splint) "
+                "để giải tỏa lực ép lên lồi cầu và tái lập hướng dẫn cắn khớp thuận lợi; kết hợp bài tập há ngậm miệng có hướng dẫn trước gương (Chương 9) "
+                "và tránh ăn nhai thức ăn quá dai hoặc cứng. Tuyệt đối tránh mài chỉnh răng ồ ạt hoặc phẫu thuật xâm lấn ở giai đoạn sớm."
+            )
+        elif any(k in q_lower for k in ["nghiến răng", "cận chức năng", "mòn răng"]):
+            opinion = (
+                "Hội chẩn Chuyên khoa Cắn khớp & TMJ: Nghiến răng là hoạt động cận chức năng gây quá tải lực cắn và mòn vỡ men ngà. "
+                "Theo Chương 12 Giáo trình RHM1: Cần chỉ định làm máng nhai thư giãn ban đêm để bảo vệ mô cứng răng và giảm co thắt nhóm cơ nhai."
+            )
+        else:
+            titles = ", ".join([e.title for e in evidence[:2]])
+            opinion = (
+                f"Hội chẩn Chuyên khoa Cắn khớp: Căn cứ tài liệu chuyên sâu ({titles}), "
+                "khuyến nghị kiểm tra kỹ các điểm vướng cộm cắn khớp ở tư thế lồng múi tối đa và các vận động trượt hàm ra trước/sang bên để loại trừ chấn thương khớp cắn."
+            )
+
+        return InternalSpecialistAssessment(
+            query_perspective="Phân tích tương quan cắn khớp, hoạt động cơ nhai và chức năng khớp thái dương hàm (TMJ)",
+            is_applicable=True,
+            evidence=evidence,
+            specialist_opinion=opinion
+        )

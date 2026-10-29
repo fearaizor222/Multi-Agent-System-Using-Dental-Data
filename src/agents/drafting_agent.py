@@ -9,15 +9,16 @@ from src.core.logger import get_logger
 
 logger = get_logger("agents.drafting_response")
 
-DRAFTING_SYSTEM_PROMPT = """Bạn là Bác sĩ Nha khoa C20 AI (Agent 5: Drafting & Consultation Synthesis Agent).
-Nhiệm vụ: Căn cứ vào các tài liệu y khoa tham khảo được cung cấp, hãy viết bài tư vấn chuyên môn rõ ràng, chuẩn xác y khoa gửi người bệnh.
+DRAFTING_SYSTEM_PROMPT = """Bạn là Trợ lý Thông tin Nha khoa C20 AI (Agent 5: Drafting & Consultation Synthesis Agent).
+Nhiệm vụ: Căn cứ vào các ý kiến hội chẩn chuyên khoa và tài liệu y khoa được cung cấp, hãy trình bày bài hướng dẫn và tư vấn thông tin y tế chi tiết, chuẩn xác gửi tới người hỏi.
 
 QUY TẮC BẮT BUỘC:
-1. TUYỆT ĐỐI CHỈ DÙNG TIẾNG VIỆT CHUẨN XÁC, không chêm tiếng Trung hay tiếng nước ngoài, không bịa đặt những chi tiết ngoài tài liệu (như kem chống nắng, tiêu chảy, thuốc lạ).
-2. Trả lời đúng trọng tâm câu hỏi của người bệnh (xưng 'Bác sĩ' và 'bạn'):
-   - Nêu rõ các phương án chẩn đoán / điều trị phù hợp theo đúng phác đồ y khoa trong tài liệu.
-   - Hướng dẫn biện pháp chăm sóc, vệ sinh răng miệng và kiểm soát mảng bám tại nhà.
-   - Khuyến cáo khi nào cần đến cơ sở y tế / phòng khám Răng Hàm Mặt để được bác sĩ can thiệp chuyên môn."""
+1. TUYỆT ĐỐI CHỈ DÙNG TIẾNG VIỆT CHUẨN XÁC, không chêm tiếng nước ngoài.
+2. BÁM SÁT TÀI LIỆU VÀ Ý KIẾN HỘI CHẨN ĐƯỢC CẤP: Tuyệt đối không tự bịa đặt hoặc suy diễn các tác dụng phụ, biến chứng hay thuốc lạ không có trong tài liệu (như đau đầu, sưng mắt, chóng mặt, tiêu chảy, kem chống nắng...).
+3. Trình bày rõ ràng theo từng phần:
+   - Các phương án xử lý/điều trị theo phác đồ (ví dụ: tái khoáng hóa bằng Fluoride ở giai đoạn sớm vs hàn trám phục hồi khi đã có lỗ sâu).
+   - Biện pháp vệ sinh, chăm sóc và dự phòng mảng bám tại nhà.
+   - Lời khuyên đến phòng khám Răng Hàm Mặt để được bác sĩ thăm khám và thực hiện kỹ thuật."""
 
 
 
@@ -43,10 +44,20 @@ class DraftingResponseAgent:
         question: str,
         internal_evidence: Optional[List[Dict]] = None,
         public_evidence: Optional[List[Dict]] = None,
-        vision_findings: Optional[Dict] = None
+        vision_findings: Optional[Dict] = None,
+        internal_opinion: Optional[str] = None,
+        public_opinion: Optional[str] = None
     ) -> DraftResponse:
-        """Soạn thảo câu trả lời dựa trên kho đóng (A2), kho mở (A3) và thị giác (A4)."""
+        """Soạn thảo câu trả lời dựa trên ý kiến hội chẩn chuyên khoa (A2, A3), chứng cứ y văn và thị giác (A4)."""
         evidence_lines = []
+
+        # Ý kiến hội chẩn chuyên khoa của Agent 2 & Agent 3
+        opinions = []
+        if internal_opinion:
+            opinions.append(f"👨‍⚕️ [Ý kiến Chuyên khoa Cắn khớp & TMJ (Agent 2)]:\n{internal_opinion}")
+        if public_opinion:
+            opinions.append(f"👨‍⚕️ [Ý kiến Chuyên khoa Phác đồ Bộ Y Tế (Agent 3)]:\n{public_opinion}")
+        opinions_block = "\n\n".join(opinions) if opinions else ""
 
         # 1. Bằng chứng kho đóng (Agent 2)
         if internal_evidence:
@@ -72,12 +83,15 @@ class DraftingResponseAgent:
         is_local_model = hasattr(self.llm, "threads") or getattr(self.llm, "_llm_type", "") == "local-qwen2.5-cpu"
 
         if is_local_model:
-            user_prompt = f"""Tài liệu y khoa tham khảo:
+            user_prompt = f"""Ý kiến hội chẩn của các Bác sĩ chuyên khoa:
+{opinions_block}
+
+Tài liệu chứng cứ trích dẫn:
 {clean_context}
 
 Câu hỏi của người bệnh: "{question}"
 
-Bác sĩ nha khoa hãy tư vấn rõ các phương án chẩn đoán, điều trị cụ thể và lời khuyên chăm sóc cho người bệnh:"""
+Dựa vào ý kiến hội chẩn và tài liệu chuyên môn trên, hãy trình bày nội dung tư vấn đầy đủ và chi tiết bằng tiếng Việt:"""
         else:
             user_prompt = f"""Tài liệu y khoa tham khảo:
 {clean_context}

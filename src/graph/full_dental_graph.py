@@ -38,9 +38,13 @@ class Dental5AgentState(TypedDict, total=False):
 
     # Agent 2: Closed-data RAG (Kho nội bộ)
     internal_evidence: List[dict]
+    internal_opinion: Optional[str]
+    internal_applicable: Optional[bool]
 
     # Agent 3: Open-data RAG (Kho công khai)
     public_evidence: List[dict]
+    public_opinion: Optional[str]
+    public_applicable: Optional[bool]
 
     # Agent 5: Drafting Response (Tạo bản nháp trả lời)
     key_claims: List[dict]
@@ -159,11 +163,13 @@ def create_full_5agent_pipeline(
             if addons:
                 query = f"{query} {addons}"
 
-        evidence = internal_rag.retrieve(query, top_k=3)
-        logger.info(f"[Agent 2 Closed RAG] Truy xuất được {len(evidence)} đoạn y văn nội bộ [I].")
+        assessment = internal_rag.consult(query, top_k=3)
+        logger.info(f"[Agent 2 Closed RAG] Hội chẩn cắn khớp: is_applicable={assessment.is_applicable} | {len(assessment.evidence)} chứng cứ.")
         trace = record_step(state, "agent2_closed_rag", start)
         return {
-            "internal_evidence": [e.model_dump() for e in evidence],
+            "internal_evidence": [e.model_dump() for e in assessment.evidence],
+            "internal_opinion": assessment.specialist_opinion,
+            "internal_applicable": assessment.is_applicable,
             "trace": trace,
             "status": "internal_retrieved"
         }
@@ -179,11 +185,13 @@ def create_full_5agent_pipeline(
             if addons:
                 query = f"{query} {addons}"
 
-        evidence = public_rag.retrieve(query, top_k=3)
-        logger.info(f"[Agent 3 Open RAG] Truy xuất được {len(evidence)} đoạn y văn công khai [P].")
+        assessment = public_rag.consult(query, top_k=3)
+        logger.info(f"[Agent 3 Open RAG] Hội chẩn Bộ Y Tế: is_applicable={assessment.is_applicable} | {len(assessment.evidence)} chứng cứ.")
         trace = record_step(state, "agent3_open_rag", start)
         return {
-            "public_evidence": [e.model_dump() for e in evidence],
+            "public_evidence": [e.model_dump() for e in assessment.evidence],
+            "public_opinion": assessment.specialist_opinion,
+            "public_applicable": assessment.is_applicable,
             "trace": trace,
             "status": "public_retrieved"
         }
@@ -195,7 +203,9 @@ def create_full_5agent_pipeline(
             question=state.get("question", ""),
             internal_evidence=state.get("internal_evidence", []),
             public_evidence=state.get("public_evidence", []),
-            vision_findings=state.get("vision_findings")
+            vision_findings=state.get("vision_findings"),
+            internal_opinion=state.get("internal_opinion"),
+            public_opinion=state.get("public_opinion")
         )
         logger.info(f"[Agent 5 Drafting] Đã tạo {len(draft_result.key_claims)} nhận định và hoàn thành bản nháp tư vấn.")
         trace = record_step(state, "agent5_drafting", start)

@@ -81,20 +81,30 @@ def process_query(pipeline, question: str, image_path: str = None):
             print(f"    * {p.get('name')} tại {p.get('location')} ({p.get('severity')}): {p.get('visual_evidence')}")
 
     # 3. Agent 2: Closed-data RAG (Kho nội bộ)
-    if final_state.get("internal_evidence"):
+    if final_state.get("internal_opinion") or final_state.get("internal_evidence"):
         print("\n" + "=" * 75)
-        print(f"📚 [AGENT 2: CLOSED-DATA RAG (KHO NỘI BỘ - GIÁO TRÌNH RHM)]")
-        print(f"  - Đã truy xuất {len(final_state['internal_evidence'])} đoạn chứng cứ:")
-        for doc in final_state["internal_evidence"]:
-            print(f"    * [{doc.get('evidence_id')}] {doc.get('title')}")
+        print("📚 [AGENT 2: CLOSED-DATA RAG (BÁC SĨ CHUYÊN KHOA CẮN KHỚP & TMJ)]")
+        app_status = "ÁP DỤNG ĐIỀU TRỊ CẮN KHỚP" if final_state.get("internal_applicable") else "KHÔNG CHỈ ĐỊNH CAN THIỆP CẮN KHỚP"
+        print(f"  - Phân loại phạm vi: {app_status}")
+        if final_state.get("internal_opinion"):
+            print(f"  - Ý kiến hội chẩn: \"{final_state.get('internal_opinion')}\"")
+        if final_state.get("internal_evidence"):
+            print(f"  - Trích xuất {len(final_state['internal_evidence'])} đoạn y văn tham chiếu:")
+            for doc in final_state["internal_evidence"]:
+                print(f"    * [{doc.get('evidence_id')}] {doc.get('title')}")
 
     # 4. Agent 3: Open-data RAG (Kho công khai)
-    if final_state.get("public_evidence"):
+    if final_state.get("public_opinion") or final_state.get("public_evidence"):
         print("\n" + "=" * 75)
-        print(f"🌐 [AGENT 3: OPEN-DATA RAG (KHO CÔNG KHAI - BỘ Y TẾ)]")
-        print(f"  - Đã đối chiếu {len(final_state['public_evidence'])} đoạn chứng cứ:")
-        for doc in final_state["public_evidence"]:
-            print(f"    * [{doc.get('evidence_id')}] {doc.get('title')}")
+        print("🌐 [AGENT 3: OPEN-DATA RAG (BÁC SĨ PHÁC ĐỒ ĐIỀU TRỊ BỘ Y TẾ)]")
+        pub_status = "ÁP DỤNG PHÁC ĐỒ CHÍNH THỨC" if final_state.get("public_applicable") else "CHƯA CÓ PHÁC ĐỒ TƯƠNG ỨNG"
+        print(f"  - Phân loại phác đồ: {pub_status}")
+        if final_state.get("public_opinion"):
+            print(f"  - Ý kiến hội chẩn: \"{final_state.get('public_opinion')}\"")
+        if final_state.get("public_evidence"):
+            print(f"  - Đối chiếu {len(final_state['public_evidence'])} phác đồ Bộ Y Tế:")
+            for doc in final_state["public_evidence"]:
+                print(f"    * [{doc.get('evidence_id')}] {doc.get('title')}")
 
     # 5. Agent 5: Drafting Response
     if final_state.get("key_claims"):

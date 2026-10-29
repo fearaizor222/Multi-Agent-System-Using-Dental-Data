@@ -141,8 +141,16 @@ async def consult(
             "recommended_action": final_state.get("recommended_action")
         },
         "vision": final_state.get("vision_findings"),
-        "internal_rag": final_state.get("internal_evidence", []),
-        "public_rag": final_state.get("public_evidence", []),
+        "internal_rag": {
+            "applicable": final_state.get("internal_applicable", True),
+            "opinion": final_state.get("internal_opinion", ""),
+            "evidence": final_state.get("internal_evidence", [])
+        },
+        "public_rag": {
+            "applicable": final_state.get("public_applicable", True),
+            "opinion": final_state.get("public_opinion", ""),
+            "evidence": final_state.get("public_evidence", [])
+        },
         "key_claims": final_state.get("key_claims", []),
         "final_response": final_state.get("final_response", "Không có câu trả lời.")
     }
