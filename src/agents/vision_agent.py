@@ -58,12 +58,14 @@ class DentalVisionAgent:
     def __init__(self, model_name: str = "gemini-2.5-flash"):
         api_key = settings.GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY")
         if not api_key:
-            raise ValueError("Cần GOOGLE_API_KEY để kích hoạt Vision VLM")
-        self.vlm = ChatGoogleGenerativeAI(
-            model=model_name,
-            google_api_key=api_key,
-            temperature=0.1
-        )
+            logger.warning("[Vision Agent] Không tìm thấy GOOGLE_API_KEY, kích hoạt chế độ Vision Offline/Fallback.")
+            self.vlm = None
+        else:
+            self.vlm = ChatGoogleGenerativeAI(
+                model=model_name,
+                google_api_key=api_key,
+                temperature=0.1
+            )
 
     def analyze(self, image_path: str, user_query: str = "") -> VisionFindings:
         """Đọc file ảnh và sinh báo cáo phát hiện thị giác có cấu trúc."""
@@ -89,15 +91,21 @@ class DentalVisionAgent:
         ])
 
         logger.info(f"Đang phân tích hình ảnh nha khoa: {image_path}")
-        try:
-            response = self.vlm.invoke([message])
-            content = response.content.strip()
-        except Exception as err:
-            logger.warning(f"Không thể kết nối VLM Cloud ({err}). Chuyển sang chế độ phân tích ảnh Offline...")
+        if self.vlm is None:
             content = (
-                f"Hình ảnh nha khoa [{image_path.name}] đã được ghi nhận vào hồ sơ người bệnh. "
+                f"Hình ảnh nha khoa [{path.name}] đã được ghi nhận vào hồ sơ người bệnh. "
                 "Hệ thống đang hoạt động ở Chế độ Offline cục bộ, các thông tin tổn thương được đối chiếu theo triệu chứng lâm sàng."
             )
+        else:
+            try:
+                response = self.vlm.invoke([message])
+                content = response.content.strip()
+            except Exception as err:
+                logger.warning(f"Không thể kết nối VLM Cloud ({err}). Chuyển sang chế độ phân tích ảnh Offline...")
+                content = (
+                    f"Hình ảnh nha khoa [{path.name}] đã được ghi nhận vào hồ sơ người bệnh. "
+                    "Hệ thống đang hoạt động ở Chế độ Offline cục bộ, các thông tin tổn thương được đối chiếu theo triệu chứng lâm sàng."
+                )
 
         # Làm sạch JSON markdown
         if content.startswith("```json"):

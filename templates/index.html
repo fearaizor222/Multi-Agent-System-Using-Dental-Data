@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ thống 5 Agent Nha khoa C20 — Đồ Án Tốt Nghiệp</title>
+  
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Marked for markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Google Fonts: Inter & Lexend -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Lexend', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            dental: {
+              teal: '#0d9488',
+              cyan: '#0284c7',
+              dark: '#0f172a',
+              card: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f1f5f9; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Lexend', sans-serif; }
+    .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.06); }
+    .glow-teal { box-shadow: 0 0 25px -5px rgba(13, 148, 136, 0.3); }
+    .pulse-node { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- NAVBAR -->
+  <header class="glass-panel sticky top-0 z-50 border-b border-slate-800 px-6 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3.5">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/20">
+          <i class="fa-solid fa-tooth text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-lg font-bold font-heading text-white tracking-tight">DENTAL AGENTS C20</h1>
+            <span class="px-2 py-0.5 text-[11px] font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/30 rounded-full">Đồ Án Tốt Nghiệp</span>
+          </div>
+          <p class="text-xs text-slate-400">Hệ Thống 5 Agent Nha Khoa Đa Phương Thức & Tư Vấn Lâm Sàng</p>
+        </div>
+      </div>
+
+      <!-- Mode & Status badges -->
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2 bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800">
+          <span class="text-xs text-slate-400">Chế độ vận hành:</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="modeToggle" class="sr-only peer" checked>
+            <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600"></div>
+            <span id="modeLabel" class="ml-2.5 text-xs font-semibold text-teal-400">⚡ 100% Offline (Local CPU)</span>
+          </label>
+        </div>
+        <div class="hidden sm:flex items-center space-x-1.5 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1.5 rounded-lg">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Sẵn sàng phục vụ</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- LEFT COLUMN: INPUT & PRESETS (5 cols) -->
+    <div class="lg:col-span-5 space-y-5">
+      
+      <!-- PRESET DEMO CHIPS -->
+      <div class="glass-panel rounded-2xl p-4 shadow-xl">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-bolt-lightning text-amber-400"></i> Ca Lâm Sàng Mẫu
+          </span>
+          <span class="text-[11px] text-slate-400">Click để nạp nhanh</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <button onclick="applyPreset('caries')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-left transition flex items-center space-x-2 group">
+            <span class="text-lg">🦷</span>
+            <div>
+              <div class="font-medium text-slate-200 group-hover:text-teal-400">Sâu răng</div>
+              <div class="text-[10px] text-slate-400 truncate">Phương án xử lý lỗ sâu</div>
+            </div>
+          </button>
+          
+          <button onclick="applyPreset('tmj')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-left transition flex items-center space-x-2 group">
+            <span class="text-lg">🦴</span>
+            <div>
+              <div class="font-medium text-slate-200 group-hover:text-teal-400">Khớp thái dương hàm</div>
+              <div class="text-[10px] text-slate-400 truncate">Há miệng kêu & đau khớp</div>
+            </div>
+          </button>
+
+          <button onclick="applyPreset('emergency')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-rose-900/40 hover:border-rose-700/60 text-left transition flex items-center space-x-2 group">
+            <span class="text-lg">🚨</span>
+            <div>
+              <div class="font-medium text-rose-300 group-hover:text-rose-400">Cấp cứu nha khoa</div>
+              <div class="text-[10px] text-slate-400 truncate">Sốt cao 39.5°C, sưng mặt</div>
+            </div>
+          </button>
+
+          <button onclick="applyPreset('service')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-left transition flex items-center space-x-2 group">
+            <span class="text-lg">📋</span>
+            <div>
+              <div class="font-medium text-slate-200 group-hover:text-teal-400">Dịch vụ & Giờ khám</div>
+              <div class="text-[10px] text-slate-400 truncate">Giá lấy vôi, khám CN</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- INPUT FORM -->
+      <form id="dentalForm" class="glass-panel rounded-2xl p-5 shadow-xl space-y-4" onsubmit="submitQuery(event)">
+        
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span><i class="fa-solid fa-comment-medical text-teal-400 mr-1.5"></i> Câu hỏi / Triệu chứng bệnh nhân</span>
+            <span id="charCount" class="text-[11px] text-slate-400 font-normal">0 ký tự</span>
+          </label>
+          <textarea id="questionInput" rows="4" required
+            placeholder="Ví dụ: Bác sĩ cho tôi hỏi các phương án xử lý một cái răng sâu hiện nay? Có bắt buộc phải trám bít hay có cách tái khoáng nào không?"
+            class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition resize-none"></textarea>
+        </div>
+
+        <!-- IMAGE UPLOAD / ATTACHMENT -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center">
+              <i class="fa-solid fa-image text-cyan-400 mr-1.5"></i> Ảnh lâm sàng / Phim X-quang (Agent 4)
+            </label>
+            <button type="button" onclick="loadSampleImage()" class="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline">
+              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Dùng ảnh mẫu
+            </button>
+          </div>
+
+          <div id="dropZone" class="border-2 border-dashed border-slate-700 hover:border-teal-500/60 rounded-xl p-4 text-center cursor-pointer transition bg-slate-900/40 relative">
+            <input type="file" id="imageInput" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+            <div id="dropZonePrompt" class="space-y-1">
+              <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400"></i>
+              <p class="text-xs text-slate-300 font-medium">Kéo thả ảnh hoặc click để tải lên</p>
+              <p class="text-[10px] text-slate-500">Hỗ trợ PNG, JPG, JPEG (X-quang OPG, Cận chóp, Ảnh trong miệng)</p>
+            </div>
+            <!-- Preview Container -->
+            <div id="previewContainer" class="hidden items-center justify-between p-2 bg-slate-800 rounded-lg">
+              <div class="flex items-center space-x-3 overflow-hidden">
+                <img id="imagePreview" src="" class="w-12 h-12 rounded object-cover border border-slate-700">
+                <div class="text-left">
+                  <p id="imageFileName" class="text-xs font-medium text-slate-200 truncate max-w-[180px]">image.jpg</p>
+                  <p id="imageFileSize" class="text-[10px] text-slate-400">120 KB</p>
+                </div>
+              </div>
+              <button type="button" onclick="clearImage(event)" class="text-slate-400 hover:text-rose-400 p-1.5 rounded-lg hover:bg-slate-700 transition">
+                <i class="fa-solid fa-xmark text-sm"></i>
+              </button>
+            </div>
+          </div>
+          <input type="hidden" id="sampleImagePath" value="">
+        </div>
+
+        <!-- ACTION BUTTON -->
+        <button type="submit" id="submitBtn"
+          class="w-full py-3.5 px-4 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white shadow-lg shadow-teal-500/25 transition duration-200 flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-stethoscope"></i>
+          <span>Điều Phối 5 Agent & Soạn Thảo Tư Vấn</span>
+        </button>
+
+      </form>
+
+      <!-- SYSTEM SPECS CARD -->
+      <div class="glass-card rounded-2xl p-4 text-xs space-y-2 border border-slate-800 text-slate-400">
+        <div class="flex items-center justify-between text-slate-300 font-medium pb-2 border-b border-slate-800">
+          <span><i class="fa-solid fa-server text-teal-400 mr-1.5"></i> Cấu hình hệ thống C20</span>
+          <span class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-teal-300">v2.1 Offline Ready</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-[11px]">
+          <div>• LLM: <span class="text-slate-200">Qwen2.5-0.5B (Greedy)</span></div>
+          <div>• Kho đóng: <span class="text-slate-200">262 Chunks Cắn khớp</span></div>
+          <div>• Kho mở: <span class="text-slate-200">221 Phác đồ Bộ Y Tế</span></div>
+          <div>• Retriever: <span class="text-slate-200">Hybrid RRF (BM25+Dense)</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: 5-AGENT WORKFLOW & REASONING (7 cols) -->
+    <div class="lg:col-span-7 space-y-5">
+      
+      <!-- 5-AGENT PIPELINE VISUAL STEPPER -->
+      <div class="glass-panel rounded-2xl p-4 sm:p-5 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center">
+            <i class="fa-solid fa-diagram-project text-teal-400 mr-2"></i> Luồng Xử Lý 5 Agents (StateGraph)
+          </span>
+          <span id="totalTimeBadge" class="text-[11px] text-slate-400 font-mono hidden">
+            Tổng thời gian: <span id="totalTimeVal" class="text-teal-400 font-bold">0ms</span>
+          </span>
+        </div>
+
+        <!-- 5 Nodes Pipeline Bar -->
+        <div class="grid grid-cols-5 gap-2 text-center text-xs">
+          
+          <!-- Node 1: Supervisor -->
+          <div id="node_a1" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all">
+            <div class="w-8 h-8 mx-auto rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-1 text-sm">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <div class="font-semibold text-slate-300 text-[11px]">Agent 1</div>
+            <div class="text-[10px] text-slate-500">Supervisor</div>
+            <div id="time_a1" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
+          </div>
+
+          <!-- Node 4: Vision -->
+          <div id="node_a4" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all">
+            <div class="w-8 h-8 mx-auto rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-1 text-sm">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <div class="font-semibold text-slate-300 text-[11px]">Agent 4</div>
+            <div class="text-[10px] text-slate-500">Vision VLM</div>
+            <div id="time_a4" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
+          </div>
+
+          <!-- Node 2: Closed RAG -->
+          <div id="node_a2" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all">
+            <div class="w-8 h-8 mx-auto rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-1 text-sm">
+              <i class="fa-solid fa-book-medical"></i>
+            </div>
+            <div class="font-semibold text-slate-300 text-[11px]">Agent 2</div>
+            <div class="text-[10px] text-slate-500">Closed RAG</div>
+            <div id="time_a2" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
+          </div>
+
+          <!-- Node 3: Open RAG -->
+          <div id="node_a3" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all">
+            <div class="w-8 h-8 mx-auto rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center mb-1 text-sm">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="font-semibold text-slate-300 text-[11px]">Agent 3</div>
+            <div class="text-[10px] text-slate-500">Open RAG</div>
+            <div id="time_a3" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
+          </div>
+
+          <!-- Node 5: Drafting -->
+          <div id="node_a5" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all">
+            <div class="w-8 h-8 mx-auto rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center mb-1 text-sm">
+              <i class="fa-solid fa-file-signature"></i>
+            </div>
+            <div class="font-semibold text-slate-300 text-[11px]">Agent 5</div>
+            <div class="text-[10px] text-slate-500">Drafting</div>
+            <div id="time_a5" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FINAL CONSULTATION CARD -->
+      <div id="responseContainer" class="glass-panel rounded-2xl p-5 shadow-xl space-y-4">
+        
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-notes-medical"></i>
+            </span>
+            <div>
+              <h2 class="text-sm font-bold font-heading text-white">KẾT QUẢ TƯ VẤN LÂM SÀNG TỔNG HỢP (AGENT 5)</h2>
+              <p class="text-[11px] text-slate-400">Tư vấn y khoa trực tiếp gửi tới người bệnh</p>
+            </div>
+          </div>
+          <button id="copyBtn" onclick="copyResponse()" class="hidden text-xs text-slate-400 hover:text-teal-400 transition flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700">
+            <i class="fa-regular fa-copy"></i>
+            <span>Sao chép</span>
+          </button>
+        </div>
+
+        <!-- Initial Placeholder State -->
+        <div id="placeholderState" class="py-12 text-center text-slate-500 space-y-3">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-slate-800/40 flex items-center justify-center text-2xl text-slate-600">
+            <i class="fa-solid fa-tooth"></i>
+          </div>
+          <p class="text-sm">Chưa có phiên tư vấn nào. Hãy nhập câu hỏi hoặc chọn một ca lâm sàng mẫu bên trái.</p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden py-12 text-center space-y-4">
+          <div class="inline-block relative w-12 h-12">
+            <div class="absolute inset-0 rounded-full border-4 border-slate-700"></div>
+            <div class="absolute inset-0 rounded-full border-4 border-teal-500 border-t-transparent animate-spin"></div>
+          </div>
+          <div>
+            <p id="loadingMsg" class="text-sm font-medium text-teal-400 animate-pulse">Agent 1 đang phân loại lâm sàng và điều phối...</p>
+            <p class="text-xs text-slate-500 mt-1">Đang thực thi các tác tử trên CPU/RAG...</p>
+          </div>
+        </div>
+
+        <!-- Response Content Markdown -->
+        <div id="finalResponseContent" class="hidden prose prose-invert max-w-none text-sm text-slate-200 leading-relaxed space-y-2">
+        </div>
+
+      </div>
+
+      <!-- DETAILED REASONING ACCORDIONS (5 AGENTS) -->
+      <div id="reasoningSection" class="hidden space-y-3">
+        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-brain text-teal-400"></i> Bằng Chứng &amp; Cây Suy Luận Chi Tiết Của Từng Agent
+        </h3>
+
+        <!-- Agent 1 Accordion -->
+        <details class="glass-card rounded-xl border border-slate-800 overflow-hidden group">
+          <summary class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition">
+            <div class="flex items-center space-x-2.5 text-xs font-semibold text-slate-200">
+              <span class="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs">A1</span>
+              <span>Supervisor: Phân loại ý định &amp; Triage lâm sàng</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span id="badge_emergency" class="px-2 py-0.5 text-[10px] rounded font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Ổn định</span>
+              <i class="fa-solid fa-chevron-down text-slate-500 text-xs group-open:rotate-180 transition"></i>
+            </div>
+          </summary>
+          <div class="p-4 pt-2 border-t border-slate-800/80 text-xs space-y-2 text-slate-300 bg-slate-900/40">
+            <div>• <strong class="text-slate-200">Phân loại ý định:</strong> <span id="r_intent" class="font-mono text-teal-400">clinical_medical</span></div>
+            <div>• <strong class="text-slate-200">Đánh giá phân loại:</strong> <span id="r_triage_reason" class="text-slate-300">...</span></div>
+            <div>• <strong class="text-slate-200">Hành động khuyến cáo:</strong> <span id="r_rec_action" class="text-slate-300">...</span></div>
+          </div>
+        </details>
+
+        <!-- Agent 4 Accordion -->
+        <details id="accordion_a4" class="glass-card rounded-xl border border-slate-800 overflow-hidden group">
+          <summary class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition">
+            <div class="flex items-center space-x-2.5 text-xs font-semibold text-slate-200">
+              <span class="w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs">A4</span>
+              <span>Dental Vision: Phân tích ảnh lâm sàng / X-quang</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span id="badge_vision" class="px-2 py-0.5 text-[10px] rounded font-semibold bg-slate-800 text-slate-400">Không có ảnh</span>
+              <i class="fa-solid fa-chevron-down text-slate-500 text-xs group-open:rotate-180 transition"></i>
+            </div>
+          </summary>
+          <div class="p-4 pt-2 border-t border-slate-800/80 text-xs space-y-2 text-slate-300 bg-slate-900/40">
+            <div id="visionDetailsContent">Chưa có hình ảnh nào được xử lý trong ca này.</div>
+          </div>
+        </details>
+
+        <!-- Agent 2 Accordion -->
+        <details class="glass-card rounded-xl border border-slate-800 overflow-hidden group">
+          <summary class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition">
+            <div class="flex items-center space-x-2.5 text-xs font-semibold text-slate-200">
+              <span class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">A2</span>
+              <span>Closed-data RAG: Kho nội bộ (Giáo trình Cắn khớp học RHM)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span id="badge_internal_count" class="px-2 py-0.5 text-[10px] rounded font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">0 đoạn [I]</span>
+              <i class="fa-solid fa-chevron-down text-slate-500 text-xs group-open:rotate-180 transition"></i>
+            </div>
+          </summary>
+          <div id="internalEvidenceList" class="p-4 pt-2 border-t border-slate-800/80 text-xs space-y-3 text-slate-300 bg-slate-900/40">
+          </div>
+        </details>
+
+        <!-- Agent 3 Accordion -->
+        <details class="glass-card rounded-xl border border-slate-800 overflow-hidden group">
+          <summary class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition">
+            <div class="flex items-center space-x-2.5 text-xs font-semibold text-slate-200">
+              <span class="w-6 h-6 rounded bg-sky-500/20 text-sky-400 flex items-center justify-center text-xs">A3</span>
+              <span>Open-data RAG: Kho công khai (Hướng dẫn điều trị Bộ Y Tế)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span id="badge_public_count" class="px-2 py-0.5 text-[10px] rounded font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/30">0 đoạn [P]</span>
+              <i class="fa-solid fa-chevron-down text-slate-500 text-xs group-open:rotate-180 transition"></i>
+            </div>
+          </summary>
+          <div id="publicEvidenceList" class="p-4 pt-2 border-t border-slate-800/80 text-xs space-y-3 text-slate-300 bg-slate-900/40">
+          </div>
+        </details>
+
+        <!-- Agent 5 Accordion -->
+        <details class="glass-card rounded-xl border border-slate-800 overflow-hidden group">
+          <summary class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition">
+            <div class="flex items-center space-x-2.5 text-xs font-semibold text-slate-200">
+              <span class="w-6 h-6 rounded bg-teal-500/20 text-teal-400 flex items-center justify-center text-xs">A5</span>
+              <span>Drafting Agent: Nhận định cốt lõi &amp; Bằng chứng trích dẫn</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span id="badge_claims_count" class="px-2 py-0.5 text-[10px] rounded font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/30">0 nhận định</span>
+              <i class="fa-solid fa-chevron-down text-slate-500 text-xs group-open:rotate-180 transition"></i>
+            </div>
+          </summary>
+          <div id="keyClaimsList" class="p-4 pt-2 border-t border-slate-800/80 text-xs space-y-2 text-slate-300 bg-slate-900/40">
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const questionInput = document.getElementById('questionInput');
+    const charCount = document.getElementById('charCount');
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewContainer = document.getElementById('previewContainer');
+    const dropZonePrompt = document.getElementById('dropZonePrompt');
+    const imageFileName = document.getElementById('imageFileName');
+    const imageFileSize = document.getElementById('imageFileSize');
+    const sampleImagePath = document.getElementById('sampleImagePath');
+    const modeToggle = document.getElementById('modeToggle');
+    const modeLabel = document.getElementById('modeLabel');
+
+    // Update character count
+    questionInput.addEventListener('input', () => {
+      charCount.innerText = `${questionInput.value.length} ký tự`;
+    });
+
+    // Toggle Mode
+    modeToggle.addEventListener('change', () => {
+      if (modeToggle.checked) {
+        modeLabel.innerText = "⚡ 100% Offline (Local CPU)";
+        modeLabel.className = "ml-2.5 text-xs font-semibold text-teal-400";
+      } else {
+        modeLabel.innerText = "🌐 Hybrid (Cloud VLM / LLM)";
+        modeLabel.className = "ml-2.5 text-xs font-semibold text-cyan-400";
+      }
+    });
+
+    // Image Input handling
+    imageInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        showPreview(file);
+        sampleImagePath.value = "";
+      }
+    });
+
+    function showPreview(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imagePreview.src = e.target.result;
+        imageFileName.innerText = file.name;
+        imageFileSize.innerText = `${(file.size / 1024).toFixed(1)} KB`;
+        previewContainer.classList.remove('hidden');
+        previewContainer.classList.add('flex');
+        dropZonePrompt.classList.add('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearImage(e) {
+      if (e) e.stopPropagation();
+      imageInput.value = "";
+      sampleImagePath.value = "";
+      previewContainer.classList.add('hidden');
+      previewContainer.classList.remove('flex');
+      dropZonePrompt.classList.remove('hidden');
+    }
+
+    function loadSampleImage() {
+      // Set sample clinical photo
+      sampleImagePath.value = "data/images/msdmanual/PUB-MSD-v1146243_vi_gingival_recession_orig_vi.jpg";
+      imagePreview.src = "/api/sample_image";
+      imageFileName.innerText = "Tụt_nướu_lâm_sàng_MSD.jpg";
+      imageFileSize.innerText = "24.5 KB (Ảnh mẫu)";
+      previewContainer.classList.remove('hidden');
+      previewContainer.classList.add('flex');
+      dropZonePrompt.classList.add('hidden');
+      
+      if (!questionInput.value.trim()) {
+        questionInput.value = "Hình ảnh vùng nướu răng cửa bị tụt lộ chân răng, tôi có cần phẫu thuật ghép nướu không?";
+        charCount.innerText = `${questionInput.value.length} ký tự`;
+      }
+    }
+
+    // Apply Presets
+    function applyPreset(type) {
+      clearImage();
+      if (type === 'caries') {
+        questionInput.value = "các phương án xử lý 1 cái răng sâu";
+      } else if (type === 'tmj') {
+        questionInput.value = "tôi bị đau khớp thái dương hàm và há miệng kêu lục cục thì chữa thế nào";
+      } else if (type === 'emergency') {
+        questionInput.value = "Mặt tôi bị sưng to một bên hàm kèm sốt cao 39.5 độ và rất khó nuốt, khó thở!";
+      } else if (type === 'service') {
+        questionInput.value = "Phòng khám có làm việc ngày Chủ nhật không và giá lấy cao răng định kỳ là bao nhiêu?";
+      }
+      charCount.innerText = `${questionInput.value.length} ký tự`;
+      questionInput.focus();
+    }
+
+    // Reset Stepper
+    function resetStepper() {
+      ['a1', 'a4', 'a2', 'a3', 'a5'].forEach(id => {
+        const node = document.getElementById(`node_${id}`);
+        const time = document.getElementById(`time_${id}`);
+        node.className = "p-2.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all";
+        time.innerText = "Chờ...";
+        time.className = "text-[10px] font-mono text-slate-500 mt-1";
+      });
+    }
+
+    // Submit Query
+    async function submitQuery(e) {
+      e.preventDefault();
+      const question = questionInput.value.trim();
+      if (!question) return;
+
+      const submitBtn = document.getElementById('submitBtn');
+      const placeholderState = document.getElementById('placeholderState');
+      const loadingState = document.getElementById('loadingState');
+      const finalResponseContent = document.getElementById('finalResponseContent');
+      const reasoningSection = document.getElementById('reasoningSection');
+      const copyBtn = document.getElementById('copyBtn');
+      const totalTimeBadge = document.getElementById('totalTimeBadge');
+
+      // UI Loading state
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      placeholderState.classList.add('hidden');
+      finalResponseContent.classList.add('hidden');
+      copyBtn.classList.add('hidden');
+      reasoningSection.classList.add('hidden');
+      loadingState.classList.remove('hidden');
+
+      resetStepper();
+      totalTimeBadge.classList.add('hidden');
+
+      // Node 1 active pulse
+      document.getElementById('node_a1').classList.add('border-teal-500', 'bg-teal-950/30', 'pulse-node');
+      document.getElementById('time_a1').innerText = "Đang chạy...";
+
+      const formData = new FormData();
+      formData.append('question', question);
+      formData.append('offline_mode', modeToggle.checked ? "true" : "false");
+
+      if (sampleImagePath.value) {
+        formData.append('sample_image_path', sampleImagePath.value);
+      } else if (imageInput.files[0]) {
+        formData.append('image', imageInput.files[0]);
+      }
+
+      const startTime = performance.now();
+
+      try {
+        const res = await fetch('/api/consult', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+        const durationTotal = Math.round(performance.now() - startTime);
+
+        // Hide loading
+        loadingState.classList.add('hidden');
+        finalResponseContent.classList.remove('hidden');
+        reasoningSection.classList.remove('hidden');
+        copyBtn.classList.remove('hidden');
+
+        // Render Markdown Response
+        finalResponseContent.innerHTML = marked.parse(data.final_response || "Không có câu trả lời.");
+
+        // Total time
+        totalTimeBadge.classList.remove('hidden');
+        document.getElementById('totalTimeVal').innerText = `${durationTotal}ms`;
+
+        // Update Stepper from Trace
+        const trace = data.trace || [];
+        trace.forEach(step => {
+          let nodeId = null;
+          if (step.step === 'agent1_supervisor') nodeId = 'a1';
+          if (step.step === 'agent4_vision') nodeId = 'a4';
+          if (step.step === 'agent2_closed_rag') nodeId = 'a2';
+          if (step.step === 'agent3_open_rag') nodeId = 'a3';
+          if (step.step === 'agent5_drafting') nodeId = 'a5';
+
+          if (nodeId) {
+            const node = document.getElementById(`node_${nodeId}`);
+            const time = document.getElementById(`time_${nodeId}`);
+            node.className = "p-2.5 rounded-xl border border-emerald-500/50 bg-emerald-950/20 transition-all";
+            time.innerText = `✓ ${step.duration_ms}ms`;
+            time.className = "text-[10px] font-mono text-emerald-400 font-semibold mt-1";
+          }
+        });
+
+        // If vision was skipped
+        if (!data.image_path) {
+          const node = document.getElementById('node_a4');
+          const time = document.getElementById('time_a4');
+          node.className = "p-2.5 rounded-xl border border-slate-800 bg-slate-900/30 opacity-60";
+          time.innerText = "(Bỏ qua)";
+          time.className = "text-[10px] text-slate-500 mt-1";
+        }
+
+        // --- UPDATE REASONING ACCORDIONS ---
+        // 1. Supervisor
+        const sup = data.supervisor || {};
+        document.getElementById('r_intent').innerText = sup.intent || "clinical_medical";
+        document.getElementById('r_triage_reason').innerText = sup.triage_reason || "Phân loại lâm sàng thông thường";
+        document.getElementById('r_rec_action').innerText = sup.recommended_action || "Thực hiện RAG";
+        const emBadge = document.getElementById('badge_emergency');
+        if (sup.is_emergency) {
+          emBadge.className = "px-2 py-0.5 text-[10px] rounded font-semibold bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse";
+          emBadge.innerText = "🚨 CẤP CỨU KHẨN CẤP";
+        } else {
+          emBadge.className = "px-2 py-0.5 text-[10px] rounded font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30";
+          emBadge.innerText = "✅ Ổn định / Thông thường";
+        }
+
+        // 2. Vision Findings
+        const vis = data.vision;
+        const visContent = document.getElementById('visionDetailsContent');
+        const badgeVision = document.getElementById('badge_vision');
+        if (vis) {
+          badgeVision.innerText = `${vis.image_type} (${vis.clinical_urgency})`;
+          badgeVision.className = "px-2 py-0.5 text-[10px] rounded font-semibold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30";
+          
+          let pList = "";
+          (vis.detected_pathologies || []).forEach(p => {
+            pList += `<div class="p-2 bg-slate-800/60 rounded border border-slate-700/60">
+              <span class="font-semibold text-cyan-300">• ${p.name}</span> (${p.location} - Mức độ: <span class="text-amber-300">${p.severity}</span>)
+              <div class="text-slate-400 text-[11px] mt-0.5">${p.visual_evidence}</div>
+            </div>`;
+          });
+
+          visContent.innerHTML = `
+            <div class="space-y-2">
+              <div>• <strong>Loại ảnh:</strong> <span class="text-cyan-300">${vis.image_type}</span> | <strong>Vùng:</strong> ${vis.anatomical_regions ? vis.anatomical_regions.join(', ') : 'Chung'}</div>
+              <div>• <strong>Nhận định sơ bộ:</strong> ${vis.preliminary_impression}</div>
+              <div class="space-y-1.5 pt-1"><strong>Tổn thương phát hiện:</strong> ${pList || '(Không phát hiện tổn thương nổi bật)'}</div>
+            </div>
+          `;
+        } else {
+          badgeVision.innerText = "Không có ảnh";
+          badgeVision.className = "px-2 py-0.5 text-[10px] rounded font-semibold bg-slate-800 text-slate-400";
+          visContent.innerText = "Ca này không đính kèm hình ảnh khoang miệng/X-quang, tác tử Vision đã được bỏ qua để tối ưu tốc độ.";
+        }
+
+        // 3. Closed RAG (Internal)
+        const intEv = data.internal_rag || [];
+        document.getElementById('badge_internal_count').innerText = `${intEv.length} đoạn y văn [I]`;
+        const intList = document.getElementById('internalEvidenceList');
+        if (intEv.length > 0) {
+          intList.innerHTML = intEv.map(e => `
+            <div class="p-2.5 bg-slate-800/70 rounded-lg border border-slate-700/80">
+              <div class="flex items-center justify-between text-emerald-400 font-semibold mb-1">
+                <span>[${e.evidence_id}] ${e.title}</span>
+                <span class="text-[10px] text-slate-400 font-normal">Kho đóng</span>
+              </div>
+              <p class="text-slate-300 text-[11px] leading-relaxed">${e.content}</p>
+            </div>
+          `).join('');
+        } else {
+          intList.innerHTML = `<p class="text-slate-400 italic">Không có tài liệu cắn khớp học chuyên biệt cho câu hỏi này. Tác tử đã chuyển giao toàn bộ chứng cứ cho kho mở (Agent 3) để loại bỏ nhiễu máng nhai/thạch cao.</p>`;
+        }
+
+        // 4. Open RAG (Public)
+        const pubEv = data.public_rag || [];
+        document.getElementById('badge_public_count').innerText = `${pubEv.length} phác đồ [P]`;
+        const pubList = document.getElementById('publicEvidenceList');
+        if (pubEv.length > 0) {
+          pubList.innerHTML = pubEv.map(e => `
+            <div class="p-2.5 bg-slate-800/70 rounded-lg border border-slate-700/80">
+              <div class="flex items-center justify-between text-sky-400 font-semibold mb-1">
+                <span>[${e.evidence_id}] ${e.title}</span>
+                <span class="text-[10px] text-slate-400 font-normal">Bộ Y Tế</span>
+              </div>
+              <p class="text-slate-300 text-[11px] leading-relaxed">${e.content}</p>
+            </div>
+          `).join('');
+        } else {
+          pubList.innerHTML = `<p class="text-slate-400 italic">Không trích xuất được phác đồ mở phù hợp.</p>`;
+        }
+
+        // 5. Key Claims (Drafting)
+        const claims = data.key_claims || [];
+        document.getElementById('badge_claims_count').innerText = `${claims.length} nhận định`;
+        const claimList = document.getElementById('keyClaimsList');
+        if (claims.length > 0) {
+          claimList.innerHTML = claims.map(c => `
+            <div class="p-2 bg-slate-800/50 rounded border border-slate-700/60 flex items-start space-x-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <div class="flex-1">
+                <span class="text-slate-200">${c.text}</span>
+                <div class="mt-1 flex gap-1">
+                  ${(c.citations || []).map(cit => `<span class="px-1.5 py-0.2 text-[10px] bg-teal-500/10 text-teal-300 rounded border border-teal-500/20 font-mono">[${cit}]</span>`).join('')}
+                </div>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          claimList.innerHTML = `<p class="text-slate-400 italic">Đã tổng hợp trực tiếp thành bài tư vấn hoàn chỉnh cho người bệnh.</p>`;
+        }
+
+      } catch (err) {
+        console.error(err);
+        loadingState.classList.add('hidden');
+        finalResponseContent.classList.remove('hidden');
+        finalResponseContent.innerHTML = `<div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm">
+          <strong>Lỗi thực thi:</strong> ${err.message || 'Không thể kết nối đến máy chủ API.'}
+        </div>`;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+      }
+    }
+
+    // Copy to clipboard
+    function copyResponse() {
+      const text = document.getElementById('finalResponseContent').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span class="text-emerald-400">Đã chép!</span>`;
+        setTimeout(() => {
+          copyBtn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Sao chép</span>`;
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
+
