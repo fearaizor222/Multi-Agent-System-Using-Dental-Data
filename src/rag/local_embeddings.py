@@ -4,7 +4,11 @@ import importlib.metadata
 from pathlib import Path
 
 import numpy as np
-from langchain_core.embeddings import Embeddings
+try:
+    from langchain_core.embeddings import Embeddings
+except ImportError:
+    class Embeddings:
+        pass
 
 MODEL = "intfloat/multilingual-e5-small"
 REVISION = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
@@ -20,10 +24,16 @@ def file_sha256(path):
 
 
 def passage_body(document):
-    # Chunk công khai đã chứa tên tài liệu và đường dẫn đề mục.
-    if document.metadata.get("warehouse") == "public":
-        return document.content
-    return document.title + "\n" + document.content
+    """Đảm bảo tiêu đề tài liệu/bệnh lý luôn có mặt trong văn bản để tìm kiếm chính xác."""
+    title = getattr(document, "title", "") or ""
+    if hasattr(document, "metadata") and isinstance(document.metadata, dict):
+        title = title or document.metadata.get("title") or document.metadata.get("disease_title") or ""
+    content = getattr(document, "content", "") or ""
+    if title and not content.startswith(title):
+        return f"{title}\n{content}"
+    return content
+
+
 
 
 class LocalE5Embeddings(Embeddings):

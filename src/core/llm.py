@@ -44,12 +44,11 @@ def get_llm(
     streaming: bool = True,
     override_provider: Optional[str] = None
 ) -> BaseChatModel:
-    """Khởi tạo LLM đã chọn; báo lỗi nếu thiếu model hoặc cấu hình."""
-    provider = override_provider or settings.LLM_PROVIDER.lower()
-
-    if provider == "huggingface":
+    provider = (override_provider or settings.LLM_PROVIDER).lower()
+    if provider in ("huggingface", "local", "offline"):
         from src.core.local_chat import LocalChatModel
         return LocalChatModel()
+
 
     if provider == "google":
         api_key = settings.GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY")

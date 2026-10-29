@@ -59,9 +59,23 @@ class BM25Retriever(BaseRetriever):
     def retrieve(self, query, top_k=4, source=None, language=None) -> list[DentalDocument]:
         if top_k < 1:
             raise ValueError("top_k phải dương")
-        if not query.strip():
-            raise ValueError("Câu hỏi rỗng")
-        tokens = list(dict.fromkeys(tokenize(query)))
+        raw_tokens = tokenize(query)
+        # Lọc các từ đệm đàm thoại có IDF ảo cao
+        vi_stopwords = {
+            "các", "phương", "án", "xử", "lý", "cách", "1", "cái", "cho", "tôi", "hỏi", "bị", "thì",
+            "làm", "sao", "thế", "nào", "như", "là", "gì", "của", "và", "ở", "với", "được", "có", "một", "xin", "giúp"
+        }
+        filtered = [t for t in raw_tokens if t not in vi_stopwords]
+        tokens = filtered if filtered else raw_tokens
+
+        # Mở rộng từ khóa chuyên môn lâm sàng
+        lower_q = query.lower()
+        if any(w in lower_q for w in ["xử lý", "chữa", "trị", "khắc phục", "phương án"]):
+            tokens.extend(["điều", "trị", "phác", "đồ"])
+        if "sâu" in lower_q and "răng" in lower_q:
+            tokens.extend(["sâu", "răng", "trám", "hàn"])
+
+        tokens = list(dict.fromkeys(tokens))
         if self.bm25 is None or not tokens:
             return []
         eligible = [i for i, doc in enumerate(self.documents)
@@ -70,6 +84,7 @@ class BM25Retriever(BaseRetriever):
         if not eligible:
             return []
         scores = np.asarray(self.bm25.get_batch_scores(tokens, eligible))
+
         best = np.argsort(-scores, kind="stable")
         results = []
         for i in best:

@@ -23,9 +23,9 @@ def cosine_similarity(vec_a: List[float], vec_b: List[float]) -> float:
 class DenseVectorRetriever(BaseRetriever):
     """Dense retriever leveraging embedding models and vector similarity."""
 
-    def __init__(self, documents: Optional[List[DentalDocument]] = None):
+    def __init__(self, documents: Optional[List[DentalDocument]] = None, embeddings=None):
         self._disk_index = None
-        self.embeddings = get_embeddings()
+        self.embeddings = embeddings if embeddings is not None else get_embeddings()
         self.documents: List[DentalDocument] = []
         self.vectors: List[List[float]] = []
 

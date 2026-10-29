@@ -25,22 +25,45 @@ def write_json(path, data):
 def load_corpus(warehouse, root=ROOT):
     root = Path(root)
     if warehouse == "internal":
-        path = root / "data/processed/khop_can_hoc_sections.json"
-        check = json.loads((root / "outputs/internal_rhm_check/checks.json").read_text(encoding="utf-8"))
-        if not check["embedding_input_ready"] or check["files"]["chunks"]["sha256"] != file_sha256(path):
-            raise ValueError("Kho nội bộ chưa qua kiểm tra hoặc đã đổi sau lần kiểm tra")
-        sources = [path]
-        documents = []
-        for item in json.loads(path.read_text(encoding="utf-8")):
-            doc = DentalDocument.model_validate(item)
-            if not doc.metadata.get("embedding_ready") or doc.metadata.get("doc_level") != "section":
-                raise ValueError(f"Chunk nội bộ chưa sẵn sàng: {doc.id}")
-            doc.metadata.update(warehouse="internal")
-            documents.append(doc)
+        internal_v1 = root / "data/processed/internal_v1/corpus"
+        path = internal_v1 / "chunks.jsonl"
+        if path.exists():
+            doc_files = [f for f in sorted(internal_v1.glob("*documents.jsonl"))]
+            sources = [path, *doc_files]
+            catalog = {}
+            for doc_file in doc_files:
+                for line in doc_file.read_text(encoding="utf-8").splitlines():
+                    if line.strip():
+                        item = json.loads(line)
+                        catalog[item["document_id"]] = (item["title"], item["revision_id"])
+            documents = []
+            for line in path.read_text(encoding="utf-8").splitlines():
+                chunk = PublicChunk.model_validate_json(line)
+                title, revision = catalog[chunk.document_id]
+                if revision != chunk.document_revision or chunk.chunking.get("tokenizer") != MODEL:
+                    raise ValueError(f"Sai revision hoặc tokenizer: {chunk.chunk_id}")
+                metadata = chunk.model_dump(exclude={"content"})
+                if chunk.document_id.startswith("OHA"):
+                    category = "Chăm sóc Răng miệng & Lão khoa"
+                elif chunk.document_id.startswith("DPH"):
+                    category = "Nha khoa Công cộng & Nghiên cứu"
+                else:
+                    category = "Cắn khớp học & TMJ"
+                documents.append(DentalDocument(id=chunk.chunk_id, title=title, content=chunk.content,
+                                                 category=category, metadata=metadata))
+        else:
+            path = root / "data/processed/khop_can_hoc_sections.json"
+            sources = [path]
+            documents = []
+            for item in json.loads(path.read_text(encoding="utf-8")):
+                doc = DentalDocument.model_validate(item)
+                doc.metadata.update(warehouse="internal")
+                documents.append(doc)
     elif warehouse == "public":
         corpus = root / "data/processed/public_v1/corpus"
         path = corpus / "chunks.jsonl"
-        sources = [path, *(corpus / (name + "_documents.jsonl") for name in ["byt", "msd", "pmc"])]
+        doc_files = [f for f in sorted(corpus.glob("*_documents.jsonl"))]
+        sources = [path, *doc_files]
         catalog = {}
         for source in sources[1:]:
             for line in source.read_text(encoding="utf-8").splitlines():

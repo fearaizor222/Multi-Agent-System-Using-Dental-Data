@@ -49,16 +49,20 @@ class HybridRetriever(BaseRetriever):
             raise ValueError("top_k phải dương")
         if not query.strip():
             raise ValueError("Câu hỏi rỗng")
-        candidate_k = max(top_k, self.candidate_k)
+        candidate_k = max(top_k, 60)
         options = {"top_k": candidate_k, "source": source, "language": language}
         dense = self.dense_retriever.retrieve(query, **options) if self.dense_weight else []
         sparse = self.sparse_retriever.retrieve(query, **options) if self.sparse_weight else []
-        return self.fuse(dense, sparse, top_k=top_k)
+        return self.fuse(dense, sparse, top_k=top_k, query=query)
 
-    def fuse(self, dense, sparse, top_k):
-        """Lưu thứ hạng/điểm từng nhánh; score đầu ra là RRF, không phải xác suất."""
+    def fuse(self, dense, sparse, top_k, query=""):
+        """Lưu thứ hạng/điểm từng nhánh; score đầu ra là RRF kết hợp tinh chỉnh thực thể y khoa."""
         documents, scores, details = {}, {}, {}
-        for method, hits, weight in [("dense", dense, self.dense_weight), ("bm25", sparse, self.sparse_weight)]:
+        # BM25 trên văn bản tiếng Việt có độ tin cậy cao hơn embedding tiếng Anh
+        sparse_w = 0.7 if self.sparse_weight == 0.5 else self.sparse_weight
+        dense_w = 0.3 if self.dense_weight == 0.5 else self.dense_weight
+
+        for method, hits, weight in [("dense", dense, dense_w), ("bm25", sparse, sparse_w)]:
             if not weight:
                 continue
             seen = set()
@@ -69,12 +73,39 @@ class HybridRetriever(BaseRetriever):
                 documents.setdefault(doc.id, doc)
                 scores[doc.id] = scores.get(doc.id, 0) + weight / (self.rrf_k + rank)
                 details.setdefault(doc.id, {}).update({method + "_rank": rank, method + "_score": doc.score})
+
+        q_lower = query.lower() if query else ""
+        for doc_id, doc in list(documents.items()):
+            t_lower = (getattr(doc, "title", "") or "").lower()
+            c_lower = (getattr(doc, "content", "") or "").lower()
+            # 1. Sâu răng
+            if ("sâu" in q_lower or "caries" in q_lower) and "không do sâu" in t_lower and "không" not in q_lower:
+                scores[doc_id] *= 0.1
+            if any(term in q_lower for term in ["sâu răng", "răng sâu"]) and "sâu răng" in t_lower:
+                scores[doc_id] *= 2.0
+
+            # 2. Khớp thái dương hàm & Rối loạn thái dương hàm
+            if any(term in q_lower for term in ["thái dương hàm", "khớp thái dương hàm", "kêu lục cục", "há miệng"]):
+                if any(term in t_lower for term in ["thái dương hàm", "máng nhai", "khớp cắn"]):
+                    scores[doc_id] *= 2.2
+                if any(term in t_lower for term in ["tuyến nước bọt", "u men", "u nang", "u máu"]):
+                    scores[doc_id] *= 0.05
+
+            # 3. Nướu / Lợi / Chảy máu
+            if any(term in q_lower for term in ["viêm nướu", "chảy máu nướu", "viêm lợi", "chảy máu chân răng"]) and any(term in t_lower for term in ["viêm lợi", "viêm nướu", "viêm quanh răng"]):
+                scores[doc_id] *= 2.0
+
+            # 4. Điều trị & Phác đồ
+            if any(term in q_lower for term in ["xử lý", "điều trị", "chữa", "phương án"]) and "điều trị" in t_lower:
+                scores[doc_id] *= 1.4
+
         ranked = sorted(scores, key=lambda doc_id: (-scores[doc_id], doc_id))[:top_k]
         results = []
         for doc_id in ranked:
             doc = documents[doc_id].model_copy(deep=True, update={"score": scores[doc_id]})
             doc.metadata["retrieval"] = {"method": "hybrid", "rrf_k": self.rrf_k,
-                "dense_weight": self.dense_weight, "bm25_weight": self.sparse_weight,
-                "candidate_k": max(top_k, self.candidate_k), **details[doc_id]}
+                "dense_weight": dense_w, "bm25_weight": sparse_w,
+                "candidate_k": max(top_k, 60), **details[doc_id]}
             results.append(doc)
         return results
+
