@@ -65,22 +65,29 @@ def create_full_5agent_pipeline(
 ):
     """Xây dựng và biên dịch StateGraph cho 5 Agent chuẩn (hỗ trợ cả Online Cloud và Offline Local CPU)."""
     if offline_mode:
-        from src.core.local_chat import LocalChatModel
-        llm = llm or LocalChatModel()
-        logger.info("[FullDentalGraph] Khởi tạo hệ sinh thái 5 Agent ở CHẾ ĐỘ OFFLINE LOCAL (Qwen2.5-0.5B trên CPU)")
+        from src.core.multi_agent_models import get_specialized_model_for_agent
+        logger.info("[FullDentalGraph] Khởi tạo hệ sinh thái 5 MODEL CHUYÊN BIỆT ĐỘC LẬP trên CPU...")
+        llm_a1 = get_specialized_model_for_agent("agent1_supervisor")
+        llm_a2 = get_specialized_model_for_agent("agent2_internal_rag")
+        llm_a3 = get_specialized_model_for_agent("agent3_public_rag")
+        llm_a5 = get_specialized_model_for_agent("agent5_drafting")
     else:
         try:
-            llm = llm or get_llm(streaming=False)
+            llm_cloud = llm or get_llm(streaming=False)
+            llm_a1, llm_a2, llm_a3, llm_a5 = llm_cloud, llm_cloud, llm_cloud, llm_cloud
         except Exception as e:
-            logger.warning(f"Không thể khởi tạo Cloud LLM ({e}), tự động chuyển sang Offline Local CPU...")
-            from src.core.local_chat import LocalChatModel
-            llm = LocalChatModel()
+            logger.warning(f"Không thể khởi tạo Cloud LLM ({e}), tự động chuyển sang 5 Model chuyên biệt...")
+            from src.core.multi_agent_models import get_specialized_model_for_agent
+            llm_a1 = get_specialized_model_for_agent("agent1_supervisor")
+            llm_a2 = get_specialized_model_for_agent("agent2_internal_rag")
+            llm_a3 = get_specialized_model_for_agent("agent3_public_rag")
+            llm_a5 = get_specialized_model_for_agent("agent5_drafting")
 
-    supervisor = supervisor_agent or SupervisorAgent(llm)
-    internal_rag = internal_rag_agent or ClosedDataRAGAgent()
-    public_rag = public_rag_agent or OpenDataRAGAgent()
+    supervisor = supervisor_agent or SupervisorAgent(llm_a1)
+    internal_rag = internal_rag_agent or ClosedDataRAGAgent(llm=llm_a2)
+    public_rag = public_rag_agent or OpenDataRAGAgent(llm=llm_a3)
     vision = vision_agent or DentalVisionAgent()
-    drafting = drafting_agent or DraftingResponseAgent(llm)
+    drafting = drafting_agent or DraftingResponseAgent(llm_a5)
 
 
     def record_step(state: Dental5AgentState, name: str, start_time: float, status: str = "success") -> List[dict]:
@@ -156,12 +163,16 @@ def create_full_5agent_pipeline(
         start = time.perf_counter()
         query = state.get("question", "")
 
-        # Nếu có kết quả ảnh từ Agent 4, bổ sung triệu chứng vào query
+        # Nếu có kết quả ảnh từ Agent 4, làm giàu ngữ cảnh truy vấn
         if state.get("vision_findings"):
             vf = state["vision_findings"]
-            addons = " ".join([p.get("name", "") for p in vf.get("detected_pathologies", [])])
-            if addons:
-                query = f"{query} {addons}"
+            patho_names = [p.get("name", "") for p in vf.get("detected_pathologies", [])]
+            impression = vf.get("preliminary_impression", "")
+            cleaned_q = query.strip().lower()
+            if any(cleaned_q.startswith(x) for x in ["này", "đây", "ảnh", "hình"]) or len(cleaned_q) < 20:
+                query = f"Bệnh lý tổn thương nha khoa: {' '.join(patho_names)}. {impression}"
+            else:
+                query = f"{query} {' '.join(patho_names)}"
 
         assessment = internal_rag.consult(query, top_k=3)
         logger.info(f"[Agent 2 Closed RAG] Hội chẩn cắn khớp: is_applicable={assessment.is_applicable} | {len(assessment.evidence)} chứng cứ.")
@@ -181,9 +192,13 @@ def create_full_5agent_pipeline(
 
         if state.get("vision_findings"):
             vf = state["vision_findings"]
-            addons = " ".join([p.get("name", "") for p in vf.get("detected_pathologies", [])])
-            if addons:
-                query = f"{query} {addons}"
+            patho_names = [p.get("name", "") for p in vf.get("detected_pathologies", [])]
+            impression = vf.get("preliminary_impression", "")
+            cleaned_q = query.strip().lower()
+            if any(cleaned_q.startswith(x) for x in ["này", "đây", "ảnh", "hình"]) or len(cleaned_q) < 20:
+                query = f"Phác đồ điều trị tổn thương mô răng: {' '.join(patho_names)}. {impression}"
+            else:
+                query = f"{query} {' '.join(patho_names)}"
 
         assessment = public_rag.consult(query, top_k=3)
         logger.info(f"[Agent 3 Open RAG] Hội chẩn Bộ Y Tế: is_applicable={assessment.is_applicable} | {len(assessment.evidence)} chứng cứ.")

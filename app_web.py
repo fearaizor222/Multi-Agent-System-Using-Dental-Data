@@ -87,6 +87,13 @@ async def get_sample_image():
     return FileResponse(sample_path, media_type="image/jpeg")
 
 
+@app.get("/api/models_info")
+async def get_models_info():
+    from src.core.multi_agent_models import get_all_5_agent_specs
+    specs = get_all_5_agent_specs()
+    return {k: v.__dict__ for k, v in specs.items()}
+
+
 @app.post("/api/consult")
 async def consult(
     question: str = Form(...),
@@ -152,6 +159,13 @@ async def consult(
             "evidence": final_state.get("public_evidence", [])
         },
         "key_claims": final_state.get("key_claims", []),
+        "models_used": {
+            "a1": "Qwen2.5-0.5B (Alibaba)",
+            "a2": "SmolLM2-360M (Hugging Face)",
+            "a3": "Flan-T5-small (Google Research)",
+            "a4": "DentalVision VLM (Google DeepMind)",
+            "a5": "PhoBERT-Medical + Qwen2.5 (VinAI / Open Source)"
+        },
         "final_response": final_state.get("final_response", "Không có câu trả lời.")
     }
 

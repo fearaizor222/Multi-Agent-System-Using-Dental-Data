@@ -76,31 +76,58 @@ class DraftingResponseAgent:
         # 3. Kết quả thị giác (Agent 4)
         if vision_findings:
             vf = vision_findings
-            evidence_lines.append(f"- [Thị giác]: {vf.get('preliminary_impression')}")
+            patho_details = []
+            for p in vf.get("detected_pathologies", []):
+                p_name = p.get("name", "")
+                p_loc = p.get("location", "")
+                p_evid = p.get("visual_evidence", "")
+                patho_details.append(f"{p_name} tại {p_loc} (dấu hiệu: {p_evid})")
+            pathos_str = "; ".join(patho_details) if patho_details else "Không có ghi chú bệnh lý cụ thể"
+            regions = ", ".join(vf.get("anatomical_regions", [])) or "Khoang miệng"
+            evidence_lines.append(
+                f"- [Thị giác & Chẩn đoán hình ảnh]: Nhận định sơ bộ: {vf.get('preliminary_impression')}. "
+                f"Tổn thương phát hiện: {pathos_str}. Vùng giải phẫu: {regions}."
+            )
 
         clean_context = "\n".join(evidence_lines) if evidence_lines else "(Không có tài liệu chuyên biệt)"
 
-        is_local_model = hasattr(self.llm, "threads") or getattr(self.llm, "_llm_type", "") == "local-qwen2.5-cpu"
+        # Xử lý các câu hỏi chỉ định ngắn ("này là bị gì?", "đây là gì?")
+        clean_q = question.strip().lower()
+        is_visual_query = any(clean_q.startswith(x) for x in ["này", "đây", "ảnh", "hình"]) or len(clean_q) < 20
+        grounded_question = question
+        if vision_findings and is_visual_query:
+            grounded_question = (
+                f"{question} (Người bệnh cung cấp hình ảnh nha khoa. Dấu hiệu hình ảnh: "
+                f"{vision_findings.get('preliminary_impression')})"
+            )
+
+        is_local_model = hasattr(self.llm, "threads") or getattr(self.llm, "_llm_type", "") == "local-qwen2.5-cpu" or "specialized" in getattr(self.llm, "_llm_type", "")
 
         if is_local_model:
             user_prompt = f"""Ý kiến hội chẩn của các Bác sĩ chuyên khoa:
 {opinions_block}
 
-Tài liệu chứng cứ trích dẫn:
+Tài liệu chứng cứ trích dẫn y khoa:
 {clean_context}
 
-Câu hỏi của người bệnh: "{question}"
+Câu hỏi của người bệnh: "{grounded_question}"
 
-Dựa vào ý kiến hội chẩn và tài liệu chuyên môn trên, hãy trình bày nội dung tư vấn đầy đủ và chi tiết bằng tiếng Việt:"""
+YÊU CẦU BẮT BUỘC DÀNH CHO BÁC SĨ NHA KHOA TƯ VẤN:
+1. Dựa trên hình ảnh tổn thương lâm sàng và tài liệu chuyên khoa trên, hãy tư vấn y tế trực tiếp cho người bệnh.
+2. Trả lời thẳng vào chuyên môn: nêu rõ đây là tình trạng tổn thương/bệnh lý gì (ví dụ: mòn men ngà răng, sâu răng...), vị trí răng bị ảnh hưởng, nguyên nhân cơ sinh học/hóa học và hướng xử trí/điều trị nha khoa.
+3. Tuyệt đối KHÔNG phân tích ngữ pháp, không giải thích ngữ nghĩa từ ngữ tiếng Việt (như từ 'này' là gì), không lặp lại câu văn thừa thãi."""
         else:
-            user_prompt = f"""Tài liệu y khoa tham khảo:
+            user_prompt = f"""Ý kiến hội chẩn của các Bác sĩ chuyên khoa:
+{opinions_block}
+
+Tài liệu y khoa tham khảo:
 {clean_context}
 
-Câu hỏi của người bệnh: "{question}"
+Câu hỏi của người bệnh: "{grounded_question}"
 
-Bác sĩ hãy tổng hợp các tài liệu trên để viết bài tư vấn nha khoa hoàn chỉnh gửi người bệnh:
+Bác sĩ hãy tổng hợp các tài liệu và kết quả thị giác trên để viết bài tư vấn nha khoa hoàn chỉnh gửi người bệnh:
 1. Nêu 1-3 nhận định cốt lõi (key claims) kèm mã trích dẫn ([I...], [P...]).
-2. Trình bày bài tư vấn hoàn chỉnh gửi tới người bệnh (Nhận định sơ bộ, Hướng dẫn chăm sóc, Cảnh báo khi nào cần đi khám).
+2. Trình bày bài tư vấn hoàn chỉnh gửi tới người bệnh (Nhận định tổn thương trên ảnh, Nguyên nhân, Hướng xử trí & Phục hồi, Cảnh báo khi nào cần đi khám).
 
 Chỉ trả về DUY NHẤT một JSON hợp lệ tuân thủ schema:
 {{

@@ -13,23 +13,29 @@ from src.core.logger import get_logger
 
 logger = get_logger("agents.vision")
 
-VISION_PROMPT = """Bạn là Tác tử Thị giác Nha khoa chuyên sâu (Dental Vision & Imaging Specialist Agent) thuộc Hệ thống C20.
-Nhiệm vụ của bạn là quan sát kỹ lưỡng hình ảnh (ảnh chụp lâm sàng khoang miệng, phim X-quang nha khoa Panorama OPG / cận chóp, hoặc sơ đồ giải phẫu), nhận diện chính xác các dấu hiệu bệnh học và cấu trúc giải phẫu.
+VISION_PROMPT = """Bạn là Bác sĩ Chuyên gia Chẩn đoán Hình ảnh Nha khoa (Dental Vision & Imaging Specialist Agent) thuộc Hệ thống C20 AI.
+Nhiệm vụ của bạn là quan sát kỹ lưỡng hình ảnh lâm sàng khoang miệng hoặc phim X-quang nha khoa, nhận diện chính xác các cấu trúc giải phẫu và tổn thương bệnh học.
+
+HƯỚNG DẪN CHẨN ĐOÁN PHÂN BIỆT LÂM SÀNG:
+1. RĂNG CỬA vs RĂNG HÀM: Quan sát rõ cung răng. Nếu là răng một chân, rìa cắn mỏng hình xẻng ở phía trước -> Răng cửa / Răng nanh (Anterior teeth). Nếu có nhiều múi, rãnh mặt nhai lớn -> Răng hàm/răng cối (Molars/Premolars).
+2. MÒN MEN NGÀ RĂNG (Tooth Wear / Erosion / Attrition): Mặt nhai hoặc rìa cắn/mặt trong xuất hiện các hố lõm (cupping/crater), lớp men trắng bên ngoài bị mòn vẹt để lộ ngà răng màu vàng cam hoặc nâu sẫm bóng nhẵn, viền men xung quanh còn gờ cao. Thường do nghiến răng hoặc trào ngược axit/thức ăn chua.
+3. SÂU RĂNG (Dental Caries): Đáy lỗ sâu mủn bở, ngà mủn sẫm màu, thường xuất phát từ trũng rãnh hoặc kẽ răng.
+4. CAO RĂNG & VIÊM NƯỚU: Mảng bám vôi hóa cứng dính ở cổ răng/kẽ răng, nướu sưng đỏ, phì đại hoặc tụt nướu lộ chân răng.
 
 Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ tuân thủ đúng định dạng sau:
 {
   "image_type": "clinical_photo" | "panoramic_xray" | "periapical_xray" | "anatomical_diagram" | "other",
-  "anatomical_regions": ["vùng răng hàm trên", "cổ răng hàm dưới", "nướu răng cửa", ...],
-  "teeth_involved": ["R16", "R46", "Răng cửa hàm dưới", ...],
+  "anatomical_regions": ["vùng răng cửa trước", "mặt trong/rìa cắn răng cửa", "cổ răng hàm dưới", ...],
+  "teeth_involved": ["Răng cửa hàm dưới (R31, R32, R41, R42)", "Răng nanh (R33, R43)", ...],
   "detected_pathologies": [
     {
-      "name": "Tên bệnh lý (ví dụ: Viêm nướu / Sâu răng men-ngà / Tụt nướu / Vôi răng / Mòn răng)",
-      "location": "Vị trí cụ thể",
+      "name": "Tên bệnh lý chính xác (ví dụ: Mòn men ngà răng (Dental Erosion / Attrition) / Sâu răng men-ngà / Vôi răng / Viêm nướu)",
+      "location": "Vị trí giải phẫu cụ thể",
       "severity": "mild" | "moderate" | "severe",
-      "visual_evidence": "Đặc điểm hình ảnh trực quan nhận thấy (đổi màu, sưng nề đỏ, khuyết hổng men, bóng mờ thấu quang quanh chóp)"
+      "visual_evidence": "Đặc điểm trực quan quan sát được (ví dụ: hố lõm cupping lộ ngà màu vàng cam, viền men gồ cao, mất chất mô răng)"
     }
   ],
-  "preliminary_impression": "Nhận định tổng quan chuyên môn ngắn gọn (2-3 câu)",
+  "preliminary_impression": "Nhận định tổng quan chuyên môn ngắn gọn (2-3 câu nêu rõ vùng răng tổn thương và bệnh lý chính)",
   "clinical_urgency": "low" | "medium" | "high"
 }
 Tuyệt đối không viết thêm lời dẫn hoặc giải thích ngoài khối JSON."""
@@ -57,25 +63,23 @@ class DentalVisionAgent:
 
     def __init__(self, model_name: str = "gemini-2.5-flash"):
         api_key = settings.GOOGLE_API_KEY or os.getenv("GOOGLE_API_KEY")
-        if not api_key:
-            logger.warning("[Vision Agent] Không tìm thấy GOOGLE_API_KEY, kích hoạt chế độ Vision Offline/Fallback.")
-            self.vlm = None
+        self.model_name = model_name
+        self.client = None
+        if api_key:
+            try:
+                from google import genai
+                self.client = genai.Client(api_key=api_key)
+                logger.info(f"[Vision Agent] Đã khởi tạo Google GenAI Client với model: {self.model_name}")
+            except Exception as e:
+                logger.warning(f"[Vision Agent] Lỗi khởi tạo Google GenAI Client ({e}).")
         else:
-            self.vlm = ChatGoogleGenerativeAI(
-                model=model_name,
-                google_api_key=api_key,
-                temperature=0.1
-            )
+            logger.warning("[Vision Agent] Không tìm thấy GOOGLE_API_KEY, kích hoạt chế độ Vision Offline/Fallback.")
 
     def analyze(self, image_path: str, user_query: str = "") -> VisionFindings:
         """Đọc file ảnh và sinh báo cáo phát hiện thị giác có cấu trúc."""
         path = Path(image_path)
         if not path.is_file():
             raise FileNotFoundError(f"Không tìm thấy file hình ảnh: {image_path}")
-
-        # Đọc và encode ảnh base64
-        with open(path, "rb") as f:
-            b64_data = base64.b64encode(f.read()).decode("utf-8")
 
         ext = path.suffix.lower().replace(".", "")
         mime_type = f"image/{ext}" if ext in ["png", "jpeg", "jpg", "webp"] else "image/jpeg"
@@ -85,27 +89,31 @@ class DentalVisionAgent:
             f"Câu hỏi hoặc triệu chứng người bệnh mô tả kèm theo: \"{user_query}\""
         )
 
-        message = HumanMessage(content=[
-            {"type": "text", "text": instruction_text},
-            {"type": "image_url", "image_url": f"data:{mime_type};base64,{b64_data}"}
-        ])
+        logger.info(f"[Vision Agent] Đang phân tích hình ảnh nha khoa: {image_path}")
+        content = ""
 
-        logger.info(f"Đang phân tích hình ảnh nha khoa: {image_path}")
-        if self.vlm is None:
+        if self.client:
+            try:
+                from google.genai import types
+                with open(path, "rb") as f:
+                    img_bytes = f.read()
+
+                part = types.Part.from_bytes(data=img_bytes, mime_type=mime_type)
+                res = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=[part, instruction_text]
+                )
+                content = res.text.strip()
+                logger.info(f"[Vision Agent] Đã nhận phân tích thị giác thành công từ VLM ({len(content)} ký tự).")
+            except Exception as err:
+                logger.warning(f"[Vision Agent] Không thể kết nối VLM Cloud ({err}). Chuyển sang fallback phân tích ảnh...")
+
+        if not content:
+            # Fallback phân tích thị giác khi offline hoàn toàn
             content = (
-                f"Hình ảnh nha khoa [{path.name}] đã được ghi nhận vào hồ sơ người bệnh. "
+                f"Hình ảnh nha khoa [{path.name}] đã được ghi nhận. "
                 "Hệ thống đang hoạt động ở Chế độ Offline cục bộ, các thông tin tổn thương được đối chiếu theo triệu chứng lâm sàng."
             )
-        else:
-            try:
-                response = self.vlm.invoke([message])
-                content = response.content.strip()
-            except Exception as err:
-                logger.warning(f"Không thể kết nối VLM Cloud ({err}). Chuyển sang chế độ phân tích ảnh Offline...")
-                content = (
-                    f"Hình ảnh nha khoa [{path.name}] đã được ghi nhận vào hồ sơ người bệnh. "
-                    "Hệ thống đang hoạt động ở Chế độ Offline cục bộ, các thông tin tổn thương được đối chiếu theo triệu chứng lâm sàng."
-                )
 
         # Làm sạch JSON markdown
         if content.startswith("```json"):

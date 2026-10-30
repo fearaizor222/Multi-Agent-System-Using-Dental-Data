@@ -42,9 +42,10 @@ class ChromaLocalEmbeddings:
 
 
 class ClosedDataRAGAgent:
-    """Agent 2: Tác tử RAG Dữ liệu đóng (Kho nội bộ: Giáo trình Cắn khớp học RHM)."""
+    """Agent 2: Tác tử RAG Dữ liệu đóng (Kho nội bộ: Bác sĩ Chuyên khoa Cắn khớp & TMJ)."""
 
-    def __init__(self, retriever: HybridRetriever = None):
+    def __init__(self, retriever: HybridRetriever = None, llm=None):
+        self.llm = llm
         self.embeddings = ChromaLocalEmbeddings()
         self.retriever = retriever or self._build_internal_retriever()
 

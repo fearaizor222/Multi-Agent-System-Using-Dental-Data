@@ -28,7 +28,8 @@ class PublicSpecialistAssessment(BaseModel):
 class OpenDataRAGAgent:
     """Agent 3: Tác tử RAG Dữ liệu mở (Kho công khai: Hướng dẫn chẩn đoán & điều trị RHM - Bộ Y Tế)."""
 
-    def __init__(self, retriever: HybridRetriever = None):
+    def __init__(self, retriever: HybridRetriever = None, llm=None):
+        self.llm = llm
         self.embeddings = ChromaLocalEmbeddings()
         self.retriever = retriever or self._build_public_retriever()
 

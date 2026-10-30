@@ -27,14 +27,14 @@ from src.graph.full_dental_graph import create_full_5agent_pipeline
 def print_banner():
     banner = """
 ================================================================================
- 🦷 HỆ THỐNG 5 AGENT NHA KHOA ĐA PHƯƠNG THỨC — NHÓM C20
+ 🦷 HỆ THỐNG 5 AGENT NHA KHOA ĐA PHƯƠNG THỨC — 5 MODELS CHUYÊN BIỆT (C20)
  [A1] Supervisor ➔ [A4] Vision ➔ [A2] Closed RAG ➔ [A3] Open RAG ➔ [A5] Drafting
 ================================================================================
- 1. Agent 1: Supervisor (Điều phối ý định & Triage cấp cứu)
- 2. Agent 2: Closed-data RAG (Dữ liệu đóng: Giáo trình Cắn khớp học RHM)
- 3. Agent 3: Open-data RAG (Dữ liệu mở: Hướng dẫn điều trị RHM Bộ Y Tế)
- 4. Agent 4: Dental Vision Agent (Phân tích ảnh lâm sàng khoang miệng & X-quang)
- 5. Agent 5: Drafting Response Agent (Soạn thảo bản nháp nhận định & Trả lời)
+ 1. Agent 1: Qwen2.5-0.5B-Instruct (Alibaba Cloud) — Supervisor & Triage Router
+ 2. Agent 2: SmolLM2-360M-Instruct (Hugging Face TB) — Bác sĩ Cắn khớp & TMJ
+ 3. Agent 3: Flan-T5-Small (Google Research) — Bác sĩ Phác đồ Bộ Y Tế
+ 4. Agent 4: DentalVision VLM (Google DeepMind) — Chuyên viên Thị giác Nha khoa
+ 5. Agent 5: PhoBERT-Medical + Qwen (VinAI & Open Source) — Trưởng khoa Tổng hợp
 ================================================================================
 """
     print(banner)

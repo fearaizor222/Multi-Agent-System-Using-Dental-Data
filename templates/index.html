@@ -212,79 +212,88 @@
         </div>
       </div>
 
-      <!-- INPUT FORM -->
-      <form id="dentalForm" class="glass-panel rounded-2xl p-5 shadow-xl space-y-4" onsubmit="submitQuery(event)">
+      <!-- UNIFIED MODERN CHATBOT INPUT FORM -->
+      <form id="dentalForm" class="space-y-2" onsubmit="submitQuery(event)">
 
-        <div>
-          <label
-            class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span><i class="fa-solid fa-comment-medical text-teal-400 mr-1.5"></i> Câu hỏi / Triệu chứng bệnh
-              nhân</span>
-            <span id="charCount" class="text-[11px] text-slate-400 font-normal">0 ký tự</span>
-          </label>
-          <textarea id="questionInput" rows="4" required
-            placeholder="Ví dụ: Bác sĩ cho tôi hỏi các phương án xử lý một cái răng sâu hiện nay? Có bắt buộc phải trám bít hay có cách tái khoáng nào không?"
-            class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition resize-none"></textarea>
-        </div>
+        <div id="unifiedInputCard"
+          class="rounded-2xl bg-slate-900/90 border border-slate-700/80 focus-within:border-teal-500/80 focus-within:ring-2 focus-within:ring-teal-500/20 p-3 shadow-xl transition-all space-y-2.5">
 
-        <!-- IMAGE UPLOAD / ATTACHMENT -->
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center">
-              <i class="fa-solid fa-image text-cyan-400 mr-1.5"></i> Ảnh lâm sàng / Phim X-quang (Agent 4)
-            </label>
-            <button type="button" onclick="loadSampleImage()"
-              class="text-[11px] text-cyan-400 hover:text-cyan-300 hover:underline">
-              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Dùng ảnh mẫu
+          <!-- IMAGE ATTACHMENT PREVIEW CHIP (Hidden by default, shown when attached) -->
+          <div id="previewContainer"
+            class="hidden items-center justify-between p-2 bg-slate-800/90 rounded-xl border border-slate-700/80 max-w-sm">
+            <div class="flex items-center space-x-2.5 overflow-hidden">
+              <img id="imagePreview" src="" class="w-10 h-10 rounded-lg object-cover border border-slate-600 shrink-0">
+              <div class="text-left overflow-hidden">
+                <div class="flex items-center gap-1.5">
+                  <span
+                    class="text-[9px] bg-cyan-500/20 text-cyan-300 font-semibold px-1.5 py-0.5 rounded border border-cyan-500/30">Ảnh
+                    A4 Vision</span>
+                  <p id="imageFileName" class="text-xs font-medium text-slate-200 truncate max-w-[140px]">image.jpg</p>
+                </div>
+                <p id="imageFileSize" class="text-[10px] text-slate-400 mt-0.5">120 KB</p>
+              </div>
+            </div>
+            <button type="button" onclick="clearImage(event)" title="Gỡ ảnh đính kèm"
+              class="text-slate-400 hover:text-rose-400 p-1.5 rounded-lg hover:bg-slate-700 transition">
+              <i class="fa-solid fa-xmark text-xs"></i>
             </button>
           </div>
 
-          <div id="dropZone"
-            class="border-2 border-dashed border-slate-700 hover:border-teal-500/60 rounded-xl p-4 text-center cursor-pointer transition bg-slate-900/40 relative">
-            <input type="file" id="imageInput" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
-            <div id="dropZonePrompt" class="space-y-1">
-              <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400"></i>
-              <p class="text-xs text-slate-300 font-medium">Kéo thả ảnh hoặc click để tải lên</p>
-              <p class="text-[10px] text-slate-500">Hỗ trợ PNG, JPG, JPEG (X-quang OPG, Cận chóp, Ảnh trong miệng)</p>
-            </div>
-            <!-- Preview Container -->
-            <div id="previewContainer" class="hidden items-center justify-between p-2 bg-slate-800 rounded-lg">
-              <div class="flex items-center space-x-3 overflow-hidden">
-                <img id="imagePreview" src="" class="w-12 h-12 rounded object-cover border border-slate-700">
-                <div class="text-left">
-                  <p id="imageFileName" class="text-xs font-medium text-slate-200 truncate max-w-[180px]">image.jpg</p>
-                  <p id="imageFileSize" class="text-[10px] text-slate-400">120 KB</p>
-                </div>
-              </div>
-              <button type="button" onclick="clearImage(event)"
-                class="text-slate-400 hover:text-rose-400 p-1.5 rounded-lg hover:bg-slate-700 transition">
-                <i class="fa-solid fa-xmark text-sm"></i>
+          <!-- UNIFIED TEXTAREA -->
+          <textarea id="questionInput" rows="3" required
+            placeholder="Mô tả triệu chứng răng miệng, đính kèm ảnh X-quang hoặc đặt câu hỏi nha khoa... (Enter để gửi, Shift+Enter xuống dòng)"
+            class="w-full bg-transparent border-0 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-0 resize-none py-1 px-1.5 leading-relaxed"></textarea>
+
+          <input type="file" id="imageInput" accept="image/*" class="hidden">
+          <input type="hidden" id="sampleImagePath" value="">
+
+          <!-- BOTTOM TOOLBAR (Inside the same unified box) -->
+          <div class="flex items-center justify-between pt-2 border-t border-slate-800/60">
+
+            <!-- Left Side: Attachment & Sample buttons -->
+            <div class="flex items-center space-x-1">
+              <button type="button" onclick="document.getElementById('imageInput').click()"
+                title="Đính kèm ảnh X-quang hoặc ảnh trong miệng"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-slate-400 hover:text-cyan-400 hover:bg-slate-800/80 transition text-xs font-medium border border-transparent hover:border-slate-700/80 group">
+                <i class="fa-solid fa-paperclip text-sm group-hover:scale-110 transition-transform"></i>
+                <span class="hidden sm:inline">Đính kèm ảnh</span>
+              </button>
+
+              <button type="button" onclick="loadSampleImage()" title="Nạp nhanh ảnh tụt nướu lâm sàng mẫu"
+                class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-slate-400 hover:text-teal-400 hover:bg-slate-800/80 transition text-xs font-medium border border-transparent hover:border-slate-700/80 group">
+                <i class="fa-solid fa-wand-magic-sparkles text-xs group-hover:scale-110 transition-transform"></i>
+                <span class="hidden sm:inline">Ảnh mẫu</span>
               </button>
             </div>
+
+            <!-- Right Side: Char count & Send button -->
+            <div class="flex items-center space-x-3">
+              <span id="charCount" class="text-[11px] text-slate-500 font-mono hidden sm:inline">0 ký tự</span>
+
+              <button type="submit" id="submitBtn" title="Điều phối qua 5 Agents và tổng hợp tư vấn"
+                class="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-600 hover:from-teal-400 hover:to-cyan-500 text-white font-medium text-xs shadow-lg shadow-teal-500/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                <span>Tư vấn</span>
+                <i class="fa-solid fa-arrow-up text-xs font-bold"></i>
+              </button>
+            </div>
+
           </div>
-          <input type="hidden" id="sampleImagePath" value="">
+
         </div>
-
-        <!-- ACTION BUTTON -->
-        <button type="submit" id="submitBtn"
-          class="w-full py-3.5 px-4 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white shadow-lg shadow-teal-500/25 transition duration-200 flex items-center justify-center space-x-2">
-          <i class="fa-solid fa-stethoscope"></i>
-          <span>Điều Phối 5 Agent & Soạn Thảo Tư Vấn</span>
-        </button>
-
       </form>
 
       <!-- SYSTEM SPECS CARD -->
       <div class="glass-card rounded-2xl p-4 text-xs space-y-2 border border-slate-800 text-slate-400">
         <div class="flex items-center justify-between text-slate-300 font-medium pb-2 border-b border-slate-800">
-          <span><i class="fa-solid fa-server text-teal-400 mr-1.5"></i> Cấu hình hệ thống C20</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-teal-300">v2.1 Offline Ready</span>
+          <span><i class="fa-solid fa-server text-teal-400 mr-1.5"></i> Hệ Sinh Thái 5 Model Chuyên Biệt</span>
+          <span class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-teal-300">5 Models Độc Lập</span>
         </div>
         <div class="grid grid-cols-2 gap-2 text-[11px]">
-          <div>• LLM: <span class="text-slate-200">Qwen2.5-0.5B (Greedy)</span></div>
-          <div>• Kho đóng: <span class="text-slate-200">262 Chunks Cắn khớp</span></div>
-          <div>• Kho mở: <span class="text-slate-200">221 Phác đồ Bộ Y Tế</span></div>
-          <div>• Retriever: <span class="text-slate-200">Hybrid RRF (BM25+Dense)</span></div>
+          <div>• A1: <span class="text-indigo-300 font-mono">Qwen2.5-0.5B</span> (Alibaba)</div>
+          <div>• A2: <span class="text-emerald-300 font-mono">SmolLM2-360M</span> (HF)</div>
+          <div>• A3: <span class="text-sky-300 font-mono">Flan-T5-small</span> (Google)</div>
+          <div>• A4: <span class="text-cyan-300 font-mono">DentalVision VLM</span> (DeepMind)</div>
+          <div class="col-span-2 pt-1 border-t border-slate-800">• A5: <span class="text-teal-300 font-mono">VinAI PhoBERT + Qwen2.5</span> (Tổng hợp tư vấn)</div>
         </div>
       </div>
 
@@ -314,7 +323,7 @@
               <i class="fa-solid fa-user-doctor"></i>
             </div>
             <div class="font-semibold text-slate-300 text-[11px]">Agent 1</div>
-            <div class="text-[10px] text-slate-500">Supervisor</div>
+            <div class="text-[9px] text-indigo-400 font-mono">Qwen2.5-0.5B</div>
             <div id="time_a1" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
           </div>
 
@@ -325,7 +334,7 @@
               <i class="fa-solid fa-eye"></i>
             </div>
             <div class="font-semibold text-slate-300 text-[11px]">Agent 4</div>
-            <div class="text-[10px] text-slate-500">Vision VLM</div>
+            <div class="text-[9px] text-cyan-400 font-mono">Dental VLM</div>
             <div id="time_a4" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
           </div>
 
@@ -336,7 +345,7 @@
               <i class="fa-solid fa-book-medical"></i>
             </div>
             <div class="font-semibold text-slate-300 text-[11px]">Agent 2</div>
-            <div class="text-[10px] text-slate-500">Closed RAG</div>
+            <div class="text-[9px] text-emerald-400 font-mono">SmolLM2-360M</div>
             <div id="time_a2" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
           </div>
 
@@ -347,7 +356,7 @@
               <i class="fa-solid fa-globe"></i>
             </div>
             <div class="font-semibold text-slate-300 text-[11px]">Agent 3</div>
-            <div class="text-[10px] text-slate-500">Open RAG</div>
+            <div class="text-[9px] text-sky-400 font-mono">Flan-T5-small</div>
             <div id="time_a3" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
           </div>
 
@@ -358,7 +367,7 @@
               <i class="fa-solid fa-file-signature"></i>
             </div>
             <div class="font-semibold text-slate-300 text-[11px]">Agent 5</div>
-            <div class="text-[10px] text-slate-500">Drafting</div>
+            <div class="text-[9px] text-teal-400 font-mono">PhoBERT+Qwen</div>
             <div id="time_a5" class="text-[10px] font-mono text-slate-400 mt-1">Chờ...</div>
           </div>
 
@@ -537,17 +546,72 @@
     const imageInput = document.getElementById('imageInput');
     const imagePreview = document.getElementById('imagePreview');
     const previewContainer = document.getElementById('previewContainer');
-    const dropZonePrompt = document.getElementById('dropZonePrompt');
     const imageFileName = document.getElementById('imageFileName');
     const imageFileSize = document.getElementById('imageFileSize');
     const sampleImagePath = document.getElementById('sampleImagePath');
     const modeToggle = document.getElementById('modeToggle');
     const modeLabel = document.getElementById('modeLabel');
+    const unifiedInputCard = document.getElementById('unifiedInputCard');
 
-    // Update character count
+    // Auto-expanding textarea & Character count
     questionInput.addEventListener('input', () => {
+      questionInput.style.height = 'auto';
+      questionInput.style.height = Math.min(questionInput.scrollHeight, 180) + 'px';
       charCount.innerText = `${questionInput.value.length} ký tự`;
     });
+
+    // Enter key to submit (Shift+Enter for newline)
+    questionInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        if (questionInput.value.trim() && !document.getElementById('submitBtn').disabled) {
+          document.getElementById('dentalForm').requestSubmit();
+        }
+      }
+    });
+
+    // Paste image from clipboard (Ctrl + V)
+    questionInput.addEventListener('paste', (e) => {
+      const items = (e.clipboardData || window.clipboardData)?.items;
+      if (!items) return;
+      for (let item of items) {
+        if (item.kind === 'file' && item.type.startsWith('image/')) {
+          const file = item.getAsFile();
+          if (file) {
+            showPreview(file);
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            imageInput.files = dataTransfer.files;
+            sampleImagePath.value = "";
+            break;
+          }
+        }
+      }
+    });
+
+    // Drag and drop image onto unified input card
+    if (unifiedInputCard) {
+      ['dragenter', 'dragover'].forEach(eventName => {
+        unifiedInputCard.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          unifiedInputCard.classList.add('border-teal-400', 'ring-2', 'ring-teal-500/30');
+        });
+      });
+      ['dragleave', 'drop'].forEach(eventName => {
+        unifiedInputCard.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          unifiedInputCard.classList.remove('border-teal-400', 'ring-2', 'ring-teal-500/30');
+        });
+      });
+      unifiedInputCard.addEventListener('drop', (e) => {
+        const files = e.dataTransfer?.files;
+        if (files && files.length > 0 && files[0].type.startsWith('image/')) {
+          showPreview(files[0]);
+          imageInput.files = files;
+          sampleImagePath.value = "";
+        }
+      });
+    }
 
     // Toggle Mode
     modeToggle.addEventListener('change', () => {
@@ -577,7 +641,6 @@
         imageFileSize.innerText = `${(file.size / 1024).toFixed(1)} KB`;
         previewContainer.classList.remove('hidden');
         previewContainer.classList.add('flex');
-        dropZonePrompt.classList.add('hidden');
       };
       reader.readAsDataURL(file);
     }
@@ -588,23 +651,21 @@
       sampleImagePath.value = "";
       previewContainer.classList.add('hidden');
       previewContainer.classList.remove('flex');
-      dropZonePrompt.classList.remove('hidden');
     }
 
     function loadSampleImage() {
-      // Set sample clinical photo
       sampleImagePath.value = "data/images/msdmanual/PUB-MSD-v1146243_vi_gingival_recession_orig_vi.jpg";
       imagePreview.src = "/api/sample_image";
       imageFileName.innerText = "Tụt_nướu_lâm_sàng_MSD.jpg";
       imageFileSize.innerText = "24.5 KB (Ảnh mẫu)";
       previewContainer.classList.remove('hidden');
       previewContainer.classList.add('flex');
-      dropZonePrompt.classList.add('hidden');
 
       if (!questionInput.value.trim()) {
         questionInput.value = "Hình ảnh vùng nướu răng cửa bị tụt lộ chân răng, tôi có cần phẫu thuật ghép nướu không?";
         charCount.innerText = `${questionInput.value.length} ký tự`;
       }
+      questionInput.focus();
     }
 
     // Apply Presets
