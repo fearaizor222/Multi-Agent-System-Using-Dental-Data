@@ -1,16 +1,20 @@
 """Agent 3: Open-data RAG Agent — Chuyên trách truy xuất dữ liệu Mở / Công khai (Bộ Y Tế, MSD Manual)."""
 import json
 from pathlib import Path
-from typing import List
+from typing import List, Optional
+
+from pydantic import BaseModel, Field
 
 from src.agents.contracts import Evidence, evidence_bundle
 from src.core.logger import get_logger
 from src.rag.base import DentalDocument
+from src.rag.embedding_store import load_corpus
 from src.rag.hybrid_retriever import HybridRetriever
-from src.rag.vector_store import DenseVectorRetriever
-from src.agents.internal_rag_agent import ChromaLocalEmbeddings
-
-from pydantic import BaseModel, Field
+from src.rag.qdrant_store import (
+    COLLECTION_PUBLIC,
+    QdrantDentalStore,
+    QdrantDenseRetriever,
+)
 
 logger = get_logger("agents.public_rag")
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -28,30 +32,38 @@ class PublicSpecialistAssessment(BaseModel):
 class OpenDataRAGAgent:
     """Agent 3: Tác tử RAG Dữ liệu mở (Kho công khai: Hướng dẫn chẩn đoán & điều trị RHM - Bộ Y Tế)."""
 
-    def __init__(self, retriever: HybridRetriever = None, llm=None):
+    def __init__(
+        self,
+        retriever: Optional[HybridRetriever] = None,
+        llm=None,
+        store: Optional[QdrantDentalStore] = None,
+    ):
         self.llm = llm
-        self.embeddings = ChromaLocalEmbeddings()
+        self.store = store or QdrantDentalStore()
         self.retriever = retriever or self._build_public_retriever()
 
     def _build_public_retriever(self) -> HybridRetriever:
-        file_path = ROOT_DIR / "data/processed/byt_diseases_sections.json"
-        if not file_path.exists():
-            raise FileNotFoundError(f"Không tìm thấy kho tài liệu công khai: {file_path}")
-
-        logger.info(f"[Agent 3] Nạp kho dữ liệu mở (Công khai): {file_path.name}")
-        with open(file_path, "r", encoding="utf-8") as f:
-            raw_docs = json.load(f)
-
+        """Khởi tạo HybridRetriever kết hợp Qdrant Vector Database và BM25 cho kho công khai."""
         documents = []
-        for item in raw_docs:
-            doc = DentalDocument.model_validate(item)
-            doc.metadata["warehouse"] = "public"
-            if "parent_id" not in doc.metadata and "document_id" not in doc.metadata:
-                doc.metadata["parent_id"] = doc.id
-            documents.append(doc)
+        try:
+            docs, _ = load_corpus("public")
+            # Ưu tiên các tài liệu Bộ Y Tế (byt) và MSD Manual (msd) phục vụ tư vấn lâm sàng
+            clinical_docs = [d for d in docs if d.metadata.get("source") in ("byt", "msd")]
+            documents = clinical_docs if clinical_docs else docs
+            logger.info(f"[Agent 3] Nạp thành công {len(documents)} chunks công khai chuẩn hóa từ public_v1.")
+        except Exception as e:
+            logger.warning(f"[Agent 3] Không thể nạp public_v1 ({e}); fallback sang JSON đơn giản.")
+            file_path = ROOT_DIR / "data/processed/byt_diseases_sections.json"
+            if file_path.exists():
+                with open(file_path, "r", encoding="utf-8") as f:
+                    raw_docs = json.load(f)
+                for item in raw_docs:
+                    doc = DentalDocument.model_validate(item)
+                    doc.metadata["warehouse"] = "public"
+                    documents.append(doc)
 
-        logger.info(f"[Agent 3] Đã sẵn sàng {len(documents)} tài liệu công khai.")
-        dense = DenseVectorRetriever(documents=documents, embeddings=self.embeddings)
+        logger.info(f"[Agent 3] Sẵn sàng {len(documents)} tài liệu công khai với Qdrant ({COLLECTION_PUBLIC}).")
+        dense = QdrantDenseRetriever(collection_name=COLLECTION_PUBLIC, store=self.store)
         return HybridRetriever(documents=documents, dense_retriever=dense)
 
     def retrieve(self, query: str, top_k: int = 3) -> List[Evidence]:
@@ -71,6 +83,11 @@ class OpenDataRAGAgent:
                 evidence=[],
                 specialist_opinion="Chưa tìm thấy hướng dẫn điều trị đặc thù của Bộ Y Tế khớp chính xác với triệu chứng này."
             )
+
+        for h in hits:
+            h.metadata["warehouse"] = "public"
+            if not h.metadata.get("document_id") and not h.metadata.get("parent_id"):
+                h.metadata["document_id"] = h.id
 
         evidence = evidence_bundle(hits, prefix="P", warehouse="public")
 
@@ -98,16 +115,21 @@ class OpenDataRAGAgent:
                 "để đánh giá tương quan lồi cầu và diện khớp. Ưu tiên tuyệt đối phác đồ điều trị nội khoa bảo tồn (thuốc giảm đau kháng viêm, "
                 "vật lý trị liệu cơ hàm, giải tỏa stress) phối hợp máng nhai chuyên khoa."
             )
-        else:
-            primary_title = evidence[0].title if evidence else "Hướng dẫn RHM"
+        elif any(term in q_lower for term in ["răng khôn", "mọc lệch", "tai biến răng khôn"]):
             opinion = (
-                f"Hội chẩn theo Hướng dẫn Bộ Y Tế (Căn cứ văn bản: {primary_title}): "
-                "Cần tuân thủ nghiêm ngặt nguyên tắc vô khuẩn và bảo tồn tối đa mô lành; "
-                "thăm khám lâm sàng kết hợp cận lâm sàng trước khi quyết định can thiệp thủ thuật."
+                "Hội chẩn theo Hướng dẫn Bộ Y Tế: Phác đồ xử lý răng khôn mọc lệch/ngầm (Quyết định 3108/QĐ-BYT): "
+                "Đánh giá mức độ lệch lạc và tương quan với ống thần kinh răng dưới qua phim Panorama/CBCT. "
+                "Chỉ định nhổ phẫu thuật dự phòng tai biến viêm quanh thân răng, tiêu ngót chân răng số 7 kế cận hoặc nang thân răng."
+            )
+        else:
+            titles = ", ".join([e.title for e in evidence[:2]])
+            opinion = (
+                f"Hội chẩn theo Phác đồ Bộ Y Tế: Căn cứ hướng dẫn lâm sàng ({titles}), "
+                "khuyến nghị tuân thủ quy trình kiểm soát nhiễm khuẩn, chẩn đoán xác định qua thăm khám trực tiếp và chẩn đoán hình ảnh bổ trợ."
             )
 
         return PublicSpecialistAssessment(
-            query_perspective="Đối chiếu Hướng dẫn Chẩn đoán & Điều trị Răng Hàm Mặt — Quyết định Bộ Y Tế",
+            query_perspective="Đối chiếu Hướng dẫn Chẩn đoán và Điều trị chuyên ngành Răng Hàm Mặt — Bộ Y Tế",
             is_applicable=True,
             evidence=evidence,
             specialist_opinion=opinion

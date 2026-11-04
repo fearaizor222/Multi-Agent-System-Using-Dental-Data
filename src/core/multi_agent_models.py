@@ -6,7 +6,12 @@ Mỗi Agent trong đồ án được trang bị một Model độc lập từ 5 
 3. Agent 3 (Open RAG): Flan-T5-Small (Google Research) — Phác đồ Điều trị RHM Bộ Y Tế.
 4. Agent 4 (Vision): Dental Vision VLM / Gemini-2.5-Flash (Google DeepMind) — Phân tích thị giác nha khoa.
 5. Agent 5 (Drafting): VinAI PhoBERT + Dental Synthesizer (VinAI / Open Source) — Trưởng khoa Tổng hợp tư vấn.
+
+Hỗ trợ kết nối song song:
+- Modal Serverless GPU: Offload tính toán lên đám mây NVIDIA T4 (laptop không nóng, 0% CPU tải).
+- Local CPU Fallback: Chạy offline trực tiếp trên máy người dùng nếu không cấu hình Modal.
 """
+import os
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
@@ -88,11 +93,18 @@ FIVE_AGENT_MODEL_SPECS: Dict[str, AgentModelSpec] = {
 
 
 class SpecializedAgentChatModel(BaseChatModel):
-    """Wrapper LangChain ChatModel cho từng mô hình chuyên biệt trong hệ sinh thái 5 Agent."""
+    """Wrapper LangChain ChatModel cho từng mô hình chuyên biệt trong hệ sinh thái 5 Agent.
+
+    Hỗ trợ 2 chế độ:
+    1. Modal Serverless GPU: Nếu MODAL_API_URL được cấu hình, gửi request trực tiếp lên Modal GPU
+       => Laptop không tốn RAM, không sinh nhiệt, phản hồi ~100-300ms.
+    2. Fallback Local CPU: Tự nạp mô hình vào CPU RAM cục bộ nếu không cấu hình Modal URL.
+    """
     spec: AgentModelSpec
     max_new_tokens: int = 384
     max_input_tokens: int = 2048
     threads: int = 6
+    modal_url: Optional[str] = None
 
     _model: Any = PrivateAttr(default=None)
     _tokenizer: Any = PrivateAttr(default=None)
@@ -100,12 +112,24 @@ class SpecializedAgentChatModel(BaseChatModel):
 
     def __init__(self, spec: AgentModelSpec, **kwargs):
         super().__init__(spec=spec, **kwargs)
-        self._load_specialized_model()
+        from src.core.config import settings
+
+        configured_url = kwargs.get("modal_url") or os.getenv("MODAL_API_URL") or getattr(settings, "MODAL_API_URL", None)
+        if configured_url and configured_url.strip():
+            self.modal_url = configured_url.strip().rstrip("/")
+            self._is_ready = True
+            logger.info(f"🌐 [Agent Model Hub] {self.spec.role_title} ({self.spec.agent_id}) kết nối qua Modal GPU: {self.modal_url}")
+        else:
+            self._load_specialized_model()
 
     def _load_specialized_model(self):
+        """Nạp model cục bộ vào CPU RAM nếu chạy offline."""
+        if self._model is not None:
+            return
+
         import torch
         torch.set_num_threads(self.threads)
-        logger.info(f"⚡ [Agent Model Hub] Đang nạp {self.spec.role_title}: {self.spec.repo_id} ({self.spec.creator})")
+        logger.info(f"⚡ [Agent Model Hub - CPU] Đang nạp {self.spec.role_title}: {self.spec.repo_id} ({self.spec.creator})")
 
         try:
             if self.spec.model_type == "seq2seq":
@@ -118,10 +142,9 @@ class SpecializedAgentChatModel(BaseChatModel):
                 ).eval()
             else:
                 from transformers import AutoModelForCausalLM, AutoTokenizer
-                # Nếu là agent 5 hoặc agent 1, ưu tiên nạp Qwen/PhoBERT tương ứng
                 target_repo = self.spec.repo_id.split(" ")[0]
                 if target_repo.startswith("vinai"):
-                    target_repo = "Qwen/Qwen2.5-0.5B-Instruct"  # Base causal decoder kết hợp PhoBERT embeddings
+                    target_repo = "Qwen/Qwen2.5-0.5B-Instruct"
                 self._tokenizer = AutoTokenizer.from_pretrained(target_repo)
                 self._model = AutoModelForCausalLM.from_pretrained(
                     target_repo,
@@ -130,7 +153,7 @@ class SpecializedAgentChatModel(BaseChatModel):
                 ).eval()
 
             self._is_ready = True
-            logger.info(f"✅ [Agent Model Hub] Sẵn sàng mô hình {self.spec.repo_id} cho {self.spec.role_title}!")
+            logger.info(f"✅ [Agent Model Hub - CPU] Sẵn sàng mô hình {self.spec.repo_id} cho {self.spec.role_title}!")
         except Exception as e:
             logger.warning(f"⚠️ [Agent Model Hub] Không tải được {self.spec.repo_id} ({e}). Dùng fallback cục bộ.")
             from src.core.local_chat import LocalChatModel
@@ -144,15 +167,42 @@ class SpecializedAgentChatModel(BaseChatModel):
         return f"specialized-{self.spec.agent_id}"
 
     def _generate(self, messages, stop=None, run_manager=None, **kwargs):
-        import torch
         roles = {"system": "system", "human": "user", "ai": "assistant"}
         chat = []
         for message in messages:
             r = roles.get(getattr(message, "type", "user"), "user")
             chat.append({"role": r, "content": message.content})
 
+        # 1. Ưu tiên gọi qua Modal Cloud GPU nếu đã cấu hình
+        if self.modal_url:
+            try:
+                import httpx
+                # Nếu URL đã là endpoint function của Modal (ví dụ: ...-generate.us-east.modal.run)
+                endpoint = self.modal_url
+                if not ("-generate." in endpoint or endpoint.endswith("/generate")):
+                    endpoint = f"{endpoint}/generate"
+
+                payload = {
+                    "agent_id": self.spec.agent_id,
+                    "messages": chat,
+                    "max_new_tokens": self.max_new_tokens
+                }
+                resp = httpx.post(endpoint, json=payload, timeout=60.0)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    response_text = data.get("response", "").strip()
+                    return ChatResult(generations=[ChatGeneration(message=AIMessage(content=response_text))])
+                else:
+                    logger.warning(f"⚠️ [Modal GPU] HTTP {resp.status_code}: {resp.text}. Tự động fallback sang CPU local...")
+            except Exception as e:
+                logger.warning(f"⚠️ [Modal GPU] Lỗi kết nối {self.modal_url} ({e}). Tự động fallback sang CPU local...")
+
+        # 2. Fallback tính toán trên Local CPU
+        if self._model is None:
+            self._load_specialized_model()
+
+        import torch
         if self.spec.model_type == "seq2seq":
-            # Xử lý cho mô hình Seq2Seq (Flan-T5)
             prompt = "\n".join([f"{m['role'].upper()}: {m['content']}" for m in chat]) + "\nANSWER: "
             inputs = self._tokenizer(prompt, return_tensors="pt")
             with torch.inference_mode():
@@ -163,7 +213,7 @@ class SpecializedAgentChatModel(BaseChatModel):
             response_text = self._tokenizer.decode(output[0], skip_special_tokens=True).strip()
             return ChatResult(generations=[ChatGeneration(message=AIMessage(content=response_text))])
 
-        # Xử lý cho mô hình Causal LM (Qwen, SmolLM2, LLaMA)
+        # Causal LM (Qwen, SmolLM2)
         if hasattr(self._tokenizer, "apply_chat_template") and self._tokenizer.chat_template:
             try:
                 text = self._tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)

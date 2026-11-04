@@ -42,7 +42,14 @@ class Settings(BaseSettings):
     RRF_K: int = 60
     DENSE_WEIGHT: float = 0.6
     SPARSE_WEIGHT: float = 0.4
-    CHROMA_PERSIST_DIRECTORY: str = "./data/vectorstore"
+    QDRANT_STORAGE_PATH: str = "./data/qdrant_db"
+    QDRANT_URL: str = "http://localhost:6333"
+
+    # Modal Serverless GPU Configuration
+    MODAL_API_URL: Optional[str] = Field(
+        default=None,
+        description="URL endpoint của Modal GPU Server (ví dụ: https://<user>--dental-multi-agent-dentalagentserver-generate.modal.run)"
+    )
 
 
 # Global singleton settings instance

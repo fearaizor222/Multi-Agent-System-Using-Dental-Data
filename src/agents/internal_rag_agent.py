@@ -1,15 +1,20 @@
 """Agent 2: Closed-data RAG Agent — Chuyên trách truy xuất dữ liệu Đóng / Nội bộ (Giáo trình RHM)."""
 import json
 from pathlib import Path
-from typing import List
+from typing import List, Optional
+
+from pydantic import BaseModel, Field
 
 from src.agents.contracts import Evidence, evidence_bundle
 from src.core.logger import get_logger
 from src.rag.base import DentalDocument
+from src.rag.embedding_store import load_corpus
 from src.rag.hybrid_retriever import HybridRetriever
-from src.rag.vector_store import DenseVectorRetriever
-
-from pydantic import BaseModel, Field
+from src.rag.qdrant_store import (
+    COLLECTION_INTERNAL,
+    QdrantDentalStore,
+    QdrantDenseRetriever,
+)
 
 logger = get_logger("agents.internal_rag")
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -24,50 +29,43 @@ class InternalSpecialistAssessment(BaseModel):
     specialist_opinion: str = Field(description="Ý kiến hội chẩn chuyên môn của Bác sĩ Cắn khớp")
 
 
-class ChromaLocalEmbeddings:
-    """Embedding local ONNX qua ChromaDB, chạy trực tiếp trên CPU."""
-    def __init__(self):
-        import chromadb.utils.embedding_functions as ef
-        self.fn = ef.DefaultEmbeddingFunction()
-
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        results = []
-        batch_size = 64
-        for i in range(0, len(texts), batch_size):
-            results.extend(self.fn(texts[i:i + batch_size]))
-        return results
-
-    def embed_query(self, text: str) -> List[float]:
-        return self.fn([text])[0]
-
-
 class ClosedDataRAGAgent:
     """Agent 2: Tác tử RAG Dữ liệu đóng (Kho nội bộ: Bác sĩ Chuyên khoa Cắn khớp & TMJ)."""
 
-    def __init__(self, retriever: HybridRetriever = None, llm=None):
+    def __init__(
+        self,
+        retriever: Optional[HybridRetriever] = None,
+        llm=None,
+        store: Optional[QdrantDentalStore] = None,
+    ):
         self.llm = llm
-        self.embeddings = ChromaLocalEmbeddings()
+        self.store = store or QdrantDentalStore()
         self.retriever = retriever or self._build_internal_retriever()
 
     def _build_internal_retriever(self) -> HybridRetriever:
-        file_path = ROOT_DIR / "data/processed/khop_can_hoc_sections.json"
-        if not file_path.exists():
-            raise FileNotFoundError(f"Không tìm thấy kho tài liệu nội bộ: {file_path}")
-
-        logger.info(f"[Agent 2] Nạp kho dữ liệu đóng (Nội bộ): {file_path.name}")
-        with open(file_path, "r", encoding="utf-8") as f:
-            raw_docs = json.load(f)
-
+        """Khởi tạo HybridRetriever kết hợp Qdrant Vector Database và BM25 cho kho nội bộ."""
         documents = []
-        for item in raw_docs:
-            doc = DentalDocument.model_validate(item)
-            doc.metadata["warehouse"] = "internal"
-            if "parent_id" not in doc.metadata and "document_id" not in doc.metadata:
-                doc.metadata["parent_id"] = doc.id
-            documents.append(doc)
+        try:
+            docs, _ = load_corpus("internal")
+            documents = docs
+            for d in documents:
+                d.metadata["warehouse"] = "internal"
+                if "document_id" not in d.metadata and "parent_id" not in d.metadata:
+                    d.metadata["document_id"] = d.id
+            logger.info(f"[Agent 2] Nạp thành công {len(documents)} chunks chuẩn hóa từ internal_v1.")
+        except Exception as e:
+            logger.warning(f"[Agent 2] Không thể nạp internal_v1 ({e}); fallback sang file JSON đơn giản.")
+            file_path = ROOT_DIR / "data/processed/khop_can_hoc_sections.json"
+            if file_path.exists():
+                with open(file_path, "r", encoding="utf-8") as f:
+                    raw_docs = json.load(f)
+                for item in raw_docs:
+                    doc = DentalDocument.model_validate(item)
+                    doc.metadata["warehouse"] = "internal"
+                    documents.append(doc)
 
-        logger.info(f"[Agent 2] Đã sẵn sàng {len(documents)} tài liệu nội bộ.")
-        dense = DenseVectorRetriever(documents=documents, embeddings=self.embeddings)
+        logger.info(f"[Agent 2] Sẵn sàng {len(documents)} tài liệu nội bộ với Qdrant ({COLLECTION_INTERNAL}).")
+        dense = QdrantDenseRetriever(collection_name=COLLECTION_INTERNAL, store=self.store)
         return HybridRetriever(documents=documents, dense_retriever=dense)
 
     def retrieve(self, query: str, top_k: int = 3) -> List[Evidence]:
@@ -114,6 +112,11 @@ class ClosedDataRAGAgent:
                 evidence=[],
                 specialist_opinion="Giáo trình Cắn khớp học không tìm thấy tài liệu phù hợp cho trường hợp này."
             )
+
+        for h in filtered:
+            h.metadata["warehouse"] = "internal"
+            if not h.metadata.get("document_id") and not h.metadata.get("parent_id"):
+                h.metadata["document_id"] = h.id
 
         evidence = evidence_bundle(filtered, prefix="I", warehouse="internal")
 
