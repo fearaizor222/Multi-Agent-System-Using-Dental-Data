@@ -28,7 +28,9 @@ hybrid_rag:
     k1: 1.5
     b: 0.75
   vectorstore:
-    type: "chromadb"
-    collection_name: "dental_knowledge_base"
-    persist_directory: "./data/vectorstore"
-    embedding_model: "models/gemini-embedding-001"
+    type: "qdrant"
+    collection_internal: "dental_internal"
+    collection_public: "dental_public"
+    storage_path: "./data/qdrant_db"
+    url: "http://localhost:6333"
+    embedding_model: "intfloat/multilingual-e5-small"

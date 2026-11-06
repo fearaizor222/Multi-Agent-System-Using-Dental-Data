@@ -61,8 +61,8 @@ DoAnTotNghiep/
 ├── data/
 │   ├── raw/
 │   │   └── dental_knowledge_sample.json # Dữ liệu tri thức nha khoa mẫu
-│   ├── processed/                # Dữ liệu sau khi làm sạch / chunking
-│   └── vectorstore/              # Thư mục lưu trữ ChromaDB index
+│   ├── processed/                # Dữ liệu sau khi làm sạch / chunking (internal_v1, public_v1)
+│   └── qdrant_db/                # Thư mục lưu trữ Qdrant Vector Database (hoặc qua Docker)
 ├── src/
 │   ├── core/
 │   │   ├── config.py             # Pydantic Settings đọc cấu hình từ .env
@@ -146,5 +146,5 @@ pytest -v tests/
    - `Dental Imaging Agent`: Tích hợp mô hình thị giác máy tính (Vision) phân tích phim X-quang Panorama / ConeBeam CT.
 2. **Nâng cấp Hybrid RAG**:
    - Tích hợp **Cross-Encoder Re-ranker** (như `bge-reranker-large` hoặc Cohere Rerank) sau bước RRF.
-   - Kết nối cơ sở dữ liệu Vector Database lưu trữ phân tán (ChromaDB / Qdrant / Milvus).
+   - Kết nối cơ sở dữ liệu Vector Database lưu trữ phân tán (Qdrant Vector Database trên Docker / Local Storage).
    - Tích hợp Graph RAG (Knowledge Graph) biểu diễn mối quan hệ giữa Răng - Bệnh lý - Vi khuẩn - Thuốc.

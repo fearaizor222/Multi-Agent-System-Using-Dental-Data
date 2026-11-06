@@ -23,3 +23,15 @@ data/vectorstore/
 data/models/
 outputs/
 data/images/
+data/qdrant_db/
+data/external_datasets/
+models/
+data/reports/
+WorkFlow.docx
+workflow_flowchart.mmd
+workflow_sequence.mmd
+scripts/benchmark_*.py
+scripts/eval_modal_real_models.py
+scripts/modal_eval_vision_vlm.py
+scripts/modal_run_single_model.py
+scripts/export_*_matrix_image.py
