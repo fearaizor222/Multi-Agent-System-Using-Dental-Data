@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-OUTPUT_FILE = ROOT_DIR / "data/training/dental_vision_sft.json"
+OUTPUT_FILE = ROOT_DIR / "data/training/dental_vision_sft.jsonl"
 
 PROMPT_VARIATIONS = [
     # Biến thể 1: Yêu cầu chuẩn schema VisionFindings
@@ -431,7 +431,8 @@ def generate_complete_sft_dataset():
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(all_samples, f, ensure_ascii=False, indent=2)
+        for sample in all_samples:
+            f.write(json.dumps(sample, ensure_ascii=False) + "\n")
 
     print("\n" + "=" * 65)
     print(f"🎉 TỔNG KẾT: ĐÃ TẠO THÀNH CÔNG {len(all_samples)} MẪU SFT ĐA PHƯƠNG THỨC!")

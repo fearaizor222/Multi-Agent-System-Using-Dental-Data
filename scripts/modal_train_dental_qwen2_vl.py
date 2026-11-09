@@ -317,13 +317,22 @@ def main(
         from PIL import Image
         import io
 
-        sft_file = Path("data/training/dental_vision_sft.json")
+        sft_file = Path("data/training/dental_vision_sft.jsonl")
+        if not sft_file.exists():
+            sft_file = Path("data/training/dental_vision_sft.json")
         if not sft_file.exists():
             print(f"❌ Không tìm thấy file dữ liệu: {sft_file}. Hãy chạy prepare_vision_sft_dataset.py trước!")
             return
 
-        with open(sft_file, "r", encoding="utf-8") as f:
-            sft_data = json.load(f)
+        sft_data = []
+        if str(sft_file).endswith(".jsonl"):
+            with open(sft_file, "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.strip():
+                        sft_data.append(json.loads(line.strip()))
+        else:
+            with open(sft_file, "r", encoding="utf-8") as f:
+                sft_data = json.load(f)
 
         print(f"📂 Đã nạp {len(sft_data)} mẫu từ {sft_file}")
         print("⚡ Đang tối ưu nén ảnh thumbnail (512x512) để truyền tải siêu tốc qua RPC...")
