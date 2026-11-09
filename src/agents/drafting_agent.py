@@ -101,23 +101,7 @@ class DraftingResponseAgent:
                 f"{vision_findings.get('preliminary_impression')})"
             )
 
-        is_local_model = hasattr(self.llm, "threads") or getattr(self.llm, "_llm_type", "") == "local-qwen2.5-cpu" or "specialized" in getattr(self.llm, "_llm_type", "")
-
-        if is_local_model:
-            user_prompt = f"""Ý kiến hội chẩn của các Bác sĩ chuyên khoa:
-{opinions_block}
-
-Tài liệu chứng cứ trích dẫn y khoa:
-{clean_context}
-
-Câu hỏi của người bệnh: "{grounded_question}"
-
-YÊU CẦU BẮT BUỘC DÀNH CHO BÁC SĨ NHA KHOA TƯ VẤN:
-1. Dựa trên hình ảnh tổn thương lâm sàng và tài liệu chuyên khoa trên, hãy tư vấn y tế trực tiếp cho người bệnh.
-2. Trả lời thẳng vào chuyên môn: nêu rõ đây là tình trạng tổn thương/bệnh lý gì (ví dụ: mòn men ngà răng, sâu răng...), vị trí răng bị ảnh hưởng, nguyên nhân cơ sinh học/hóa học và hướng xử trí/điều trị nha khoa.
-3. Tuyệt đối KHÔNG phân tích ngữ pháp, không giải thích ngữ nghĩa từ ngữ tiếng Việt (như từ 'này' là gì), không lặp lại câu văn thừa thãi."""
-        else:
-            user_prompt = f"""Ý kiến hội chẩn của các Bác sĩ chuyên khoa:
+        user_prompt = f"""Ý kiến hội chẩn của các Bác sĩ chuyên khoa:
 {opinions_block}
 
 Tài liệu y khoa tham khảo:
@@ -154,7 +138,7 @@ Chỉ trả về DUY NHẤT một JSON hợp lệ tuân thủ schema:
         text = text.strip()
 
         try:
-            data = json.loads(text)
+            data = json.loads(text, strict=False)
             return DraftResponse.model_validate(data)
         except Exception as e:
             logger.info(f"[Agent 5] Định dạng văn bản tự do (Local Model/Fallback): {e}")

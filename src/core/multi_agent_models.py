@@ -82,12 +82,12 @@ FIVE_AGENT_MODEL_SPECS: Dict[str, AgentModelSpec] = {
     "agent5_drafting": AgentModelSpec(
         agent_id="agent5_drafting",
         role_title="Trưởng khoa Lâm sàng — Soạn thảo Tư vấn",
-        creator="VinAI Research & Open Source",
-        architecture="PhoBERT-Medical + Qwen2.5 Synthesizer",
-        repo_id="vinai/phobert-base + Qwen2.5",
-        param_count="0.62B (Hybrid)",
+        creator="Fine-tuned Dental Qwen2.5 (C20)",
+        architecture="Qwen2ForCausalLM (QLoRA 4-bit)",
+        repo_id="Qwen/Qwen2.5-1.5B-Instruct",
+        param_count="1.54B",
         model_type="causal",
-        description="Mô hình tiếng Việt y khoa cao cấp, tổng hợp toàn bộ nhận định chuyên gia của 4 Agent thành bài tư vấn hoàn chỉnh kèm trích dẫn minh bạch."
+        description="Mô hình tổng hợp tư vấn nha khoa lâm sàng được fine-tune chuyên biệt, cam kết 100% JSON và trích dẫn chuẩn [I1], [P1]."
     )
 }
 
@@ -142,15 +142,28 @@ class SpecializedAgentChatModel(BaseChatModel):
                 ).eval()
             else:
                 from transformers import AutoModelForCausalLM, AutoTokenizer
+                from pathlib import Path
                 target_repo = self.spec.repo_id.split(" ")[0]
-                if target_repo.startswith("vinai"):
-                    target_repo = "Qwen/Qwen2.5-0.5B-Instruct"
                 self._tokenizer = AutoTokenizer.from_pretrained(target_repo)
-                self._model = AutoModelForCausalLM.from_pretrained(
+                base_m = AutoModelForCausalLM.from_pretrained(
                     target_repo,
                     dtype=torch.float32,
                     low_cpu_mem_usage=True
-                ).eval()
+                )
+                
+                # Nạp LoRA Adapter chuyên biệt nếu có sẵn
+                root_proj = Path(__file__).resolve().parents[2]
+                agent5_adapter = root_proj / "models/dental_agent5_drafting_adapter"
+                if self.spec.agent_id == "agent5_drafting" and agent5_adapter.exists():
+                    try:
+                        from peft import PeftModel
+                        self._model = PeftModel.from_pretrained(base_m, str(agent5_adapter)).eval()
+                        logger.info(f"✨ [Agent Model Hub] Đã nạp thành công Fine-tuned LoRA Adapter cho Agent 5 từ {agent5_adapter}!")
+                    except Exception as e:
+                        logger.warning(f"⚠️ Không nạp được LoRA Adapter cho Agent 5 ({e}), dùng Base Model.")
+                        self._model = base_m.eval()
+                else:
+                    self._model = base_m.eval()
 
             self._is_ready = True
             logger.info(f"✅ [Agent Model Hub - CPU] Sẵn sàng mô hình {self.spec.repo_id} cho {self.spec.role_title}!")

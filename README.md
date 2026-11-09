@@ -74,9 +74,10 @@ DoAnTotNghiep/
 ├── data/
 │   ├── raw/                      # Dữ liệu sách chuyên khoa & tài liệu gốc
 │   ├── processed/                # Dữ liệu chunking sau tiền xử lý (internal_v1, public_v1)
-│   ├── training/                 # Tập dữ liệu huấn luyện SFT (JSONL, JSON)
+│   ├── training/                 # Tập dữ liệu huấn luyện SFT chuẩn JSONL
 │   │   ├── agent1_triage_dataset.jsonl   # 1,200 mẫu triage cấp cứu cho Agent 1
-│   │   └── dental_vision_sft.json        # 558 mẫu thị giác đa phương thức cho VLM
+│   │   ├── agent5_drafting_sft.jsonl     # 550 mẫu tư vấn lâm sàng cho Agent 5
+│   │   └── dental_vision_sft.jsonl       # 558 mẫu thị giác đa phương thức cho VLM
 │   └── qdrant_db/                # Qdrant Vector Database cục bộ (.gitignore)
 ├── src/
 │   ├── agents/
@@ -99,11 +100,13 @@ DoAnTotNghiep/
 │       ├── qdrant_store.py       # Qdrant Dense Vector Store & Dense Retriever
 │       └── hybrid_retriever.py   # Bộ dung hợp RRF Hybrid Retriever
 ├── scripts/
-│   ├── prepare_vision_sft_dataset.py    # Xây dựng dataset SFT thị giác từ 3 nguồn
-│   ├── modal_train_dental_qwen2_vl.py   # Pipeline fine-tuning QLoRA trên Modal Cloud GPU
-│   ├── generate_agent1_triage_dataset.py# Sinh dữ liệu 1,200 ca triage cấp cứu
-│   ├── finetune_agent1_supervisor.py    # Pipeline fine-tuning Agent 1
-│   └── test_modal_dental.py             # Kiểm thử suy luận hệ thống trên Modal
+│   ├── prepare_vision_sft_dataset.py       # Xây dựng dataset SFT thị giác từ 3 nguồn (JSONL)
+│   ├── modal_train_dental_qwen2_vl.py      # Pipeline fine-tuning QLoRA trên Modal Cloud GPU
+│   ├── generate_agent1_triage_dataset.py   # Sinh dữ liệu 1,200 ca triage cấp cứu
+│   ├── finetune_agent1_supervisor.py       # Pipeline fine-tuning Agent 1
+│   ├── generate_agent5_drafting_dataset.py # Sinh dữ liệu 550 ca tư vấn lâm sàng cho Agent 5
+│   ├── modal_train_agent5_drafting.py      # Pipeline fine-tuning QLoRA cho Agent 5 trên Modal
+│   └── test_modal_dental.py                # Kiểm thử suy luận hệ thống trên Modal
 ├── tests/
 │   ├── test_emergency_triage.py  # Bộ kiểm thử phân loại cấp cứu & cờ đỏ lâm sàng
 │   └── test_graph.py             # Kiểm thử biên dịch pipeline LangGraph & Hybrid RAG
@@ -200,13 +203,24 @@ python scripts/finetune_agent1_supervisor.py
 ### Huấn luyện Tác tử Thị giác Nha khoa (Dental-Qwen2-VL-2B)
 Tổng hợp 558 mẫu SFT đa nguồn và huấn luyện QLoRA trên Modal Cloud GPU (A10G/T4):
 ```bash
-# Bước 1: Tổng hợp và chuẩn hóa dataset SFT
+# Bước 1: Tổng hợp và chuẩn hóa dataset SFT (JSONL)
 python scripts/prepare_vision_sft_dataset.py
 
 # Bước 2: Huấn luyện QLoRA trên Modal Cloud
 modal run scripts/modal_train_dental_qwen2_vl.py
 ```
 Mô hình sau khi huấn luyện sẽ tự động lưu LoRA Adapter vào volume Modal và có thể tải về để suy luận offline tại `models/dental_qwen2_vl_adapter/`.
+
+### Huấn luyện Agent 5 (Drafting & Consultation Synthesis)
+Tổng hợp 550 mẫu SFT tư vấn lâm sàng và huấn luyện QLoRA trên Modal Cloud GPU (A10G):
+```bash
+# Bước 1: Sinh tập dữ liệu SFT 550 ca bệnh có trích dẫn [I1], [P1]
+python scripts/generate_agent5_drafting_dataset.py
+
+# Bước 2: Huấn luyện QLoRA Qwen2.5-1.5B trên Modal Cloud
+modal run scripts/modal_train_agent5_drafting.py
+```
+Trọng số LoRA Adapter lưu tại volume `dental-agent5-volume` và tải về cục bộ tại `models/dental_agent5_drafting_adapter/`.
 
 ---
 
