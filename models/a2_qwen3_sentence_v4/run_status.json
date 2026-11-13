@@ -1,0 +1,5 @@
+{
+  "status": "completed",
+  "source": "a2_sentence_v4_fp16",
+  "selected_checkpoint": "epoch_1.0"
+}
