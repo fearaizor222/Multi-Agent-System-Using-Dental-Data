@@ -103,7 +103,8 @@ class AssistantBundle:
             return load_runtime(paths,candidate_k,provider,draft_llm=self.models["A2"],
                 verification_llm=self.models["A3"],prefer_model=True,verification_quote_selection=True,
                 query_expander=planner,context_neighbors=knowledge.get('context_neighbors',0),
-                internal_min_rerank_logit=knowledge.get('internal_min_rerank_logit'))
+                internal_min_rerank_logit=knowledge.get('internal_min_rerank_logit'),
+                draft_sentence_selection=self.config['text_models'].get('a2_protocol') == 'sentence_selection_v4')
         self.backend=LazyKnowledgeBackend(ROOT/knowledge["index_dir"],
             ROOT/knowledge["internal_index"],ROOT/knowledge["public_index"],
             knowledge.get("candidate_k",10),loader=loader)

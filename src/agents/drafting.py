@@ -20,12 +20,13 @@ CONVERSATION_POLICY = "\nquestion là câu người dùng hiện tại, được
 
 
 class DraftingAgent:
-    def __init__(self, llm, entailment=None, prefer_model=False):
+    def __init__(self, llm, entailment=None, prefer_model=False, sentence_selection=False):
         self.llm = llm
         self.entailment = entailment
         self.last_trace = []
         self.last_grounding = []
         self.prefer_model = prefer_model
+        self.sentence_selection = sentence_selection
 
     def run(self, question, evidence, conversation=None, *, warehouse="internal"):
         self.last_trace = []
@@ -72,7 +73,23 @@ class DraftingAgent:
             for claim in draft.claims:
                 if any(key not in catalog for key in claim.evidence_ids):
                     raise ValueError("Mã trích dẫn chỉ được thuộc danh sách: " + ", ".join(catalog))
-        generated = invoke_structured(self.llm, GeneratedDraft, system, user, self.last_trace, validate=validate)
+        if self.sentence_selection:
+            from langchain_core.messages import SystemMessage, HumanMessage
+            from src.agents.sentence_drafting import draft_with_sentences
+            # Match the v4 diagnostic protocol and keep every retrieved chunk.
+            for item in payload["evidence"]:
+                item["content"] = " ".join(item["content"].split())
+            def generate(messages):
+                response = self.llm.invoke([SystemMessage(content=messages[0]["content"]),
+                                           HumanMessage(content=messages[1]["content"])])
+                self.last_trace.append({"protocol": "sentence_selection_v4", "raw": response.content,
+                                        "model_identity": getattr(self.llm, "identity", None)})
+                return response.content
+            generated = draft_with_sentences(generate, payload)
+            self.last_grounding.append({"protocol": "sentence_selection_v4",
+                                        "resolved_selection": generated.model_dump()})
+        else:
+            generated = invoke_structured(self.llm, GeneratedDraft, system, user, self.last_trace, validate=validate)
         claims, seen, discarded = [], set(), 0
         for i, claim in enumerate(generated.claims, 1):
             if not claim.evidence_ids or any(key not in catalog for key in claim.evidence_ids):

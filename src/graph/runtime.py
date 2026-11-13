@@ -45,7 +45,7 @@ class KnowledgeRuntime:
 
 def load_runtime(paths, candidate_k=10, provider="huggingface", draft_llm=None, verification_llm=None,
                  prefer_model=False,verification_quote_selection=False,query_expander=None,context_neighbors=0,
-                 internal_min_rerank_logit=None):
+                 internal_min_rerank_logit=None, draft_sentence_selection=False):
     if candidate_k < 3:
         raise ValueError("candidate-k phải >= 3")
     encoder, reranker = LocalE5Embeddings(), LocalReranker()
@@ -63,5 +63,5 @@ def load_runtime(paths, candidate_k=10, provider="huggingface", draft_llm=None, 
                for filename in ("manifest.json", "records.jsonl", "vectors.npy")}} for name, path in paths.items()}
     graph = create_knowledge_pipeline(internal, public, llm, entailment=entailment,
         verification_llm=verification_llm, prefer_model=prefer_model,
-        verification_quote_selection=verification_quote_selection)
+        verification_quote_selection=verification_quote_selection, draft_sentence_selection=draft_sentence_selection)
     return KnowledgeRuntime(graph, internal, public, llm, entailment, reranker, encoder, indices, verification_llm)

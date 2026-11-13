@@ -232,4 +232,4 @@ Trọng số LoRA Adapter lưu tại volume `dental-agent5-volume` và tải v�
 
 ## Local runtime and fine-tuning
 
-See [local runtime and data](docs/local_runtime_and_data.md) for the local pipeline and training workflows. Trained adapter weights use Git LFS. The selected A2 v4 adapter is in outputs/a2_probe_v4_selected_20261113/adapter. The current runtime configuration selects the earlier A2 adapter.
+See [local runtime and data](docs/local_runtime_and_data.md) for the local pipeline and training workflows. Trained adapter weights use Git LFS. The local runtime selects the A2 v4 adapter in models/a2_qwen3_sentence_v4/adapter and uses its sentence-selection prompt and validated source IDs.

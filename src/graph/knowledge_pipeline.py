@@ -29,8 +29,9 @@ class KnowledgeState(TypedDict, total=False):
 
 
 def create_knowledge_pipeline(internal_retriever, public_retriever, llm, entailment=None,
-                              verification_llm=None, prefer_model=False, verification_quote_selection=False):
-    drafting = DraftingAgent(llm, entailment, prefer_model=prefer_model)
+                              verification_llm=None, prefer_model=False, verification_quote_selection=False,
+                              draft_sentence_selection=False):
+    drafting = DraftingAgent(llm, entailment, prefer_model=prefer_model, sentence_selection=draft_sentence_selection)
     verification = VerificationAgent(verification_llm if verification_llm is not None else llm,
                                      public_retriever, entailment=entailment,quote_selection=verification_quote_selection)
 

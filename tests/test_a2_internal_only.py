@@ -50,3 +50,34 @@ def test_relabeling_outer_warehouse_cannot_hide_public_metadata():
     with pytest.raises(ValueError, match='nội bộ'):
         DraftingAgent(model).run('Câu hỏi', [forged])
     assert model.calls == 0
+
+def test_v4_pipeline_sends_sentence_catalog_and_preserves_citations():
+    class CapturingLLM(ScriptedLLM):
+        def invoke(self, messages):
+            self.messages = messages
+            return super().invoke(messages)
+
+    model = CapturingLLM({"status": "draft", "claims": [{
+        "evidence_ids": ["I1"], "sentence_ids": ["I1:S1"],
+        "text": "Máng nhai là khí cụ bằng nhựa."}]})
+    state = create_knowledge_pipeline(
+        FixedRetriever([doc()]), FixedRetriever([]), model,
+        prefer_model=True, draft_sentence_selection=True
+    ).invoke({"question": "Máng nhai là gì?"})
+    assert model.calls == 1
+    assert '"sentence_id": "I1:S1"' in model.messages[1].content
+    assert state["draft"]["claims"][0]["citations"][0]["chunk_id"] == "internal-1"
+    assert state["draft_grounding"][0]["resolved_selection"]["claims"][0]["supporting_quotes"][0]["quote"] == doc().content
+    assert state["model_calls"][0]["calls"][0]["protocol"] == "sentence_selection_v4"
+
+
+def test_v4_invalid_sentence_never_becomes_a_draft():
+    model = ScriptedLLM({"status": "draft", "claims": [{
+        "evidence_ids": ["I1"], "sentence_ids": ["I1:S999"],
+        "text": "Máng nhai là khí cụ bằng nhựa."}]})
+    state = create_knowledge_pipeline(
+        FixedRetriever([doc()]), FixedRetriever([]), model,
+        prefer_model=True, draft_sentence_selection=True
+    ).invoke({"question": "Máng nhai là gì?"})
+    assert state["status"] == "error"
+    assert state["draft"]["claims"] == []

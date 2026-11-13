@@ -5,17 +5,18 @@
     "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
     "model_dir": "data/models/Qwen--Qwen3-1.7B/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
     "a1_run_dir": "outputs/a1_training/qwen3_17b_v4_20261106_213145_386069",
-    "a2_run_dir": "outputs/a2_training/a2_qwen3_17b_20261110_194806_350795",
+    "a2_run_dir": "models/a2_qwen3_sentence_v4",
     "timeout_seconds": 600,
     "max_input_tokens": 4096,
     "generation_tokens": {
       "A1": 256,
-      "A2": 512,
+      "A2": 384,
       "A3": 512,
       "A4": 512
     },
     "worker_module": "scripts.integrated_worker",
-    "a3_run_dir": "outputs/a3_training/a3_qwen3_17b_20261109_122845_028798_50aa903b"
+    "a3_run_dir": "outputs/a3_training/a3_qwen3_17b_20261109_122845_028798_50aa903b",
+    "a2_protocol": "sentence_selection_v4"
   },
   "knowledge": {
     "index_dir": "data/vectorstore/e5_small_v1",
