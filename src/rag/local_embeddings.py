@@ -24,16 +24,11 @@ def file_sha256(path):
 
 
 def passage_body(document):
-    """Đảm bảo tiêu đề tài liệu/bệnh lý luôn có mặt trong văn bản để tìm kiếm chính xác."""
-    title = getattr(document, "title", "") or ""
-    if hasattr(document, "metadata") and isinstance(document.metadata, dict):
-        title = title or document.metadata.get("title") or document.metadata.get("disease_title") or ""
-    content = getattr(document, "content", "") or ""
-    if title and not content.startswith(title):
-        return f"{title}\n{content}"
-    return content
-
-
+    # Chunk công khai đã chứa tên tài liệu và đường dẫn đề mục.
+    if (document.metadata.get("warehouse") == "public"
+            or document.metadata.get("content_includes_title") is True):
+        return document.content
+    return document.title + "\n" + document.content
 
 
 class LocalE5Embeddings(Embeddings):

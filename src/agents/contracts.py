@@ -106,6 +106,20 @@ def audit_citations(claim, evidence):
     errors = []
     for citation in claim.citations:
         expected = catalog.get(citation.evidence_id)
-        if expected is None or citation != citation_of(expected) or citation.warehouse != "internal":
+        if expected is None or citation != citation_of(expected):
             errors.append(citation.evidence_id)
     return errors
+
+
+def independent_public_sources(primary, corroborating):
+    """Không coi hai chunk/tài liệu từ cùng nhà cung cấp là hai nguồn độc lập."""
+    if not primary or not corroborating:
+        return False
+    for first in primary:
+        for second in corroborating:
+            if (first.warehouse != "public" or second.warehouse != "public"
+                    or first.source_id == second.source_id
+                    or not first.metadata.get("source") or not second.metadata.get("source")
+                    or first.metadata["source"] == second.metadata["source"]):
+                return False
+    return True

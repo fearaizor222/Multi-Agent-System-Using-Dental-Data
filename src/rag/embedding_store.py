@@ -87,15 +87,17 @@ def load_corpus(warehouse, root=ROOT):
     return documents, {str(source.relative_to(root)): file_sha256(source) for source in sources}
 
 
-def build_index(documents, source_files, directory, encoder, checkpoint_size=256, reuse_from=None):
+def build_index(documents, source_files, directory, encoder, checkpoint_size=256, reuse_from=None, max_passage_tokens=380):
     if checkpoint_size < 1:
         raise ValueError("checkpoint_size phải dương")
+    if not isinstance(max_passage_tokens, int) or not 1 <= max_passage_tokens <= 512:
+        raise ValueError("max_passage_tokens phải trong khoảng 1–512")
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     inputs = ["passage: " + passage_body(doc) for doc in documents]
     lengths = encoder.token_lengths(inputs)
     for doc, actual in zip(documents, lengths):
-        if not 0 < actual <= 380 or actual != doc.metadata["token_count"]:
+        if not 0 < actual <= max_passage_tokens or actual != doc.metadata["token_count"]:
             raise ValueError(f"Token không khớp hoặc vượt giới hạn: {doc.id} ({actual})")
     # Sắp theo độ dài để giảm padding, nhưng vector vẫn được ghi đúng hàng của ID gốc.
     order = np.argsort(-np.asarray(lengths), kind="stable")
@@ -103,6 +105,8 @@ def build_index(documents, source_files, directory, encoder, checkpoint_size=256
     plan = {"schema_version": "dental-dense-index-v1", "count": len(documents), "encoder": encoder.identity,
             "source_files": source_files, "records_sha256": hashlib.sha256(encoded_records).hexdigest(),
             "encoding_order": "token_length_desc_stable", "max_passage_tokens": max(lengths)}
+    if max_passage_tokens != 380:
+        plan["passage_token_limit"] = max_passage_tokens
     manifest_path = directory / "manifest.json"
     records_path, vectors_path = directory / "records.jsonl", directory / "vectors.npy"
     if manifest_path.exists():

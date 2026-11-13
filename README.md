@@ -228,3 +228,8 @@ Trọng số LoRA Adapter lưu tại volume `dental-agent5-volume` và tải v�
 
 - **Khuyến cáo y tế**: Hệ thống được phát triển nhằm mục đích nghiên cứu học thuật và hỗ trợ tham vấn sơ bộ. Kết quả từ hệ thống **không thay thế** cho chẩn đoán chuyên môn, chỉ định lâm sàng hay đơn thuốc của bác sĩ Răng Hàm Mặt có chứng chỉ hành nghề.
 - **Giấy phép**: Đồ án tốt nghiệp / Mã nguồn mở phục vụ nghiên cứu giáo dục.
+
+
+## Local runtime and fine-tuning
+
+See [local runtime and data](docs/local_runtime_and_data.md) for the local pipeline and training workflows. Trained adapter weights use Git LFS. The selected A2 v4 adapter is in outputs/a2_probe_v4_selected_20261113/adapter. The current runtime configuration selects the earlier A2 adapter.

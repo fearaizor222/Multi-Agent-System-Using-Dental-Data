@@ -1,0 +1,15 @@
+{
+  "scope": {
+    "inference_allowed": false,
+    "benchmark_allowed": false,
+    "gradient_probe_allowed": false,
+    "finetuning_allowed": false
+  },
+  "models": [
+    {
+      "id": "nllb200_600m",
+      "repo": "facebook/nllb-200-distilled-600M",
+      "revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d"
+    }
+  ]
+}

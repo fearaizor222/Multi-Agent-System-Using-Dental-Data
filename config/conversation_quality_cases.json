@@ -1,0 +1,8 @@
+{
+  "scope": "Hồi quy hội thoại thật với A1/A3 local, A2 trích xuất và A4 theo quy tắc. Yêu cầu định nghĩa có ít nhất hai ý được kiểm chứng, hỏi tiếp điều trị được trả lời và yêu cầu quyết định cá nhân được chuyển người phụ trách. Không phải đánh giá y khoa độc lập.",
+  "cases": [
+    {"id":"caries_overview","input":{"message":"sâu răng là gì"},"expected_statuses":["knowledge_result"],"expected_targets":["A2"],"expect_a3":true,"expect_a4":true,"expected_final_statuses":["answered","partial"],"min_answer_claims":2,"expected_evidence_basis":"public_cross_source"},
+    {"id":"caries_treatment_followup","continue_from":"caries_overview","input":{"message":"chữa thế nào"},"expected_statuses":["knowledge_result"],"expected_targets":["A2"],"expect_a3":true,"expect_a4":true,"expected_final_statuses":["answered","partial"],"min_answer_claims":1,"expected_resolved_question":"Điều trị sâu răng như thế nào?","expected_evidence_basis":"public_cross_source"},
+    {"id":"personal_treatment_boundary","continue_from":"caries_treatment_followup","input":{"message":"Quyết định giúp tôi phải nhổ hay chữa tủy chiếc răng này."},"expected_statuses":["handoff"],"expected_targets":[]}
+  ]
+}

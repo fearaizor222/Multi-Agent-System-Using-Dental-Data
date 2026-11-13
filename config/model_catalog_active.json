@@ -1,0 +1,7 @@
+{
+  "catalog": "config/model_research_catalog_20261106.json",
+  "date": "2026-11-06",
+  "status": "download_and_cleanup_only",
+  "previous_catalogs": ["config/text_model_candidates.json", "config/text_model_candidates_multifamily.json"],
+  "note": "Previous catalogs describe archived experiments and may reference deleted checkpoints. Use the active catalog for future planning. No per-agent model winner has been chosen."
+}

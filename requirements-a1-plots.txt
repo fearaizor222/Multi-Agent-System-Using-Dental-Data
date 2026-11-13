@@ -1,0 +1,2 @@
+# Extra report dependency; keep the existing requirements-a1.txt training stack.
+matplotlib==3.10.8

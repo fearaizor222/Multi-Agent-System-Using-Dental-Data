@@ -1,0 +1,145 @@
+{
+  "version": "research-catalog-20261106-v1",
+  "date": "2026-11-06",
+  "scope": {
+    "current_session": "Research, download, verify files and remove excluded model checkpoints only.",
+    "inference_allowed": false,
+    "benchmark_allowed": false,
+    "gradient_probe_allowed": false,
+    "finetuning_allowed": false,
+    "image_agent": "deferred_by_user",
+    "future_work": "Use each agent's separate dataset to fine-tune eligible candidates, evaluate per agent, then select. No winner selected now."
+  },
+  "models": [
+    {
+      "id": "qwen3_17b",
+      "repo": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "family": "Qwen3",
+      "category": "multilingual",
+      "parameters_billion": 1.7,
+      "license": "apache-2.0",
+      "reason_vi": "Đa ngôn ngữ gồm tiếng Anh và tiếng Việt; giữ model nền của adapter A1 đã có.",
+      "sources": ["https://huggingface.co/Qwen/Qwen3-1.7B", "https://qwenlm.github.io/blog/qwen3/"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    },
+    {
+      "id": "bloomz_17b",
+      "repo": "bigscience/bloomz-1b7",
+      "revision": "4ea0141c75b2b96e17bc41f0d52c5368c879a281",
+      "family": "BLOOMZ",
+      "category": "multilingual",
+      "parameters_billion": 1.7,
+      "license": "bigscience-bloom-rail-1.0",
+      "reason_vi": "Ứng viên khác họ Qwen; metadata ngôn ngữ có en và vi, được instruction-tune trên xP3.",
+      "limitations_vi": "Model đời cũ, ngữ cảnh ngắn; dùng dạng prompt instruction, không mặc định có chat template. Chất lượng và cấu hình fine-tune để phiên sau đánh giá.",
+      "sources": ["https://huggingface.co/bigscience/bloomz-1b7", "https://huggingface.co/bigscience/bloom"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    },
+    {
+      "id": "qwen25_05b",
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "family": "Qwen2.5",
+      "category": "multilingual",
+      "parameters_billion": 0.5,
+      "license": "apache-2.0",
+      "reason_vi": "Baseline nhỏ đa ngôn ngữ có tiếng Việt, phục vụ so sánh chi phí/tài nguyên; đồng thời là model runtime A2/A3 hiện tại.",
+      "sources": ["https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct", "https://qwen.readthedocs.io/en/v2.5/"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    },
+    {
+      "id": "vinallama_27b_chat",
+      "repo": "vilm/vinallama-2.7b-chat",
+      "revision": "b31d5f1306494b2bf10ecb0c6031077af3f5b39a",
+      "family": "VinaLLaMA",
+      "category": "vietnamese",
+      "parameters_billion": 2.7,
+      "license": "llama2",
+      "reason_vi": "Model chat hướng tiếng Việt do ViLM công bố; checkpoint độc lập với các ứng viên Qwen.",
+      "limitations_vi": "Repo chính chủ cung cấp pytorch_model.bin; chỉ tải và kiểm tra hash, không nạp hay chuyển đổi trong phiên này.",
+      "sources": ["https://huggingface.co/vilm/vinallama-2.7b-chat", "https://arxiv.org/abs/2312.11011"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    },
+    {
+      "id": "phogpt_4b_chat",
+      "repo": "vinai/PhoGPT-4B-Chat",
+      "revision": "3b11fad96d853b78f2fecc76f13aedb381b02d5a",
+      "family": "PhoGPT/MPT",
+      "category": "vietnamese",
+      "parameters_billion": 3.7,
+      "license": "bsd-3-clause",
+      "reason_vi": "VinAI công bố pre-training từ đầu trên corpus tiếng Việt 102B token và instruction/conversation tuning cho bản Chat.",
+      "limitations_vi": "Tên thương mại 4B, số tham số tác giả công bố 3.7B. Có mã MPT tùy biến và trọng số .bin; cần xem xét tương thích và bộ nhớ ở phiên sau, chưa bảo đảm fine-tune vừa GPU 4 GB.",
+      "sources": ["https://huggingface.co/vinai/PhoGPT-4B-Chat", "https://github.com/VinAIResearch/PhoGPT", "https://arxiv.org/abs/2311.02945"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    },
+    {
+      "id": "medscholar_15b",
+      "repo": "yasserrmd/MedScholar-1.5B",
+      "revision": "c4a837a196bbf0fb08396fd8176bfc6bf10b647f",
+      "family": "MedScholar/Qwen2.5",
+      "category": "medical",
+      "parameters_billion": 1.5,
+      "license": "apache-2.0",
+      "reason_vi": "Theo model card của tác giả: fine-tune Qwen2.5-1.5B-Instruct trên 1 triệu mẫu MIRIAD, chuyên hỏi đáp y khoa.",
+      "limitations_vi": "Chủ yếu tiếng Anh; dữ liệu/đầu ra dành cho nghiên cứu và giáo dục, không dùng quyết định lâm sàng. Không suy diễn thành model nha khoa tiếng Việt đã được kiểm chứng.",
+      "sources": ["https://huggingface.co/yasserrmd/MedScholar-1.5B", "https://huggingface.co/datasets/miriad/miriad-4.4M"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    },
+    {
+      "id": "mediphi_instruct_38b",
+      "repo": "microsoft/MediPhi-Instruct",
+      "revision": "8a52461577949784b8c447d557fa6b98a7d272df",
+      "family": "MediPhi/Phi3",
+      "category": "medical",
+      "parameters_billion": 3.8,
+      "license": "mit",
+      "reason_vi": "Microsoft Healthcare & Life Sciences công bố thích nghi Phi-3.5 trên PubMed, guideline, mã y khoa, hồ sơ lâm sàng rồi clinical-task alignment bằng MediFlow. Hash trọng số công bố khác model nền.",
+      "limitations_vi": "Dành cho nghiên cứu clinical NLP tiếng Anh; chưa đánh giá tiếng Việt hoặc nha khoa. Cần xem bộ nhớ/QLoRA ở phiên sau, chưa khẳng định fine-tune vừa GPU 4 GB.",
+      "sources": ["https://huggingface.co/microsoft/MediPhi-Instruct", "https://arxiv.org/abs/2505.10717", "https://huggingface.co/datasets/microsoft/mediflow"],
+      "future_agents": ["A1", "A2", "A3", "A4"]
+    }
+  ],
+  "support_models": [
+    {
+      "repo": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "role": "RAG embedding EN/VI; existing vector indices depend on this model",
+      "storage": "C:/Users/vn489/.cache/huggingface/hub/models--intfloat--multilingual-e5-small"
+    },
+    {
+      "repo": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "role": "RAG reranker; infrastructure, not an LLM candidate"
+    },
+    {
+      "repo": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+      "revision": "8adb042d524ecd5c26d3e3ba0e3fbcf7e2d0864c",
+      "role": "NLI evidence checks; infrastructure, not an LLM candidate"
+    }
+  ],
+  "retained_artifacts": [
+    "Existing A1 adapters under outputs/a1_training belong to retained Qwen3-1.7B and remain with their training/evaluation evidence. No new adapters this session.",
+    "Datasets, vector indices, documents, reports and historical prediction logs are not model checkpoint cleanup targets."
+  ],
+  "excluded_existing_checkpoints": [
+    {"repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct", "reason": "English-focused; excluded from this revised shortlist"},
+    {"repo": "LiquidAI/LFM2.5-1.2B-Instruct", "reason": "No explicit Vietnamese support in listed languages; not Vietnamese- or medical-specialized"},
+    {"repo": "microsoft/Phi-3.5-mini-instruct", "reason": "No explicit Vietnamese support in listed languages; not medical-specialized"},
+    {"repo": "Qwen/Qwen3-0.6B", "reason": "Redundant same-family size; retain existing runtime 0.5B baseline and trained-A1 1.7B base instead"},
+    {"repo": "Qwen/Qwen2.5-1.5B-Instruct", "reason": "Reduce redundant general Qwen candidates; MedScholar supplies a medical-specialized checkpoint at this size"}
+  ],
+  "researched_not_selected": [
+    {"repo": "MohamedAhmedAE/Llama-3.2-1B-Instruct-Medical-Finetuned-merged", "reason": "Published safetensors SHA-256 equals the base meta-llama/Llama-3.2-1B-Instruct file SHA-256 (1ff795ff6a07e6a68085d206fb84417da2f083f68391c2843cd2b8ac6df8538f). Excluded rather than counted as a distinct medical-adapted checkpoint."},
+    {"repo": "microsoft/MediPhi", "reason": "Select the clinically aligned MediPhi-Instruct variant instead of keeping both checkpoints"},
+    {"repo": "Aikyam-Lab/CURE-MED-3B", "reason": "Medical/multilingual research reserve; not downloaded in this bounded list, which uses the smaller-storage MedScholar plus a different-family Microsoft clinical candidate"},
+    {"repo": "microsoft/Phi-4-mini-instruct", "reason": "Multilingual but Vietnamese not explicitly listed in checked model metadata/card; not selected"},
+    {"repo": "CohereLabs/tiny-aya-global", "reason": "EN/VI multilingual candidate, but official config/weights access requires authentication; HTTP 401 checked this session"},
+    {"repo": "google/gemma-3-1b-it", "reason": "Gated official weights; prior authenticated-access check unavailable"},
+    {"repo": "meta-llama/Llama-3.2-1B-Instruct", "reason": "Gated base checkpoint; medical fine-tune is downloaded directly from its publishing author, not a base-model mirror"},
+    {"repo": "ContactDoctor/Bio-Medical-Llama-3-2-1B-CoT-012025", "reason": "Gated repo; choose another published medical checkpoint with accessible full weights"},
+    {"repo": "BioMistral/BioMistral-7B", "reason": "Established biomedical candidate but 7B is not prioritized for this GPU 4 GB shortlist"},
+    {"repo": "google/medgemma-1.5-4b-it", "reason": "Gated multimodal checkpoint; image agent deferred, not selected for this text-only catalog"}
+  ]
+}

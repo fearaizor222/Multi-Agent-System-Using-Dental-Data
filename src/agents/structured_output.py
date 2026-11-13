@@ -30,6 +30,8 @@ def invoke_structured(llm, schema, system, user, trace, attempts=2, validate=Non
             raise ModelOutputError("Model không trả nội dung văn bản")
         entry = {"attempt": attempt + 1, "schema": schema.__name__,
                  "prompt_sha256": hashlib.sha256((system + prompt).encode()).hexdigest(), "raw": text}
+        if hasattr(llm,"identity"):
+            entry["model_identity"]=llm.identity
         try:
             result = schema.model_validate(parse_json(text))
             if validate is not None:

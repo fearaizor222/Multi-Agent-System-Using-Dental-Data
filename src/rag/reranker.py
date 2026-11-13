@@ -7,6 +7,10 @@ from src.core.model_registry import checked_model
 from src.rag.local_embeddings import passage_body
 
 
+class RetrievalQueryTooLong(ValueError):
+    """Truy vấn cần rút gọn trước khi xếp hạng lại, không tự cắt nội dung."""
+
+
 class LocalReranker:
     def __init__(self, batch_size=4, threads=6, max_length=512):
         import torch
@@ -33,7 +37,7 @@ class LocalReranker:
             return []
         query_ids = self.tokenizer(query, add_special_tokens=False)["input_ids"]
         if len(query_ids) > 128:
-            raise ValueError("Câu hỏi rerank vượt 128 token; cần rút gọn truy vấn")
+            raise RetrievalQueryTooLong("Câu hỏi rerank vượt 128 token; cần rút gọn truy vấn")
         start = time.perf_counter()
         scores, truncated = [], 0
         for offset in range(0, len(documents), self.batch_size):

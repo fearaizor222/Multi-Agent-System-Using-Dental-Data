@@ -11,6 +11,86 @@ def body_start(evidence):
     return len(prefix)
 
 
+_LIST_ITEM_RE = re.compile(r"^\s*(?:[-+*•●]|\d+[.)])\s+")
+_LABEL_ITEM_RE = re.compile(r"^\s*[^:\n]{1,40}:\s+\S")
+
+
+def _is_table_line(line):
+    return "|" in line
+
+
+def _starts_table(lines, index):
+    if _is_table_line(lines[index]):
+        return True
+    stripped = lines[index].strip()
+    if len(stripped) > 180:
+        return False
+    if index + 1 < len(lines) and _is_table_line(lines[index + 1]):
+        return True
+    return (
+        index + 2 < len(lines)
+        and bool(re.match(r"^(?:Table|Bảng)\b", stripped, re.I) or stripped.endswith(":"))
+        and len(lines[index + 1].strip()) <= 180
+        and _is_table_line(lines[index + 2])
+    )
+
+
+def _group_lines(raw_block):
+    """Giữ liền mạch bảng pipe và tiêu đề dấu hai chấm kèm danh sách theo đoạn gốc."""
+    lines = [line for line in raw_block.splitlines() if line.strip()]
+    blocks, index = [], 0
+    while index < len(lines):
+        if _starts_table(lines, index):
+            end = index
+            while end < len(lines) and not _is_table_line(lines[end]):
+                end += 1
+            while end < len(lines) and (
+                _is_table_line(lines[end])
+                or (
+                    end + 1 < len(lines)
+                    and _is_table_line(lines[end + 1])
+                    and len(lines[end].strip()) <= 120
+                    and not _LIST_ITEM_RE.match(lines[end])
+                )
+            ):
+                end += 1
+            blocks.append("\n".join(lines[index:end]))
+            index = end
+            continue
+        if lines[index].rstrip().endswith(":"):
+            stem_end = index + 1
+            while (
+                stem_end + 1 < len(lines)
+                and lines[stem_end].rstrip().endswith(":")
+                and len(lines[stem_end].strip()) <= 80
+            ):
+                stem_end += 1
+            if stem_end < len(lines) and (
+                _LIST_ITEM_RE.match(lines[stem_end]) or _LABEL_ITEM_RE.match(lines[stem_end])
+            ):
+                matcher = _LIST_ITEM_RE if _LIST_ITEM_RE.match(lines[stem_end]) else _LABEL_ITEM_RE
+                end = stem_end + 1
+                while end < len(lines) and matcher.match(lines[end]):
+                    end += 1
+                blocks.append("\n".join(lines[index:end]))
+                index = end
+                continue
+        blocks.append(lines[index])
+        index += 1
+    return blocks
+
+
+def paragraph_contexts(evidence):
+    """Rà ứng viên ở cùng đơn vị đoạn văn như khi kiểm tra câu trích."""
+    contexts = []
+    for item in evidence:
+        for raw_block in re.split(r"\n\s*\n", item.content[body_start(item):]):
+            for paragraph in _group_lines(raw_block):
+                if paragraph.strip():
+                    contexts.append(item.model_copy(deep=True, update={"content": paragraph}))
+    return contexts
+
+
 def _collapse_with_offsets(text):
     characters, offsets = [], []
     for match in re.finditer(r"\S+", text):

@@ -1,0 +1,55 @@
+{
+  "version": "text-model-candidates-multifamily-v1",
+  "created_at": "2026-11-05",
+  "scope": "Compare different model families for A1-A4. Text only; image agent deferred. Same tiny development screen, not final selection.",
+  "models": [
+    {
+      "id": "qwen3_17b",
+      "family": "Qwen",
+      "repo": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "parameters_billion": 1.7,
+      "role": "Existing Qwen reference, replayed without its A1 adapter under the updated runner."
+    },
+    {
+      "id": "smollm2_17b",
+      "family": "SmolLM",
+      "repo": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "revision": "31b70e2e869a7173562077fd711b654946d38674",
+      "parameters_billion": 1.7,
+      "role": "Different publisher/training family using Llama architecture; primarily English per publisher, Vietnamese measured rather than assumed."
+    },
+    {
+      "id": "lfm25_12b",
+      "family": "LFM",
+      "repo": "LiquidAI/LFM2.5-1.2B-Instruct",
+      "revision": "b9d816ab510f9a28dca37cb182e9da8b0226e13c",
+      "parameters_billion": 1.17,
+      "role": "Hybrid convolution/attention architecture. Vietnamese not among publisher's listed eight languages; exploratory candidate."
+    },
+    {
+      "id": "phi35_mini",
+      "family": "Phi",
+      "repo": "microsoft/Phi-3.5-mini-instruct",
+      "revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
+      "parameters_billion": 3.8,
+      "role": "Larger multilingual reference; GPU fit and fine-tuning feasibility must be measured on 4 GB."
+    }
+  ],
+  "access_checks": [
+    {
+      "repo": "google/gemma-3-1b-it",
+      "revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+      "weight_access": "unavailable_with_current_credentials",
+      "error_type": "GatedRepoError",
+      "http_status": 401
+    },
+    {
+      "repo": "meta-llama/Llama-3.2-1B-Instruct",
+      "revision": "9213176726f574b556790deb65791e0c5aa438b6",
+      "weight_access": "unavailable_with_current_credentials",
+      "error_type": "GatedRepoError",
+      "http_status": 401
+    }
+  ]
+}

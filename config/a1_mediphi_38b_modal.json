@@ -1,0 +1,51 @@
+{
+  "purpose": "a1_mediphi_38b_modal_v4",
+  "source_dataset": "data/curated/a1_supervisor_v4/scenarios.json",
+  "base_model": "microsoft/MediPhi-Instruct",
+  "revision": "8a52461577949784b8c447d557fa6b98a7d272df",
+  "model_dir": "data/models/microsoft--MediPhi-Instruct/8a52461577949784b8c447d557fa6b98a7d272df",
+  "dataset_dir": "data/processed/a1_supervisor_v4",
+  "seed": 20261106,
+  "epochs": 2,
+  "gradient_accumulation_steps": 2,
+  "learning_rate": 0.0001,
+  "warmup_ratio": 0.05,
+  "weight_decay": 0.0,
+  "max_grad_norm": 1.0,
+  "max_length": 2048,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.0,
+  "target_modules": [
+    "qkv_proj",
+    "o_proj",
+    "gate_up_proj",
+    "down_proj"
+  ],
+  "cuda_memory_fraction": 0.9,
+  "generation": {
+    "max_new_tokens": 256,
+    "do_sample": false,
+    "enable_thinking": false
+  },
+  "validation_split": "validation",
+  "evaluate_test_split": false,
+  "save_embedding_layers": false,
+  "completion_logits_only": true,
+  "frozen_embeddings_compute_dtype": true,
+  "sampling": {
+    "samples_per_epoch": 1200,
+    "decision_distribution": {
+      "route": 0.4,
+      "clarify": 0.25,
+      "handoff": 0.2,
+      "out_of_scope": 0.075,
+      "respond": 0.075
+    }
+  },
+  "token_weighting": {
+    "control_prefix_weight": 3.0,
+    "decision_value_weight": 12.0
+  },
+  "selection_profile": "critical_recall"
+}

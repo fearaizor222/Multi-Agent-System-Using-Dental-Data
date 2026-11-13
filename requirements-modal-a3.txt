@@ -1,0 +1,3 @@
+# Local launcher only. GPU packages are installed inside the Modal image.
+modal>=1.6.3,<2
+pydantic==2.12.5
