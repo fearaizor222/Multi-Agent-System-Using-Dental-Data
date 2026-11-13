@@ -1,0 +1,14 @@
+{
+  "train": {
+    "min": 1313,
+    "max": 2539,
+    "count": 779,
+    "truncated": 0
+  },
+  "validation": {
+    "min": 1339,
+    "max": 2274,
+    "count": 169,
+    "truncated": 0
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "model_sha256": {
+    "model-00001-of-00002.safetensors": "f4b8d7787c85527dcb40be223117859391a33212f4ace92d0a9385e9d56c2aa4",
+    "model-00002-of-00002.safetensors": "0644ffcb0b94757af40b9756ff874e9c380281abcda96004cd4d797562f41c3a",
+    ".gitattributes.txt": "8f59403b1b8432978824481b0602036d61b2686af4d826f23b2cc24bb772e49e",
+    "CODE_OF_CONDUCT.md": "73356b228c55e3d4a2babd57fb403d381c8e90fb8be48ba39ce5f6d92779b57b",
+    "LICENSE": "c49419617a6070bcb197cfe272f7007fdec3e790dbb529cb995473bd69c0bd51",
+    "README.md": "73d7fce88a3508db5fdc8c67aa5905e5ddde5ab371010e0f767d8e491dffddf6",
+    "SECURITY.md": "321c2203613302d0ceeaf933f63878fb0f11ad1ad0bdc69faf6cae02c6ec90df",
+    "added_tokens.json": "f8e5a880c6c563a126d9efacb654e105fc4b66f21e5a540f04436e9487a955fb",
+    "config.json": "cfae5d4abcfec5a98af59e09967bffb653e575d48f8241ac820d9299e50556f6",
+    "generation_config.json": "11bd67bf60dd247631c245da8197a159e3b8a8f0e3ce80745aebd988b80b7f34",
+    "model.safetensors.index.json": "519fa1eba3aa4645654d91322a55ed872b705e25e7a1114702e426a2fbac2c4b",
+    "special_tokens_map.json": "f10dc90731b20258c8512c6969ab6d696e7ad0cd47de35dbb0e4b0f6fec03d54",
+    "tokenizer.json": "072ab882d6c7192a42f78790945d16c064691321a73251a4b18f6a380f0fbe39",
+    "tokenizer.model": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+    "tokenizer_config.json": "7692aec3081c38ad800d12133ed3d3c3e96fae730b59a1be7b52fd30fbaaad5b"
+  },
+  "dataset_check": {
+    "records": 920,
+    "groups": 391,
+    "by_split": {
+      "train": 802,
+      "validation": 59,
+      "test": 59
+    },
+    "by_decision": {
+      "route": 534,
+      "clarify": 119,
+      "respond": 62,
+      "handoff": 157,
+      "out_of_scope": 48
+    },
+    "by_category": {
+      "knowledge": 121,
+      "service": 112,
+      "mixed": 66,
+      "clarification": 58,
+      "image": 109,
+      "context": 103,
+      "handoff": 78,
+      "out_of_scope": 38,
+      "social": 59,
+      "adversarial": 45,
+      "capability": 131
+    },
+    "group_leakage": 0,
+    "normalized_input_duplicates": 0,
+    "current_message_leakage": 0,
+    "checksums": "passed",
+    "sft_metadata_alignment": "passed",
+    "reproducibility": "passed",
+    "human_reviewed_records": 0,
+    "clinical_accuracy_evaluated": false
+  },
+  "dataset_manifest_sha256": "26984384e6a7337728d747b989a24c09fb7b20901e6f4f75cc00fd5c399f4678",
+  "model_dir": "/__modal/volumes/vo-347Qkpy7a8WhEWnRLguMTe/hf/mediphi/hub/models--microsoft--MediPhi-Instruct/snapshots/8a52461577949784b8c447d557fa6b98a7d272df",
+  "dataset_dir": "/app/data/processed/a1_supervisor_v4"
+}

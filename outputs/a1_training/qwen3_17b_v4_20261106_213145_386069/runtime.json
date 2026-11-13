@@ -1,0 +1,25 @@
+{
+  "python": "D:\\Project\\DATN\\.venv-a1\\Scripts\\python.exe",
+  "packages": {
+    "torch": "2.9.1+cu126",
+    "transformers": "4.57.6",
+    "peft": "0.18.1",
+    "trl": "0.24.0",
+    "accelerate": "1.12.0",
+    "bitsandbytes": "0.49.2",
+    "datasets": "4.4.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "gpu_mib": 4095.5,
+  "torch_cuda": "12.6",
+  "code_sha256": {
+    "scripts\\train_a1.py": "b479a492a19a5278cddf7e07d1726cf53b44d75617ca39aa0335e0450a46adb7",
+    "src\\training\\a1_runtime.py": "6e5d2857934e79d6f993e6006db6f2c676a7ae1182d2b40c029c3cd90525d77e",
+    "src\\training\\a1_evaluation.py": "a2d036a8fa1f759ab69cb8064abdb502d05b4932b48fc807a085806dd2b62161",
+    "src\\data\\a1_dataset.py": "c5a68d16e495ee1da72593680c040ec22f64bb0b70f286a8f0aadd5202cb7a92",
+    "scripts\\check_a1_environment.py": "ab2c4002332b92b786dbffd11bfc3700fc6716c2899266e2516b064b3f85efc0",
+    "scripts\\check_a1_dataset.py": "a759ca30a82bbc5c66ed0ecad4a361677c57eb95b201f10f7703e336e6faa05e",
+    "scripts\\prepare_a1_dataset.py": "b4036920ce4a032ca62fd505b7df52f9887800bb5cb68e79f84271264ccf0057",
+    "src\\training\\a1_strategy.py": "095d44c0711566e40976287dfb6cb8568323afc2349a86b2723b63b4ed646939"
+  }
+}

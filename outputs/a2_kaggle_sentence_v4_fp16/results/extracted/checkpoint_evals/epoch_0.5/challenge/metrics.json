@@ -1,0 +1,134 @@
+{
+  "schema_valid": 0.9875,
+  "status_correct": 0.9125,
+  "citation_ids_valid": 0.9875,
+  "exact_match": 0.25,
+  "count": 80,
+  "per_status": {
+    "draft": {
+      "support": 56,
+      "precision": 0.9298245614035088,
+      "recall": 0.9464285714285714,
+      "f1": 0.9380530973451328
+    },
+    "insufficient_evidence": {
+      "support": 24,
+      "precision": 0.9090909090909091,
+      "recall": 0.8333333333333334,
+      "f1": 0.8695652173913043
+    }
+  },
+  "status_macro_f1": 0.9038091573682185,
+  "confusion_matrix": [
+    [
+      53,
+      2,
+      1
+    ],
+    [
+      4,
+      20,
+      0
+    ]
+  ],
+  "confusion_labels": {
+    "rows": [
+      "draft",
+      "insufficient_evidence"
+    ],
+    "columns": [
+      "draft",
+      "insufficient_evidence",
+      "invalid"
+    ]
+  },
+  "valid_sentence_ids": 0.9875,
+  "selection_set_exact": 0.625,
+  "selection_f1_on_answerable": 0.7113095238095238,
+  "sentence_micro_precision": 0.6708860759493671,
+  "sentence_micro_recall": 0.7361111111111112,
+  "sentence_micro_f1": 0.7019867549668874,
+  "metric_scope": "Lexical reference sentence matching, best claim permutation by IDs. Does NOT measure claim semantics, relevance beyond reference, or clinical correctness. Verbatim copying is by code, not a model score.",
+  "slice_breakdown": {
+    "ev_count:1": {
+      "count": 24,
+      "schema_valid": 0.9583333333333334,
+      "status_correct": 0.9166666666666666,
+      "selection_set_exact": 0.5882352941176471,
+      "selection_f1_on_answerable": 0.6176470588235294,
+      "valid_sentence_ids": 0.9583333333333334
+    },
+    "ev_count:2": {
+      "count": 32,
+      "schema_valid": 1.0,
+      "status_correct": 0.9375,
+      "selection_set_exact": 0.6956521739130435,
+      "selection_f1_on_answerable": 0.7971014492753623,
+      "valid_sentence_ids": 1.0
+    },
+    "ev_count:3": {
+      "count": 24,
+      "schema_valid": 1.0,
+      "status_correct": 0.875,
+      "selection_set_exact": 0.5625,
+      "selection_f1_on_answerable": 0.6875,
+      "valid_sentence_ids": 1.0
+    },
+    "kind:intact_partial_support": {
+      "count": 16,
+      "schema_valid": 1.0,
+      "status_correct": 1.0,
+      "selection_set_exact": 0.4375,
+      "selection_f1_on_answerable": 0.6041666666666666,
+      "valid_sentence_ids": 1.0
+    },
+    "kind:intact_same_entity_missing_aspect": {
+      "count": 8,
+      "schema_valid": 1.0,
+      "status_correct": 1.0,
+      "selection_set_exact": null,
+      "selection_f1_on_answerable": null,
+      "valid_sentence_ids": 1.0
+    },
+    "kind:minimal_contrast_negative": {
+      "count": 16,
+      "schema_valid": 1.0,
+      "status_correct": 0.75,
+      "selection_set_exact": null,
+      "selection_f1_on_answerable": null,
+      "valid_sentence_ids": 1.0
+    },
+    "kind:single_aspect": {
+      "count": 24,
+      "schema_valid": 1.0,
+      "status_correct": 0.9166666666666666,
+      "selection_set_exact": 0.75,
+      "selection_f1_on_answerable": 0.7777777777777778,
+      "valid_sentence_ids": 1.0
+    },
+    "kind:two_supported_aspects": {
+      "count": 16,
+      "schema_valid": 0.9375,
+      "status_correct": 0.9375,
+      "selection_set_exact": 0.625,
+      "selection_f1_on_answerable": 0.71875,
+      "valid_sentence_ids": 0.9375
+    },
+    "partial:neg_first": {
+      "count": 8,
+      "schema_valid": 1.0,
+      "status_correct": 1.0,
+      "selection_set_exact": 0.375,
+      "selection_f1_on_answerable": 0.4583333333333333,
+      "valid_sentence_ids": 1.0
+    },
+    "partial:pos_first": {
+      "count": 8,
+      "schema_valid": 1.0,
+      "status_correct": 1.0,
+      "selection_set_exact": 0.5,
+      "selection_f1_on_answerable": 0.75,
+      "valid_sentence_ids": 1.0
+    }
+  }
+}

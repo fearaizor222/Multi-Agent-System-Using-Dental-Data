@@ -1,0 +1,541 @@
+{
+  "scope": "8 source-reading diagnostic comparisons, not a blind test or clinical expert review; frozen RAG contexts reused, no new retrieval; v4 protocol includes OCR normalization and changed schema field order, so this is not an adapter-only controlled comparison",
+  "main_answers_supported": 6,
+  "failures": 2,
+  "id_resolution_errors": 0,
+  "cases": [
+    {
+      "question": "Sâu răng là gì?",
+      "verdict": "not_answering_definition",
+      "reason": "Selects prevalence sentence despite mechanism evidence being available",
+      "v4": {
+        "question": "Sâu răng là gì?",
+        "kind": "definition",
+        "input_tokens": 3536,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_rag_caries_20261113\\retrieval.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S11\"], \"text\": \"Dental caries, còn gọi là sâu răng, là bệnh rất phổ biến, đứng thứ hai sau cảm lạnh.\"}]}",
+        "seconds": 26.510514100002183,
+        "generation_tokens": 60,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Dental caries, còn gọi là sâu răng, là bệnh rất phổ biến, đứng thứ hai sau cảm lạnh.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Dental Caries Dental caries, commonly referred to as tooth decay, is one of the most common of all diseases, second only to the common cold."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Sâu răng là gì?",
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "epoch": 2,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Dental caries, thường gọi là sâu răng, là một trong những bệnh phổ biến nhất, chỉ đứng sau bệnh ho thông thường.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S11\"]}]}",
+        "whitespace_normalized": true,
+        "training_runtime_token_budget": 4096,
+        "diagnostic_full_context_override": false,
+        "seconds": 28.90302359999987,
+        "input_tokens": 3516,
+        "generated_tokens": 63,
+        "generation_limit_hit": false,
+        "scope": "A2 only; production internal RAG; frozen v3 training protocol; no other agents or rule-based drafting; all retrieved chunks retained, only whitespace normalized",
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Dental caries, thường gọi là sâu răng, là một trong những bệnh phổ biến nhất, chỉ đứng sau bệnh ho thông thường.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Dental Caries Dental caries, commonly referred to as tooth decay, is one of the most common of all diseases, second only to the common cold."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "question": "Máng nhai là gì?",
+      "verdict": "supported",
+      "reason": "Definition and citation supported",
+      "v4": {
+        "question": "Máng nhai là gì?",
+        "kind": "definition",
+        "input_tokens": 2843,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_definitions_20261113\\retrieval_0.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.\"}]}",
+        "seconds": 11.63523559999885,
+        "generation_tokens": 63,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Định nghĩa Máng nhai sử dụng trong thực hành cắn khớp có thể định nghĩa như sau: Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng được thực hiện với mục đích chẩn đoán và điều trị rối loạn cắn khớp."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Máng nhai là gì?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 2919,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng, dùng để chẩn đoán và điều trị rối loạn cắn khớp.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"]}]}",
+        "seconds": 12.747708000002604,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng, dùng để chẩn đoán và điều trị rối loạn cắn khớp.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Định nghĩa Máng nhai sử dụng trong thực hành cắn khớp có thể định nghĩa như sau: Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng được thực hiện với mục đích chẩn đoán và điều trị rối loạn cắn khớp."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "question": "Kích thước dọc là gì?",
+      "verdict": "supported",
+      "reason": "Definition and citation supported",
+      "v4": {
+        "question": "Kích thước dọc là gì?",
+        "kind": "definition",
+        "input_tokens": 3266,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_verified_definitions_20261113\\retrieval_0.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.\"}]}",
+        "seconds": 13.06610539999383,
+        "generation_tokens": 65,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Định nghĩa Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động)."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Kích thước dọc là gì?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 3244,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động).\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"]}]}",
+        "seconds": 38.72339850000208,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động).",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Định nghĩa Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động)."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "question": "Cung mặt là gì?",
+      "verdict": "supported",
+      "reason": "Definition supported; fixes previous sentence/evidence mismatch",
+      "v4": {
+        "question": "Cung mặt là gì?",
+        "kind": "definition",
+        "input_tokens": 3635,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_verified_definitions_20261113\\retrieval_1.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Cung mặt là dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian.\"}]}",
+        "seconds": 83.48759930000233,
+        "generation_tokens": 77,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Cung mặt là dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "1. ĐỊNH NGHĨA “Cung mặt là một dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian” (Landa, .J.5., 1954)."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Cung mặt là gì?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 3681,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Cung mặt là dụng cụ cho phép ghi lại vị trí tương đối của hàm trên so với trục bản lề của bệnh nhân để chuyển sang giá khớp.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S2\", \"I4:S1\"]}]}",
+        "seconds": 83.6852577000027,
+        "generation_limit_hit": false,
+        "resolution_error": "Sentence/evidence mismatch"
+      }
+    },
+    {
+      "question": "Tương quan trung tâm là gì?",
+      "verdict": "supported",
+      "reason": "Definition supported; corrects missing anatomical term",
+      "v4": {
+        "question": "Tương quan trung tâm là gì?",
+        "kind": "definition",
+        "input_tokens": 3559,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_verified_definitions_20261113\\retrieval_2.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"], \"text\": \"Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.\"}]}",
+        "seconds": 17.808863199999905,
+        "generation_tokens": 82,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Tương quan †rung tâm (TQTT) Tương quan trung tâm là một tương quan hàm sọ, không phụ thuộc vào răng, là tương quan giữa lỗi cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Tương quan trung tâm là gì?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 3537,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Tương quan trung tâm là tương quan hàm sọ không phụ thuộc răng, giữa cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"]}]}",
+        "seconds": 17.900733099999343,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Tương quan trung tâm là tương quan hàm sọ không phụ thuộc răng, giữa cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Tương quan †rung tâm (TQTT) Tương quan trung tâm là một tương quan hàm sọ, không phụ thuộc vào răng, là tương quan giữa lỗi cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "question": "Theo tài liệu, khi chưa tìm được nguyên nhân rõ ràng của loạn năng hệ thống nhai thì nên xử trí ban đầu như thế nào?",
+      "verdict": "main_answer_supported",
+      "reason": "Answers symptomatic initial management; wording is general",
+      "v4": {
+        "question": "Theo tài liệu, khi chưa tìm được nguyên nhân rõ ràng của loạn năng hệ thống nhai thì nên xử trí ban đầu như thế nào?",
+        "kind": "treatment",
+        "input_tokens": 3595,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_treatment_20261113\\retrieval_0.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Đoạn nguồn nêu việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.\"}]}",
+        "seconds": 41.396281599998474,
+        "generation_tokens": 63,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Đoạn nguồn nêu việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Loại bỏ các yếu tố nguyên nhân là bước đầu tiên trong điều trị tất cả các bệnh, nhưng đối với loạn năng khớp cắn, loạn năng thái dương hàm và rối loạn cơ, có thể không tìm được yếu tố nguyên nhân rõ ràng, vì thế việc điều trị đầu tiên phải là điều trị triệu chứng."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Theo tài liệu, khi chưa tìm được nguyên nhân rõ ràng của loạn năng hệ thống nhai thì nên xử trí ban đầu như thế nào?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 3573,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Điều trị ban đầu tập trung vào giảm triệu chứng và hy vọng làm giảm các rối loạn.\", \"evidence_ids\": [\"I4\"], \"sentence_ids\": [\"I4:S3\"]}]}",
+        "seconds": 29.902715199998056,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Điều trị ban đầu tập trung vào giảm triệu chứng và hy vọng làm giảm các rối loạn.",
+              "evidence_ids": [
+                "I4"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I4",
+                  "quote": "Vì rối loạn cơ khớp (mà thể hiện thường thấy nhất là đau) có thể biến mất mà không có điều trị gì và: nguyên nhân đặc hiệu thường không tìm biết được, nên điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm đi các rối loạn."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "question": "Theo tài liệu, khi dùng máng nhai để giảm hoạt động cơ cắn, ngừng đeo máng thì hiệu quả có được duy trì không?",
+      "verdict": "false_abstention",
+      "reason": "Explicit evidence of muscle activity returning after discontinuation is present",
+      "v4": {
+        "question": "Theo tài liệu, khi dùng máng nhai để giảm hoạt động cơ cắn, ngừng đeo máng thì hiệu quả có được duy trì không?",
+        "kind": "treatment",
+        "input_tokens": 2805,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_treatment_20261113\\retrieval_1.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+        "seconds": 5.133131700000376,
+        "generation_tokens": 15,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "insufficient_evidence",
+          "claims": []
+        }
+      },
+      "v3": {
+        "question": "Theo tài liệu, khi dùng máng nhai để giảm hoạt động cơ cắn, ngừng đeo máng thì hiệu quả có được duy trì không?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 2783,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Khi máng nhai không được tiếp tục mang, hoạt động điện cơ của cơ cắn nhanh chóng trở lại.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"]}]}",
+        "seconds": 11.809781700001622,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Khi máng nhai không được tiếp tục mang, hoạt động điện cơ của cơ cắn nhanh chóng trở lại.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Qua một nghiên cứu dọc của Rugh cho thấy ở những bệnh nhân có biểu hiện giảm hoạt động cơ cắn bằng điều trị máng nhai, hiệu quả không kéo đài, và nếu máng nhai không được tiếp tục mang, hoạt động điện cơ của cơ cắn nhanh chóng trở lại."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "question": "Theo tài liệu, mài điều chỉnh khớp cắn có hoàn tất trong một lần hẹn không, và các lần hẹn cách nhau bao lâu?",
+      "verdict": "supported",
+      "reason": "Answers both questions and preserves qualifiers and interval",
+      "v4": {
+        "question": "Theo tài liệu, mài điều chỉnh khớp cắn có hoàn tất trong một lần hẹn không, và các lần hẹn cách nhau bao lâu?",
+        "kind": "treatment",
+        "input_tokens": 2949,
+        "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+        "checkpoint": "epoch_1.0",
+        "context_replay": true,
+        "whitespace_normalized": true,
+        "v4_ocr_normalization": true,
+        "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_treatment_20261113\\retrieval_2.json",
+        "all_retrieved_chunks_retained": true,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"], \"text\": \"Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày.\"}]}",
+        "seconds": 18.987383599996974,
+        "generation_tokens": 96,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn."
+                }
+              ]
+            },
+            {
+              "text": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày để tạo điều kiện thời gian cho những hoạt động thích ứng."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "v3": {
+        "question": "Theo tài liệu, mài điều chỉnh khớp cắn có hoàn tất trong một lần hẹn không, và các lần hẹn cách nhau bao lâu?",
+        "epoch": 2,
+        "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+        "input_tokens": 2927,
+        "whitespace_normalized": true,
+        "all_retrieved_chunks_retained": true,
+        "training": false,
+        "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"]}, {\"text\": \"Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"]}]}",
+        "seconds": 17.761316199997964,
+        "generation_limit_hit": false,
+        "resolved_output": {
+          "status": "draft",
+          "claims": [
+            {
+              "text": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn."
+                }
+              ]
+            },
+            {
+              "text": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày.",
+              "evidence_ids": [
+                "I1"
+              ],
+              "supporting_quotes": [
+                {
+                  "evidence_id": "I1",
+                  "quote": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày để tạo điều kiện thời gian cho những hoạt động thích ứng."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

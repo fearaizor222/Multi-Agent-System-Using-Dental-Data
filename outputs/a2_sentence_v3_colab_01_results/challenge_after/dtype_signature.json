@@ -1,0 +1,10 @@
+{
+  "non_quantized_base_elements_by_dtype": {
+    "torch.float16": 311288832
+  },
+  "adapter_elements_by_dtype": {
+    "torch.float32": 17432576
+  },
+  "trainable_parameter_tensors": 0,
+  "training": false
+}

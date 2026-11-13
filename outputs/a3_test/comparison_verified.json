@@ -1,0 +1,431 @@
+{
+  "vinallama_27b": {
+    "folder": "a3_vinallama_27b_20261109_123046_192478_2df1dfe0_20261109_153305_766685",
+    "identity": {
+      "model_id": "vinallama_27b",
+      "source_run": "a3_vinallama_27b_20261109_123046_192478_2df1dfe0",
+      "test_sha256": {
+        "test.jsonl": "c4eda27d2b15aaf3289b434ce35550d5e54fa5f05029bd7ff724fb728bc1908f",
+        "test.metadata.jsonl": "8170cad6664cee38d6244c23439165724cf576262825ef4d9a7aded54b511531"
+      },
+      "adapter_sha256": "366d876b69653ec5d0661753d450289c6caf8525d57c5de9de65ad1f3ec6535a",
+      "training_executed": false,
+      "selection": "existing lowest-validation-loss adapter"
+    },
+    "test": {
+      "json_valid": 1.0,
+      "schema_valid": 1.0,
+      "quote_ids_valid": 1.0,
+      "quote_set_match": 0.7544910179640718,
+      "both_labels_correct": 0.6826347305389222,
+      "assessment_exact_match": 0.6167664670658682,
+      "full_json_exact_match": 0.005988023952095809,
+      "draft_support_correct": 0.8383233532934131,
+      "public_support_correct": 0.7425149700598802,
+      "count": 167,
+      "decisions": {
+        "draft_support": {
+          "confusion_matrix": [
+            [
+              111,
+              5,
+              1,
+              0
+            ],
+            [
+              8,
+              12,
+              2,
+              0
+            ],
+            [
+              6,
+              5,
+              17,
+              0
+            ]
+          ],
+          "confusion_labels": {
+            "rows": [
+              "supported",
+              "contradicted",
+              "insufficient"
+            ],
+            "columns": [
+              "supported",
+              "contradicted",
+              "insufficient",
+              "invalid"
+            ]
+          },
+          "per_label": {
+            "supported": {
+              "support": 117,
+              "precision": 0.888,
+              "recall": 0.9487179487179487,
+              "f1": 0.9173553719008264
+            },
+            "contradicted": {
+              "support": 22,
+              "precision": 0.5454545454545454,
+              "recall": 0.5454545454545454,
+              "f1": 0.5454545454545454
+            },
+            "insufficient": {
+              "support": 28,
+              "precision": 0.85,
+              "recall": 0.6071428571428571,
+              "f1": 0.7083333333333333
+            }
+          },
+          "macro_f1": 0.7237144168962351
+        },
+        "public_support": {
+          "confusion_matrix": [
+            [
+              106,
+              3,
+              3,
+              0
+            ],
+            [
+              12,
+              4,
+              6,
+              0
+            ],
+            [
+              19,
+              0,
+              14,
+              0
+            ]
+          ],
+          "confusion_labels": {
+            "rows": [
+              "supported",
+              "contradicted",
+              "insufficient"
+            ],
+            "columns": [
+              "supported",
+              "contradicted",
+              "insufficient",
+              "invalid"
+            ]
+          },
+          "per_label": {
+            "supported": {
+              "support": 112,
+              "precision": 0.7737226277372263,
+              "recall": 0.9464285714285714,
+              "f1": 0.8514056224899599
+            },
+            "contradicted": {
+              "support": 22,
+              "precision": 0.5714285714285714,
+              "recall": 0.18181818181818182,
+              "f1": 0.27586206896551724
+            },
+            "insufficient": {
+              "support": 33,
+              "precision": 0.6086956521739131,
+              "recall": 0.42424242424242425,
+              "f1": 0.5
+            }
+          },
+          "macro_f1": 0.5424225638184924
+        }
+      }
+    },
+    "validation_assessment": 0.6331360946745562,
+    "generation_limit_count": 0,
+    "elapsed_seconds": 1402.2925406240001
+  },
+  "mediphi_38b": {
+    "folder": "a3_mediphi_38b_20261109_122937_227148_1d0bf5fc_20261109_153303_117352",
+    "identity": {
+      "model_id": "mediphi_38b",
+      "source_run": "a3_mediphi_38b_20261109_122937_227148_1d0bf5fc",
+      "test_sha256": {
+        "test.jsonl": "c4eda27d2b15aaf3289b434ce35550d5e54fa5f05029bd7ff724fb728bc1908f",
+        "test.metadata.jsonl": "8170cad6664cee38d6244c23439165724cf576262825ef4d9a7aded54b511531"
+      },
+      "adapter_sha256": "6ba86992c8ba98d022636cddb5eca31f6bb2865550b77e94fcf8b077802885ef",
+      "training_executed": false,
+      "selection": "existing lowest-validation-loss adapter"
+    },
+    "test": {
+      "json_valid": 1.0,
+      "schema_valid": 0.9940119760479041,
+      "quote_ids_valid": 0.9940119760479041,
+      "quote_set_match": 0.9161676646706587,
+      "both_labels_correct": 0.8502994011976048,
+      "assessment_exact_match": 0.8203592814371258,
+      "full_json_exact_match": 0.017964071856287425,
+      "draft_support_correct": 0.8982035928143712,
+      "public_support_correct": 0.9161676646706587,
+      "count": 167,
+      "decisions": {
+        "draft_support": {
+          "confusion_matrix": [
+            [
+              112,
+              2,
+              2,
+              1
+            ],
+            [
+              3,
+              15,
+              4,
+              0
+            ],
+            [
+              2,
+              3,
+              23,
+              0
+            ]
+          ],
+          "confusion_labels": {
+            "rows": [
+              "supported",
+              "contradicted",
+              "insufficient"
+            ],
+            "columns": [
+              "supported",
+              "contradicted",
+              "insufficient",
+              "invalid"
+            ]
+          },
+          "per_label": {
+            "supported": {
+              "support": 117,
+              "precision": 0.9572649572649573,
+              "recall": 0.9572649572649573,
+              "f1": 0.9572649572649573
+            },
+            "contradicted": {
+              "support": 22,
+              "precision": 0.75,
+              "recall": 0.6818181818181818,
+              "f1": 0.7142857142857143
+            },
+            "insufficient": {
+              "support": 28,
+              "precision": 0.7931034482758621,
+              "recall": 0.8214285714285714,
+              "f1": 0.8070175438596492
+            }
+          },
+          "macro_f1": 0.8261894051367736
+        },
+        "public_support": {
+          "confusion_matrix": [
+            [
+              110,
+              0,
+              1,
+              1
+            ],
+            [
+              5,
+              13,
+              4,
+              0
+            ],
+            [
+              3,
+              0,
+              30,
+              0
+            ]
+          ],
+          "confusion_labels": {
+            "rows": [
+              "supported",
+              "contradicted",
+              "insufficient"
+            ],
+            "columns": [
+              "supported",
+              "contradicted",
+              "insufficient",
+              "invalid"
+            ]
+          },
+          "per_label": {
+            "supported": {
+              "support": 112,
+              "precision": 0.9322033898305084,
+              "recall": 0.9821428571428571,
+              "f1": 0.9565217391304348
+            },
+            "contradicted": {
+              "support": 22,
+              "precision": 1.0,
+              "recall": 0.5909090909090909,
+              "f1": 0.7428571428571429
+            },
+            "insufficient": {
+              "support": 33,
+              "precision": 0.8571428571428571,
+              "recall": 0.9090909090909091,
+              "f1": 0.8823529411764706
+            }
+          },
+          "macro_f1": 0.8605772743880161
+        }
+      }
+    },
+    "validation_assessment": 0.8165680473372781,
+    "generation_limit_count": 0,
+    "elapsed_seconds": 1714.885493774
+  },
+  "qwen3_17b": {
+    "folder": "a3_qwen3_17b_20261109_122845_028798_50aa903b_20261109_162437_207760",
+    "identity": {
+      "model_id": "qwen3_17b",
+      "source_run": "a3_qwen3_17b_20261109_122845_028798_50aa903b",
+      "test_sha256": {
+        "test.jsonl": "c4eda27d2b15aaf3289b434ce35550d5e54fa5f05029bd7ff724fb728bc1908f",
+        "test.metadata.jsonl": "8170cad6664cee38d6244c23439165724cf576262825ef4d9a7aded54b511531"
+      },
+      "adapter_sha256": "c681383665658b6c34c31218cee9d12481e342ec29044d4bfa63d597293bd8b1",
+      "training_executed": false,
+      "selection": "existing lowest-validation-loss adapter"
+    },
+    "test": {
+      "json_valid": 1.0,
+      "schema_valid": 1.0,
+      "quote_ids_valid": 1.0,
+      "quote_set_match": 0.9760479041916168,
+      "both_labels_correct": 0.8922155688622755,
+      "assessment_exact_match": 0.8862275449101796,
+      "full_json_exact_match": 0.0,
+      "draft_support_correct": 0.9221556886227545,
+      "public_support_correct": 0.9341317365269461,
+      "count": 167,
+      "decisions": {
+        "draft_support": {
+          "confusion_matrix": [
+            [
+              112,
+              3,
+              2,
+              0
+            ],
+            [
+              4,
+              17,
+              1,
+              0
+            ],
+            [
+              1,
+              2,
+              25,
+              0
+            ]
+          ],
+          "confusion_labels": {
+            "rows": [
+              "supported",
+              "contradicted",
+              "insufficient"
+            ],
+            "columns": [
+              "supported",
+              "contradicted",
+              "insufficient",
+              "invalid"
+            ]
+          },
+          "per_label": {
+            "supported": {
+              "support": 117,
+              "precision": 0.9572649572649573,
+              "recall": 0.9572649572649573,
+              "f1": 0.9572649572649573
+            },
+            "contradicted": {
+              "support": 22,
+              "precision": 0.7727272727272727,
+              "recall": 0.7727272727272727,
+              "f1": 0.7727272727272727
+            },
+            "insufficient": {
+              "support": 28,
+              "precision": 0.8928571428571429,
+              "recall": 0.8928571428571429,
+              "f1": 0.8928571428571429
+            }
+          },
+          "macro_f1": 0.8742831242831243
+        },
+        "public_support": {
+          "confusion_matrix": [
+            [
+              107,
+              5,
+              0,
+              0
+            ],
+            [
+              4,
+              17,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              32,
+              0
+            ]
+          ],
+          "confusion_labels": {
+            "rows": [
+              "supported",
+              "contradicted",
+              "insufficient"
+            ],
+            "columns": [
+              "supported",
+              "contradicted",
+              "insufficient",
+              "invalid"
+            ]
+          },
+          "per_label": {
+            "supported": {
+              "support": 112,
+              "precision": 0.963963963963964,
+              "recall": 0.9553571428571429,
+              "f1": 0.9596412556053813
+            },
+            "contradicted": {
+              "support": 22,
+              "precision": 0.7391304347826086,
+              "recall": 0.7727272727272727,
+              "f1": 0.7555555555555555
+            },
+            "insufficient": {
+              "support": 33,
+              "precision": 0.9696969696969697,
+              "recall": 0.9696969696969697,
+              "f1": 0.9696969696969697
+            }
+          },
+          "macro_f1": 0.8949645936193021
+        }
+      }
+    },
+    "validation_assessment": 0.8875739644970414,
+    "generation_limit_count": 0,
+    "elapsed_seconds": 1352.288332306
+  }
+}

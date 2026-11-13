@@ -1,0 +1,129 @@
+{
+  "epochs": 3,
+  "initialization": "fresh Qwen3-1.7B base, new LoRA",
+  "dataset_info": {
+    "dataset_version": "a2-raft-pilot-v1-20261112",
+    "output_contract": "a2_grounded_quotes_v1",
+    "source_sha256": {
+      "schema.json": "0875a7448d2ed2c0433b4b2e6ac4627180d3d0b70afd31f5194dc8fe99305ecf",
+      "seed_review.json": "9a13272ce682fa3d3d1408d56a7b1b0bf97f3fff54a69fb140e6f994897d2b78",
+      "train.jsonl": "627ebd800dd86b7cf35df87fbf753ba6473480f7b39d839714c0015c381e7bf9",
+      "train.metadata.jsonl": "aa9bc8fa71b661065720c6aaf5c8cae1d163dc4b5b7bdf2f78aafc48cd0f8d23",
+      "val.jsonl": "23ebc58df4acde792b41d41c0bbb29bdf5a217326d849447697fc94944761b16",
+      "val.metadata.jsonl": "b3f274edebc4c58539763ffcf3c65175b9480feb71905a5867f6bd36e740cd35"
+    },
+    "counts": {
+      "train": 144,
+      "validation": 72
+    },
+    "split_method": "All oracle and distractor sources retain the v4 parent train/validation chapter split. No test examples used.",
+    "test_reserved": true,
+    "scope": "Small RAFT-inspired source-selection pilot with explicit quotes, abstention and partial answers. Manual source-reading by assistant, no external clinical adjudication. Derived variants are correlated, not independent QA cases.",
+    "verification": {
+      "status": "passed",
+      "splits": {
+        "train": {
+          "count": 144,
+          "families": 8,
+          "distinct_questions": 24,
+          "languages": {
+            "en": 72,
+            "vi": 72
+          },
+          "statuses": {
+            "draft": 104,
+            "insufficient_evidence": 40
+          },
+          "modes": {
+            "noise_middle": 24,
+            "clean": 24,
+            "missing_support_same_topic": 16,
+            "noise_after": 24,
+            "noise_before": 24,
+            "partial_answer": 8,
+            "without_evidence": 24
+          },
+          "max_tokens": null,
+          "citation_positions": {
+            "I3": 32,
+            "I1": 66,
+            "I2": 38
+          }
+        },
+        "val": {
+          "count": 72,
+          "families": 4,
+          "distinct_questions": 12,
+          "languages": {
+            "vi": 36,
+            "en": 36
+          },
+          "statuses": {
+            "draft": 52,
+            "insufficient_evidence": 20
+          },
+          "modes": {
+            "noise_middle": 12,
+            "missing_support_same_topic": 8,
+            "clean": 12,
+            "without_evidence": 12,
+            "noise_after": 12,
+            "noise_before": 12,
+            "partial_answer": 4
+          },
+          "max_tokens": null,
+          "citation_positions": {
+            "I2": 16,
+            "I1": 36,
+            "I3": 16
+          }
+        }
+      },
+      "cross_split_document_chunk_family_overlap": 0,
+      "exact_quotes_and_source_offsets_checked": true,
+      "paired_question_context_variants_checked": true,
+      "semantic_review": "Assistant reviewed 24 seed fact/claim pairs and paired distractor excerpts. Variants checked deterministically; no independent clinical review.",
+      "token_limit": 3072,
+      "tokenizer_checked": false,
+      "test_used": false,
+      "training_executed": false,
+      "inference_executed": false
+    }
+  },
+  "probe_ids": [
+    "raft_bottle_label_q0_clean",
+    "raft_bottle_label_q0_missing_support_same_topic",
+    "raft_bottle_label_q0_noise_middle",
+    "raft_bottle_label_q1_clean",
+    "raft_bottle_label_q1_missing_support_same_topic",
+    "raft_bottle_label_q1_noise_middle",
+    "raft_bottle_label_q2_noise_middle",
+    "raft_bottle_label_q2_partial_answer",
+    "raft_hinge_axis_q0_clean",
+    "raft_hinge_axis_q0_missing_support_same_topic",
+    "raft_hinge_axis_q0_noise_middle",
+    "raft_hinge_axis_q1_clean",
+    "raft_hinge_axis_q1_missing_support_same_topic",
+    "raft_hinge_axis_q1_noise_middle",
+    "raft_hinge_axis_q2_noise_middle",
+    "raft_hinge_axis_q2_partial_answer",
+    "raft_learning_q0_clean",
+    "raft_learning_q0_missing_support_same_topic",
+    "raft_learning_q0_noise_middle",
+    "raft_learning_q1_clean",
+    "raft_learning_q1_missing_support_same_topic",
+    "raft_learning_q1_noise_middle",
+    "raft_learning_q2_noise_middle",
+    "raft_learning_q2_partial_answer",
+    "raft_swallowing_q0_clean",
+    "raft_swallowing_q0_missing_support_same_topic",
+    "raft_swallowing_q0_noise_middle",
+    "raft_swallowing_q1_clean",
+    "raft_swallowing_q1_missing_support_same_topic",
+    "raft_swallowing_q1_noise_middle",
+    "raft_swallowing_q2_noise_middle",
+    "raft_swallowing_q2_partial_answer"
+  ],
+  "checkpoint_selection": "lowest validation loss",
+  "production_adapter_replaced": false
+}

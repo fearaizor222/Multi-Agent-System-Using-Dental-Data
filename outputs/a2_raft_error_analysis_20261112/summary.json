@@ -1,0 +1,345 @@
+{
+  "run": "a2_raft_qwen3_17b_20261112_122501_012229",
+  "scope": "72 correlated validation variants, 12 questions, 4 chapters; assistant source-reading, not independent clinical adjudication.",
+  "all": {
+    "count": 72,
+    "grades": {
+      "fail": 34,
+      "pass": 28,
+      "partial": 10
+    },
+    "content_and_vietnamese": 26,
+    "error_tags": {
+      "wrong_focus": 28,
+      "meaning_changed": 19,
+      "quote_not_supporting": 30,
+      "unsupported_in_missing": 5,
+      "incomplete_answer": 10,
+      "non_vietnamese": 5,
+      "noise_intrusion": 2,
+      "false_refusal": 2
+    }
+  },
+  "by_mode": {
+    "clean": {
+      "count": 12,
+      "grades": {
+        "partial": 2,
+        "pass": 3,
+        "fail": 7
+      },
+      "content_and_vietnamese": 2,
+      "error_tags": {
+        "incomplete_answer": 2,
+        "wrong_focus": 7,
+        "meaning_changed": 3,
+        "quote_not_supporting": 7,
+        "non_vietnamese": 2
+      }
+    },
+    "noise_before": {
+      "count": 12,
+      "grades": {
+        "partial": 3,
+        "fail": 6,
+        "pass": 3
+      },
+      "content_and_vietnamese": 3,
+      "error_tags": {
+        "incomplete_answer": 3,
+        "wrong_focus": 6,
+        "meaning_changed": 5,
+        "quote_not_supporting": 5
+      }
+    },
+    "noise_middle": {
+      "count": 12,
+      "grades": {
+        "fail": 7,
+        "pass": 2,
+        "partial": 3
+      },
+      "content_and_vietnamese": 2,
+      "error_tags": {
+        "wrong_focus": 7,
+        "quote_not_supporting": 6,
+        "incomplete_answer": 3,
+        "meaning_changed": 4,
+        "noise_intrusion": 1,
+        "non_vietnamese": 1
+      }
+    },
+    "noise_after": {
+      "count": 12,
+      "grades": {
+        "partial": 2,
+        "pass": 4,
+        "fail": 6
+      },
+      "content_and_vietnamese": 3,
+      "error_tags": {
+        "incomplete_answer": 2,
+        "quote_not_supporting": 6,
+        "wrong_focus": 6,
+        "meaning_changed": 3,
+        "non_vietnamese": 1
+      }
+    },
+    "without_evidence": {
+      "count": 12,
+      "grades": {
+        "pass": 11,
+        "fail": 1
+      },
+      "content_and_vietnamese": 11,
+      "error_tags": {
+        "wrong_focus": 1,
+        "noise_intrusion": 1,
+        "meaning_changed": 1,
+        "non_vietnamese": 1,
+        "quote_not_supporting": 1,
+        "unsupported_in_missing": 1
+      }
+    },
+    "missing_support_same_topic": {
+      "count": 8,
+      "grades": {
+        "fail": 4,
+        "pass": 4
+      },
+      "content_and_vietnamese": 4,
+      "error_tags": {
+        "meaning_changed": 2,
+        "quote_not_supporting": 4,
+        "unsupported_in_missing": 4,
+        "wrong_focus": 1
+      }
+    },
+    "partial_answer": {
+      "count": 4,
+      "grades": {
+        "fail": 3,
+        "pass": 1
+      },
+      "content_and_vietnamese": 1,
+      "error_tags": {
+        "false_refusal": 2,
+        "meaning_changed": 1,
+        "quote_not_supporting": 1
+      }
+    }
+  },
+  "by_family": {
+    "bottle_label": {
+      "count": 18,
+      "grades": {
+        "pass": 8,
+        "fail": 10
+      },
+      "content_and_vietnamese": 6,
+      "error_tags": {
+        "non_vietnamese": 3,
+        "quote_not_supporting": 11,
+        "wrong_focus": 8,
+        "meaning_changed": 4,
+        "false_refusal": 1,
+        "unsupported_in_missing": 1
+      }
+    },
+    "hinge_axis": {
+      "count": 18,
+      "grades": {
+        "fail": 12,
+        "pass": 4,
+        "partial": 2
+      },
+      "content_and_vietnamese": 4,
+      "error_tags": {
+        "wrong_focus": 9,
+        "meaning_changed": 5,
+        "quote_not_supporting": 8,
+        "unsupported_in_missing": 2,
+        "incomplete_answer": 2
+      }
+    },
+    "learning": {
+      "count": 18,
+      "grades": {
+        "pass": 6,
+        "fail": 12
+      },
+      "content_and_vietnamese": 6,
+      "error_tags": {
+        "wrong_focus": 11,
+        "meaning_changed": 10,
+        "quote_not_supporting": 11,
+        "noise_intrusion": 2,
+        "non_vietnamese": 2,
+        "unsupported_in_missing": 2,
+        "false_refusal": 1
+      }
+    },
+    "swallowing": {
+      "count": 18,
+      "grades": {
+        "partial": 8,
+        "pass": 10
+      },
+      "content_and_vietnamese": 10,
+      "error_tags": {
+        "incomplete_answer": 8
+      }
+    }
+  },
+  "by_source_language": {
+    "en": {
+      "count": 36,
+      "grades": {
+        "pass": 14,
+        "fail": 22
+      },
+      "content_and_vietnamese": 12,
+      "error_tags": {
+        "wrong_focus": 19,
+        "meaning_changed": 14,
+        "quote_not_supporting": 22,
+        "non_vietnamese": 5,
+        "noise_intrusion": 2,
+        "unsupported_in_missing": 3,
+        "false_refusal": 2
+      }
+    },
+    "vi": {
+      "count": 36,
+      "grades": {
+        "fail": 12,
+        "partial": 10,
+        "pass": 14
+      },
+      "content_and_vietnamese": 14,
+      "error_tags": {
+        "wrong_focus": 9,
+        "meaning_changed": 5,
+        "quote_not_supporting": 8,
+        "unsupported_in_missing": 2,
+        "incomplete_answer": 10
+      }
+    }
+  },
+  "answerable": {
+    "count": 52,
+    "grades": {
+      "fail": 29,
+      "partial": 10,
+      "pass": 13
+    },
+    "content_and_vietnamese": 11,
+    "error_tags": {
+      "wrong_focus": 26,
+      "incomplete_answer": 10,
+      "meaning_changed": 16,
+      "quote_not_supporting": 25,
+      "non_vietnamese": 4,
+      "false_refusal": 2,
+      "noise_intrusion": 1
+    }
+  },
+  "unanswerable": {
+    "count": 20,
+    "grades": {
+      "fail": 5,
+      "pass": 15
+    },
+    "content_and_vietnamese": 15,
+    "error_tags": {
+      "meaning_changed": 3,
+      "quote_not_supporting": 5,
+      "unsupported_in_missing": 5,
+      "wrong_focus": 2,
+      "noise_intrusion": 1,
+      "non_vietnamese": 1
+    }
+  },
+  "full_context_single_question": {
+    "count": 32,
+    "grades": {
+      "fail": 16,
+      "partial": 4,
+      "pass": 12
+    },
+    "content_and_vietnamese": 10,
+    "error_tags": {
+      "wrong_focus": 16,
+      "incomplete_answer": 4,
+      "meaning_changed": 9,
+      "quote_not_supporting": 14,
+      "non_vietnamese": 4,
+      "noise_intrusion": 1
+    }
+  },
+  "full_context_combined_question": {
+    "count": 16,
+    "grades": {
+      "partial": 6,
+      "fail": 10
+    },
+    "content_and_vietnamese": 0,
+    "error_tags": {
+      "incomplete_answer": 6,
+      "wrong_focus": 10,
+      "meaning_changed": 6,
+      "quote_not_supporting": 10
+    }
+  },
+  "noise_pairs": {
+    "count": 36,
+    "clean_pass_noise_not_pass": 3,
+    "comparisons_with_clean_pass": 9,
+    "transitions": {
+      "fail -> fail": 16,
+      "partial -> partial": 6,
+      "fail -> partial": 2,
+      "pass -> pass": 6,
+      "fail -> pass": 3,
+      "pass -> fail": 3
+    }
+  },
+  "verbatim_quotes_in_predicted_drafts": {
+    "valid": 36,
+    "total": 55
+  },
+  "literal_quote_but_unsupported_claim": 18,
+  "paired_output_differences": 6,
+  "different_outputs_review": [
+    {
+      "id": "raft_hinge_axis_q0_noise_middle",
+      "after_grade": "fail",
+      "paired_grade": "pass"
+    },
+    {
+      "id": "raft_hinge_axis_q1_missing_support_same_topic",
+      "after_grade": "fail",
+      "paired_grade": "pass"
+    },
+    {
+      "id": "raft_learning_q1_missing_support_same_topic",
+      "after_grade": "fail",
+      "paired_grade": "pass"
+    },
+    {
+      "id": "raft_swallowing_q2_noise_middle",
+      "after_grade": "partial",
+      "paired_grade": "partial"
+    },
+    {
+      "id": "raft_bottle_label_q1_clean",
+      "after_grade": "fail",
+      "paired_grade": "fail"
+    },
+    {
+      "id": "raft_hinge_axis_q1_noise_middle",
+      "after_grade": "fail",
+      "paired_grade": "partial"
+    }
+  ]
+}

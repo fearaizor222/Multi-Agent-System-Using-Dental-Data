@@ -1,0 +1,45 @@
+{
+  "schema_valid": 1.0,
+  "status_correct": 0.967741935483871,
+  "citation_ids_valid": 1.0,
+  "exact_match": 0.11827956989247312,
+  "count": 93,
+  "per_status": {
+    "draft": {
+      "support": 82,
+      "precision": 0.9759036144578314,
+      "recall": 0.9878048780487805,
+      "f1": 0.9818181818181818
+    },
+    "insufficient_evidence": {
+      "support": 11,
+      "precision": 0.9,
+      "recall": 0.8181818181818182,
+      "f1": 0.8571428571428572
+    }
+  },
+  "status_macro_f1": 0.9194805194805196,
+  "confusion_matrix": [
+    [
+      81,
+      1,
+      0
+    ],
+    [
+      2,
+      9,
+      0
+    ]
+  ],
+  "confusion_labels": {
+    "rows": [
+      "draft",
+      "insufficient_evidence"
+    ],
+    "columns": [
+      "draft",
+      "insufficient_evidence",
+      "invalid"
+    ]
+  }
+}

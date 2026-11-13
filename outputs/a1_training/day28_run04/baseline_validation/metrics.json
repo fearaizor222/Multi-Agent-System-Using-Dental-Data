@@ -1,0 +1,163 @@
+{
+  "completed": true,
+  "count": 59,
+  "correct": {
+    "raw_json_valid": 58,
+    "schema_valid": 44,
+    "context_valid": 44,
+    "decision_correct": 5,
+    "targets_correct": 13,
+    "service_topics_correct": 26,
+    "image_ids_correct": 43,
+    "control_exact": 5
+  },
+  "rates": {
+    "raw_json_valid": 0.9830508474576272,
+    "schema_valid": 0.7457627118644068,
+    "context_valid": 0.7457627118644068,
+    "decision_correct": 0.0847457627118644,
+    "targets_correct": 0.22033898305084745,
+    "service_topics_correct": 0.4406779661016949,
+    "image_ids_correct": 0.7288135593220338,
+    "control_exact": 0.0847457627118644
+  },
+  "decision_macro_f1": 0.16060606060606059,
+  "per_decision": {
+    "route": {
+      "support": 40,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "clarify": {
+      "support": 9,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "handoff": {
+      "support": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "out_of_scope": {
+      "support": 3,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1": 0.6666666666666666
+    },
+    "respond": {
+      "support": 3,
+      "precision": 0.07317073170731707,
+      "recall": 1.0,
+      "f1": 0.13636363636363635
+    }
+  },
+  "by_category": {
+    "adversarial": {
+      "count": 3,
+      "control_exact": 0,
+      "schema_valid": 3
+    },
+    "capability": {
+      "count": 2,
+      "control_exact": 0,
+      "schema_valid": 1
+    },
+    "clarification": {
+      "count": 6,
+      "control_exact": 0,
+      "schema_valid": 3
+    },
+    "context": {
+      "count": 6,
+      "control_exact": 0,
+      "schema_valid": 4
+    },
+    "handoff": {
+      "count": 3,
+      "control_exact": 0,
+      "schema_valid": 3
+    },
+    "image": {
+      "count": 6,
+      "control_exact": 0,
+      "schema_valid": 1
+    },
+    "knowledge": {
+      "count": 12,
+      "control_exact": 0,
+      "schema_valid": 9
+    },
+    "mixed": {
+      "count": 6,
+      "control_exact": 0,
+      "schema_valid": 5
+    },
+    "out_of_scope": {
+      "count": 3,
+      "control_exact": 2,
+      "schema_valid": 3
+    },
+    "service": {
+      "count": 9,
+      "control_exact": 0,
+      "schema_valid": 9
+    },
+    "social": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    }
+  },
+  "confusion": [
+    {
+      "expected": "clarify",
+      "predicted": "invalid",
+      "count": 6
+    },
+    {
+      "expected": "clarify",
+      "predicted": "respond",
+      "count": 3
+    },
+    {
+      "expected": "handoff",
+      "predicted": "out_of_scope",
+      "count": 1
+    },
+    {
+      "expected": "handoff",
+      "predicted": "respond",
+      "count": 3
+    },
+    {
+      "expected": "out_of_scope",
+      "predicted": "out_of_scope",
+      "count": 2
+    },
+    {
+      "expected": "out_of_scope",
+      "predicted": "respond",
+      "count": 1
+    },
+    {
+      "expected": "respond",
+      "predicted": "respond",
+      "count": 3
+    },
+    {
+      "expected": "route",
+      "predicted": "invalid",
+      "count": 9
+    },
+    {
+      "expected": "route",
+      "predicted": "respond",
+      "count": 31
+    }
+  ],
+  "total_generation_seconds": 522.8800000000001,
+  "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+}

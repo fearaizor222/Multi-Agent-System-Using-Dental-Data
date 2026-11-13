@@ -1,0 +1,472 @@
+﻿id,category,message,expected_decision,before_decision,after_decision,before_control_exact,after_control_exact,transition,before_raw,after_raw
+a1_splint_01,knowledge,Máng nhai là gì?,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Máng nhai là phần của răng giúp hỗ trợ việc nhai và giữ cân bằng cho hàm. Nó có hình dạng giống như một chiếc đũa, có thể là hình tròn hoặc hình tam giác, tùy thuộc vào loại răng và cách nhai. Máng nhai giúp răng giữ được vị trí đúng đắn và không bị xoay hoặc nghiêng.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích máng nhai."",""message"":null}"
+a1_splint_02,knowledge,Cho mình tìm hiểu về máng nhai với.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Máng nhai là một phần quan trọng của hệ thống tiêu hóa trong nha khoa, giúp vận chuyển thức ăn từ miệng đến dạ dày. Nó bao gồm các lỗ nhỏ trên răng, giúp thức ăn được xáo trộn và di chuyển qua miệng và cổ họng. Trong nha khoa, việc kiểm tra và chăm sóc máng nhai giúp đảm bảo răng khỏe mạnh và ngăn ngừa các vấn đề như sâu răng, viêm lợi và mất răng.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa về máng nhai."",""message"":null}"
+a1_splint_03,knowledge,mang nhai co nghia la gi vay ad,route,invalid,clarify,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""appointment_info"", ""payment"", ""visit_preparation""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Mang nhai co nghia là một triệu chứng thường gặp trong nha khoa, thường liên quan đến việc răng và hàm không được chăm sóc đúng cách, dẫn đến tình trạng tích tụ thức ăn và tạo ra cảm giác khó chịu khi ăn. Đây có thể là dấu hiệu của các vấn đề như viêm nha chu, viêm răng, hoặc thậm chí là các vấn đề về răng sâu. Để xác định chính xác, bạn nên tham khảo ý kiến bác sĩ nha khoa.""
+}","{""decision"":""clarify"",""targets"":[],""service_topics"":[],""image_ids"":[],""resolved_request"":null,""message"":""Nếu bạn muốn trích chữ, hãy mô tả rõ hơn.""}"
+a1_pulp_01,knowledge,Viêm tủy hồi phục và không hồi phục là hai khái niệm gì?,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Viêm tủy hồi phục và không hồi phục là hai khái niệm khác nhau, thể hiện qua tình trạng bệnh tủy và quá trình phục hồi. Viêm tủy hồi phục là tình trạng viêm tủy đã bắt đầu phục hồi, trong khi viêm tủy không hồi phục là tình trạng viêm tủy không có quá trình phục hồi. Cần có thông tin thêm để phân tích rõ hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích khái niệm viêm tủy hồi phục và không hồi phục trong nha khoa."",""message"":null}"
+a1_pulp_02,knowledge,Em cần tài liệu so sánh hai dạng viêm tủy để học.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Vui lòng cung cấp thêm thông tin để hỗ trợ tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm tài liệu so sánh hai dạng viêm tủy."",""message"":null}"
+a1_pulp_03,knowledge,Giải thích chung về reversible và irreversible pulpitis giúp mình.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để có thể hỗ trợ tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức chung về pulpitis."",""message"":null}"
+a1_periodontitis_01,knowledge,Viêm lợi có khác viêm nha chu không?,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Viêm lợi và viêm nha chu là hai tình trạng khác nhau trong nha khoa. Viêm lợi là tình trạng viêm nhiễm ở lợi, thường do vi khuẩn gây ra, và có thể dẫn đến các vấn đề như sưng, đau, và chảy máu. Trong khi đó, viêm nha chu là tình trạng viêm nhiễm ở nha chu, một lớp màng bảo vệ quanh nha chu, và có thể tiến triển thành sâu răng hoặc viêm nha chu nặng. Nếu bạn có thêm thông tin về tình trạng của mình, bạn có thể cung cấp thêm để tôi giúp bạn hiểu rõ hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức về viêm lợi và viêm nha chu."",""message"":null}"
+a1_periodontitis_02,knowledge,Cho mình bài đọc để phân biệt bệnh lợi với bệnh nha chu.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Bệnh lợi (lợi nha chu) là một dạng bệnh nha chu nghiêm trọng, thường gây ra bởi các yếu tố như viêm nha chu, tích tụ mảng bám, hoặc viêm nha chu. Bệnh lợi có thể dẫn đến các vấn đề như lồi nha chu, viêm nha chu, và thậm chí là mất răng nếu không được điều trị sớm. Các triệu chứng bao gồm: lồi nha chu, sưng nha chu, đau khi nhai, và có thể có mảng trắng hoặc vàng trên nha chu. Việc phân biệt bệnh lợi với bệnh nha chu đòi hỏi sự hiểu biết về các triệu chứng và dấu hiệu lâm sàng. Nếu bạn cần thông tin chi tiết hơn, hãy cung cấp thêm thông tin để tôi hỗ trợ bạn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích bệnh lợi và bệnh nha chu."",""message"":null}"
+a1_periodontitis_03,knowledge,Em muốn hiểu sự khác nhau giữa gingivitis và periodontitis.,route,invalid,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""periodontal assessment"", ""gingivitis"", ""periodontitis""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Gingivitis và periodontitis là hai tình trạng nha khoa khác nhau, nhưng đều liên quan đến tình trạng viêm nha chu. Gingivitis là viêm nha chu nhẹ, thường không gây tổn thương nghiêm trọng. Periodontitis là viêm nha chu nặng, có thể dẫn đến mất răng. Bạn có muốn được giải thích chi tiết hơn về hai tình trạng này không?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích sự khác nhau giữa gingivitis và periodontitis."",""message"":null}"
+a1_scaling_01,knowledge,Lấy cao răng là làm gì vậy?,route,invalid,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""appointment_info"", ""payment"", ""visit_preparation""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Lấy cao răng là một thủ thuật nha khoa được thực hiện để phục hồi và làm đẹp nụ cười bằng cách thay thế các răng bị mất hoặc hư hỏng. Nó giúp làm cao các răng còn sót lại, tạo ra một nụ cười đều và đẹp. Đây là một trong những kỹ thuật nha khoa phổ biến và an toàn khi được thực hiện bởi các chuyên gia có chứng chỉ.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích khái niệm lấy cao răng."",""message"":null}"
+a1_scaling_02,knowledge,Mình muốn hiểu mục đích của việc cạo vôi răng.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Mục đích của việc cạo vôi răng là để loại bỏ các mảng vôi răng tích tụ trên bề mặt răng, giúp răng sạch sẽ, dễ chăm sóc và giảm nguy cơ phát triển các bệnh nha khoa như sâu răng, viêm nha chu. Việc cạo vôi răng thường được thực hiện định kỳ để duy trì sức khỏe răng miệng.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức về cạo vôi răng."",""message"":null}"
+a1_scaling_03,knowledge,"Giải thích về lấy cao răng nói chung, không hỏi giá dịch vụ.",route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Lấy cao răng là một thủ thuật nha khoa nhằm loại bỏ các lớp cao răng bám trên bề mặt răng, giúp răng trở nên sạch sẽ và dễ chăm sóc. Đây là bước quan trọng trong quá trình làm sạch răng, đặc biệt khi răng bị tích tụ cao răng nhiều, gây khó khăn cho việc vệ sinh răng miệng và có thể dẫn đến các vấn đề nha khoa như sâu răng, viêm nha chu. Trong quá trình này, bác sĩ sẽ sử dụng dụng cụ chuyên dụng để xoa dịu và loại bỏ cao răng một cách an toàn và hiệu quả.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích về lấy cao răng nói chung."",""message"":null}"
+a1_price_scaling_01,service,Lấy cao răng bên mình giá bao nhiêu?,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Lấy cao răng bên mình giá bao nhiêu?""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""pricing""],""image_ids"":[],""resolved_request"":""Tra cứu giá cao răng của phòng khám."",""message"":null}"
+a1_price_scaling_02,service,Cho em xem bảng giá cạo vôi răng tại phòng khám.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ tốt hơn.""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""pricing""],""image_ids"":[],""resolved_request"":""Tra cứu giá dịch vụ cạo vôi răng tại phòng khám."",""message"":null}"
+a1_price_scaling_03,service,cao voi rang o day het bao nhieu tien a,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cao voi rang o day het bao nhieu tien a""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm hiểu thông tin về giá trị chi phí cao voi rang o day."",""message"":null}"
+a1_available_splint_01,service,Bên mình có làm máng nhai không?,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Bạn có làm máng nhai không?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa. Không tự trả lời chuyên môn."",""message"":null}"
+a1_available_splint_02,service,Phòng khám nhận dịch vụ máng nhai chứ ạ?,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Phòng khám có cung cấp dịch vụ máng nhai không?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tra cứu thông tin phòng khám."",""message"":null}"
+a1_available_splint_03,service,Mình muốn kiểm tra cơ sở có cung cấp máng nhai không.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cơ sở có cung cấp máng nhai không?""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""availability""],""image_ids"":[],""resolved_request"":""Tra cứu thông tin phòng khám có cung cấp máng nhai."",""message"":null}"
+a1_payment_01,service,Phòng khám thanh toán bằng thẻ được không?,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Vui lòng xác nhận thông tin thanh toán tại phòng khám.""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""payment""],""image_ids"":[],""resolved_request"":""Tra cứu thông tin chi tiết về phí dịch vụ và phương thức thanh toán tại phòng khám."",""message"":null}"
+a1_payment_02,service,Ở đây có nhận chuyển khoản không ạ?,route,respond,handoff,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn. Vui lòng cung cấp thêm thông tin để hỗ trợ tốt hơn.""
+}","{""decision"":""handoff"",""targets"":[],""service_topics"":[],""image_ids"":[],""resolved_request"":null,""message"":""Chào bạn, bạn cần liên hệ với phòng khám để biết thông tin chi tiết về chuyển khoản.""}"
+a1_payment_03,service,Bên mình chấp nhận những cách thanh toán nào?,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Bên mình chấp nhận những cách thanh toán nào?""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""payment""],""image_ids"":[],""resolved_request"":""Tra cứu thông tin thanh toán của phòng khám."",""message"":null}"
+a1_mixed_scaling_01,mixed,"Lấy cao răng là gì, giá bên mình bao nhiêu?",route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Lấy cao răng là gì, giá bên mình bao nhiêu?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích khái niệm lấy cao răng, không cần tra cứu thông tin phòng khám."",""message"":null}"
+a1_mixed_scaling_02,mixed,Cho mình tìm hiểu cạo vôi răng và xem báo giá tại cơ sở.,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ bạn tốt hơn, như địa chỉ cơ sở nha khoa, thời gian cần đặt lịch, hoặc bất kỳ thông tin nào khác bạn cần.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm hiểu về cạo vôi răng và giá cả tại cơ sở."",""message"":null}"
+a1_mixed_scaling_03,mixed,Em hỏi cả kiến thức về lấy cao răng lẫn chi phí làm ở đây.,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để trả lời chính xác.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức chung về lấy cao răng và chi phí tại đây."",""message"":null}"
+a1_mixed_pulp_address_01,mixed,Chữa tủy nghĩa là gì và phòng khám ở đâu?,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Chữa tủy là gì và phòng khám ở đâu?""
+}","{""decision"":""route"",""targets"":[""A2"",""lookup_clinic_service""],""service_topics"":[""availability""],""image_ids"":[],""resolved_request"":""Tra cứu thông tin về phòng khám và giải thích ý nghĩa của việc chữa tủy."",""message"":null}"
+a1_mixed_pulp_address_02,mixed,"Cho mình hiểu khái niệm nội nha, đồng thời tìm địa chỉ bên mình.",route,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""address"", ""opening_hours"", ""contact""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn đã hỏi. Nội nha là phòng khám nha khoa, nơi cung cấp dịch vụ điều trị và chăm sóc răng miệng. Bạn có muốn tìm địa chỉ cụ thể của phòng khám mình không?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích khái niệm nội nha."",""message"":null}"
+a1_mixed_pulp_address_03,mixed,Em cần kiến thức nhập môn chữa tủy với vị trí của cơ sở.,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để trả lời chính xác.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức chung về nha khoa, không liên quan đến tìm kiếm phòng khám."",""message"":null}"
+a1_unclear_booking_01,clarification,Lịch như thế nào?,clarify,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""route"",
+  ""targets"": [""A2"", ""lookup_clinic_service""],
+  ""service_topics"": [""availability"", ""appointment_info""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để xác định yêu cầu của bạn.""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""opening_hours""],""image_ids"":[],""resolved_request"":""Tra cứu lịch làm việc phòng khám."",""message"":null}"
+a1_unclear_booking_02,clarification,Mình cần hỗ trợ phần lịch.,clarify,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ bạn. Bạn cần hỗ trợ gì cụ thể?""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""appointment_info""],""image_ids"":[],""resolved_request"":""Tìm cách đặt lịch khám."",""message"":null}"
+a1_unclear_booking_03,clarification,Về lịch đó bạn ơi.,clarify,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn. Vui lòng cung cấp thêm thông tin để hỗ trợ tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm kiếm lịch nha khoa."",""message"":null}"
+a1_empty_instruction_01,clarification,Giúp em với ạ.,clarify,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""appointment_info"", ""payment"", ""insurance""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn. Vui lòng cho biết thêm thông tin cần hỗ trợ để tôi có thể hỗ trợ bạn tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_empty_instruction_02,clarification,Mình cần hỗ trợ.,clarify,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin chào! Bạn cần hỗ trợ gì hôm nay?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_empty_instruction_03,clarification,Tư vấn cho mình nhé.,clarify,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Chào bạn! Bạn cần tư vấn gì cụ thể hôm nay?""","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_clinical_ambiguous_01,image,Xem phim răng này giúp tôi.,clarify,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [""img_01""],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ bạn tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A5""],""service_topics"":[],""image_ids"":[""img_01""],""resolved_request"":""Tìm ảnh có thể đọc được để phân tích."",""message"":null}"
+a1_clinical_ambiguous_02,image,Nhìn ảnh miệng này giúp em với.,clarify,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [""img_01""],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn đã gửi ảnh. Vui lòng cho biết bạn cần hỗ trợ gì cụ thể từ ảnh này?""
+}","{""decision"":""route"",""targets"":[""A5""],""service_topics"":[],""image_ids"":[""img_01""],""resolved_request"":""Tìm ảnh minh họa nha khoa."",""message"":null}"
+a1_clinical_ambiguous_03,image,Bạn xem hình khám răng đính kèm nhé.,clarify,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [""img_01""],
+  ""resolved_request"": null,
+  ""message"": ""Xin chào, bạn đã xem hình ảnh khám răng đính kèm. Nếu có bất kỳ câu hỏi hoặc cần hỗ trợ thêm, vui lòng cho biết.""
+}","{""decision"":""route"",""targets"":[""A5""],""service_topics"":[],""image_ids"":[""img_01""],""resolved_request"":""Tìm hiểu thông tin hình ảnh khám răng."",""message"":null}"
+a1_two_documents_01,image,Đọc cả hai hình tài liệu này.,route,invalid,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [""img_01"", ""img_02""],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để xử lý yêu cầu của bạn.""
+}","{""decision"":""route"",""targets"":[""A5""],""service_topics"":[],""image_ids"":[""img_01"",""img_02""],""resolved_request"":""Đọc ảnh tài liệu."",""message"":null}"
+a1_two_documents_02,image,Trích các bảng trong hai ảnh mình gửi.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn đã gửi ảnh. Bạn có cần hỗ trợ trích bảng từ ảnh không?""
+}","{""decision"":""route"",""targets"":[""A5""],""service_topics"":[],""image_ids"":[""img_01"",""img_02""],""resolved_request"":""Tìm kiếm nội dung trong hai ảnh."",""message"":null}"
+a1_two_documents_03,image,Mình cần nội dung chữ của cả hai trang scan.,route,invalid,invalid,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [""img_01"", ""img_02""],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để xử lý yêu cầu của bạn.""
+}","{""decision"":""route"",""targets"":[""A2"",""lookup_clinic_service""],""service_topics"":[""appointment_info""],""image_ids"":[""img_01"",""img_02""],""resolved_request"":""Tìm thông tin trang scan."",""message"":null}"
+a1_ctx_switch_service_01,context,"Thôi, mình chỉ cần giá ở phòng khám.",route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Giá ở phòng khám sẽ được cung cấp khi bạn cần đặt lịch khám. Bạn có cần thông tin thêm về phòng khám không?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích lấy cao răng."",""message"":null}"
+a1_ctx_switch_service_02,context,Đổi sang hỏi chi phí làm ở đây nhé.,route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn đã hỏi. Chi phí làm ở đây sẽ được thông báo khi bạn đặt lịch hẹn. Bạn có muốn liên hệ trực tiếp phòng khám để được hỗ trợ thêm không?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích lấy cao răng."",""message"":null}"
+a1_ctx_switch_service_03,context,"Không cần giải thích nữa, tra bảng giá dịch vụ đó.",route,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ bạn tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích lấy cao răng."",""message"":null}"
+a1_ctx_address_01,context,Địa chỉ nhé.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Được, địa chỉ của phòng khám là gì vậy?""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""address""],""image_ids"":[],""resolved_request"":""Tra cứu địa chỉ phòng khám."",""message"":null}"
+a1_ctx_address_02,context,Cho em vị trí để tới.,route,invalid,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""address"", ""opening_hours"", ""contact"", ""pricing"", ""availability"", ""appointment_info"", ""payment"", ""insurance"", ""visit_preparation""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Bạn cần địa chỉ và thời gian mở cửa của phòng khám?""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""address""],""image_ids"":[],""resolved_request"":""Tra cứu địa chỉ phòng khám."",""message"":null}"
+a1_ctx_address_03,context,Mình chỉ cần nơi phòng khám đang hoạt động.,route,invalid,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""address"", ""opening_hours""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp địa chỉ và thời gian hoạt động của phòng khám.""
+}","{""decision"":""route"",""targets"":[""lookup_clinic_service""],""service_topics"":[""opening_hours""],""image_ids"":[],""resolved_request"":""Tra cứu giờ làm việc phòng khám."",""message"":null}"
+a1_personal_treatment_01,handoff,Quyết định giúp tôi phải nhổ hay chữa tủy chiếc răng này.,handoff,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Vui lòng cung cấp thêm thông tin để hỗ trợ bạn tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_personal_treatment_02,handoff,Hãy chốt phác đồ điều trị riêng cho tôi ngay.,handoff,respond,handoff,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để chốt phác đồ điều trị riêng.""
+}","{""decision"":""handoff"",""targets"":[],""service_topics"":[],""image_ids"":[],""resolved_request"":null,""message"":""Chào mừng bạn đến với hệ thống hỗ trợ thông tin nha khoa. Vui lòng cung cấp thêm thông tin để xử lý yêu cầu của bạn.""}"
+a1_personal_treatment_03,handoff,"Không khám trực tiếp, bạn chọn cách điều trị cho răng của tôi nhé.",handoff,respond,route,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Cảm ơn bạn đã chọn cách điều trị. Vui lòng cung cấp thêm thông tin về răng bạn muốn điều trị để chúng tôi hỗ trợ bạn tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_finance_01,out_of_scope,Chọn cổ phiếu nào để mua hôm nay?,out_of_scope,out_of_scope,invalid,True,False,regressed,"{
+  ""decision"": ""out_of_scope"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ bạn tốt hơn.""
+}","{""decision"":""handoff"",""targets"":[],""service_topics"":[],""image_ids"":[],""resolved_request"":null,""message"":""Chọn cổ phiếu nào để mua hôm nay?"",""history"":[]}"
+a1_finance_02,out_of_scope,Phân tích thị trường chứng khoán cho tôi.,out_of_scope,out_of_scope,clarify,True,False,regressed,"{
+  ""decision"": ""out_of_scope"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để tôi hỗ trợ bạn tốt hơn.""
+}","{""decision"":""clarify"",""targets"":[],""service_topics"":[],""image_ids"":[],""resolved_request"":null,""message"":""Bạn muốn phân tích thị trường chứng khoán nào?""}"
+a1_finance_03,out_of_scope,"Tư vấn đầu tư tiền tiết kiệm, không hỏi dịch vụ nha khoa.",out_of_scope,respond,respond,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ tốt hơn bạn!""
+}","{""decision"":""respond"",""targets"":[],""service_topics"":[],""image_ids"":[],""resolved_request"":null,""message"":""Chào bạn, bạn đang cần tư vấn đầu tư tiền tiết kiệm. Bạn có thể cung cấp thêm thông tin để tôi hỗ trợ bạn tốt hơn không?""}"
+a1_greeting_01,social,Xin chào bạn.,respond,respond,route,True,False,regressed,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin chào! Tôi là trợ lý hỗ trợ thông tin nha khoa. Bạn cần hỗ trợ gì hôm nay?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_greeting_02,social,Chào phòng khám ạ.,respond,respond,route,True,False,regressed,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Chào phòng khám ạ. Bạn cần hỗ trợ gì hôm nay?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_greeting_03,social,hello ad ơi,respond,respond,route,True,False,regressed,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin chào bạn! Bạn cần hỗ trợ gì hôm nay?""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức, thuật ngữ, cách chăm sóc chung hoặc tìm tài liệu nha khoa."",""message"":null}"
+a1_negated_price_01,adversarial,"Không hỏi giá nhé, chỉ giải thích implant là gì.",route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Implant là một loại vật liệu nha khoa được sử dụng để thay thế răng thật, thường được đặt vào vị trí răng thật đã mất hoặc bị mất. Nó giúp phục hồi chức năng và thẩm mỹ của nha khoa. Implants thường được đặt bằng cách sử dụng kỹ thuật nha khoa hiện đại và được hỗ trợ bởi các vật liệu bền vững như titan hoặc hợp chất titan. Nếu bạn có thêm câu hỏi, mình có thể giải thích chi tiết hơn!""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích implant là gì?"",""message"":null}"
+a1_negated_price_02,adversarial,"Bỏ tra bảng giá, tôi muốn kiến thức về implant.",route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ tốt hơn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích kiến thức về implant."",""message"":null}"
+a1_negated_price_03,adversarial,Đừng tìm chi phí; giải thích khái niệm implant nha khoa.,route,respond,route,False,True,improved,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Implant nha khoa là một loại vật liệu cố định được đặt vào xương hàm để hỗ trợ cấy ghép răng giả. Nó giúp tạo nền tảng vững chắc cho răng giả và cải thiện chức năng ăn nhai. Implant thường được đặt sau khi đã cấy ghép răng thật hoặc sau một số điều trị nha khoa khác.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Giải thích khái niệm implant nha khoa."",""message"":null}"
+a1_cap_image_knowledge_01,capability,Đọc hình này và tìm tài liệu giải thích máng nhai.,route,invalid,invalid,False,False,unchanged_wrong,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""visit_preparation""],
+  ""image_ids"": [""img_01""],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để hỗ trợ bạn. Nếu bạn cần hướng dẫn về máng nhai, hãy cho tôi biết.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[""img_01""],""resolved_request"":""Tìm tài liệu giải thích máng nhai."",""message"":null}"
+a1_cap_image_knowledge_02,capability,Đọc hình này và tìm tài liệu giải thích máng nhai.,handoff,out_of_scope,invalid,False,False,unchanged_wrong,"{
+  ""decision"": ""out_of_scope"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Xin vui lòng cung cấp thêm thông tin để xử lý yêu cầu của bạn.""
+}","{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[""img_01""],""resolved_request"":""Tìm tài liệu giải thích máng nhai."",""message"":null}"

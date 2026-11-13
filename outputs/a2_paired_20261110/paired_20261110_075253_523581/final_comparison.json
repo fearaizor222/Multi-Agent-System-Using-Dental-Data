@@ -1,0 +1,135 @@
+{
+  "benchmark_sha256": "d7efab7d5ccda96af22199c59ed1ae04ea6c0f3cebfb132cf6837b0875eb8d8f",
+  "prediction_sha256": "30e9a4783af90b92a311b9f81290338c7fb31021024afe7b24dfe6c9d7f95580",
+  "grading": "All144 answers source-read by assistant after two blinded AI screenings; no clinician adjudication. U remains unresolved.",
+  "rubric": "Correct schema/status/citations; source-supported, relevant, covers requested supported facts. Unsupported extra statements, omitted requested facts, or separate unrequested claims fail. Equivalent wording accepted.",
+  "scope": "72 controlled cases from12 source families; not72 independent observations or end-to-end clinical/RAG validation.",
+  "models": {
+    "old": {
+      "n": 72,
+      "pass": 46,
+      "fail": 26,
+      "unresolved": 0,
+      "confirmed_pass_rate": 0.6388888888888888,
+      "max_pass_rate_if_all_unresolved_pass": 0.6388888888888888,
+      "schema_valid": 69,
+      "status_correct": 67,
+      "citation_ids_valid": 69,
+      "by_case": {
+        "direct": {
+          "P": 10,
+          "F": 2
+        },
+        "combine": {
+          "P": 5,
+          "F": 7
+        },
+        "distractor": {
+          "P": 7,
+          "F": 5
+        },
+        "missing": {
+          "P": 12
+        },
+        "partial": {
+          "F": 10,
+          "P": 2
+        },
+        "history": {
+          "P": 10,
+          "F": 2
+        }
+      },
+      "by_language": {
+        "vi": {
+          "P": 34,
+          "F": 14
+        },
+        "en": {
+          "F": 12,
+          "P": 12
+        }
+      }
+    },
+    "new": {
+      "n": 72,
+      "pass": 51,
+      "fail": 19,
+      "unresolved": 2,
+      "confirmed_pass_rate": 0.7083333333333334,
+      "max_pass_rate_if_all_unresolved_pass": 0.7361111111111112,
+      "schema_valid": 69,
+      "status_correct": 66,
+      "citation_ids_valid": 69,
+      "by_case": {
+        "direct": {
+          "P": 10,
+          "F": 2
+        },
+        "combine": {
+          "P": 7,
+          "F": 5
+        },
+        "distractor": {
+          "P": 9,
+          "U": 2,
+          "F": 1
+        },
+        "missing": {
+          "P": 12
+        },
+        "partial": {
+          "F": 9,
+          "P": 3
+        },
+        "history": {
+          "P": 10,
+          "F": 2
+        }
+      },
+      "by_language": {
+        "vi": {
+          "P": 40,
+          "F": 8
+        },
+        "en": {
+          "F": 11,
+          "U": 2,
+          "P": 11
+        }
+      }
+    }
+  },
+  "paired": {
+    "both_pass": 43,
+    "both_fail": 17,
+    "new_only": 8,
+    "unresolved": 2,
+    "old_only": 2
+  },
+  "ambiguous": [
+    {
+      "id": "english_prevention_distractor",
+      "adapter": "new",
+      "reason": "Hai thói quen đúng ý; cụm các đường kính có thể bị phân hủy không rõ là cách diễn đạt đường lên men hay lỗi dịch. Giữ U, không tự tính đúng."
+    },
+    {
+      "id": "english_aligners_distractor",
+      "adapter": "new",
+      "reason": "Thay lưu giữ mảng bám bằng tích tụ vi khuẩn. Gist gần nhau nhưng không hoàn toàn tương đương; giữ U để tránh tự quyết một lỗi thuật ngữ."
+    }
+  ],
+  "unsupported_quantities": {
+    "old": [
+      "caries_ph_partial",
+      "implant_table_partial",
+      "dry_mouth_partial",
+      "pulpitis_partial",
+      "english_risk_partial"
+    ],
+    "new": [
+      "early_caries_partial"
+    ],
+    "note": "Counts include invalid-schema outputs and wrong numeric meaning, not just new numeric tokens."
+  }
+}

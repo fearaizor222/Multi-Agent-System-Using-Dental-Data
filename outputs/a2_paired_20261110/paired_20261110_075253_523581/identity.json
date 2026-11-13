@@ -1,0 +1,46 @@
+{
+  "adapters": {
+    "old": {
+      "run": "a2_qwen3_17b_20261107_101037_528370",
+      "weights_sha256": "58bf6dec890a33c6b26c07234a2ea12d35e26486b945b6b01d8b1923f3e9f9f1"
+    },
+    "new": {
+      "run": "a2_qwen3_17b_20261109_213712_836549",
+      "weights_sha256": "e498a6c860a75eab80566f6b80e7dfe3e663ebe69fa2505037e1b4aa3786dee7"
+    }
+  },
+  "benchmark_manifest": {
+    "count": 72,
+    "families": 12,
+    "case_counts": {
+      "direct": 12,
+      "combine": 12,
+      "distractor": 12,
+      "missing": 12,
+      "partial": 12,
+      "history": 12
+    },
+    "languages": {
+      "vi": 48,
+      "en": 24
+    },
+    "benchmark_sha256": "d7efab7d5ccda96af22199c59ed1ae04ea6c0f3cebfb132cf6837b0875eb8d8f",
+    "compared_training_snapshots": {
+      "qwen3/train": "7dd749165635b01d0a7c03741150e49a00eb648ccc7469db29b3c4a2984aa37c",
+      "qwen3/validation": "ca12b9e8bf3ece25ccc8c16b39a13430157d9887b88c18ecb1e11239461cc7f1",
+      "a2_qwen3_17b_20261109_213712_836549/train": "b8dff116c9dd5ea37b30469e1fce86e3f8a4ff7d49f206102863667e76845eaf",
+      "a2_qwen3_17b_20261109_213712_836549/validation": "cfd039eff27208b12c09fd540525d9a6464548fd12717dee4df588c91637eaa0"
+    },
+    "source_doc_chunk_exact_content_overlap": 0,
+    "authoring": "source-read fixed questions and expected facts, frozen before model outputs",
+    "scope": "Controlled external-source transfer benchmark, not retrieval/end-to-end or expert clinical validation. Six related cases per family, not72 independent clinical observations."
+  },
+  "base": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "quantization": "NF4 double / BF16",
+  "max_new_tokens": 512,
+  "do_sample": false,
+  "training_executed": false,
+  "gpu": "NVIDIA A10",
+  "prompt_policy": "same current production system for both adapters"
+}

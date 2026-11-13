@@ -1,0 +1,22 @@
+{
+  "count": 52,
+  "heldout_count": 48,
+  "known_regression_count": 4,
+  "seed": 20261111,
+  "cases_sha256": "af800480ef4e5c125ecfde5f65047afce116a46b3742fb2b049f72636de491a0",
+  "system_sha256": "ab284aee578deb8db35580a82bc1de402e9b5c3bff2eba99c1643e690a6c4db5",
+  "heldout_files_sha256": {
+    "test.jsonl": "ea20db436ce15db26b8df9517b29a4352fe2492cb0f3fdc618169323d2c0135d",
+    "test.metadata.jsonl": "b8953551e5b64df3c592ec8a0385118bf7517258542334e67cf838e4be8455ae"
+  },
+  "modes": {
+    "missing_evidence": 11,
+    "direct": 30,
+    "multi_source": 6,
+    "focus_distractor": 2,
+    "focus": 2,
+    "partial_answer": 1
+  },
+  "scope": "A2-only frozen diagnostic comparison. Selected heldout subset previously evaluated, plus known failures; not a new blind clinical benchmark. All source contexts from internal corpus.",
+  "grading": "Source-reading for faithfulness, question focus, translation, omissions and abstention; exact wording not required."
+}

@@ -1,0 +1,33 @@
+{
+  "question": "Sâu răng là gì?",
+  "kind": "definition",
+  "input_tokens": 3536,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_rag_caries_20261113\\retrieval.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S11\"], \"text\": \"Dental caries, còn gọi là sâu răng, là bệnh rất phổ biến, đứng thứ hai sau cảm lạnh.\"}]}",
+  "seconds": 26.510514100002183,
+  "generation_tokens": 60,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Dental caries, còn gọi là sâu răng, là bệnh rất phổ biến, đứng thứ hai sau cảm lạnh.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Dental Caries Dental caries, commonly referred to as tooth decay, is one of the most common of all diseases, second only to the common cold."
+          }
+        ]
+      }
+    ]
+  }
+}

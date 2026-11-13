@@ -1,0 +1,450 @@
+{
+  "0": {
+    "v3": {
+      "grade": "pass",
+      "note": "Chọn đúng điều kiện nhưng nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Trả lời đúng điều kiện nhà đóng chai bổ sung fluoride trong quá trình xử lý, nhưng đầu ra bằng tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    }
+  },
+  "1": {
+    "v3": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi chỉ còn thông tin nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Từ chối đúng: nguồn chỉ còn quy định không bắt buộc ghi nồng độ, không có điều kiện phải liệt kê fluoride.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "2": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nội dung có căn cứ trong I2, nhưng quote chỉ nói quyền quảng cáo tác dụng giảm sâu răng.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Chọn nhận xét nước đóng chai thường không chứa/không ghi fluoride thay vì điều kiện bắt buộc liệt kê; còn làm mất từ thường. Quote không hỗ trợ điều kiện được hỏi.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "3": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nhận định đúng, quote bị dịch sang Việt và còn đổi không bắt buộc thành không được.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Trả lời về fluoride bổ sung và quảng cáo, không trả lời có bắt buộc ghi nồng độ không. Quote về giới hạn nồng độ không chứng minh phần quảng cáo.",
+      "vietnamese": false,
+      "quote_supports_claim": false
+    }
+  },
+  "4": {
+    "v3": {
+      "grade": "fail",
+      "note": "Trả điều kiện liệt kê chất thay vì yêu cầu ghi nồng độ, còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Khẳng định không bắt buộc ghi nồng độ dù nguồn đã bỏ ý này. Quote chỉ nói điều kiện liệt kê fluoride, không nói nghĩa vụ ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "5": {
+    "v3": {
+      "grade": "fail",
+      "note": "Chọn sai ý và gán chứa fluoride cho nhà sản xuất; không trả yêu cầu ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Nội dung không bắt buộc ghi nồng độ đúng và I2 có câu hỗ trợ, nhưng quote được chọn chỉ nói thực trạng nhãn, không chứng minh quy định. Có cụm Bottled water nhưng câu trả lời chính bằng tiếng Việt.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "6": {
+    "v3": {
+      "grade": "pass",
+      "note": "Hai ý nội dung đúng trong I2, quote là bản dịch tự sinh.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Không nêu điều kiện bổ sung fluoride, cũng không trả lời rõ nghĩa vụ ghi nồng độ; câu nếu có thể không tương đương quy định trong nguồn.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "7": {
+    "v3": {
+      "grade": "fail",
+      "note": "Từ chối toàn bộ dù còn thông tin không bắt buộc ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Từ chối toàn bộ dù nguồn vẫn đủ trả lời phần không bắt buộc ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "8": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nội dung đúng. Quote sửa OCR bản lễ thành bản lề và bỏ dấu ngoặc nên không nguyên văn, ý trích vẫn hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Đảo điều kiện: cung mặt đơn giản thuộc trục tự ý, không phải điều kiện của trục thật. Quote tên dụng cụ không hỗ trợ kết luận.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "9": {
+    "v3": {
+      "grade": "fail",
+      "note": "Trích ý về trục tự ý, không trả trục thật.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Biến câu nguồn trục tự ý khi dùng cung mặt đơn giản thành trục thật; thiếu bằng chứng cho ý được hỏi nhưng vẫn trả lời.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "10": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nội dung đúng. Quote sửa OCR và dấu ngoặc nên không nguyên văn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Đúng cung mặt động hoặc dụng cụ định vị trục bản lề. Quote hỗ trợ ý, nhưng thay ngoặc kép trong OCR nên có thể không đạt so chuỗi.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "11": {
+    "v3": {
+      "grade": "fail",
+      "note": "Nhầm trục tự ý thành trục thật, quote chỉ nói trục thật.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Nêu một phương pháp xác định thay vì điều kiện dùng cung mặt đơn giản. Quote chỉ nói mũ tai đặt vào ống tai ngoài, không đủ cho câu khẳng định phương pháp tự động.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "12": {
+    "v3": {
+      "grade": "fail",
+      "note": "Trả ý trục thật khi hỏi trục tự ý, quote cùng ý sai trọng tâm.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Từ chối đúng vì nguồn chỉ còn điều kiện của trục thật, không có điều kiện trục tự ý.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "13": {
+    "v3": {
+      "grade": "fail",
+      "note": "Nhầm trục tự ý thành thật.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "partial",
+      "note": "Nêu đúng hai phương pháp và hai loại cung mặt có/không có mũ tai, nhưng không trả lời trực tiếp tiêu chí cung mặt đơn giản của trục tự ý. Hai quote hỗ trợ các phương pháp đã nêu.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "14": {
+    "v3": {
+      "grade": "partial",
+      "note": "Chỉ trả trục thật, thiếu trục tự ý dù nguồn có; quote sửa OCR và dấu ngoặc.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "partial",
+      "note": "Trả lời đúng phần trục tự ý ứng với cung mặt đơn giản, bỏ phần trục thật dù nguồn có đủ cả hai.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "15": {
+    "v3": {
+      "grade": "pass",
+      "note": "Trả đúng phần tự ý còn nguồn; quote sửa OCR và dấu ngoặc.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Trộn trục thật với trục tự ý: khẳng định trục thật là trục tự ý khi dùng cung mặt đơn giản, trái câu nguồn.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "16": {
+    "v3": {
+      "grade": "pass",
+      "note": "Đúng nội dung và quote nguyên văn hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Trích đúng khái niệm khen thưởng hành vi tốt và phạt hành vi xấu, diễn đạt bằng tiếng Việt.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "17": {
+    "v3": {
+      "grade": "fail",
+      "note": "Bịa quan hệ operant conditioning với cả modeling và nhãn fluoride dù hai quote đều có thật.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Từ chối đúng: chỉ còn học qua bắt chước và quy định fluoride, thiếu định nghĩa điều kiện hóa hoạt động.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "18": {
+    "v3": {
+      "grade": "pass",
+      "note": "Chọn đúng câu và quote hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Bị đoạn nhiễu fluoride chi phối hoàn toàn, không trả lời khái niệm điều kiện hóa hoạt động; các quote cũng không hỗ trợ các khẳng định về fluoride.",
+      "vietnamese": false,
+      "quote_supports_claim": false
+    }
+  },
+  "19": {
+    "v3": {
+      "grade": "pass",
+      "note": "Đúng ý bắt chước, nhưng nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Đổi cơ chế bắt chước thành hành vi tích cực và trích câu điều kiện hóa hoạt động; không trả lời đúng hành vi mẫu.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "20": {
+    "v3": {
+      "grade": "fail",
+      "note": "Gán cơ chế khác cho modeling khi chỉ có nguồn operant conditioning.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi thiếu câu về cơ chế học qua bắt chước.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "21": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nội dung và quote đúng, nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Lặp lỗi hành vi tích cực thay vì bắt chước khi có nhiễu; quote thuộc điều kiện hóa hoạt động.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "22": {
+    "v3": {
+      "grade": "partial",
+      "note": "Chỉ trả phần điều kiện hóa, bỏ phần modeling dù nguồn có.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Không nêu đúng khen thưởng/phạt hoặc cơ chế bắt chước, gán hành vi tích cực cho học theo hành vi mẫu bằng quote về lý thuyết khác.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "23": {
+    "v3": {
+      "grade": "pass",
+      "note": "Có mô phỏng hành vi truyền đạt đúng ý, thêm từ tham khảo chưa thật gọn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "fail",
+      "note": "Từ chối toàn bộ dù vẫn có câu đủ trả lời phần học theo hành vi mẫu qua bắt chước.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "24": {
+    "v3": {
+      "grade": "pass",
+      "note": "Đúng vị trí lồng múi hoặc tiếp xúc lui sau.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "partial",
+      "note": "Giữ đúng phần lồng múi nhưng diễn đạt tiếp xúc sau không giữ rõ thuật ngữ tiếp xúc lui sau của nguồn. Quote đầy đủ và đúng đoạn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "25": {
+    "v3": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi chỉ còn nguồn về nuốt không điển hình.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Từ chối đúng: chỉ có trạng thái nuốt không điển hình, không có vị trí răng khi nuốt điển hình.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "26": {
+    "v3": {
+      "grade": "pass",
+      "note": "Chọn đúng ý nuốt điển hình ở I2 dù có nhiễu.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "partial",
+      "note": "Giữ phần lồng múi, nhưng đổi tiếp xúc lui sau thành tiếp xúc sau lồng múi nên vị trí thứ hai chưa chính xác theo câu nguồn. Quote đúng đoạn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "27": {
+    "v3": {
+      "grade": "pass",
+      "note": "Đúng ý và thêm tên phân loại có trong nguồn; quote thay dấu ngoặc nên không nguyên văn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Trả lời đúng các răng không tiếp xúc nhau khi nuốt không điển hình, quote hỗ trợ trực tiếp.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "28": {
+    "v3": {
+      "grade": "fail",
+      "note": "Trích đúng câu về nuốt điển hình, nhưng không trả điều được hỏi.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Từ chối đúng: nguồn chỉ còn nuốt điển hình, thiếu ý nuốt không điển hình.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "29": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nội dung đúng, thêm phân loại có nguồn; quote đổi dấu ngoặc.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Trả lời đúng các răng không tiếp xúc nhau; quote thêm dấu chấm so với câu gốc nên so chuỗi nghiêm ngặt có thể không đạt.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "30": {
+    "v3": {
+      "grade": "partial",
+      "note": "Chỉ trả phần nuốt điển hình, bỏ phần không điển hình dù có nguồn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "partial",
+      "note": "Chỉ trả lời chung rằng răng tiếp xúc khi nuốt điển hình, bỏ vị trí cụ thể và phần không điển hình. Quote chỉ so thời gian tiếp xúc nuốt/nhai, không nêu phân biệt được hỏi.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "31": {
+    "v3": {
+      "grade": "pass",
+      "note": "Nội dung và ý quote đúng, quote thêm dấu chấm không có ở trích đoạn được cấp.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    },
+    "pilot": {
+      "grade": "pass",
+      "note": "Trả lời đúng phần còn đủ bằng chứng: răng không tiếp xúc khi nuốt không điển hình. Không tự thêm vị trí nuốt điển hình đã bị loại khỏi context.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "model": "microsoft/MediPhi-Instruct",
+  "revision": "8a52461577949784b8c447d557fa6b98a7d272df",
+  "model_id": "mediphi_38b",
+  "chat_template": "{% for message in messages %}{% if message['role'] == 'system' and message['content'] %}{{'<|system|>\n' + message['content'] + '<|end|>\n'}}{% elif message['role'] == 'user' %}{{'<|user|>\n' + message['content'] + '<|end|>\n'}}{% elif message['role'] == 'assistant' %}{{'<|assistant|>\n' + message['content'] + '<|end|>\n'}}{% endif %}{% endfor %}{% if add_generation_prompt %}{{ '<|assistant|>\n' }}{% else %}{{ eos_token }}{% endif %}",
+  "eos_token_id": 32000,
+  "generation_stop_ids": [
+    32000,
+    32007
+  ],
+  "epochs": 2,
+  "learning_rate": 0.0001,
+  "max_length": 3072,
+  "max_new_tokens": 512,
+  "batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "effective_batch_size": 8,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_modules": [
+    "qkv_proj",
+    "o_proj",
+    "gate_up_proj",
+    "down_proj"
+  ],
+  "seed": 42,
+  "quantization": "NF4 double quantization / BF16",
+  "assistant_only_loss": true,
+  "checkpoint_selection": "lowest validation loss",
+  "gpu": "NVIDIA L4"
+}

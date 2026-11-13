@@ -1,0 +1,126 @@
+{
+  "json_valid": 1.0,
+  "schema_valid": 1.0,
+  "quote_ids_valid": 1.0,
+  "quote_set_match": 0.9585798816568047,
+  "both_labels_correct": 0.8994082840236687,
+  "assessment_exact_match": 0.8875739644970414,
+  "full_json_exact_match": 0.005917159763313609,
+  "draft_support_correct": 0.9349112426035503,
+  "public_support_correct": 0.9526627218934911,
+  "count": 169,
+  "decisions": {
+    "draft_support": {
+      "confusion_matrix": [
+        [
+          108,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          19,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          31,
+          0
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "supported",
+          "contradicted",
+          "insufficient"
+        ],
+        "columns": [
+          "supported",
+          "contradicted",
+          "insufficient",
+          "invalid"
+        ]
+      },
+      "per_label": {
+        "supported": {
+          "support": 113,
+          "precision": 0.9557522123893806,
+          "recall": 0.9557522123893806,
+          "f1": 0.9557522123893806
+        },
+        "contradicted": {
+          "support": 24,
+          "precision": 0.8636363636363636,
+          "recall": 0.7916666666666666,
+          "f1": 0.8260869565217391
+        },
+        "insufficient": {
+          "support": 32,
+          "precision": 0.9117647058823529,
+          "recall": 0.96875,
+          "f1": 0.9393939393939394
+        }
+      },
+      "macro_f1": 0.907077702768353
+    },
+    "public_support": {
+      "confusion_matrix": [
+        [
+          108,
+          1,
+          1,
+          0
+        ],
+        [
+          3,
+          22,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          31,
+          0
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "supported",
+          "contradicted",
+          "insufficient"
+        ],
+        "columns": [
+          "supported",
+          "contradicted",
+          "insufficient",
+          "invalid"
+        ]
+      },
+      "per_label": {
+        "supported": {
+          "support": 110,
+          "precision": 0.972972972972973,
+          "recall": 0.9818181818181818,
+          "f1": 0.9773755656108598
+        },
+        "contradicted": {
+          "support": 26,
+          "precision": 0.88,
+          "recall": 0.8461538461538461,
+          "f1": 0.8627450980392156
+        },
+        "insufficient": {
+          "support": 33,
+          "precision": 0.9393939393939394,
+          "recall": 0.9393939393939394,
+          "f1": 0.9393939393939394
+        }
+      },
+      "macro_f1": 0.9265048676813383
+    }
+  }
+}

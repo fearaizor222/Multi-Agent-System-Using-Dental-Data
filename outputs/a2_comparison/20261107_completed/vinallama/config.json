@@ -1,0 +1,18 @@
+{
+  "model": "vilm/vinallama-2.7b-chat",
+  "revision": "b31d5f1306494b2bf10ecb0c6031077af3f5b39a",
+  "model_id": "vinallama_27b",
+  "chat_template": "{% for m in messages %}{{ '<|im_start|>' + m['role'] + '\\n' + m['content'] + '<|im_end|>' }}{% if not loop.last or m['role'] != 'assistant' %}{{ '\\n' }}{% endif %}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant\\n' }}{% endif %}",
+  "eos_token_id": 46304,
+  "epochs": 2,
+  "learning_rate": 0.0001,
+  "max_length": 3072,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 4,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "seed": 42,
+  "quantization": "NF4 double quantization / BF16",
+  "checkpoint_selection": "lowest validation loss",
+  "gpu": "NVIDIA L4"
+}

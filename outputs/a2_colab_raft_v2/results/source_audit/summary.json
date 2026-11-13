@@ -1,0 +1,13 @@
+{
+  "before": {
+    "pass": 45,
+    "fail": 14,
+    "partial": 13
+  },
+  "after": {
+    "pass": 47,
+    "partial": 14,
+    "fail": 11
+  },
+  "scope": "Assistant đọc đối chiếu nguồn, không phải đánh giá chuyên gia lâm sàng. 72 biến thể validation thuộc 4 nhóm nguồn / 12 câu hỏi gốc; không phải 72 câu độc lập. Chấm nội dung tách khỏi sao chép nguyên văn và ngôn ngữ. Partial_answer chỉ yêu cầu phần có bằng chứng theo hợp đồng dữ liệu; sản phẩm vẫn nên nói rõ phần chưa trả lời. Không chạy inference/train hay dùng test. Phán định partial được áp dụng thận trọng với mất điều kiện, dịch mơ hồ."
+}

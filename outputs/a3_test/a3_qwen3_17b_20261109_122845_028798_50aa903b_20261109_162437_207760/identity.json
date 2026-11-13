@@ -1,0 +1,11 @@
+{
+  "model_id": "qwen3_17b",
+  "source_run": "a3_qwen3_17b_20261109_122845_028798_50aa903b",
+  "test_sha256": {
+    "test.jsonl": "c4eda27d2b15aaf3289b434ce35550d5e54fa5f05029bd7ff724fb728bc1908f",
+    "test.metadata.jsonl": "8170cad6664cee38d6244c23439165724cf576262825ef4d9a7aded54b511531"
+  },
+  "adapter_sha256": "c681383665658b6c34c31218cee9d12481e342ec29044d4bfa63d597293bd8b1",
+  "training_executed": false,
+  "selection": "existing lowest-validation-loss adapter"
+}

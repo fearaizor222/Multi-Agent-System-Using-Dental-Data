@@ -1,0 +1,7 @@
+{
+  "file": "outputs\\a2_base_vs_v3_20261111\\reviews_blind.json",
+  "sha256": "fbf721f07a9fbfaf5a9a7ac1f30f491264c8f9005a28a4a8bee0659c67d7db17",
+  "cases": 52,
+  "outputs": 104,
+  "note": "All source-reading grades completed before model-label unblinding."
+}

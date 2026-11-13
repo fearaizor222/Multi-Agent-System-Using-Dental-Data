@@ -1,0 +1,153 @@
+{
+  "completed": true,
+  "count": 59,
+  "correct": {
+    "raw_json_valid": 59,
+    "schema_valid": 59,
+    "context_valid": 59,
+    "decision_correct": 55,
+    "targets_correct": 51,
+    "service_topics_correct": 51,
+    "image_ids_correct": 56,
+    "control_exact": 46
+  },
+  "rates": {
+    "raw_json_valid": 1.0,
+    "schema_valid": 1.0,
+    "context_valid": 1.0,
+    "decision_correct": 0.9322033898305084,
+    "targets_correct": 0.864406779661017,
+    "service_topics_correct": 0.864406779661017,
+    "image_ids_correct": 0.9491525423728814,
+    "control_exact": 0.7796610169491526
+  },
+  "decision_macro_f1": 0.9027710843373494,
+  "per_decision": {
+    "route": {
+      "support": 40,
+      "precision": 0.9302325581395349,
+      "recall": 1.0,
+      "f1": 0.963855421686747
+    },
+    "clarify": {
+      "support": 9,
+      "precision": 0.8571428571428571,
+      "recall": 0.6666666666666666,
+      "f1": 0.75
+    },
+    "handoff": {
+      "support": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "out_of_scope": {
+      "support": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "respond": {
+      "support": 3,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8
+    }
+  },
+  "by_category": {
+    "adversarial": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    },
+    "capability": {
+      "count": 2,
+      "control_exact": 1,
+      "schema_valid": 2
+    },
+    "clarification": {
+      "count": 6,
+      "control_exact": 4,
+      "schema_valid": 6
+    },
+    "context": {
+      "count": 6,
+      "control_exact": 5,
+      "schema_valid": 6
+    },
+    "handoff": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    },
+    "image": {
+      "count": 6,
+      "control_exact": 3,
+      "schema_valid": 6
+    },
+    "knowledge": {
+      "count": 12,
+      "control_exact": 11,
+      "schema_valid": 12
+    },
+    "mixed": {
+      "count": 6,
+      "control_exact": 4,
+      "schema_valid": 6
+    },
+    "out_of_scope": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    },
+    "service": {
+      "count": 9,
+      "control_exact": 7,
+      "schema_valid": 9
+    },
+    "social": {
+      "count": 3,
+      "control_exact": 2,
+      "schema_valid": 3
+    }
+  },
+  "confusion": [
+    {
+      "expected": "clarify",
+      "predicted": "clarify",
+      "count": 6
+    },
+    {
+      "expected": "clarify",
+      "predicted": "route",
+      "count": 3
+    },
+    {
+      "expected": "handoff",
+      "predicted": "handoff",
+      "count": 4
+    },
+    {
+      "expected": "out_of_scope",
+      "predicted": "out_of_scope",
+      "count": 3
+    },
+    {
+      "expected": "respond",
+      "predicted": "clarify",
+      "count": 1
+    },
+    {
+      "expected": "respond",
+      "predicted": "respond",
+      "count": 2
+    },
+    {
+      "expected": "route",
+      "predicted": "route",
+      "count": 40
+    }
+  ],
+  "total_generation_seconds": 683.4643,
+  "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+}

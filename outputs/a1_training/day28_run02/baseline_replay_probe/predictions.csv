@@ -1,0 +1,27 @@
+﻿id,category,message,expected_decision,predicted_decision,control_exact,schema_valid,context_valid,error,raw_output
+a1_splint_01,knowledge,Máng nhai là gì?,route,respond,False,True,True,,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Máng nhai là phần của răng giúp hỗ trợ việc nhai và giữ cân bằng cho hàm. Nó có hình dạng giống như một chiếc đũa, có thể là hình tròn hoặc hình tam giác, tùy thuộc vào loại răng và cách nhai. Máng nhai giúp răng giữ được vị trí đúng đắn và không bị xoay hoặc nghiêng.""
+}"
+a1_splint_02,knowledge,Cho mình tìm hiểu về máng nhai với.,route,respond,False,True,True,,"{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Máng nhai là một phần quan trọng của hệ thống tiêu hóa trong nha khoa, giúp vận chuyển thức ăn từ miệng đến dạ dày. Nó bao gồm các lỗ nhỏ trên răng, giúp thức ăn được xáo trộn và di chuyển qua miệng và cổ họng. Trong nha khoa, việc kiểm tra và chăm sóc máng nhai giúp đảm bảo răng khỏe mạnh và ngăn ngừa các vấn đề như sâu răng, viêm lợi và mất răng.""
+}"
+a1_splint_03,knowledge,mang nhai co nghia la gi vay ad,route,invalid,False,False,False,"1 validation error for A1Decision
+  Value error, Quyết định không route cần các danh sách rỗng và message [type=value_error, input_value={'decision': 'respond', '...n bác sĩ nha khoa.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error","{
+  ""decision"": ""respond"",
+  ""targets"": [],
+  ""service_topics"": [""appointment_info"", ""payment"", ""visit_preparation""],
+  ""image_ids"": [],
+  ""resolved_request"": null,
+  ""message"": ""Mang nhai co nghia là một triệu chứng thường gặp trong nha khoa, thường liên quan đến việc răng và hàm không được chăm sóc đúng cách, dẫn đến tình trạng tích tụ thức ăn và tạo ra cảm giác khó chịu khi ăn. Đây có thể là dấu hiệu của các vấn đề như viêm nha chu, viêm răng, hoặc thậm chí là các vấn đề về răng sâu. Để xác định chính xác, bạn nên tham khảo ý kiến bác sĩ nha khoa.""
+}"

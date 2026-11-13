@@ -1,0 +1,7 @@
+{
+  "best_checkpoint": "/content/drive/MyDrive/DentalA2/runs/a2_sentence_v3_colab_01/checkpoints/checkpoint-75",
+  "best_validation_loss": 0.1707775890827179,
+  "global_step": 264,
+  "adapter_sha256": "f0190470c997b6f40b03fdc76d797766b3798374a48224e28038211667645929",
+  "optimizer_state_resumed": true
+}

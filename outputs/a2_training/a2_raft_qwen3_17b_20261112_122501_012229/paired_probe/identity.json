@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "gpu": "NVIDIA A10",
+  "variants": {
+    "v3": "47f476ce9ee66b4568694e2c8b6b7e696a38aab0dc756d871d768476974a774d",
+    "pilot": "d7a8df9611ecfb3adefa255da9cc019b8d22f5690127a51f14b23935497dc5b7"
+  },
+  "scope": "Same quote prompt, inputs, shared NF4/BF16 base, GPU and greedy decoding for both adapters. 32 validation variants, not independent test."
+}

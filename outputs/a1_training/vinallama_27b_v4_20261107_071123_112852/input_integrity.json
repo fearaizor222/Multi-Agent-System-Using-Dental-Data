@@ -1,0 +1,51 @@
+{
+  "model_sha256": {
+    "pytorch_model.bin": "310e74fec51747a76c298c00f3caa82cc8867dbf6070942490853213655f41b9",
+    "README.md": "f41ca559b28f2cb85578b4e84f3d0f65c83d3be26fe00b4b20d65250fab651c7",
+    "config.json": "1665c222736cb0cbc1f27594abdff519f0f150af32c7669505bca6c2508542b1",
+    "generation_config.json": "c92e03ec5ad281cf2a39b90d6e4de081d8d844c24519c920e0d22defb067bd7c",
+    "special_tokens_map.json": "5d6382306983e560e7913caf6df79be8a8c1969668773e22a50a940e0125021a",
+    "tokenizer.json": "d79222ec0eca401b070231aa0355e3a5991ba97b09f0d1bc29aafbe3e04aab58",
+    "tokenizer_config.json": "23a16e688870434fd222a4d23bcac22d02b73434b92c71dcc45180f3a3b0a271"
+  },
+  "dataset_check": {
+    "records": 920,
+    "groups": 391,
+    "by_split": {
+      "train": 802,
+      "validation": 59,
+      "test": 59
+    },
+    "by_decision": {
+      "route": 534,
+      "clarify": 119,
+      "respond": 62,
+      "handoff": 157,
+      "out_of_scope": 48
+    },
+    "by_category": {
+      "knowledge": 121,
+      "service": 112,
+      "mixed": 66,
+      "clarification": 58,
+      "image": 109,
+      "context": 103,
+      "handoff": 78,
+      "out_of_scope": 38,
+      "social": 59,
+      "adversarial": 45,
+      "capability": 131
+    },
+    "group_leakage": 0,
+    "normalized_input_duplicates": 0,
+    "current_message_leakage": 0,
+    "checksums": "passed",
+    "sft_metadata_alignment": "passed",
+    "reproducibility": "passed",
+    "human_reviewed_records": 0,
+    "clinical_accuracy_evaluated": false
+  },
+  "dataset_manifest_sha256": "8e5d74049d238678308404ca9302df6c601e3dc19acf36ce880d08a38fe068a4",
+  "model_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\data\\models\\vilm--vinallama-2.7b-chat\\b31d5f1306494b2bf10ecb0c6031077af3f5b39a",
+  "dataset_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\data\\processed\\a1_supervisor_v4"
+}

@@ -1,0 +1,184 @@
+{
+  "run": "a2_raft_qwen3_17b_20261112_122501_012229",
+  "selected_epoch": 1.0,
+  "counts": {
+    "train": 144,
+    "validation": 72,
+    "paired_cases": 32
+  },
+  "gpu": "NVIDIA A10",
+  "reviewer": "assistant source-reading, not blinded or independently expert-adjudicated",
+  "scope": "32 correlated validation variants from 4 families and 12 questions; no independent test or end-to-end RAG evaluation.",
+  "variants": {
+    "v3": {
+      "content_grades": {
+        "pass": 19,
+        "fail": 10,
+        "partial": 3
+      },
+      "content_and_vietnamese": 16,
+      "usable_count": 7,
+      "non_vietnamese_count": 4,
+      "correct_missing_evidence": 2,
+      "missing_evidence_count": 8,
+      "correct_answerable_content": 17,
+      "answerable_count": 24,
+      "usable_answerable_count": 5,
+      "content_by_language": {
+        "en": {
+          "pass": 10,
+          "fail": 5,
+          "partial": 1
+        },
+        "vi": {
+          "pass": 9,
+          "fail": 5,
+          "partial": 2
+        }
+      },
+      "median_seconds": 7.675445305500034,
+      "mean_output_tokens": 90.28125,
+      "token_cap_count": 0,
+      "automatic": {
+        "schema_valid": 1.0,
+        "status_correct": 0.78125,
+        "citation_ids_valid": 1.0,
+        "exact_match": 0.0625,
+        "quoted_draft_count": 29,
+        "draft_quotes_verbatim_fraction": 0.5172413793103449,
+        "reference_evidence_match": 0.78125,
+        "reference_proof_coverage": 0.4642857142857143,
+        "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+        "count": 32,
+        "per_status": {
+          "draft": {
+            "support": 24,
+            "precision": 0.7931034482758621,
+            "recall": 0.9583333333333334,
+            "f1": 0.8679245283018867
+          },
+          "insufficient_evidence": {
+            "support": 8,
+            "precision": 0.6666666666666666,
+            "recall": 0.25,
+            "f1": 0.36363636363636365
+          }
+        },
+        "status_macro_f1": 0.6157804459691252,
+        "confusion_matrix": [
+          [
+            23,
+            1,
+            0
+          ],
+          [
+            6,
+            2,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "draft",
+            "insufficient_evidence"
+          ],
+          "columns": [
+            "draft",
+            "insufficient_evidence",
+            "invalid"
+          ]
+        }
+      }
+    },
+    "pilot": {
+      "content_grades": {
+        "pass": 13,
+        "fail": 14,
+        "partial": 5
+      },
+      "content_and_vietnamese": 12,
+      "usable_count": 9,
+      "non_vietnamese_count": 3,
+      "correct_missing_evidence": 6,
+      "missing_evidence_count": 8,
+      "correct_answerable_content": 7,
+      "answerable_count": 24,
+      "usable_answerable_count": 3,
+      "content_by_language": {
+        "en": {
+          "pass": 6,
+          "fail": 10
+        },
+        "vi": {
+          "fail": 4,
+          "pass": 7,
+          "partial": 5
+        }
+      },
+      "median_seconds": 6.299069674000066,
+      "mean_output_tokens": 70.78125,
+      "token_cap_count": 0,
+      "automatic": {
+        "schema_valid": 1.0,
+        "status_correct": 0.875,
+        "citation_ids_valid": 1.0,
+        "exact_match": 0.1875,
+        "quoted_draft_count": 24,
+        "draft_quotes_verbatim_fraction": 0.6666666666666666,
+        "reference_evidence_match": 0.84375,
+        "reference_proof_coverage": 0.2857142857142857,
+        "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+        "count": 32,
+        "per_status": {
+          "draft": {
+            "support": 24,
+            "precision": 0.9166666666666666,
+            "recall": 0.9166666666666666,
+            "f1": 0.9166666666666666
+          },
+          "insufficient_evidence": {
+            "support": 8,
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75
+          }
+        },
+        "status_macro_f1": 0.8333333333333333,
+        "confusion_matrix": [
+          [
+            22,
+            2,
+            0
+          ],
+          [
+            2,
+            6,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "draft",
+            "insufficient_evidence"
+          ],
+          "columns": [
+            "draft",
+            "insufficient_evidence",
+            "invalid"
+          ]
+        }
+      }
+    }
+  },
+  "paired_content_transitions": {
+    "pass -> pass": 8,
+    "pass -> fail": 9,
+    "fail -> fail": 4,
+    "fail -> pass": 5,
+    "fail -> partial": 1,
+    "partial -> partial": 2,
+    "partial -> fail": 1,
+    "pass -> partial": 2
+  },
+  "recommendation": "Retain production A2 v3; pilot improves refusal but does not improve source-reading content on this validation probe."
+}

@@ -1,0 +1,12 @@
+{
+  "base_model": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "epoch": 1,
+  "optimizer_steps": 129,
+  "dataset_manifest_sha256": "1d1b32c0b41671bd725d4f0f4c8e4d4aef0098e2a04597ae06321978dd292bdb",
+  "files_sha256": {
+    "adapter_config.json": "1cc04ee2530625d7fff70ea76b38f9cf4aa5e9832e2d5b2bdc018cf8203f0b9e",
+    "adapter_model.safetensors": "343f16353a9c200d13905a6398f1b30e4e59fc6c66536f481e8363435a3cecd0",
+    "README.md": "82a96477e115c28cc62432e2a3b366bf5d713c94e20391823748156853019cd3"
+  }
+}

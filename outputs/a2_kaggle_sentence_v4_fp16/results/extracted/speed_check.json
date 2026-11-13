@@ -1,0 +1,6 @@
+{
+  "steps": 5,
+  "seconds_per_step": 26.65910011799999,
+  "estimated_training_hours": 1.5032770344316662,
+  "precision": "fp16"
+}

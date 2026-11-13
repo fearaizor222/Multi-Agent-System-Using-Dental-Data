@@ -1,0 +1,270 @@
+{
+  "before": {
+    "json_valid": 0.17801047120418848,
+    "schema_valid": 0.06806282722513089,
+    "quote_ids_valid": 0.05235602094240838,
+    "quote_set_match": 0.0,
+    "both_labels_correct": 0.031413612565445025,
+    "assessment_exact_match": 0.0,
+    "full_json_exact_match": 0.0,
+    "draft_support_correct": 0.04712041884816754,
+    "public_support_correct": 0.041884816753926704,
+    "count": 191,
+    "decisions": {
+      "draft_support": {
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            0,
+            149
+          ],
+          [
+            1,
+            0,
+            0,
+            10
+          ],
+          [
+            3,
+            0,
+            0,
+            19
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 158,
+            "precision": 0.6923076923076923,
+            "recall": 0.056962025316455694,
+            "f1": 0.10526315789473684
+          },
+          "contradicted": {
+            "support": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "insufficient": {
+            "support": 22,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "macro_f1": 0.03508771929824561
+      },
+      "public_support": {
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            0,
+            121
+          ],
+          [
+            1,
+            0,
+            2,
+            37
+          ],
+          [
+            2,
+            0,
+            1,
+            20
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 128,
+            "precision": 0.7,
+            "recall": 0.0546875,
+            "f1": 0.10144927536231883
+          },
+          "contradicted": {
+            "support": 40,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "insufficient": {
+            "support": 23,
+            "precision": 0.3333333333333333,
+            "recall": 0.043478260869565216,
+            "f1": 0.07692307692307691
+          }
+        },
+        "macro_f1": 0.059457450761798585
+      }
+    }
+  },
+  "after": {
+    "json_valid": 1.0,
+    "schema_valid": 1.0,
+    "quote_ids_valid": 0.9895287958115183,
+    "quote_set_match": 0.8429319371727748,
+    "both_labels_correct": 0.8115183246073299,
+    "assessment_exact_match": 0.7539267015706806,
+    "full_json_exact_match": 0.005235602094240838,
+    "draft_support_correct": 0.9057591623036649,
+    "public_support_correct": 0.8848167539267016,
+    "count": 191,
+    "decisions": {
+      "draft_support": {
+        "confusion_matrix": [
+          [
+            155,
+            0,
+            3,
+            0
+          ],
+          [
+            5,
+            5,
+            1,
+            0
+          ],
+          [
+            9,
+            0,
+            13,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 158,
+            "precision": 0.9171597633136095,
+            "recall": 0.9810126582278481,
+            "f1": 0.9480122324159023
+          },
+          "contradicted": {
+            "support": 11,
+            "precision": 1.0,
+            "recall": 0.45454545454545453,
+            "f1": 0.625
+          },
+          "insufficient": {
+            "support": 22,
+            "precision": 0.7647058823529411,
+            "recall": 0.5909090909090909,
+            "f1": 0.6666666666666667
+          }
+        },
+        "macro_f1": 0.7465596330275229
+      },
+      "public_support": {
+        "confusion_matrix": [
+          [
+            126,
+            0,
+            2,
+            0
+          ],
+          [
+            7,
+            27,
+            6,
+            0
+          ],
+          [
+            5,
+            2,
+            16,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 128,
+            "precision": 0.9130434782608695,
+            "recall": 0.984375,
+            "f1": 0.9473684210526315
+          },
+          "contradicted": {
+            "support": 40,
+            "precision": 0.9310344827586207,
+            "recall": 0.675,
+            "f1": 0.7826086956521738
+          },
+          "insufficient": {
+            "support": 23,
+            "precision": 0.6666666666666666,
+            "recall": 0.6956521739130435,
+            "f1": 0.6808510638297872
+          }
+        },
+        "macro_f1": 0.8036093935115308
+      }
+    }
+  },
+  "model": {
+    "repo": "microsoft/MediPhi-Instruct",
+    "name": "MediPhi-Instruct 3.8B",
+    "revision": "8a52461577949784b8c447d557fa6b98a7d272df",
+    "targets": [
+      "qkv_proj",
+      "o_proj",
+      "gate_up_proj",
+      "down_proj"
+    ]
+  },
+  "best_checkpoint": "/vol/runs/a3_mediphi_38b_20261108_140451_290124_614b3387/checkpoints/checkpoint-264",
+  "train_seconds": 3980.9161429960004,
+  "elapsed_seconds": 7950.080690434,
+  "scope": "Synthetic labels with known audit issues; validation used for checkpoint selection, not independent test or clinical validation.",
+  "metric_notes": "Reference-label agreement, not clinical correctness. Quote-ID validity does not prove entailment. Assessment match ignores reason wording; invalid schema remains in confusion matrices. Macro-F1 averages all three fixed labels, including zero-support labels."
+}

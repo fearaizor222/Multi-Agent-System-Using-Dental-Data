@@ -1,0 +1,17 @@
+{
+  "source_run": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run03",
+  "raw_predictions_sha256": "900dc7fbeb81c797b4fb9f3519bba589ea09ab201fe4be180c6704cd2ac2a90a",
+  "metrics_sha256": "b7e2c58aae5b0d6fb043c85aa164b405c1ec739c3c61a6461f41240886b4450b",
+  "validation_examples_verified": 59,
+  "score_recalculation": "passed",
+  "reuse_scope": "identical_protected_splits_train_changed",
+  "protected_file_sha256": {
+    "validation.jsonl": "9f6416254620a3bbd28fb83cd8a1e28cb95d64b89554ed2a1d04532bb419592d",
+    "validation.metadata.jsonl": "36654c26b65bf506f400fd5912e68b2148f178ecf046e96916d43f6e7604a3de",
+    "test.jsonl": "0d12f2d4893a60f683d6b512ef6ae678019a42d9d9662e0b3233dc7467ac0fe3",
+    "test.metadata.jsonl": "fd20696ed42d01a95de637b6feb9327095c1d6b99fe6af1409c1c99bf108f62e"
+  },
+  "source_dataset_manifest_sha256": "65ffb0ca1c1d82b5256b7b08d9dd6c85914d1336865cbae448905907ef177129",
+  "current_dataset_manifest_sha256": "28faa314553935b072ff7579fe4d92d330d70725c21ea336c6545c4352eed82b",
+  "three_raw_replays_match": true
+}

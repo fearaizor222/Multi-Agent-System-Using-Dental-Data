@@ -1,0 +1,33 @@
+{
+  "question": "Theo tài liệu, khi chưa tìm được nguyên nhân rõ ràng của loạn năng hệ thống nhai thì nên xử trí ban đầu như thế nào?",
+  "kind": "treatment",
+  "input_tokens": 3595,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_treatment_20261113\\retrieval_0.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Đoạn nguồn nêu việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.\"}]}",
+  "seconds": 41.396281599998474,
+  "generation_tokens": 63,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Đoạn nguồn nêu việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Loại bỏ các yếu tố nguyên nhân là bước đầu tiên trong điều trị tất cả các bệnh, nhưng đối với loạn năng khớp cắn, loạn năng thái dương hàm và rối loạn cơ, có thể không tìm được yếu tố nguyên nhân rõ ràng, vì thế việc điều trị đầu tiên phải là điều trị triệu chứng."
+          }
+        ]
+      }
+    ]
+  }
+}

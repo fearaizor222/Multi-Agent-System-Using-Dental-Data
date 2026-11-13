@@ -1,0 +1,20 @@
+{
+  "status": "ready",
+  "splits": {
+    "train": {
+      "count": 144,
+      "max_input_and_answer_tokens": 1670,
+      "max_answer_tokens": 214,
+      "all_prompt_tokens_masked": true,
+      "truncated": 0
+    },
+    "validation": {
+      "count": 72,
+      "max_input_and_answer_tokens": 1433,
+      "max_answer_tokens": 184,
+      "all_prompt_tokens_masked": true,
+      "truncated": 0
+    }
+  },
+  "training_executed": false
+}

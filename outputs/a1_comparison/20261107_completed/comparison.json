@@ -1,0 +1,477 @@
+{
+  "qwen3": {
+    "model": "Qwen/Qwen3-1.7B",
+    "best_epoch": 2,
+    "seconds_training_and_evaluation": 5391.636572,
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "metrics": {
+      "completed": true,
+      "count": 59,
+      "correct": {
+        "raw_json_valid": 59,
+        "schema_valid": 59,
+        "context_valid": 59,
+        "decision_correct": 58,
+        "targets_correct": 57,
+        "service_topics_correct": 57,
+        "image_ids_correct": 59,
+        "control_exact": 56
+      },
+      "rates": {
+        "raw_json_valid": 1.0,
+        "schema_valid": 1.0,
+        "context_valid": 1.0,
+        "decision_correct": 0.9830508474576272,
+        "targets_correct": 0.9661016949152542,
+        "service_topics_correct": 0.9661016949152542,
+        "image_ids_correct": 1.0,
+        "control_exact": 0.9491525423728814
+      },
+      "decision_macro_f1": 0.985766158315178,
+      "per_decision": {
+        "route": {
+          "support": 40,
+          "precision": 0.975609756097561,
+          "recall": 1.0,
+          "f1": 0.9876543209876543
+        },
+        "clarify": {
+          "support": 9,
+          "precision": 1.0,
+          "recall": 0.8888888888888888,
+          "f1": 0.9411764705882353
+        },
+        "handoff": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "out_of_scope": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "respond": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "by_category": {
+        "adversarial": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "capability": {
+          "count": 2,
+          "control_exact": 1,
+          "schema_valid": 2
+        },
+        "clarification": {
+          "count": 6,
+          "control_exact": 5,
+          "schema_valid": 6
+        },
+        "context": {
+          "count": 6,
+          "control_exact": 5,
+          "schema_valid": 6
+        },
+        "handoff": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "image": {
+          "count": 6,
+          "control_exact": 6,
+          "schema_valid": 6
+        },
+        "knowledge": {
+          "count": 12,
+          "control_exact": 12,
+          "schema_valid": 12
+        },
+        "mixed": {
+          "count": 6,
+          "control_exact": 6,
+          "schema_valid": 6
+        },
+        "out_of_scope": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "service": {
+          "count": 9,
+          "control_exact": 9,
+          "schema_valid": 9
+        },
+        "social": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        }
+      },
+      "confusion": [
+        {
+          "expected": "clarify",
+          "predicted": "clarify",
+          "count": 8
+        },
+        {
+          "expected": "clarify",
+          "predicted": "route",
+          "count": 1
+        },
+        {
+          "expected": "handoff",
+          "predicted": "handoff",
+          "count": 4
+        },
+        {
+          "expected": "out_of_scope",
+          "predicted": "out_of_scope",
+          "count": 3
+        },
+        {
+          "expected": "respond",
+          "predicted": "respond",
+          "count": 3
+        },
+        {
+          "expected": "route",
+          "predicted": "route",
+          "count": 40
+        }
+      ],
+      "total_generation_seconds": 460.57129999999995,
+      "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+    },
+    "max_length": 1024
+  },
+  "vinallama": {
+    "model": "vilm/vinallama-2.7b-chat",
+    "best_epoch": 2,
+    "seconds_training_and_evaluation": 8134.682036,
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "metrics": {
+      "completed": true,
+      "count": 59,
+      "correct": {
+        "raw_json_valid": 59,
+        "schema_valid": 59,
+        "context_valid": 59,
+        "decision_correct": 55,
+        "targets_correct": 51,
+        "service_topics_correct": 51,
+        "image_ids_correct": 56,
+        "control_exact": 46
+      },
+      "rates": {
+        "raw_json_valid": 1.0,
+        "schema_valid": 1.0,
+        "context_valid": 1.0,
+        "decision_correct": 0.9322033898305084,
+        "targets_correct": 0.864406779661017,
+        "service_topics_correct": 0.864406779661017,
+        "image_ids_correct": 0.9491525423728814,
+        "control_exact": 0.7796610169491526
+      },
+      "decision_macro_f1": 0.9027710843373494,
+      "per_decision": {
+        "route": {
+          "support": 40,
+          "precision": 0.9302325581395349,
+          "recall": 1.0,
+          "f1": 0.963855421686747
+        },
+        "clarify": {
+          "support": 9,
+          "precision": 0.8571428571428571,
+          "recall": 0.6666666666666666,
+          "f1": 0.75
+        },
+        "handoff": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "out_of_scope": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "respond": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        }
+      },
+      "by_category": {
+        "adversarial": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "capability": {
+          "count": 2,
+          "control_exact": 1,
+          "schema_valid": 2
+        },
+        "clarification": {
+          "count": 6,
+          "control_exact": 4,
+          "schema_valid": 6
+        },
+        "context": {
+          "count": 6,
+          "control_exact": 5,
+          "schema_valid": 6
+        },
+        "handoff": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "image": {
+          "count": 6,
+          "control_exact": 3,
+          "schema_valid": 6
+        },
+        "knowledge": {
+          "count": 12,
+          "control_exact": 11,
+          "schema_valid": 12
+        },
+        "mixed": {
+          "count": 6,
+          "control_exact": 4,
+          "schema_valid": 6
+        },
+        "out_of_scope": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "service": {
+          "count": 9,
+          "control_exact": 7,
+          "schema_valid": 9
+        },
+        "social": {
+          "count": 3,
+          "control_exact": 2,
+          "schema_valid": 3
+        }
+      },
+      "confusion": [
+        {
+          "expected": "clarify",
+          "predicted": "clarify",
+          "count": 6
+        },
+        {
+          "expected": "clarify",
+          "predicted": "route",
+          "count": 3
+        },
+        {
+          "expected": "handoff",
+          "predicted": "handoff",
+          "count": 4
+        },
+        {
+          "expected": "out_of_scope",
+          "predicted": "out_of_scope",
+          "count": 3
+        },
+        {
+          "expected": "respond",
+          "predicted": "clarify",
+          "count": 1
+        },
+        {
+          "expected": "respond",
+          "predicted": "respond",
+          "count": 2
+        },
+        {
+          "expected": "route",
+          "predicted": "route",
+          "count": 40
+        }
+      ],
+      "total_generation_seconds": 683.4643,
+      "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+    },
+    "max_length": 1024
+  },
+  "mediphi": {
+    "model": "microsoft/MediPhi-Instruct",
+    "best_epoch": 2,
+    "seconds_training_and_evaluation": 6705.241893,
+    "gpu": "NVIDIA L4",
+    "metrics": {
+      "completed": true,
+      "count": 59,
+      "correct": {
+        "raw_json_valid": 59,
+        "schema_valid": 59,
+        "context_valid": 59,
+        "decision_correct": 56,
+        "targets_correct": 55,
+        "service_topics_correct": 55,
+        "image_ids_correct": 59,
+        "control_exact": 53
+      },
+      "rates": {
+        "raw_json_valid": 1.0,
+        "schema_valid": 1.0,
+        "context_valid": 1.0,
+        "decision_correct": 0.9491525423728814,
+        "targets_correct": 0.9322033898305084,
+        "service_topics_correct": 0.9322033898305084,
+        "image_ids_correct": 1.0,
+        "control_exact": 0.8983050847457628
+      },
+      "decision_macro_f1": 0.9075308641975308,
+      "per_decision": {
+        "route": {
+          "support": 40,
+          "precision": 0.975609756097561,
+          "recall": 1.0,
+          "f1": 0.9876543209876543
+        },
+        "clarify": {
+          "support": 9,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "handoff": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "out_of_scope": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "respond": {
+          "support": 3,
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.7499999999999999
+        }
+      },
+      "by_category": {
+        "adversarial": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "capability": {
+          "count": 2,
+          "control_exact": 2,
+          "schema_valid": 2
+        },
+        "clarification": {
+          "count": 6,
+          "control_exact": 3,
+          "schema_valid": 6
+        },
+        "context": {
+          "count": 6,
+          "control_exact": 5,
+          "schema_valid": 6
+        },
+        "handoff": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "image": {
+          "count": 6,
+          "control_exact": 6,
+          "schema_valid": 6
+        },
+        "knowledge": {
+          "count": 12,
+          "control_exact": 11,
+          "schema_valid": 12
+        },
+        "mixed": {
+          "count": 6,
+          "control_exact": 5,
+          "schema_valid": 6
+        },
+        "out_of_scope": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "service": {
+          "count": 9,
+          "control_exact": 9,
+          "schema_valid": 9
+        },
+        "social": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        }
+      },
+      "confusion": [
+        {
+          "expected": "clarify",
+          "predicted": "clarify",
+          "count": 6
+        },
+        {
+          "expected": "clarify",
+          "predicted": "respond",
+          "count": 2
+        },
+        {
+          "expected": "clarify",
+          "predicted": "route",
+          "count": 1
+        },
+        {
+          "expected": "handoff",
+          "predicted": "handoff",
+          "count": 4
+        },
+        {
+          "expected": "out_of_scope",
+          "predicted": "out_of_scope",
+          "count": 3
+        },
+        {
+          "expected": "respond",
+          "predicted": "respond",
+          "count": 3
+        },
+        {
+          "expected": "route",
+          "predicted": "route",
+          "count": 40
+        }
+      ],
+      "total_generation_seconds": 460.8625000000001,
+      "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+    },
+    "max_length": 2048
+  }
+}

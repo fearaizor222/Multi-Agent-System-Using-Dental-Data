@@ -1,0 +1,148 @@
+{
+  "completed": true,
+  "count": 59,
+  "correct": {
+    "raw_json_valid": 59,
+    "schema_valid": 59,
+    "context_valid": 59,
+    "decision_correct": 57,
+    "targets_correct": 57,
+    "service_topics_correct": 57,
+    "image_ids_correct": 59,
+    "control_exact": 57
+  },
+  "rates": {
+    "raw_json_valid": 1.0,
+    "schema_valid": 1.0,
+    "context_valid": 1.0,
+    "decision_correct": 0.9661016949152542,
+    "targets_correct": 0.9661016949152542,
+    "service_topics_correct": 0.9661016949152542,
+    "image_ids_correct": 1.0,
+    "control_exact": 0.9661016949152542
+  },
+  "decision_macro_f1": 0.9779279279279279,
+  "per_decision": {
+    "route": {
+      "support": 38,
+      "precision": 1.0,
+      "recall": 0.9473684210526315,
+      "f1": 0.972972972972973
+    },
+    "clarify": {
+      "support": 11,
+      "precision": 0.8461538461538461,
+      "recall": 1.0,
+      "f1": 0.9166666666666666
+    },
+    "handoff": {
+      "support": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "out_of_scope": {
+      "support": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "respond": {
+      "support": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "by_category": {
+    "adversarial": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    },
+    "capability": {
+      "count": 2,
+      "control_exact": 2,
+      "schema_valid": 2
+    },
+    "clarification": {
+      "count": 6,
+      "control_exact": 6,
+      "schema_valid": 6
+    },
+    "context": {
+      "count": 5,
+      "control_exact": 4,
+      "schema_valid": 5
+    },
+    "handoff": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    },
+    "image": {
+      "count": 7,
+      "control_exact": 7,
+      "schema_valid": 7
+    },
+    "knowledge": {
+      "count": 12,
+      "control_exact": 12,
+      "schema_valid": 12
+    },
+    "mixed": {
+      "count": 6,
+      "control_exact": 6,
+      "schema_valid": 6
+    },
+    "out_of_scope": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    },
+    "service": {
+      "count": 9,
+      "control_exact": 8,
+      "schema_valid": 9
+    },
+    "social": {
+      "count": 3,
+      "control_exact": 3,
+      "schema_valid": 3
+    }
+  },
+  "confusion": [
+    {
+      "expected": "clarify",
+      "predicted": "clarify",
+      "count": 11
+    },
+    {
+      "expected": "handoff",
+      "predicted": "handoff",
+      "count": 4
+    },
+    {
+      "expected": "out_of_scope",
+      "predicted": "out_of_scope",
+      "count": 3
+    },
+    {
+      "expected": "respond",
+      "predicted": "respond",
+      "count": 3
+    },
+    {
+      "expected": "route",
+      "predicted": "clarify",
+      "count": 2
+    },
+    {
+      "expected": "route",
+      "predicted": "route",
+      "count": 36
+    }
+  ],
+  "total_generation_seconds": 224.45219999999995,
+  "scope": "Held-out synthetic A1 test control decisions; response wording and resolved_request semantics not automatically judged."
+}

@@ -1,0 +1,42 @@
+{
+  "dataset_version": "a3_verification_v2",
+  "source_sha256": {
+    "train.jsonl": "4bee13c33c078ac1ace495f790aacb8151ee4246c92e64f6670de8e11024c7e5",
+    "val.jsonl": "cf772c317e9c93b993504042ed197e3b8ccb230b3ba9a7a61e68ffa8b268c6af",
+    "train.metadata.jsonl": "aed5f647ebc3a38d7c35dd9694d8feffff0abae45884b063878e5283be37b330",
+    "val.metadata.jsonl": "2d930d5db31b5caf5620fbe12b261b6d97c4f950e38b3c0ffa687132ff64e0d4"
+  },
+  "split_method": "Preserve supplied train.jsonl / val.jsonl; no resplit or relabeling",
+  "counts": {
+    "train": 779,
+    "validation": 169
+  },
+  "labels": {
+    "train": {
+      "draft_support": {
+        "supported": 561,
+        "insufficient": 113,
+        "contradicted": 105
+      },
+      "public_support": {
+        "supported": 553,
+        "contradicted": 104,
+        "insufficient": 122
+      }
+    },
+    "validation": {
+      "draft_support": {
+        "supported": 113,
+        "contradicted": 24,
+        "insufficient": 32
+      },
+      "public_support": {
+        "supported": 110,
+        "insufficient": 33,
+        "contradicted": 26
+      }
+    }
+  },
+  "validation_main_chunks_seen_in_train_including_distractors": 0,
+  "scope": "Synthetic reference labels; validation used for checkpoint selection, not independent test or clinical validation."
+}

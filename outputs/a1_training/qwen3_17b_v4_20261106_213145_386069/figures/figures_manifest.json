@@ -1,0 +1,41 @@
+{
+  "run_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\qwen3_17b_v4_20261106_213145_386069",
+  "dataset": "a1_supervisor_v4",
+  "selected_epoch": 2,
+  "validation_count": 59,
+  "png_dpi": 300,
+  "matplotlib": "3.10.8",
+  "source_sha256": {
+    "summary.json": "a05d96db00eb4f823177ab485e77255c38f53e72f77ed445fab0f6460ccc27b1",
+    "config.json": "370ffa7f564bd19133fe494424287e9e6092c8ba3ea0e54ca7685655d79e3093",
+    "input_integrity.json": "ba633421a279deb48b5732b4b39dd83c3795dc04ee8b4c85ffad012838dab111",
+    "training_log.jsonl": "c7960ad47f75e32017f533d203d12eecabbd98e33c2d847b7f53fe9b5c0071b0",
+    "baseline_validation\\predictions.jsonl": "7b5803ffe39ef2c9a43374c611e998b49b807119a135b61d9797eb1ec96ce5d2",
+    "epoch_01\\validation\\predictions.jsonl": "fcf98176fec45679cfbf7dc301c135ed3774a06cb720c2775171f6a127eef248",
+    "epoch_02\\validation\\predictions.jsonl": "9068a7a940091cbe1b9a5e26ca3f247e2124248638c7f8fada8318aee2a6f23b"
+  },
+  "scope": "Completed real training logs, validation only; no model loaded or run by plotting.",
+  "files_sha256": {
+    "01_training_loss.png": "59d77340fe25c5b5cc12a17f711153eab53fa224d61f68b1e29934dfae98b723",
+    "01_training_loss.pdf": "41577bc80410028f78a89afa2c3cacb95141a5e94b4b3a2054f93d3a669d9b47",
+    "01_training_loss.svg": "1746618a17f4d3b085cca14e9e05f19b6dfcb0b634871ebb7cc432b74d9f3498",
+    "02_validation_progress.png": "714c9e7e7b9c1ff045213041e22081e2cb83ec10c3c54118f1c101315f85a090",
+    "02_validation_progress.pdf": "fa837f51de44e0f26837022243b8f0d4d53e6221c87e4bd71ddcea51d5690f77",
+    "02_validation_progress.svg": "59d347d9b0905ef220daff6721e3008bb169f980d904b802033105656a461a8b",
+    "03_before_after.png": "560ef96138641cc16287bc57d41faad2fd0ec9d6755471b3d27dec562a0e2e7a",
+    "03_before_after.pdf": "db042809a2c31edd0a2acd798251cbf5659484d7d5bef56d7c74bcc2a1138d54",
+    "03_before_after.svg": "833f54d60f4465476ea9f0b82765bfe31d6b873997d502a3f6dddefd362b297e",
+    "04_confusion_matrix.png": "0ed8b76b17372ce95ff8a13b29e0febb2ccc2c0a93a9e3cb07b55a531b46646c",
+    "04_confusion_matrix.pdf": "7c7bd8d6fb1e4928cb62d9c9e153e04764d5835639bcdc69c747388c0e799235",
+    "04_confusion_matrix.svg": "a54ed9d91f02391ba19b27edb921d5d1cb03d5e85ad62e26b0ce52fc98095063",
+    "05_f1_by_decision.png": "2f47dfeb94c0b408adc6598ebec1f37c91fd0028680203402fb5a923f7a07d39",
+    "05_f1_by_decision.pdf": "7eca5dfb9bac6863ef8fff164484f8b1e1312424fddcfc83b639c256786a6d97",
+    "05_f1_by_decision.svg": "95a56a544e11eac8fc605883ba9abb30df38c06163f3018874c1f5e8b95d3d20",
+    "06_dataset_splits.png": "1fbc03fcc9194111be95269c5a0964dbdcff6e18da57ad5e9e3a17acbe753825",
+    "06_dataset_splits.pdf": "429a839737df62192265508132fe7a3ece1ebfc83a88815197504f1ebd76429c",
+    "06_dataset_splits.svg": "284ade69fedc91c7f48ef673f2af3a42899a936d96151b7f417dc02de126385c",
+    "figure_data.json": "56c65a533ec699bbde976961a8de83e483490a8cd2f4db453e9640f0c6ea79af",
+    "metrics.csv": "a90213c4491298dc1944a2af824c1389c2780121409a7b3007eadf1b8561172f",
+    "captions_vi.md": "2741bb525427293e5b3eeae0129d04ce5ec8d12a2d851e7fac42333b37063cb8"
+  }
+}

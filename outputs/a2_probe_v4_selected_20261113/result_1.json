@@ -1,0 +1,33 @@
+{
+  "question": "Máng nhai là gì?",
+  "kind": "definition",
+  "input_tokens": 2843,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_definitions_20261113\\retrieval_0.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.\"}]}",
+  "seconds": 11.63523559999885,
+  "generation_tokens": 63,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Định nghĩa Máng nhai sử dụng trong thực hành cắn khớp có thể định nghĩa như sau: Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng được thực hiện với mục đích chẩn đoán và điều trị rối loạn cắn khớp."
+          }
+        ]
+      }
+    ]
+  }
+}

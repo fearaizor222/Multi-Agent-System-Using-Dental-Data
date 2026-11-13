@@ -1,0 +1,5 @@
+{
+  "selected_checkpoint": "epoch_1.0",
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "scope": "8 diagnostic cases with frozen production-RAG contexts; not fresh retrieval or an independent test; no other agents, no training"
+}

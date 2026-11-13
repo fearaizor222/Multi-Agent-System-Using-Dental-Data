@@ -1,0 +1,43 @@
+{
+  "dataset_version": "a2-v3-repaired-20261110-r1",
+  "source_sha256": {
+    "train.jsonl": "a465d1173f45d9306a0d2ecd69534c17e0c588e35158e550f79cf77ef794570c",
+    "train.metadata.jsonl": "b3773977a63b1ed95fbe70ba3bdd8534c87700b8052a244ac1ecfdf43cd258c2",
+    "val.jsonl": "1347f20543b6bae111d00c3a805d6a4084af82270f53a7d7728a3923bcdeb205",
+    "val.metadata.jsonl": "16a70326bb2f9a145e7b447c6245abeffdedbe796ee1b0127a7fdd2cd18db1d9",
+    "test.jsonl": "ea20db436ce15db26b8df9517b29a4352fe2492cb0f3fdc618169323d2c0135d",
+    "test.metadata.jsonl": "b8953551e5b64df3c592ec8a0385118bf7517258542334e67cf838e4be8455ae"
+  },
+  "audit_sha256": {
+    "blind.jsonl": "c3d12706d8e7f980231c334bf0725269bd77f0feb8471da7580556e25a8a6c71",
+    "blind_policy.txt": "585a542a41e855ebb9fd6679351496d99d8d7cce3f8134076324c05f8fffca88",
+    "natural_negatives.jsonl": "5d07c4cf65bd305984a939a94337b2c2ef9ca5b57a7cce627fb9ea29c023f648",
+    "negative_review.jsonl": "4a22c749f306b39211457c5b71114a1cf1056c2954e5dad3dba91d8682f16514",
+    "repair_a2_v3.py": "9274c0ba66c6cfaee76bf99c2d0b7ecad9ca0f9325fc70389c90b6fe38a4eb18",
+    "review.jsonl": "bd47f7c35bb31581e4909e000397f73026d442046c2477a06b8c0f45e75ca04b",
+    "review_policy.txt": "fef4d1f5d9ececfab101bc837d55994959bb6878f89472a4063b6edbd17fdd74"
+  },
+  "split_method": "Preserve v2 whole-document/chapter split; no movement between train/val/test; all variants inherit family.",
+  "counts": {
+    "train": 1007,
+    "validation": 107,
+    "test": 93
+  },
+  "labels": {
+    "train": {
+      "draft": 912,
+      "insufficient_evidence": 95
+    },
+    "validation": {
+      "draft": 94,
+      "insufficient_evidence": 13
+    },
+    "test": {
+      "draft": 82,
+      "insufficient_evidence": 11
+    }
+  },
+  "test_reserved": true,
+  "cross_split_document_and_chunk_overlap": 0,
+  "scope": "Source-grounded synthetic QA with fresh AI review and assistant source corrections; not expert clinical gold. Test reserved."
+}

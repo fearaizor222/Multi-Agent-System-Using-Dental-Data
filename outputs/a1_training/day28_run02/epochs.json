@@ -1,0 +1,176 @@
+[
+  {
+    "epoch": 1,
+    "mean_training_loss": 0.47202216119815904,
+    "optimizer_steps": 129,
+    "adapter_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run02\\epoch_01\\adapter",
+    "validation": {
+      "completed": true,
+      "count": 59,
+      "correct": {
+        "raw_json_valid": 59,
+        "schema_valid": 59,
+        "context_valid": 58,
+        "decision_correct": 47,
+        "targets_correct": 41,
+        "service_topics_correct": 46,
+        "image_ids_correct": 55,
+        "control_exact": 38
+      },
+      "rates": {
+        "raw_json_valid": 1.0,
+        "schema_valid": 1.0,
+        "context_valid": 0.9830508474576272,
+        "decision_correct": 0.7966101694915254,
+        "targets_correct": 0.6949152542372882,
+        "service_topics_correct": 0.7796610169491526,
+        "image_ids_correct": 0.9322033898305084,
+        "control_exact": 0.6440677966101694
+      },
+      "decision_macro_f1": 0.711948051948052,
+      "per_decision": {
+        "route": {
+          "support": 40,
+          "precision": 0.7916666666666666,
+          "recall": 0.95,
+          "f1": 0.8636363636363635
+        },
+        "clarify": {
+          "support": 9,
+          "precision": 0.5,
+          "recall": 0.1111111111111111,
+          "f1": 0.1818181818181818
+        },
+        "handoff": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "out_of_scope": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "respond": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        }
+      },
+      "by_category": {
+        "adversarial": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "capability": {
+          "count": 2,
+          "control_exact": 0,
+          "schema_valid": 2
+        },
+        "clarification": {
+          "count": 6,
+          "control_exact": 1,
+          "schema_valid": 6
+        },
+        "context": {
+          "count": 6,
+          "control_exact": 3,
+          "schema_valid": 6
+        },
+        "handoff": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "image": {
+          "count": 6,
+          "control_exact": 3,
+          "schema_valid": 6
+        },
+        "knowledge": {
+          "count": 12,
+          "control_exact": 11,
+          "schema_valid": 12
+        },
+        "mixed": {
+          "count": 6,
+          "control_exact": 2,
+          "schema_valid": 6
+        },
+        "out_of_scope": {
+          "count": 3,
+          "control_exact": 3,
+          "schema_valid": 3
+        },
+        "service": {
+          "count": 9,
+          "control_exact": 7,
+          "schema_valid": 9
+        },
+        "social": {
+          "count": 3,
+          "control_exact": 2,
+          "schema_valid": 3
+        }
+      },
+      "confusion": [
+        {
+          "expected": "clarify",
+          "predicted": "clarify",
+          "count": 1
+        },
+        {
+          "expected": "clarify",
+          "predicted": "route",
+          "count": 8
+        },
+        {
+          "expected": "handoff",
+          "predicted": "handoff",
+          "count": 3
+        },
+        {
+          "expected": "handoff",
+          "predicted": "route",
+          "count": 1
+        },
+        {
+          "expected": "out_of_scope",
+          "predicted": "out_of_scope",
+          "count": 3
+        },
+        {
+          "expected": "respond",
+          "predicted": "respond",
+          "count": 2
+        },
+        {
+          "expected": "respond",
+          "predicted": "route",
+          "count": 1
+        },
+        {
+          "expected": "route",
+          "predicted": "clarify",
+          "count": 1
+        },
+        {
+          "expected": "route",
+          "predicted": "out_of_scope",
+          "count": 1
+        },
+        {
+          "expected": "route",
+          "predicted": "route",
+          "count": 38
+        }
+      ],
+      "total_generation_seconds": 433.9358,
+      "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+    }
+  }
+]

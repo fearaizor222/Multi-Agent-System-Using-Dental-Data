@@ -1,0 +1,42 @@
+{
+  "dataset_version": "a3_verification_v3",
+  "source_sha256": {
+    "train.jsonl": "8ef74e48646019abfc2e923775ddfd9efda331cc6c030d4e92c3a5db65d9e140",
+    "val.jsonl": "b903061efde6e06407846c4b4e304ee6001a082194f69301600a095189293505",
+    "train.metadata.jsonl": "018f181c1d036802845c72b4e295e5edfd9fb6d9f5a19efc8008298adbf71fe6",
+    "val.metadata.jsonl": "4ab15acb2259e86cd7fe2469fcf5d688a3e26cce7ee143b51beda86bc734d029"
+  },
+  "split_method": "Preserve supplied train.jsonl / val.jsonl; no resplit or relabeling",
+  "counts": {
+    "train": 750,
+    "validation": 198
+  },
+  "labels": {
+    "train": {
+      "draft_support": {
+        "contradicted": 155,
+        "supported": 488,
+        "insufficient": 107
+      },
+      "public_support": {
+        "contradicted": 80,
+        "insufficient": 303,
+        "supported": 367
+      }
+    },
+    "validation": {
+      "draft_support": {
+        "supported": 131,
+        "insufficient": 27,
+        "contradicted": 40
+      },
+      "public_support": {
+        "supported": 96,
+        "insufficient": 76,
+        "contradicted": 26
+      }
+    }
+  },
+  "validation_main_chunks_seen_in_train_including_distractors": 0,
+  "scope": "Synthetic reference labels; validation used for checkpoint selection, not independent test or clinical validation."
+}

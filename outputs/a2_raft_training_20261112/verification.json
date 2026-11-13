@@ -1,0 +1,240 @@
+{
+  "verified": true,
+  "run": "a2_raft_qwen3_17b_20261112_122501_012229",
+  "counts": {
+    "train": 144,
+    "validation": 72,
+    "paired_cases": 32
+  },
+  "adapter_sha256": "d7a8df9611ecfb3adefa255da9cc019b8d22f5690127a51f14b23935497dc5b7",
+  "exported_weights_equal_selected_checkpoint": true,
+  "best_checkpoint": "/vol/runs/a2_raft_qwen3_17b_20261112_122501_012229/checkpoints/checkpoint-18",
+  "selected_epoch": 1.0,
+  "epoch_losses": [
+    {
+      "step": 18,
+      "epoch": 1.0,
+      "eval_loss": 0.20043891668319702
+    },
+    {
+      "step": 36,
+      "epoch": 2.0,
+      "eval_loss": 0.21459347009658813
+    },
+    {
+      "step": 54,
+      "epoch": 3.0,
+      "eval_loss": 0.21616965532302856
+    }
+  ],
+  "train_seconds": 415.61387104100004,
+  "same_v3_outputs_as_previous": 32,
+  "validation_metrics": {
+    "before": {
+      "schema_valid": 1.0,
+      "status_correct": 0.2916666666666667,
+      "citation_ids_valid": 1.0,
+      "exact_match": 0.2638888888888889,
+      "quoted_draft_count": 3,
+      "draft_quotes_verbatim_fraction": 0.6666666666666666,
+      "reference_evidence_match": 0.2916666666666667,
+      "reference_proof_coverage": 0.014705882352941176,
+      "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+      "count": 72,
+      "per_status": {
+        "draft": {
+          "support": 52,
+          "precision": 0.6666666666666666,
+          "recall": 0.038461538461538464,
+          "f1": 0.07272727272727274
+        },
+        "insufficient_evidence": {
+          "support": 20,
+          "precision": 0.2753623188405797,
+          "recall": 0.95,
+          "f1": 0.42696629213483145
+        }
+      },
+      "status_macro_f1": 0.2498467824310521,
+      "confusion_matrix": [
+        [
+          2,
+          50,
+          0
+        ],
+        [
+          1,
+          19,
+          0
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "draft",
+          "insufficient_evidence"
+        ],
+        "columns": [
+          "draft",
+          "insufficient_evidence",
+          "invalid"
+        ]
+      }
+    },
+    "after": {
+      "schema_valid": 1.0,
+      "status_correct": 0.9027777777777778,
+      "citation_ids_valid": 1.0,
+      "exact_match": 0.20833333333333334,
+      "quoted_draft_count": 55,
+      "draft_quotes_verbatim_fraction": 0.6545454545454545,
+      "reference_evidence_match": 0.8888888888888888,
+      "reference_proof_coverage": 0.3088235294117647,
+      "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+      "count": 72,
+      "per_status": {
+        "draft": {
+          "support": 52,
+          "precision": 0.9090909090909091,
+          "recall": 0.9615384615384616,
+          "f1": 0.9345794392523366
+        },
+        "insufficient_evidence": {
+          "support": 20,
+          "precision": 0.8823529411764706,
+          "recall": 0.75,
+          "f1": 0.8108108108108107
+        }
+      },
+      "status_macro_f1": 0.8726951250315736,
+      "confusion_matrix": [
+        [
+          50,
+          2,
+          0
+        ],
+        [
+          5,
+          15,
+          0
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "draft",
+          "insufficient_evidence"
+        ],
+        "columns": [
+          "draft",
+          "insufficient_evidence",
+          "invalid"
+        ]
+      }
+    },
+    "train_seconds": 415.61387104100004,
+    "best_checkpoint": "/vol/runs/a2_raft_qwen3_17b_20261112_122501_012229/checkpoints/checkpoint-18",
+    "scope": "Synthetic validation. Citation-ID validity does not prove factual support; exact match is strict wording agreement. No clinical correctness or independent test evaluation."
+  },
+  "paired_metrics": {
+    "v3": {
+      "schema_valid": 1.0,
+      "status_correct": 0.78125,
+      "citation_ids_valid": 1.0,
+      "exact_match": 0.0625,
+      "quoted_draft_count": 29,
+      "draft_quotes_verbatim_fraction": 0.5172413793103449,
+      "reference_evidence_match": 0.78125,
+      "reference_proof_coverage": 0.4642857142857143,
+      "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+      "count": 32,
+      "per_status": {
+        "draft": {
+          "support": 24,
+          "precision": 0.7931034482758621,
+          "recall": 0.9583333333333334,
+          "f1": 0.8679245283018867
+        },
+        "insufficient_evidence": {
+          "support": 8,
+          "precision": 0.6666666666666666,
+          "recall": 0.25,
+          "f1": 0.36363636363636365
+        }
+      },
+      "status_macro_f1": 0.6157804459691252,
+      "confusion_matrix": [
+        [
+          23,
+          1,
+          0
+        ],
+        [
+          6,
+          2,
+          0
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "draft",
+          "insufficient_evidence"
+        ],
+        "columns": [
+          "draft",
+          "insufficient_evidence",
+          "invalid"
+        ]
+      }
+    },
+    "pilot": {
+      "schema_valid": 1.0,
+      "status_correct": 0.875,
+      "citation_ids_valid": 1.0,
+      "exact_match": 0.1875,
+      "quoted_draft_count": 24,
+      "draft_quotes_verbatim_fraction": 0.6666666666666666,
+      "reference_evidence_match": 0.84375,
+      "reference_proof_coverage": 0.2857142857142857,
+      "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+      "count": 32,
+      "per_status": {
+        "draft": {
+          "support": 24,
+          "precision": 0.9166666666666666,
+          "recall": 0.9166666666666666,
+          "f1": 0.9166666666666666
+        },
+        "insufficient_evidence": {
+          "support": 8,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75
+        }
+      },
+      "status_macro_f1": 0.8333333333333333,
+      "confusion_matrix": [
+        [
+          22,
+          2,
+          0
+        ],
+        [
+          2,
+          6,
+          0
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "draft",
+          "insufficient_evidence"
+        ],
+        "columns": [
+          "draft",
+          "insufficient_evidence",
+          "invalid"
+        ]
+      }
+    }
+  },
+  "test_evaluated": false
+}

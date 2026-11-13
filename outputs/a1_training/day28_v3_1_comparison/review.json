@@ -1,0 +1,55 @@
+{
+  "selected_research_run": "day28_run04_corrected",
+  "adapter_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run04_corrected\\epoch_01\\adapter",
+  "runtime_integrated": false,
+  "deployment_ready": false,
+  "test_evaluated": false,
+  "human_reviewed_records": 0,
+  "tests_passed": 35,
+  "data_changes": {
+    "training_records": 618,
+    "new_records": 174,
+    "wording_revisions": 151,
+    "preserved_sanitized_injection_records": 9
+  },
+  "method_changes": {
+    "draws": 900,
+    "unique_records_covered": 618,
+    "decision_token_weight": 12,
+    "control_prefix_weight": 3,
+    "critical_recall_gate_passed": true
+  },
+  "validation": {
+    "before_control_exact": 40,
+    "after_control_exact": 46,
+    "count": 59,
+    "before_clarify_correct": 0,
+    "after_clarify_correct": 7,
+    "clarify_count": 9,
+    "before_handoff_correct": 3,
+    "after_handoff_correct": 4,
+    "handoff_count": 4,
+    "before_image_control_exact": 0,
+    "after_image_control_exact": 4,
+    "image_count": 6,
+    "improved": 10,
+    "regressed": 4
+  },
+  "development_challenge": {
+    "before_control_exact": 16,
+    "after_control_exact": 21,
+    "count": 24,
+    "literal_terms_passed": 7,
+    "literal_terms_count": 8,
+    "improved": 7,
+    "regressed": 2
+  },
+  "remaining_issues": [
+    "Vietnamese without accents and short greetings may trigger unnecessary clarification",
+    "Some OCR tasks select extra A2; combined requests can miss a target",
+    "Context switching to service questions can preserve the old knowledge request",
+    "Capabilities can cause excessive handoff or partial routing",
+    "Some service topics are omitted",
+    "An injected A4 request caused excessive handoff instead of ignoring the injection"
+  ]
+}

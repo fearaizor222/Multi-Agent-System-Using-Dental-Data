@@ -1,0 +1,33 @@
+{
+  "question": "Tương quan trung tâm là gì?",
+  "kind": "definition",
+  "input_tokens": 3559,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_verified_definitions_20261113\\retrieval_2.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"], \"text\": \"Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.\"}]}",
+  "seconds": 17.808863199999905,
+  "generation_tokens": 82,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Tương quan †rung tâm (TQTT) Tương quan trung tâm là một tương quan hàm sọ, không phụ thuộc vào răng, là tương quan giữa lỗi cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,2465 @@
+{
+  "probe": [
+    {
+      "idx": 0,
+      "question": "Sâu răng là gì?",
+      "in_tok": 3536,
+      "seconds": 29.35,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S11\"], \"text\": \"Dental caries, còn gọi là sâu răng, là bệnh thường gặp nhất, chỉ đứng sau cảm lạnh.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Dental caries, còn gọi là sâu răng, là bệnh thường gặp nhất, chỉ đứng sau cảm lạnh.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Dental Caries Dental caries, commonly referred to as tooth decay, is one of the most common of all diseases, second only to the common cold."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    },
+    {
+      "idx": 1,
+      "question": "Máng nhai là gì?",
+      "in_tok": 2843,
+      "seconds": 12.45,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Định nghĩa Máng nhai sử dụng trong thực hành cắn khớp có thể định nghĩa như sau: Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng được thực hiện với mục đích chẩn đoán và điều trị rối loạn cắn khớp."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    },
+    {
+      "idx": 2,
+      "question": "Kích thước dọc là gì?",
+      "in_tok": 3266,
+      "seconds": 13.09,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Định nghĩa Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động)."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    },
+    {
+      "idx": 3,
+      "question": "Cung mặt là gì?",
+      "in_tok": 3635,
+      "seconds": 129.97,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Cung mặt là dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Cung mặt là dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "1. ĐỊNH NGHĨA “Cung mặt là một dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian” (Landa, .J.5., 1954)."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    },
+    {
+      "idx": 4,
+      "question": "Tương quan trung tâm là gì?",
+      "in_tok": 3559,
+      "seconds": 85.54,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"], \"text\": \"Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Tương quan †rung tâm (TQTT) Tương quan trung tâm là một tương quan hàm sọ, không phụ thuộc vào răng, là tương quan giữa lỗi cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    },
+    {
+      "idx": 5,
+      "question": "Theo tài liệu, khi chưa tìm được nguyên nhân rõ ràng của loạn năng hệ thống nhai thì nên xử trí ban đầu như thế nào?",
+      "in_tok": 3595,
+      "seconds": 67.4,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Đoạn nói việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Đoạn nói việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Loại bỏ các yếu tố nguyên nhân là bước đầu tiên trong điều trị tất cả các bệnh, nhưng đối với loạn năng khớp cắn, loạn năng thái dương hàm và rối loạn cơ, có thể không tìm được yếu tố nguyên nhân rõ ràng, vì thế việc điều trị đầu tiên phải là điều trị triệu chứng."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    },
+    {
+      "idx": 6,
+      "question": "Theo tài liệu, khi dùng máng nhai để giảm hoạt động cơ cắn, ngừng đeo máng thì hiệu quả có được duy trì không?",
+      "in_tok": 2805,
+      "seconds": 4.82,
+      "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+      "resolved_status": "insufficient_evidence",
+      "resolved_output": {
+        "status": "insufficient_evidence",
+        "claims": []
+      },
+      "res_err": null
+    },
+    {
+      "idx": 7,
+      "question": "Theo tài liệu, mài điều chỉnh khớp cắn có hoàn tất trong một lần hẹn không, và các lần hẹn cách nhau bao lâu?",
+      "in_tok": 2949,
+      "seconds": 17.1,
+      "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Không; thường không thể hoàn tất trong một lần hẹn.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"], \"text\": \"Khoảng cách có thể thay đổi từ 7 đến 10 ngày.\"}]}",
+      "resolved_status": "draft",
+      "resolved_output": {
+        "status": "draft",
+        "claims": [
+          {
+            "text": "Không; thường không thể hoàn tất trong một lần hẹn.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn."
+              }
+            ]
+          },
+          {
+            "text": "Khoảng cách có thể thay đổi từ 7 đến 10 ngày.",
+            "evidence_ids": [
+              "I1"
+            ],
+            "supporting_quotes": [
+              {
+                "evidence_id": "I1",
+                "quote": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày để tạo điều kiện thời gian cho những hoạt động thích ứng."
+              }
+            ]
+          }
+        ]
+      },
+      "res_err": null
+    }
+  ],
+  "slices": {
+    "val": {
+      "n": 17,
+      "status_ok": 10,
+      "ans_n": 7,
+      "sel_exact": 2,
+      "avg_seconds": 8.26,
+      "rows": [
+        {
+          "idx": 2,
+          "seconds": 4.36,
+          "in_tok": 2334,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": true,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 0,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 4,
+          "seconds": 9.81,
+          "in_tok": 2361,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"], \"text\": \"Bottler không bắt buộc liệt kê nồng độ fluoride trên nhãn.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S7"
+                ],
+                "text": "Theo đoạn tài liệu, nhà đóng chai không bắt buộc ghi nồng độ fluoride trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Bottler không bắt buộc liệt kê nồng độ fluoride trên nhãn.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "The only valid argument against community water fluoridation is that the addition of fluoride to water prevents Table 2–3 US Food and Drug Administration (FDA) Fluoride Requirements for Water Bottled in the United States Annual Average of Maximum Daily Air Temperature (°F) of Retail Establishment Selling Bottled Water Maximum Fluoride Concentration (mg/L) Allowed in Bottled Water No Fluoride Added to Bottled Water Fluoride Added to Bottled Water 53.7 2.4 1.7 53.8–58.3 2.2 1.5 58.4–63.8 2.0 1.3 63.9–70.6 1.8 1.2 70.7–79.2 1.6 1.0 79.3–90.5 1.4 0.8 but the bottler is not required to list the fluoride concentration, which might or might not be optimal."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 8,
+          "seconds": 9.61,
+          "in_tok": 2354,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S8\"], \"text\": \"Không; nhà đóng chai không bắt buộc liệt độ fluoride trên nhãn.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S7"
+                ],
+                "text": "Theo đoạn tài liệu, nhà đóng chai không bắt buộc ghi nồng độ fluoride trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Không; nhà đóng chai không bắt buộc liệt độ fluoride trên nhãn.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "The FDA does not allow imported bottled water with no added fluoride to contain >1.4 mg fluoride/L or with added fluoride to contain >0.8 mg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 11,
+          "seconds": 9.5,
+          "in_tok": 1816,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S3\"], \"text\": \"Không; răng ở vị trí lồng múi hoặc tiếp xúc lui sau.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Không; răng ở vị trí lồng múi hoặc tiếp xúc lui sau.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Trong động tác nuốt trống điển hình, các răng ở vị trí lồng múi hoặc tiếp xúc lui sau như đã nói trên."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 22,
+          "seconds": 11.09,
+          "in_tok": 2307,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Nhiều nguồn nói rằng nước đóng chai thường chứa fluoride hoặc không xác định được nồng độ trên nhãn.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Nhiều nguồn nói rằng nước đóng chai thường chứa fluoride hoặc không xác định được nồng độ trên nhãn.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "Dental hygienists should be aware that bottled water often contains no fluoride or fails to identify its fluoride content on the label."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 25,
+          "seconds": 4.24,
+          "in_tok": 2354,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S8"
+                ],
+                "text": "Theo đoạn tài liệu, chỉ khi nhà đóng chai thêm fluoride trong quá trình xử lý thì mới bắt buộc liệt kê chất này trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 26,
+          "seconds": 4.23,
+          "in_tok": 2354,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S8"
+                ],
+                "text": "Theo đoạn tài liệu, chỉ khi nhà đóng chai thêm fluoride trong quá trình xử lý thì mới bắt buộc liệt kê chất này trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 35,
+          "seconds": 15.31,
+          "in_tok": 2450,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S8\"], \"text\": \"FDA chỉ liệt kê khi nhà sản xuất thêm vào quá trình chế biến.\"}, {\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S9\"], \"text\": \"Không bắt buộc liệt kê nồng độ fluoride.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S8"
+                ],
+                "text": "Theo đoạn tài liệu, chỉ khi nhà đóng chai thêm fluoride trong quá trình xử lý thì mới bắt buộc liệt kê chất này trên nhãn."
+              },
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S9"
+                ],
+                "text": "Theo đoạn tài liệu, nhà đóng chai không bắt buộc ghi nồng độ fluoride trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 2,
+          "selection_expected": 2,
+          "selection_predicted": 2,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "FDA chỉ liệt kê khi nhà sản xuất thêm vào quá trình chế biến.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Note: FDA regulations require that fluoride be listed on the label only if the bottler adds it during processing,"
+                  }
+                ]
+              },
+              {
+                "text": "Không bắt buộc liệt kê nồng độ fluoride.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "but the bottler is not required to list the fluoride concentration, which might or might not be optimal."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 37,
+          "seconds": 11.07,
+          "in_tok": 2362,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Nhiều nguồn nói rằng nước đóng chai thường chứa fluoride hoặc không thể xác định nồng độ trên nhãn.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S8"
+                ],
+                "text": "Theo đoạn tài liệu, chỉ khi nhà đóng chai thêm fluoride trong quá trình xử lý thì mới bắt buộc liệt kê chất này trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Nhiều nguồn nói rằng nước đóng chai thường chứa fluoride hoặc không thể xác định nồng độ trên nhãn.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "Dental hygienists should be aware that bottled water often contains no fluoride or fails to identify its fluoride content on the label."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 44,
+          "seconds": 4.26,
+          "in_tok": 2353,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": true,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 0,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 53,
+          "seconds": 4.27,
+          "in_tok": 2183,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": true,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 0,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 57,
+          "seconds": 11.64,
+          "in_tok": 2307,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S4\"], \"text\": \"Nha sĩ vệ sinh răng miệng nên biết nước đóng chai thường chứa no fluoride hoặc không thể xác định nồng độ trên nhãn.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Nha sĩ vệ sinh răng miệng nên biết nước đóng chai thường chứa no fluoride hoặc không thể xác định nồng độ trên nhãn.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Dental hygienists should be aware that bottled water often contains no fluoride or fails to identify its fluoride content on the label."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 64,
+          "seconds": 4.2,
+          "in_tok": 2334,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": true,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 0,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 67,
+          "seconds": 12.11,
+          "in_tok": 2362,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S4\"], \"text\": \"Nha sĩ vệ sinh răng miệng nên biết nước đóng chai thường chứa fluoride hoặc không thể xác định nồng độ trên nhãn.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S8"
+                ],
+                "text": "Theo đoạn tài liệu, chỉ khi nhà đóng chai thêm fluoride trong quá trình xử lý thì mới bắt buộc liệt kê chất này trên nhãn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Nha sĩ vệ sinh răng miệng nên biết nước đóng chai thường chứa fluoride hoặc không thể xác định nồng độ trên nhãn.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Dental hygienists should be aware that bottled water often contains no fluoride or fails to identify its fluoride content on the label."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 78,
+          "seconds": 10.39,
+          "in_tok": 1969,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Trục bản lề là trục tự ý nếu dùng cung mặt đơn giản.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Trục bản lề là trục tự ý nếu dùng cung mặt đơn giản.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "Trục bản lề là trục “tự ý” nếu cung mặt sử dụng là loại cung mặt đơn giản."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 80,
+          "seconds": 3.67,
+          "in_tok": 1816,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": true,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 0,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 82,
+          "seconds": 10.71,
+          "in_tok": 1969,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S6\"], \"text\": \"Trục bản lề tự ý được dùng khi cung mặt sử dụng là loại cung mặt đơn giản.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Trục bản lề tự ý được dùng khi cung mặt sử dụng là loại cung mặt đơn giản.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Trục bản lề là trục “tự ý” nếu cung mặt sử dụng là loại cung mặt đơn giản."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "challenge": {
+      "n": 29,
+      "status_ok": 19,
+      "ans_n": 25,
+      "sel_exact": 8,
+      "avg_seconds": 28.74,
+      "rows": [
+        {
+          "idx": 6,
+          "seconds": 12.27,
+          "in_tok": 3413,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S10\"], \"text\": \"Không; có thể cần nhắc lại khi họ có vấn đề về trí nhớ hoặc phán đoán.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Không; có thể cần nhắc lại khi họ có vấn đề về trí nhớ hoặc phán đoán.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "If the person you care for has problems with memory or judgment, he or she might need reminders."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 7,
+          "seconds": 4.55,
+          "in_tok": 2599,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": true,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 0,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 9,
+          "seconds": 19.19,
+          "in_tok": 3338,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S10\"], \"text\": \"Không; có thể cần nhắc lại khi họ có vấn đề về trí nhớ hoặc phán đoán.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S14\"], \"text\": \"Mảng bám có thể gây sâu răng, bệnh nướu và mùi hôi.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S15"
+                ],
+                "text": "Có thể gây sâu răng, bệnh nướu và hôi miệng."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 2,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Không; có thể cần nhắc lại khi họ có vấn đề về trí nhớ hoặc phán đoán.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "If the person you care for has problems with memory or judgment, he or she might need reminders."
+                  }
+                ]
+              },
+              {
+                "text": "Mảng bám có thể gây sâu răng, bệnh nướu và mùi hôi.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "Thorough brushing and flossing are essential for removing dental plaque, a sticky film of bacteria."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 12,
+          "seconds": 4.56,
+          "in_tok": 2584,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S20"
+                ],
+                "text": "Thay nước trong cốc hằng ngày."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 17,
+          "seconds": 10.4,
+          "in_tok": 1651,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S17\"], \"text\": \"Nha sĩ kê đơn để tháo hàm giả qua đêm rồi chải trước khi đưa vào nước.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Nha sĩ kê đơn để tháo hàm giả qua đêm rồi chải trước khi đưa vào nước.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "■Remove at night and brush before putting them into a cup of water (ask the dentist if denture cleaning tablets should be used)."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 18,
+          "seconds": 12.46,
+          "in_tok": 3342,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I3\"], \"sentence_ids\": [\"I3:S17\"], \"text\": \"Hàm giả được tháo ra vào ban đêm và đánh răng trước khi đưa vào cốc nước.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I3"
+                ],
+                "sentence_ids": [
+                  "I3:S20"
+                ],
+                "text": "Thay nước trong cốc hằng ngày."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Hàm giả được tháo ra vào ban đêm và đánh răng trước khi đưa vào cốc nước.",
+                "evidence_ids": [
+                  "I3"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I3",
+                    "quote": "■Remove at night and brush before putting them into a cup of water (ask the dentist if denture cleaning tablets should be used)."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 19,
+          "seconds": 8.48,
+          "in_tok": 1652,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Không; dùng nước thay vì kem đánh răng.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S4"
+                ],
+                "text": "Chải với nước thay thế."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Không; dùng nước thay vì kem đánh răng.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "If toothpaste bothers your care recipient, brush with water instead."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 20,
+          "seconds": 13.27,
+          "in_tok": 3509,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I3\"], \"sentence_ids\": [\"I3:S8\"], \"text\": \"Tell-show-do yêu cầu nói trước, làm minh họa và thực hành cùng lúc.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I3"
+                ],
+                "sentence_ids": [
+                  "I3:S9"
+                ],
+                "text": "Nói điều sẽ làm, cho xem rồi thực hiện chăm sóc như đã giải thích."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Tell-show-do yêu cầu nói trước, làm minh họa và thực hành cùng lúc.",
+                "evidence_ids": [
+                  "I3"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I3",
+                    "quote": "■Use the “tell-show-do” approach."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 23,
+          "seconds": 17.0,
+          "in_tok": 2627,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S9\"], \"text\": \"Cụ thể, nói trước, làm sau, thực hành cùng lời giải thích.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S10\"], \"text\": \"Tại mỗi ngày, dùng kỹ thuật và vị trí giống nhau.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S9"
+                ],
+                "text": "Nói điều sẽ làm, cho xem rồi thực hiện chăm sóc như đã giải thích."
+              },
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S11"
+                ],
+                "text": "Dùng cùng kỹ thuật vào cùng thời gian và địa điểm mỗi ngày."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 1,
+          "selection_expected": 2,
+          "selection_predicted": 2,
+          "selection_precision": 0.5,
+          "selection_recall": 0.5,
+          "selection_f1": 0.5,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Cụ thể, nói trước, làm sau, thực hành cùng lời giải thích.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "Tell what will happen, show it, and then do the oral care as you’ve explained."
+                  }
+                ]
+              },
+              {
+                "text": "Tại mỗi ngày, dùng kỹ thuật và vị trí giống nhau.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "■Have a dental care routine."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 38,
+          "seconds": 9.39,
+          "in_tok": 2716,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S18\"], \"text\": \"Chải ở phía đối diện với mặt.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S18"
+                ],
+                "text": "Chải phía đối diện của miệng."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Chải ở phía đối diện với mặt.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "■Brush teeth on opposite side of mouth."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 39,
+          "seconds": 18.69,
+          "in_tok": 3498,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Chia nhỏ lượng kem đánh răng chứa fluoride.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"], \"text\": \"Đầu bàn chải nhỏ giúp dễ dàng làm sạch xung quanh răng hàm hậu.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S5"
+                ],
+                "text": "Đầu nhỏ giúp dễ làm sạch vùng răng sau."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 2,
+          "selection_precision": 0.5,
+          "selection_recall": 1.0,
+          "selection_f1": 0.6666666666666666,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Chia nhỏ lượng kem đánh răng chứa fluoride.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "■Brushes twice a day with a small amount of fluoride toothpaste."
+                  }
+                ]
+              },
+              {
+                "text": "Đầu bàn chải nhỏ giúp dễ dàng làm sạch xung quanh răng hàm hậu.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "■Uses a toothbrush with a small head, which makes it easier to clean around the back teeth."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 41,
+          "seconds": 9.87,
+          "in_tok": 2546,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Kiểm tra trước nghiên cứu dài hạn để điều chỉnh biến số.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S6"
+                ],
+                "text": "Pilot study giúp các biến được kiểm soát tốt nhất trong nghiên cứu dài hạn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Kiểm tra trước nghiên cứu dài hạn để điều chỉnh biến số.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• A pilot study is a trial of a research study so its variables can best be controlled during the long-term study."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 42,
+          "seconds": 74.41,
+          "in_tok": 3802,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I3"
+                ],
+                "sentence_ids": [
+                  "I3:S8"
+                ],
+                "text": "Independent variable là biến được thao tác dưới kiểm soát nhà nghiên cứu."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 43,
+          "seconds": 15.89,
+          "in_tok": 2646,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Đo lường độ nhất quán của công cụ.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Kiểm tra lại các biến số trong nghiên cứu dài hạn.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S4"
+                ],
+                "text": "Đó là reliability."
+              },
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S6"
+                ],
+                "text": "Pilot study giúp các biến được kiểm soát tốt nhất trong nghiên cứu dài hạn."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 2,
+          "selection_expected": 2,
+          "selection_predicted": 2,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Đo lường độ nhất quán của công cụ.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• Reliability is the consistency or degree to which an instrument will produce the same results in the same population every time the characteristic is measured."
+                  }
+                ]
+              },
+              {
+                "text": "Kiểm tra lại các biến số trong nghiên cứu dài hạn.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• A pilot study is a trial of a research study so its variables can best be controlled during the long-term study."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 44,
+          "seconds": 14.88,
+          "in_tok": 1501,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Đó là thử nghiệm để kiểm soát biến số trong nghiên cứu dài hạn.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"], \"text\": \"Đó là biến phụ thuộc.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S6"
+                ],
+                "text": "Pilot study giúp các biến được kiểm soát tốt nhất trong nghiên cứu dài hạn."
+              },
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S8"
+                ],
+                "text": "Independent variable là biến được thao tác dưới kiểm soát nhà nghiên cứu."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 1,
+          "selection_expected": 2,
+          "selection_predicted": 2,
+          "selection_precision": 0.5,
+          "selection_recall": 0.5,
+          "selection_f1": 0.5,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Đó là thử nghiệm để kiểm soát biến số trong nghiên cứu dài hạn.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• A pilot study is a trial of a research study so its variables can best be controlled during the long-term study."
+                  }
+                ]
+              },
+              {
+                "text": "Đó là biến phụ thuộc.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• The dependent variable is the measure as a result of the manipulation of the independent variable."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 48,
+          "seconds": 158.92,
+          "in_tok": 3616,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I3\"], \"sentence_ids\": [\"I3:S8\"], \"text\": \"Đó là biến phụ thuộc, được đo kết quả do thao tác biến độc lập của nhà nghiên cứu.\"}, {\"evidence_ids\": [\"I3\"], \"sentence_ids\": [\"I3:S7\"], \"text\": \"Đo lường khoảng cách giữa hai lần để kiểm tra độ tin cậy.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I3"
+                ],
+                "sentence_ids": [
+                  "I3:S8"
+                ],
+                "text": "Independent variable là biến được thao tác dưới kiểm soát nhà nghiên cứu."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 2,
+          "selection_precision": 0.5,
+          "selection_recall": 1.0,
+          "selection_f1": 0.6666666666666666,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Đó là biến phụ thuộc, được đo kết quả do thao tác biến độc lập của nhà nghiên cứu.",
+                "evidence_ids": [
+                  "I3"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I3",
+                    "quote": "• Independent variable is the manipulated measure expected to be changed under the investigator’s control."
+                  }
+                ]
+              },
+              {
+                "text": "Đo lường khoảng cách giữa hai lần để kiểm tra độ tin cậy.",
+                "evidence_ids": [
+                  "I3"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I3",
+                    "quote": "• The dependent variable is the measure as a result of the manipulation of the independent variable."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 49,
+          "seconds": 12.28,
+          "in_tok": 2596,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"], \"text\": \"Đoạn nói rằng một nghiên cứu có giá trị bên ngoài cao có thể tự động bảo đảm giá trị bên trong cao.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S4"
+                ],
+                "text": "Đó là reliability."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Đoạn nói rằng một nghiên cứu có giá trị bên ngoài cao có thể tự động bảo đảm giá trị bên trong cao.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• Validity is the degree to which the research study measured what it was supposed to measure (internal) and that the study can be generalized to the entire population (external)."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 50,
+          "seconds": 4.37,
+          "in_tok": 2490,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S8"
+                ],
+                "text": "Phần discipline-based có 200 câu."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 51,
+          "seconds": 61.55,
+          "in_tok": 3752,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S9"
+                ],
+                "text": "Có 150 câu theo ca bệnh."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 52,
+          "seconds": 14.29,
+          "in_tok": 2575,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S5\"], \"text\": \"Họ có thể xem thông tin cập nhật về nội dung và hình thức thi quốc gia cho chuyên viên vệ sinh răng miệng trên trang web Hiệp hội Denta Mỹ.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S5"
+                ],
+                "text": "Trang web American Dental Association."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Họ có thể xem thông tin cập nhật về nội dung và hình thức thi quốc gia cho chuyên viên vệ sinh răng miệng trên trang web Hiệp hội Denta Mỹ.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Students can get up-to-date information regarding the content and format of the national examination for dental hygienists by going onto the American Dental Association Web site at www.ada.org."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 53,
+          "seconds": 3.29,
+          "in_tok": 1451,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S8"
+                ],
+                "text": "Phần discipline-based có 200 câu."
+              },
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S9"
+                ],
+                "text": "Có 150 câu theo ca bệnh."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 2,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 54,
+          "seconds": 187.43,
+          "in_tok": 3699,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S3\"], \"text\": \"Có; có thể dùng như tài liệu ôn tập.\"}, {\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S5\"], \"text\": \"Họ có thể xem tại www.ada.org.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S9"
+                ],
+                "text": "Có 150 câu theo ca bệnh."
+              },
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S5"
+                ],
+                "text": "Trang web American Dental Association."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 1,
+          "selection_expected": 2,
+          "selection_predicted": 2,
+          "selection_precision": 0.5,
+          "selection_recall": 0.5,
+          "selection_f1": 0.5,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Có; có thể dùng như tài liệu ôn tập.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "After completing a course in dental public health and during the crucial period of studying for boards, students can use this chapter as a study guide."
+                  }
+                ]
+              },
+              {
+                "text": "Họ có thể xem tại www.ada.org.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Students can get up-to-date information regarding the content and format of the national examination for dental hygienists by going onto the American Dental Association Web site at www.ada.org."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 57,
+          "seconds": 62.35,
+          "in_tok": 3566,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S5\"], \"text\": \"Có, có thể tra cứu thông tin cập nhật bằng trang web của ADA.\"}]}",
+          "expected": {
+            "status": "insufficient_evidence",
+            "claims": []
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "insufficient_evidence",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 0,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Có, có thể tra cứu thông tin cập nhật bằng trang web của ADA.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Students can get up-to-date information regarding the content and format of the national examination for dental hygienists by going onto the American Dental Association Web site at www.ada.org."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 58,
+          "seconds": 14.53,
+          "in_tok": 2535,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S5\"], \"text\": \"Học viên có thể tra cứu thông tin cập nhật nội dung và định dạng kỳ thi quốc gia cho chuyên viên vệ sinh răng miệng trên trang web Hiệp hội Dược liệu Âu Thục.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S5"
+                ],
+                "text": "Trang web American Dental Association."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Học viên có thể tra cứu thông tin cập nhật nội dung và định dạng kỳ thi quốc gia cho chuyên viên vệ sinh răng miệng trên trang web Hiệp hội Dược liệu Âu Thục.",
+                "evidence_ids": [
+                  "I2"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I2",
+                    "quote": "Students can get up-to-date information regarding the content and format of the national examination for dental hygienists by going onto the American Dental Association Web site at www.ada.org."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 59,
+          "seconds": 3.26,
+          "in_tok": 1449,
+          "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S8"
+                ],
+                "text": "Phần discipline-based có 200 câu."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": false,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "insufficient_evidence",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "insufficient_evidence",
+            "claims": []
+          }
+        },
+        {
+          "idx": 62,
+          "seconds": 9.99,
+          "in_tok": 1378,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S13\"], \"text\": \"Quân thể đích hoặc đại diện của họ được nhắc đến trong quá trình lập kế hoạch.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S13"
+                ],
+                "text": "Cần bao gồm quần thể đích hoặc đại diện của họ."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 1,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Quân thể đích hoặc đại diện của họ được nhắc đến trong quá trình lập kế hoạch.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• Dental hygienists should include the target population or its representatives when planning a dental public health program."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 68,
+          "seconds": 10.06,
+          "in_tok": 1397,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S12\"], \"text\": \"Có; có thể có mặt trực tiếp hoặc đại diện cho quần thể đích khi lập kế hoạch.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S13"
+                ],
+                "text": "Cần bao gồm quần thể đích hoặc đại diện của họ."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 1,
+          "selection_predicted": 1,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Có; có thể có mặt trực tiếp hoặc đại diện cho quần thể đích khi lập kế hoạch.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• To increase participation in a program, having personal contact with the target population is beneficial."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 73,
+          "seconds": 15.76,
+          "in_tok": 1550,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Mục tiêu chung là giảm bệnh răng miệng.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S12\"], \"text\": \"Các chuyên viên vệ sinh răng miệng nên liên hệ quản lý để được chấp thuận và hỗ trợ.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S4"
+                ],
+                "text": "Giảm bệnh răng miệng."
+              },
+              {
+                "evidence_ids": [
+                  "I1"
+                ],
+                "sentence_ids": [
+                  "I1:S12"
+                ],
+                "text": "Người quản trị đứng đầu."
+              }
+            ]
+          },
+          "schema_valid": true,
+          "status_correct": true,
+          "citation_ids_valid": true,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": "draft",
+          "error": null,
+          "valid_sentence_ids": true,
+          "selection_set_exact": true,
+          "selection_tp": 2,
+          "selection_expected": 2,
+          "selection_predicted": 2,
+          "selection_precision": 1.0,
+          "selection_recall": 1.0,
+          "selection_f1": 1.0,
+          "resolved_output": {
+            "status": "draft",
+            "claims": [
+              {
+                "text": "Mục tiêu chung là giảm bệnh răng miệng.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• The overall goal of dental public health programs is to reduce oral disease."
+                  }
+                ]
+              },
+              {
+                "text": "Các chuyên viên vệ sinh răng miệng nên liên hệ quản lý để được chấp thuận và hỗ trợ.",
+                "evidence_ids": [
+                  "I1"
+                ],
+                "supporting_quotes": [
+                  {
+                    "evidence_id": "I1",
+                    "quote": "• When initiating a dental public health program, dental hygienists should contact the head administrator for approval and support."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "idx": 74,
+          "seconds": 29.96,
+          "in_tok": 2684,
+          "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S11\"], \"text\": \"Các nhà vệ sinh răng miệng nên liên hệ với lãnh đạo nhóm đối tượng mục tiêu để nhận sự ủng hộ.\"}, {\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S12\"], \"text\": \"Khi bắt đầu chương trình, nên liên hệ với quản lý trung tâm để được chấp thuận và hỗ trợ.\"}, {\"evidence_ids\": [\"I2\"], \"sentence_ids\": [\"I2:S13\"], \"text\": \"Chương trình sealant nên được lập kế hoạch nhắm đến trẻ từ lớp hai đến lớp sáu để đảm bảo chúng đã mọc đầy răng mol khi đặt chất sealant.\"}]}",
+          "expected": {
+            "status": "draft",
+            "claims": [
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S12"
+                ],
+                "text": "Người quản trị đứng đầu."
+              },
+              {
+                "evidence_ids": [
+                  "I2"
+                ],
+                "sentence_ids": [
+                  "I2:S13"
+                ],
+                "text": "Trẻ lớp hai đến lớp sáu để răng cối đã mọc đầy đủ cho đặt sealant."
+              }
+            ]
+          },
+          "schema_valid": false,
+          "status_correct": false,
+          "citation_ids_valid": false,
+          "exact_match": false,
+          "expected_status": "draft",
+          "predicted_status": null,
+          "error": "1 validation error for SentenceDraft\nclaims\n  List should have at most 2 items after validation, not 3 [type=too_long, input_value=[{'evidence_ids': ['I2'],...ặt chất sealant.'}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_long",
+          "valid_sentence_ids": false,
+          "selection_set_exact": false,
+          "selection_tp": 0,
+          "selection_expected": 2,
+          "selection_predicted": 0,
+          "selection_precision": 0.0,
+          "selection_recall": 0.0,
+          "selection_f1": 0.0,
+          "resolved_output": null
+        }
+      ]
+    }
+  }
+}

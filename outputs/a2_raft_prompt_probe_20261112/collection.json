@@ -1,0 +1,11 @@
+{
+  "remote": "comparisons/a2_raft_prompt_20261112_121209_807400",
+  "status": {
+    "status": "completed",
+    "pairs": 32,
+    "generations": 64,
+    "seconds": 360.12957390599996
+  },
+  "generations": 64,
+  "complete_pairs": 32
+}

@@ -1,0 +1,871 @@
+{
+  "models": {
+    "mediphi_38b": {
+      "run": "a3_mediphi_38b_20261108_140451_290124_614b3387",
+      "scores": {
+        "before": {
+          "json_valid": 0.17801047120418848,
+          "schema_valid": 0.06806282722513089,
+          "quote_ids_valid": 0.05235602094240838,
+          "quote_set_match": 0.0,
+          "both_labels_correct": 0.031413612565445025,
+          "assessment_exact_match": 0.0,
+          "full_json_exact_match": 0.0,
+          "draft_support_correct": 0.04712041884816754,
+          "public_support_correct": 0.041884816753926704,
+          "count": 191,
+          "decisions": {
+            "draft_support": {
+              "confusion_matrix": [
+                [
+                  9,
+                  0,
+                  0,
+                  149
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  10
+                ],
+                [
+                  3,
+                  0,
+                  0,
+                  19
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 158,
+                  "precision": 0.6923076923076923,
+                  "recall": 0.056962025316455694,
+                  "f1": 0.10526315789473684
+                },
+                "contradicted": {
+                  "support": 11,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "insufficient": {
+                  "support": 22,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                }
+              },
+              "macro_f1": 0.03508771929824561
+            },
+            "public_support": {
+              "confusion_matrix": [
+                [
+                  7,
+                  0,
+                  0,
+                  121
+                ],
+                [
+                  1,
+                  0,
+                  2,
+                  37
+                ],
+                [
+                  2,
+                  0,
+                  1,
+                  20
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 128,
+                  "precision": 0.7,
+                  "recall": 0.0546875,
+                  "f1": 0.10144927536231883
+                },
+                "contradicted": {
+                  "support": 40,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "insufficient": {
+                  "support": 23,
+                  "precision": 0.3333333333333333,
+                  "recall": 0.043478260869565216,
+                  "f1": 0.07692307692307691
+                }
+              },
+              "macro_f1": 0.059457450761798585
+            }
+          }
+        },
+        "after": {
+          "json_valid": 1.0,
+          "schema_valid": 1.0,
+          "quote_ids_valid": 0.9895287958115183,
+          "quote_set_match": 0.8429319371727748,
+          "both_labels_correct": 0.8115183246073299,
+          "assessment_exact_match": 0.7539267015706806,
+          "full_json_exact_match": 0.005235602094240838,
+          "draft_support_correct": 0.9057591623036649,
+          "public_support_correct": 0.8848167539267016,
+          "count": 191,
+          "decisions": {
+            "draft_support": {
+              "confusion_matrix": [
+                [
+                  155,
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  5,
+                  5,
+                  1,
+                  0
+                ],
+                [
+                  9,
+                  0,
+                  13,
+                  0
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 158,
+                  "precision": 0.9171597633136095,
+                  "recall": 0.9810126582278481,
+                  "f1": 0.9480122324159023
+                },
+                "contradicted": {
+                  "support": 11,
+                  "precision": 1.0,
+                  "recall": 0.45454545454545453,
+                  "f1": 0.625
+                },
+                "insufficient": {
+                  "support": 22,
+                  "precision": 0.7647058823529411,
+                  "recall": 0.5909090909090909,
+                  "f1": 0.6666666666666667
+                }
+              },
+              "macro_f1": 0.7465596330275229
+            },
+            "public_support": {
+              "confusion_matrix": [
+                [
+                  126,
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  7,
+                  27,
+                  6,
+                  0
+                ],
+                [
+                  5,
+                  2,
+                  16,
+                  0
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 128,
+                  "precision": 0.9130434782608695,
+                  "recall": 0.984375,
+                  "f1": 0.9473684210526315
+                },
+                "contradicted": {
+                  "support": 40,
+                  "precision": 0.9310344827586207,
+                  "recall": 0.675,
+                  "f1": 0.7826086956521738
+                },
+                "insufficient": {
+                  "support": 23,
+                  "precision": 0.6666666666666666,
+                  "recall": 0.6956521739130435,
+                  "f1": 0.6808510638297872
+                }
+              },
+              "macro_f1": 0.8036093935115308
+            }
+          }
+        }
+      },
+      "token_stats": {
+        "before": {
+          "mean": 217.9476439790576,
+          "max": 512,
+          "at_limit_512": 5
+        },
+        "after": {
+          "mean": 122.38743455497382,
+          "max": 174,
+          "at_limit_512": 0
+        }
+      },
+      "train_seconds": 3980.9161429960004,
+      "validation_losses": [
+        {
+          "epoch": 1.0,
+          "eval_loss": 0.24691832065582275,
+          "step": 132
+        },
+        {
+          "epoch": 2.0,
+          "eval_loss": 0.23008471727371216,
+          "step": 264
+        }
+      ],
+      "best_checkpoint": "/vol/runs/a3_mediphi_38b_20261108_140451_290124_614b3387/checkpoints/checkpoint-264"
+    },
+    "qwen3_17b": {
+      "run": "a3_qwen3_17b_20261108_134001_216850_216e417d",
+      "scores": {
+        "before": {
+          "json_valid": 0.9947643979057592,
+          "schema_valid": 0.8324607329842932,
+          "quote_ids_valid": 0.8010471204188482,
+          "quote_set_match": 0.15706806282722513,
+          "both_labels_correct": 0.11518324607329843,
+          "assessment_exact_match": 0.09947643979057591,
+          "full_json_exact_match": 0.0,
+          "draft_support_correct": 0.42408376963350786,
+          "public_support_correct": 0.17277486910994763,
+          "count": 191,
+          "decisions": {
+            "draft_support": {
+              "confusion_matrix": [
+                [
+                  72,
+                  56,
+                  0,
+                  30
+                ],
+                [
+                  1,
+                  9,
+                  0,
+                  1
+                ],
+                [
+                  4,
+                  17,
+                  0,
+                  1
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 158,
+                  "precision": 0.935064935064935,
+                  "recall": 0.45569620253164556,
+                  "f1": 0.6127659574468084
+                },
+                "contradicted": {
+                  "support": 11,
+                  "precision": 0.10975609756097561,
+                  "recall": 0.8181818181818182,
+                  "f1": 0.19354838709677422
+                },
+                "insufficient": {
+                  "support": 22,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                }
+              },
+              "macro_f1": 0.2687714481811942
+            },
+            "public_support": {
+              "confusion_matrix": [
+                [
+                  11,
+                  0,
+                  92,
+                  25
+                ],
+                [
+                  0,
+                  0,
+                  34,
+                  6
+                ],
+                [
+                  0,
+                  0,
+                  22,
+                  1
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 128,
+                  "precision": 1.0,
+                  "recall": 0.0859375,
+                  "f1": 0.15827338129496402
+                },
+                "contradicted": {
+                  "support": 40,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "insufficient": {
+                  "support": 23,
+                  "precision": 0.14864864864864866,
+                  "recall": 0.9565217391304348,
+                  "f1": 0.2573099415204678
+                }
+              },
+              "macro_f1": 0.13852777427181062
+            }
+          }
+        },
+        "after": {
+          "json_valid": 1.0,
+          "schema_valid": 1.0,
+          "quote_ids_valid": 1.0,
+          "quote_set_match": 0.8952879581151832,
+          "both_labels_correct": 0.837696335078534,
+          "assessment_exact_match": 0.806282722513089,
+          "full_json_exact_match": 0.010471204188481676,
+          "draft_support_correct": 0.9057591623036649,
+          "public_support_correct": 0.9162303664921466,
+          "count": 191,
+          "decisions": {
+            "draft_support": {
+              "confusion_matrix": [
+                [
+                  157,
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  4,
+                  2,
+                  0
+                ],
+                [
+                  8,
+                  2,
+                  12,
+                  0
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 158,
+                  "precision": 0.9235294117647059,
+                  "recall": 0.9936708860759493,
+                  "f1": 0.9573170731707318
+                },
+                "contradicted": {
+                  "support": 11,
+                  "precision": 0.6666666666666666,
+                  "recall": 0.36363636363636365,
+                  "f1": 0.4705882352941177
+                },
+                "insufficient": {
+                  "support": 22,
+                  "precision": 0.8,
+                  "recall": 0.5454545454545454,
+                  "f1": 0.6486486486486486
+                }
+              },
+              "macro_f1": 0.692184652371166
+            },
+            "public_support": {
+              "confusion_matrix": [
+                [
+                  125,
+                  1,
+                  2,
+                  0
+                ],
+                [
+                  4,
+                  31,
+                  5,
+                  0
+                ],
+                [
+                  3,
+                  1,
+                  19,
+                  0
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 128,
+                  "precision": 0.946969696969697,
+                  "recall": 0.9765625,
+                  "f1": 0.9615384615384616
+                },
+                "contradicted": {
+                  "support": 40,
+                  "precision": 0.9393939393939394,
+                  "recall": 0.775,
+                  "f1": 0.8493150684931509
+                },
+                "insufficient": {
+                  "support": 23,
+                  "precision": 0.7307692307692307,
+                  "recall": 0.8260869565217391,
+                  "f1": 0.7755102040816326
+                }
+              },
+              "macro_f1": 0.8621212447044151
+            }
+          }
+        }
+      },
+      "token_stats": {
+        "before": {
+          "mean": 73.9738219895288,
+          "max": 178,
+          "at_limit_512": 0
+        },
+        "after": {
+          "mean": 66.54973821989529,
+          "max": 91,
+          "at_limit_512": 0
+        }
+      },
+      "train_seconds": 1186.306,
+      "validation_losses": [
+        {
+          "epoch": 1.0,
+          "eval_loss": 0.3597308397293091,
+          "step": 132
+        },
+        {
+          "epoch": 2.0,
+          "eval_loss": 0.33869966864585876,
+          "step": 264
+        }
+      ],
+      "best_checkpoint": "/vol/runs/a3_qwen3_17b_20261108_134001_216850_216e417d/checkpoints/checkpoint-264"
+    },
+    "vinallama_27b": {
+      "run": "a3_vinallama_27b_20261108_134546_481468_039f481a",
+      "scores": {
+        "before": {
+          "json_valid": 0.05235602094240838,
+          "schema_valid": 0.0,
+          "quote_ids_valid": 0.0,
+          "quote_set_match": 0.0,
+          "both_labels_correct": 0.0,
+          "assessment_exact_match": 0.0,
+          "full_json_exact_match": 0.0,
+          "draft_support_correct": 0.0,
+          "public_support_correct": 0.0,
+          "count": 191,
+          "decisions": {
+            "draft_support": {
+              "confusion_matrix": [
+                [
+                  0,
+                  0,
+                  0,
+                  158
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  22
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 158,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "contradicted": {
+                  "support": 11,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "insufficient": {
+                  "support": 22,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                }
+              },
+              "macro_f1": 0.0
+            },
+            "public_support": {
+              "confusion_matrix": [
+                [
+                  0,
+                  0,
+                  0,
+                  128
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  40
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  23
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 128,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "contradicted": {
+                  "support": 40,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                },
+                "insufficient": {
+                  "support": 23,
+                  "precision": 0.0,
+                  "recall": 0.0,
+                  "f1": 0.0
+                }
+              },
+              "macro_f1": 0.0
+            }
+          }
+        },
+        "after": {
+          "json_valid": 1.0,
+          "schema_valid": 1.0,
+          "quote_ids_valid": 1.0,
+          "quote_set_match": 0.8272251308900523,
+          "both_labels_correct": 0.7486910994764397,
+          "assessment_exact_match": 0.6858638743455497,
+          "full_json_exact_match": 0.010471204188481676,
+          "draft_support_correct": 0.8743455497382199,
+          "public_support_correct": 0.8324607329842932,
+          "count": 191,
+          "decisions": {
+            "draft_support": {
+              "confusion_matrix": [
+                [
+                  156,
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  7,
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  12,
+                  0,
+                  10,
+                  0
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 158,
+                  "precision": 0.8914285714285715,
+                  "recall": 0.9873417721518988,
+                  "f1": 0.936936936936937
+                },
+                "contradicted": {
+                  "support": 11,
+                  "precision": 0.5,
+                  "recall": 0.09090909090909091,
+                  "f1": 0.15384615384615385
+                },
+                "insufficient": {
+                  "support": 22,
+                  "precision": 0.7142857142857143,
+                  "recall": 0.45454545454545453,
+                  "f1": 0.5555555555555556
+                }
+              },
+              "macro_f1": 0.5487795487795488
+            },
+            "public_support": {
+              "confusion_matrix": [
+                [
+                  123,
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  10,
+                  28,
+                  2,
+                  0
+                ],
+                [
+                  8,
+                  7,
+                  8,
+                  0
+                ]
+              ],
+              "confusion_labels": {
+                "rows": [
+                  "supported",
+                  "contradicted",
+                  "insufficient"
+                ],
+                "columns": [
+                  "supported",
+                  "contradicted",
+                  "insufficient",
+                  "invalid"
+                ]
+              },
+              "per_label": {
+                "supported": {
+                  "support": 128,
+                  "precision": 0.8723404255319149,
+                  "recall": 0.9609375,
+                  "f1": 0.9144981412639406
+                },
+                "contradicted": {
+                  "support": 40,
+                  "precision": 0.717948717948718,
+                  "recall": 0.7,
+                  "f1": 0.708860759493671
+                },
+                "insufficient": {
+                  "support": 23,
+                  "precision": 0.7272727272727273,
+                  "recall": 0.34782608695652173,
+                  "f1": 0.4705882352941176
+                }
+              },
+              "macro_f1": 0.6979823786839098
+            }
+          }
+        }
+      },
+      "token_stats": {
+        "before": {
+          "mean": 512.0,
+          "max": 512,
+          "at_limit_512": 191
+        },
+        "after": {
+          "mean": 66.69109947643979,
+          "max": 80,
+          "at_limit_512": 0
+        }
+      },
+      "train_seconds": 1986.1466481769994,
+      "validation_losses": [
+        {
+          "epoch": 1.0,
+          "eval_loss": 0.4227196276187897,
+          "step": 132
+        },
+        {
+          "epoch": 2.0,
+          "eval_loss": 0.3954871892929077,
+          "step": 264
+        }
+      ],
+      "best_checkpoint": "/vol/runs/a3_vinallama_27b_20261108_134546_481468_039f481a/checkpoints/checkpoint-264"
+    }
+  },
+  "pairwise": {
+    "mediphi_38b vs qwen3_17b": {
+      "assessment_a_only_correct": 6,
+      "assessment_b_only_correct": 16,
+      "both_assessments_correct": 138
+    },
+    "mediphi_38b vs vinallama_27b": {
+      "assessment_a_only_correct": 21,
+      "assessment_b_only_correct": 8,
+      "both_assessments_correct": 123
+    },
+    "qwen3_17b vs vinallama_27b": {
+      "assessment_a_only_correct": 29,
+      "assessment_b_only_correct": 6,
+      "both_assessments_correct": 125
+    }
+  },
+  "scope": "Same supplied 191-example synthetic validation, used for checkpoint selection; known label and evidence-exposure limitations remain. No independent clinical test."
+}

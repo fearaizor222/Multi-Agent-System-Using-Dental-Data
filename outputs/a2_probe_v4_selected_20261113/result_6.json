@@ -1,0 +1,20 @@
+{
+  "question": "Theo tài liệu, khi dùng máng nhai để giảm hoạt động cơ cắn, ngừng đeo máng thì hiệu quả có được duy trì không?",
+  "kind": "treatment",
+  "input_tokens": 2805,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_treatment_20261113\\retrieval_1.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+  "seconds": 5.133131700000376,
+  "generation_tokens": 15,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "insufficient_evidence",
+    "claims": []
+  }
+}

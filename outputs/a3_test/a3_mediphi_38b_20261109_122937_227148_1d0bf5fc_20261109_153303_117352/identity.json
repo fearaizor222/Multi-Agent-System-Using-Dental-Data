@@ -1,0 +1,11 @@
+{
+  "model_id": "mediphi_38b",
+  "source_run": "a3_mediphi_38b_20261109_122937_227148_1d0bf5fc",
+  "test_sha256": {
+    "test.jsonl": "c4eda27d2b15aaf3289b434ce35550d5e54fa5f05029bd7ff724fb728bc1908f",
+    "test.metadata.jsonl": "8170cad6664cee38d6244c23439165724cf576262825ef4d9a7aded54b511531"
+  },
+  "adapter_sha256": "6ba86992c8ba98d022636cddb5eca31f6bb2865550b77e94fcf8b077802885ef",
+  "training_executed": false,
+  "selection": "existing lowest-validation-loss adapter"
+}

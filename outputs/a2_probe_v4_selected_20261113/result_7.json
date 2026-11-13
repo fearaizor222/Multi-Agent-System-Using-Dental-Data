@@ -1,0 +1,45 @@
+{
+  "question": "Theo tài liệu, mài điều chỉnh khớp cắn có hoàn tất trong một lần hẹn không, và các lần hẹn cách nhau bao lâu?",
+  "kind": "treatment",
+  "input_tokens": 2949,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_treatment_20261113\\retrieval_2.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"], \"text\": \"Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày.\"}]}",
+  "seconds": 18.987383599996974,
+  "generation_tokens": 96,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn."
+          }
+        ]
+      },
+      {
+        "text": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày để tạo điều kiện thời gian cho những hoạt động thích ứng."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "remote": "comparisons/a2_base_v3_20261111_224648_585374",
+  "status": {
+    "status": "completed",
+    "paired_cases": 52,
+    "generations": 104,
+    "seconds": 494.621664589
+  },
+  "paired_cases": 52,
+  "generations": 104,
+  "pair_prompt_hashes_verified": true
+}

@@ -1,0 +1,727 @@
+{
+  "raft_learning_q0_missing_support_same_topic": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng: chỉ còn học qua bắt chước và quy định fluoride, không có điều kiện hóa hoạt động.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q0_clean": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Giữ phần lồng múi nhưng tiếp xúc sau chưa giữ rõ điều kiện tiếp xúc lui sau trong nguồn; quote đúng và đầy đủ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q1_clean": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Trả lời đúng răng không tiếp xúc khi nuốt không điển hình. Một số quote thêm dấu chấm, được kiểm tra nguyên văn riêng.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q0_clean": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Trả lời cung mặt đơn giản, trong khi câu hỏi trục thật cần cung mặt động hoặc dụng cụ định vị. Quote tên dụng cụ không hỗ trợ điều kiện trục thật.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q1_noise_middle": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Trả lời đúng răng không tiếp xúc khi nuốt không điển hình. Một số quote thêm dấu chấm, được kiểm tra nguyên văn riêng.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q0_clean": {
+    "grade": "pass",
+    "vietnamese": false,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "non_vietnamese"
+    ],
+    "note": "Đúng điều kiện nhà đóng chai bổ sung fluoride khi xử lý, nhưng trả lời bằng tiếng Anh.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q2_partial_answer": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [
+      "false_refusal"
+    ],
+    "note": "Từ chối toàn bộ dù nguồn vẫn đủ trả lời phần học theo hành vi mẫu qua bắt chước.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q1_noise_middle": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "quote_not_supporting"
+    ],
+    "note": "Nội dung không bắt buộc ghi nồng độ đúng, evidence_id trỏ đúng đoạn có câu hỗ trợ; nhưng quote được chọn chỉ nêu thực trạng nhãn, không chứng minh quy định.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q0_noise_middle": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Giữ phần lồng múi nhưng thay tiếp xúc lui sau bằng tiếp xúc sau hoặc sau lồng múi, làm vị trí thứ hai chưa rõ theo nguồn. Quote hỗ trợ ý gốc.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q2_noise_middle": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Không nêu đúng khen thưởng/phạt hoặc bắt chước; lấy câu về điều kiện hóa hoạt động để gán cơ chế hành vi tích cực cho hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q0_missing_support_same_topic": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "meaning_changed",
+      "quote_not_supporting",
+      "unsupported_in_missing"
+    ],
+    "note": "Đổi trục tự ý trong nguồn thành trục thật và vẫn trả lời dù thiếu ý được hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q0_noise_middle": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Chọn thực trạng nước đóng chai không chứa/không ghi fluoride thay vì điều kiện bắt buộc liệt kê. Bỏ từ often nên còn khái quát quá mức; quote không chứng minh điều kiện được hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q2_partial_answer": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [
+      "false_refusal"
+    ],
+    "note": "Từ chối toàn bộ dù vẫn đủ bằng chứng cho phần không bắt buộc ghi nồng độ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q0_clean": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Chọn đúng khen thưởng hành vi tốt và phạt hành vi xấu; câu trả lời tiếng Việt, quote hỗ trợ trực tiếp.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q1_clean": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Gán hành vi tích cực cho học theo hành vi mẫu, thay vì cơ chế bắt chước. Quote nói điều kiện hóa hoạt động, không nói cơ chế của hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q0_noise_middle": {
+    "grade": "fail",
+    "vietnamese": false,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "noise_intrusion",
+      "meaning_changed",
+      "non_vietnamese",
+      "quote_not_supporting"
+    ],
+    "note": "Bỏ lý thuyết được hỏi để trả lời hai nhận định fluoride bằng tiếng Anh. Quote về nồng độ không chứng minh việc bổ sung, còn câu không bắt buộc liệt kê trái điều kiện của quote.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q2_partial_answer": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Trộn trục thật và trục tự ý trong cùng khẳng định; quote chỉ nói trục tự ý dùng cung mặt đơn giản.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q0_missing_support_same_topic": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi chỉ còn câu về nuốt không điển hình, thiếu vị trí nuốt điển hình.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q1_clean": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting"
+    ],
+    "note": "Nêu phương pháp tự động thay vì điều kiện dùng cung mặt đơn giản. Quote vị trí mũ tai không đủ hỗ trợ nhận định về phương pháp.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q0_missing_support_same_topic": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi nguồn chỉ còn ý không bắt buộc ghi nồng độ, thiếu điều kiện phải liệt kê fluoride.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q1_missing_support_same_topic": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi nguồn chỉ còn trạng thái nuốt điển hình, thiếu ý nuốt không điển hình.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q2_noise_middle": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Đúng phần trục tự ý ứng với cung mặt đơn giản nhưng bỏ phần trục thật dù context đủ cả hai.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q1_missing_support_same_topic": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "quote_not_supporting",
+      "unsupported_in_missing"
+    ],
+    "note": "Vẫn khẳng định không bắt buộc ghi nồng độ dù ý này đã bị bỏ. Quote chỉ nói điều kiện phải liệt kê fluoride, không nói nghĩa vụ ghi nồng độ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q2_noise_middle": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting"
+    ],
+    "note": "Câu nếu có thể không trả lời điều kiện phải liệt kê fluoride và không trả lời rõ có bắt buộc ghi nồng độ không. Quote thực trạng nhãn không hỗ trợ câu này.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q2_partial_answer": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Trả đúng phần còn nguồn: răng không tiếp xúc khi nuốt không điển hình; không tự bù phần nuốt điển hình đã bị bỏ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q1_noise_middle": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Gán hành vi tích cực cho học theo hành vi mẫu, thay vì cơ chế bắt chước. Quote nói điều kiện hóa hoạt động, không nói cơ chế của hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q0_noise_after": {
+    "grade": "pass",
+    "vietnamese": false,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "non_vietnamese"
+    ],
+    "note": "Vẫn chọn đúng điều kiện như clean khi nguồn chính ở đầu; chưa trả lời tiếng Việt.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q0_noise_before": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Chọn thực trạng nước đóng chai không chứa/không ghi fluoride thay vì điều kiện bắt buộc liệt kê. Bỏ từ often nên còn khái quát quá mức; quote không chứng minh điều kiện được hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q0_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không còn nguồn về nhãn fluoride.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q1_clean": {
+    "grade": "fail",
+    "vietnamese": false,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "non_vietnamese",
+      "quote_not_supporting"
+    ],
+    "note": "Lặp hai lần cùng câu tiếng Anh về fluoride bổ sung và quảng cáo, không trả lời nghĩa vụ ghi nồng độ. Quote về giới hạn nhập khẩu không chứng minh phần quảng cáo.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q1_noise_before": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Nói thực trạng có/không ghi fluoride thay vì nghĩa vụ ghi nồng độ; mất từ often của nguồn. Quote hỗ trợ một phần thực trạng, không giải đáp câu hỏi. Do mất mức độ often, quote cũng không hỗ trợ đầy đủ khẳng định khái quát.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q1_noise_after": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "quote_not_supporting"
+    ],
+    "note": "Nội dung không bắt buộc ghi nồng độ đúng, evidence_id trỏ đúng đoạn có câu hỗ trợ; nhưng quote được chọn chỉ nêu thực trạng nhãn, không chứng minh quy định.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q1_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không còn nguồn hỗ trợ câu hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q2_clean": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting"
+    ],
+    "note": "Câu nếu có bắt buộc là diễn đạt vòng, không xác định điều kiện hay nghĩa vụ ghi nồng độ; còn tạo quote tiếng Việt không có trong nguồn tiếng Anh.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q2_noise_after": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting"
+    ],
+    "note": "Câu nếu có thể không trả lời điều kiện phải liệt kê fluoride và không trả lời rõ có bắt buộc ghi nồng độ không. Quote thực trạng nhãn không hỗ trợ câu này.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q2_noise_before": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Lại chọn thực trạng nước đóng chai thay vì hai quy định được hỏi; bỏ từ often. Quote có liên hệ với thực trạng nhưng không trả lời hai ý. Do mất mức độ often, quote cũng không hỗ trợ đầy đủ khẳng định khái quát.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_bottle_label_q2_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi cả hai ý đều thiếu bằng chứng.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q0_noise_before": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Chọn đúng cung mặt động hoặc dụng cụ định vị; sửa ngoặc kép của OCR trong quote nên không còn khớp nguyên văn.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q0_noise_middle": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "wrong_focus"
+    ],
+    "note": "Trả đúng một câu về trục tự ý nhưng đang hỏi trục thật. Quote hỗ trợ nhận định đã nêu, không hỗ trợ đáp án cho câu hỏi hiện tại.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q0_noise_after": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting"
+    ],
+    "note": "Chuyển sang phương pháp đo/tự động của trục tự ý thay vì dụng cụ cho trục thật. Quote chỉ mô tả phương pháp đo, không hỗ trợ đầy đủ nhận định về hai phương pháp.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q0_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không có nguồn về trục bản lề.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q1_noise_before": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "wrong_focus"
+    ],
+    "note": "Hai phương pháp đo và tự động có trong nguồn nhưng không trả lời khi nào được xem là trục tự ý; không nêu tiêu chí cung mặt đơn giản. Các quote hỗ trợ phương pháp, không phải điều kiện được hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q1_noise_middle": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "wrong_focus"
+    ],
+    "note": "Hai phương pháp đo và tự động có trong nguồn nhưng không trả lời khi nào được xem là trục tự ý; không nêu tiêu chí cung mặt đơn giản. Các quote hỗ trợ phương pháp, không phải điều kiện được hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q1_noise_after": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "wrong_focus"
+    ],
+    "note": "Hai phương pháp đo và tự động có trong nguồn nhưng không trả lời khi nào được xem là trục tự ý; không nêu tiêu chí cung mặt đơn giản. Các quote hỗ trợ phương pháp, không phải điều kiện được hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q1_missing_support_same_topic": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "meaning_changed",
+      "quote_not_supporting",
+      "unsupported_in_missing"
+    ],
+    "note": "Gán điều kiện cung mặt động/dụng cụ định vị của trục thật sang trục tự ý; nguồn đã bỏ điều kiện của trục tự ý.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q1_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không có nguồn hỗ trợ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q2_clean": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting"
+    ],
+    "note": "Chỉ nêu một phương pháp xác định trục tự ý, không trả lời loại cung mặt/dụng cụ tương ứng của hai trục; quote cũng không chứng minh phương pháp tự động.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q2_noise_before": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Đúng phần trục tự ý ứng với cung mặt đơn giản nhưng bỏ phần trục thật dù context đủ cả hai.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q2_noise_after": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Vừa lạc sang phương pháp, vừa gán phương pháp đo cho trục thật, trong khi quote xác định đây là vị trí trục tự ý.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_hinge_axis_q2_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không có nguồn cho cả hai phần.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q0_noise_after": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Giữ đúng hai khái niệm khen thưởng và phạt khi nhiễu ở sau nguồn chính.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q0_noise_before": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Khuyến khích hành vi tốt và xử lý hành vi xấu diễn đạt ít cụ thể hơn khen thưởng/phạt nhưng vẫn giữ hai ý chính, có quote đúng lý thuyết.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q0_without_evidence": {
+    "grade": "fail",
+    "vietnamese": false,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "noise_intrusion",
+      "meaning_changed",
+      "non_vietnamese",
+      "quote_not_supporting",
+      "unsupported_in_missing"
+    ],
+    "note": "Trả lời theo đoạn nhiễu fluoride dù không có nguồn về câu hỏi; còn đảo quy định phải liệt kê thành không phải liệt kê khi có bổ sung.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q1_noise_before": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Gán hành vi tích cực cho học theo hành vi mẫu, thay vì cơ chế bắt chước. Quote nói điều kiện hóa hoạt động, không nói cơ chế của hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q1_noise_after": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Gán hành vi tích cực cho học theo hành vi mẫu, thay vì cơ chế bắt chước. Quote nói điều kiện hóa hoạt động, không nói cơ chế của hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q1_missing_support_same_topic": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "quote_not_supporting",
+      "unsupported_in_missing"
+    ],
+    "note": "Vẫn trả một câu chung chung về cơ chế hành vi dù câu về bắt chước đã bị bỏ; quote thuộc lý thuyết khác không chứng minh câu trả lời.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q1_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi toàn bộ nguồn về lý thuyết học hành vi bị bỏ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q2_clean": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Không nêu đúng khen thưởng/phạt hoặc bắt chước; lấy câu về điều kiện hóa hoạt động để gán cơ chế hành vi tích cực cho hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q2_noise_before": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Không nêu đúng khen thưởng/phạt hoặc bắt chước; lấy câu về điều kiện hóa hoạt động để gán cơ chế hành vi tích cực cho hành vi mẫu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q2_noise_after": {
+    "grade": "fail",
+    "vietnamese": true,
+    "quote_supports_claim": false,
+    "error_tags": [
+      "wrong_focus",
+      "meaning_changed",
+      "quote_not_supporting"
+    ],
+    "note": "Gán khen thưởng/phạt cho học theo hành vi mẫu, trái việc nguồn gắn hai khái niệm đó với điều kiện hóa hoạt động. Cũng bỏ cơ chế bắt chước.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_learning_q2_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không còn bằng chứng cho cả hai phần câu hỏi.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q0_noise_before": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Giữ phần lồng múi nhưng thay tiếp xúc lui sau bằng tiếp xúc sau hoặc sau lồng múi, làm vị trí thứ hai chưa rõ theo nguồn. Quote hỗ trợ ý gốc.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q0_noise_after": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Chỉ trả lời rằng răng tiếp xúc, không nêu vị trí lồng múi hoặc tiếp xúc lui sau mà câu hỏi yêu cầu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q0_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không còn nguồn về động tác nuốt.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q1_noise_before": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Trả lời đúng răng không tiếp xúc khi nuốt không điển hình. Một số quote thêm dấu chấm, được kiểm tra nguyên văn riêng.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q1_noise_after": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [],
+    "note": "Trả lời đúng răng không tiếp xúc khi nuốt không điển hình. Một số quote thêm dấu chấm, được kiểm tra nguyên văn riêng.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q1_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không còn nguồn hỗ trợ.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q2_clean": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Chỉ trả phần răng không tiếp xúc của nuốt không điển hình; bỏ vị trí răng của nuốt điển hình dù nguồn có đủ. Quote làm rõ phần đang trả lời.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q2_noise_before": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Chỉ trả phần nuốt điển hình, đôi khi chỉ nói có tiếp xúc hoặc rút gọn vị trí; bỏ phần nuốt không điển hình dù có bằng chứng. Quote thuộc đúng trạng thái đã nêu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q2_noise_middle": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Chỉ trả phần nuốt điển hình, đôi khi chỉ nói có tiếp xúc hoặc rút gọn vị trí; bỏ phần nuốt không điển hình dù có bằng chứng. Quote thuộc đúng trạng thái đã nêu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q2_noise_after": {
+    "grade": "partial",
+    "vietnamese": true,
+    "quote_supports_claim": true,
+    "error_tags": [
+      "incomplete_answer"
+    ],
+    "note": "Chỉ trả phần nuốt điển hình, đôi khi chỉ nói có tiếp xúc hoặc rút gọn vị trí; bỏ phần nuốt không điển hình dù có bằng chứng. Quote thuộc đúng trạng thái đã nêu.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  },
+  "raft_swallowing_q2_without_evidence": {
+    "grade": "pass",
+    "vietnamese": true,
+    "quote_supports_claim": null,
+    "error_tags": [],
+    "note": "Từ chối đúng khi không có nguồn cho cả hai phần.",
+    "review_origin": "assistant read actual after output against supplied sources"
+  }
+}

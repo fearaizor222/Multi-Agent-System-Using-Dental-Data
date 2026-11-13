@@ -1,0 +1,33 @@
+{
+  "numeric_candidate": "day28_run03",
+  "adapter_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run03\\epoch_01\\adapter",
+  "runtime_integrated": false,
+  "deployment_ready": false,
+  "test_evaluated": false,
+  "human_reviewed_training_records": 0,
+  "validation": {
+    "old_control_exact": 38,
+    "new_control_exact": 40,
+    "count": 59,
+    "improved": 9,
+    "regressed": 7
+  },
+  "development_challenge": {
+    "old_control_exact": 13,
+    "new_control_exact": 16,
+    "count": 24,
+    "old_literal_term_checks": 3,
+    "new_literal_term_checks": 7,
+    "literal_count": 8,
+    "improved": 7,
+    "regressed": 4
+  },
+  "blockers": [
+    "Clarify recall fell from 1/9 to 0/9 on validation",
+    "Image category control exact fell from 3/6 to 0/6",
+    "Personal treatment handoff validation fell from 3/3 to 2/3, with one new-probe regression",
+    "Some available capabilities incorrectly trigger handoff",
+    "Rewritten requests can still change user meaning"
+  ],
+  "recommendation": "Keep both research adapters; do not wire into main runtime yet. Prioritize clarification, handoff and image counterfactuals, independent label review and preserving original user/history downstream."
+}

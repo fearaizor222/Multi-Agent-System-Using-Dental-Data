@@ -1,0 +1,41 @@
+{
+  "run_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\vinallama_27b_v4_20261107_071123_112852",
+  "dataset": "a1_supervisor_v4",
+  "selected_epoch": 2,
+  "validation_count": 59,
+  "png_dpi": 300,
+  "matplotlib": "3.10.8",
+  "source_sha256": {
+    "summary.json": "ec1228974ba2b910a06d7b6f7d5ff365b2d28f176d5e1c5989cd64b3ad0dc8a3",
+    "config.json": "19f484a91ef6c774dc55fd2251041e7715b1fd68c4104c337806bf795aae1788",
+    "input_integrity.json": "9e3046ebb225e6ea2a291ab14af4c416aa839d19e1a4f6f746edb3886357ed76",
+    "training_log.jsonl": "b8cdc4173ba299a831476b8085acff298bab9562a66c4f025979f1f67c522344",
+    "baseline_validation\\predictions.jsonl": "5f16d9a20e2f163ba7b20fe5f245f0063771e822387645f51593c57286fd77d7",
+    "epoch_01\\validation\\predictions.jsonl": "9ec2d121d1fde2b29a82aba0d430234b650f3b8049a58b7835e158c3874e8d15",
+    "epoch_02\\validation\\predictions.jsonl": "7b7e90f9656991da1769b6c3e0e8e44da7d93ee2405b6e5492839f334c570c25"
+  },
+  "scope": "Completed real training logs, validation only; no model loaded or run by plotting.",
+  "files_sha256": {
+    "01_training_loss.png": "07c3affa15d23daa41c07b47c688fc554886f7c5e33764b43da32e2208f12500",
+    "01_training_loss.pdf": "9d571417c16ba81365a0e151fafa26b0aaa30c780277fe84c0543bb71b000db4",
+    "01_training_loss.svg": "2c526b3d0acc20264a366afd451ffeda51a0ad0dead732dc197c87f4980de253",
+    "02_validation_progress.png": "6544f3f54ea4058d7f46e5c6a6017b053c68b82541bbffeb1cb40e2a6ba52824",
+    "02_validation_progress.pdf": "f67abe74320389d3c6528af46641de928720d00a7b354e7b38a7fab6c52e6a05",
+    "02_validation_progress.svg": "0af6f4d6a8157511712e65ff7fd7d911c4822cf318508f239731b13864900e38",
+    "03_before_after.png": "ecc76d2ff13bac3001143601565087edd4d578710e01fb0fa3ea415db5fc5f19",
+    "03_before_after.pdf": "693e62e6d02f381362f54c2d24333e21b78c3e887e230b12e2dd56fde476363f",
+    "03_before_after.svg": "c20929820660e218b2be7b683df9da6f37d8fcfa81a2fc1f3fb5e73d94785c81",
+    "04_confusion_matrix.png": "f1b33f2606badfe82471d5e0e278d812c2d18ce32d6dce206fcca5033979dfac",
+    "04_confusion_matrix.pdf": "4b8c58dad8ad09e8c9a58dbfaf844a35eead6c8e76a38912f46f30f19150643a",
+    "04_confusion_matrix.svg": "75a49a460b6258bbb6ff88c07da8e9385e4bf2c810433bfc80cdd0c78fc2b95f",
+    "05_f1_by_decision.png": "cbe805ffbaf9d51f4019ba51cf0af4cca4ebd5d836005e7b281b0c69b19dbf8a",
+    "05_f1_by_decision.pdf": "506d84635b56b94d4b277bbaa2566e762c347135bee0120e32922d5f7db239e5",
+    "05_f1_by_decision.svg": "85ddd3cbf8376d6d1ebfbd4a246b32ad8a63a1740c053a0d5f45f2711e3b4756",
+    "06_dataset_splits.png": "1fbc03fcc9194111be95269c5a0964dbdcff6e18da57ad5e9e3a17acbe753825",
+    "06_dataset_splits.pdf": "10e00747189ad2b4ca12d15256346120b83b947621b5f1e77573cf69d1b016b5",
+    "06_dataset_splits.svg": "96509013fb654aef3112a7632cbc0472d12876d31f95bdf5fec7c62083b2b8ac",
+    "figure_data.json": "32ad480f55c35a3f24dcef1731f0e539dca0dead31b326e623d702963acf8b35",
+    "metrics.csv": "29183fdf114894a5c398ce6f9e0cd2837b2e5ddc5ead32c0b7c29e2cef479c9d",
+    "captions_vi.md": "0ac713790f61e5987c83c50f867f06cf7e99f746a26f3297872801bb5125d069"
+  }
+}

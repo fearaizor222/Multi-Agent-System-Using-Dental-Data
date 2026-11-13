@@ -1,0 +1,26 @@
+{
+  "bundle_manifest_sha256": "9b4e94a6782126dc990ae9b992cac86267f167e6926becda0c684335d403ae28",
+  "plan": {
+    "model": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "initialization": "continue LoRA A2 v3 epoch 2; new optimizer",
+    "initial_adapter_sha256": "47f476ce9ee66b4568694e2c8b6b7e696a38aab0dc756d871d768476974a774d",
+    "epochs": 2,
+    "learning_rate": 3e-05,
+    "seed": 42,
+    "replay_draws": 220,
+    "raft_samples": 880,
+    "unique_replay_samples": 31,
+    "samples_per_epoch": 1100,
+    "precision": "fp16",
+    "quantization": "NF4 double quantization",
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "max_length": 3072,
+    "max_new_tokens": 512,
+    "save_eval_steps": 25,
+    "checkpoint_selection": "lowest validation loss",
+    "validation": "same 72 development variants; not an independent test",
+    "test_used": false
+  }
+}

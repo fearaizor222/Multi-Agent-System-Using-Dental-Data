@@ -1,0 +1,95 @@
+{
+  "scope": "Controlled external-source transfer benchmark, not retrieval/end-to-end or expert clinical validation. Six related cases per family, not72 independent clinical observations.",
+  "grading": "Two anonymized AI judges with exact-source proof checks; unresolved/disagreements retained for source reading, not excluded from denominator.",
+  "models": {
+    "old": {
+      "n": 72,
+      "schema_valid": 69,
+      "status_correct": 67,
+      "citation_ids_valid": 69,
+      "rubric_pass": 36,
+      "rubric_fail": 16,
+      "unresolved": 20,
+      "by_case": {
+        "combine": {
+          "n": 12,
+          "pass": 4,
+          "unresolved": 4
+        },
+        "direct": {
+          "n": 12,
+          "pass": 6,
+          "unresolved": 5
+        },
+        "distractor": {
+          "n": 12,
+          "pass": 6,
+          "unresolved": 3
+        },
+        "history": {
+          "n": 12,
+          "pass": 6,
+          "unresolved": 5
+        },
+        "missing": {
+          "n": 12,
+          "pass": 12,
+          "unresolved": 0
+        },
+        "partial": {
+          "n": 12,
+          "pass": 2,
+          "unresolved": 3
+        }
+      }
+    },
+    "new": {
+      "n": 72,
+      "schema_valid": 69,
+      "status_correct": 66,
+      "citation_ids_valid": 69,
+      "rubric_pass": 47,
+      "rubric_fail": 14,
+      "unresolved": 11,
+      "by_case": {
+        "combine": {
+          "n": 12,
+          "pass": 6,
+          "unresolved": 3
+        },
+        "direct": {
+          "n": 12,
+          "pass": 7,
+          "unresolved": 3
+        },
+        "distractor": {
+          "n": 12,
+          "pass": 10,
+          "unresolved": 1
+        },
+        "history": {
+          "n": 12,
+          "pass": 9,
+          "unresolved": 1
+        },
+        "missing": {
+          "n": 12,
+          "pass": 12,
+          "unresolved": 0
+        },
+        "partial": {
+          "n": 12,
+          "pass": 3,
+          "unresolved": 3
+        }
+      }
+    }
+  },
+  "paired": {
+    "unresolved": 25,
+    "both_pass": 29,
+    "both_fail": 9,
+    "new_only": 5,
+    "old_only": 4
+  }
+}

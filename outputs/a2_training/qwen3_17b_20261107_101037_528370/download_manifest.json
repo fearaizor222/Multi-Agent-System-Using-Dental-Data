@@ -1,0 +1,12 @@
+{
+  "volume": "dental-a2-training",
+  "run": "runs/a2_qwen3_17b_20261107_101037_528370/",
+  "sha256": {
+    "adapter/adapter_config.json": "cf944c74676c2b5eb6a853e5c533b279f34383f1dc75a9b71adb4248635d3d24",
+    "adapter/adapter_model.safetensors": "58bf6dec890a33c6b26c07234a2ea12d35e26486b945b6b01d8b1923f3e9f9f1",
+    "config.json": "4f547f1d68b6b92794aec2fcd2ee980db11514971129ac99011bf4fcbb2a9af1",
+    "metrics.json": "a7eea2ce9c4796503e7faabc825264f0d0056227850a6a27b5fe1f2d25da9559",
+    "dataset_info.json": "cac8103c664a1b432472a6207b46e39d5d83fe1db4b5867324a405b155bf3613",
+    "run_status.json": "7ccc76c79702d3036f1f73acdf5cc4c333fa7d9721df7437015a74558db32533"
+  }
+}

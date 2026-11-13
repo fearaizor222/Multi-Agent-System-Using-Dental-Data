@@ -1,0 +1,273 @@
+{
+  "before": {
+    "json_valid": 0.05235602094240838,
+    "schema_valid": 0.0,
+    "quote_ids_valid": 0.0,
+    "quote_set_match": 0.0,
+    "both_labels_correct": 0.0,
+    "assessment_exact_match": 0.0,
+    "full_json_exact_match": 0.0,
+    "draft_support_correct": 0.0,
+    "public_support_correct": 0.0,
+    "count": 191,
+    "decisions": {
+      "draft_support": {
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            158
+          ],
+          [
+            0,
+            0,
+            0,
+            11
+          ],
+          [
+            0,
+            0,
+            0,
+            22
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 158,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "contradicted": {
+            "support": 11,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "insufficient": {
+            "support": 22,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "macro_f1": 0.0
+      },
+      "public_support": {
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            128
+          ],
+          [
+            0,
+            0,
+            0,
+            40
+          ],
+          [
+            0,
+            0,
+            0,
+            23
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 128,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "contradicted": {
+            "support": 40,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "insufficient": {
+            "support": 23,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "macro_f1": 0.0
+      }
+    }
+  },
+  "after": {
+    "json_valid": 1.0,
+    "schema_valid": 1.0,
+    "quote_ids_valid": 1.0,
+    "quote_set_match": 0.8272251308900523,
+    "both_labels_correct": 0.7486910994764397,
+    "assessment_exact_match": 0.6858638743455497,
+    "full_json_exact_match": 0.010471204188481676,
+    "draft_support_correct": 0.8743455497382199,
+    "public_support_correct": 0.8324607329842932,
+    "count": 191,
+    "decisions": {
+      "draft_support": {
+        "confusion_matrix": [
+          [
+            156,
+            1,
+            1,
+            0
+          ],
+          [
+            7,
+            1,
+            3,
+            0
+          ],
+          [
+            12,
+            0,
+            10,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 158,
+            "precision": 0.8914285714285715,
+            "recall": 0.9873417721518988,
+            "f1": 0.936936936936937
+          },
+          "contradicted": {
+            "support": 11,
+            "precision": 0.5,
+            "recall": 0.09090909090909091,
+            "f1": 0.15384615384615385
+          },
+          "insufficient": {
+            "support": 22,
+            "precision": 0.7142857142857143,
+            "recall": 0.45454545454545453,
+            "f1": 0.5555555555555556
+          }
+        },
+        "macro_f1": 0.5487795487795488
+      },
+      "public_support": {
+        "confusion_matrix": [
+          [
+            123,
+            4,
+            1,
+            0
+          ],
+          [
+            10,
+            28,
+            2,
+            0
+          ],
+          [
+            8,
+            7,
+            8,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 128,
+            "precision": 0.8723404255319149,
+            "recall": 0.9609375,
+            "f1": 0.9144981412639406
+          },
+          "contradicted": {
+            "support": 40,
+            "precision": 0.717948717948718,
+            "recall": 0.7,
+            "f1": 0.708860759493671
+          },
+          "insufficient": {
+            "support": 23,
+            "precision": 0.7272727272727273,
+            "recall": 0.34782608695652173,
+            "f1": 0.4705882352941176
+          }
+        },
+        "macro_f1": 0.6979823786839098
+      }
+    }
+  },
+  "model": {
+    "repo": "vilm/vinallama-2.7b-chat",
+    "name": "VinaLLaMA-2.7B-chat",
+    "revision": "b31d5f1306494b2bf10ecb0c6031077af3f5b39a",
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "best_checkpoint": "/vol/runs/a3_vinallama_27b_20261108_134546_481468_039f481a/checkpoints/checkpoint-264",
+  "train_seconds": 1986.1466481769994,
+  "elapsed_seconds": 8019.1333420109995,
+  "scope": "Synthetic labels with known audit issues; validation used for checkpoint selection, not independent test or clinical validation.",
+  "metric_notes": "Reference-label agreement, not clinical correctness. Quote-ID validity does not prove entailment. Assessment match ignores reason wording; invalid schema remains in confusion matrices. Macro-F1 averages all three fixed labels, including zero-support labels."
+}

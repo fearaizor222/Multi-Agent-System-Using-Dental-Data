@@ -1,0 +1,130 @@
+{
+  "test": {
+    "json_valid": 1.0,
+    "schema_valid": 1.0,
+    "quote_ids_valid": 1.0,
+    "quote_set_match": 0.7544910179640718,
+    "both_labels_correct": 0.6826347305389222,
+    "assessment_exact_match": 0.6167664670658682,
+    "full_json_exact_match": 0.005988023952095809,
+    "draft_support_correct": 0.8383233532934131,
+    "public_support_correct": 0.7425149700598802,
+    "count": 167,
+    "decisions": {
+      "draft_support": {
+        "confusion_matrix": [
+          [
+            111,
+            5,
+            1,
+            0
+          ],
+          [
+            8,
+            12,
+            2,
+            0
+          ],
+          [
+            6,
+            5,
+            17,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 117,
+            "precision": 0.888,
+            "recall": 0.9487179487179487,
+            "f1": 0.9173553719008264
+          },
+          "contradicted": {
+            "support": 22,
+            "precision": 0.5454545454545454,
+            "recall": 0.5454545454545454,
+            "f1": 0.5454545454545454
+          },
+          "insufficient": {
+            "support": 28,
+            "precision": 0.85,
+            "recall": 0.6071428571428571,
+            "f1": 0.7083333333333333
+          }
+        },
+        "macro_f1": 0.7237144168962351
+      },
+      "public_support": {
+        "confusion_matrix": [
+          [
+            106,
+            3,
+            3,
+            0
+          ],
+          [
+            12,
+            4,
+            6,
+            0
+          ],
+          [
+            19,
+            0,
+            14,
+            0
+          ]
+        ],
+        "confusion_labels": {
+          "rows": [
+            "supported",
+            "contradicted",
+            "insufficient"
+          ],
+          "columns": [
+            "supported",
+            "contradicted",
+            "insufficient",
+            "invalid"
+          ]
+        },
+        "per_label": {
+          "supported": {
+            "support": 112,
+            "precision": 0.7737226277372263,
+            "recall": 0.9464285714285714,
+            "f1": 0.8514056224899599
+          },
+          "contradicted": {
+            "support": 22,
+            "precision": 0.5714285714285714,
+            "recall": 0.18181818181818182,
+            "f1": 0.27586206896551724
+          },
+          "insufficient": {
+            "support": 33,
+            "precision": 0.6086956521739131,
+            "recall": 0.42424242424242425,
+            "f1": 0.5
+          }
+        },
+        "macro_f1": 0.5424225638184924
+      }
+    }
+  },
+  "elapsed_seconds": 1402.2925406240001,
+  "scope": "Held-out v2 reference-label agreement, not expert clinical validation. No training or checkpoint selection."
+}

@@ -1,0 +1,326 @@
+[
+  {
+    "question_id": "hinge_axis_q0",
+    "mode": "noise_middle",
+    "clean_id": "raft_hinge_axis_q0_clean",
+    "noise_id": "raft_hinge_axis_q0_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q0",
+    "mode": "noise_after",
+    "clean_id": "raft_swallowing_q0_clean",
+    "noise_id": "raft_swallowing_q0_noise_after",
+    "clean_grade": "partial",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q2",
+    "mode": "noise_before",
+    "clean_id": "raft_hinge_axis_q2_clean",
+    "noise_id": "raft_hinge_axis_q2_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q1",
+    "mode": "noise_middle",
+    "clean_id": "raft_swallowing_q1_clean",
+    "noise_id": "raft_swallowing_q1_noise_middle",
+    "clean_grade": "pass",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q1",
+    "mode": "noise_before",
+    "clean_id": "raft_learning_q1_clean",
+    "noise_id": "raft_learning_q1_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q1",
+    "mode": "noise_after",
+    "clean_id": "raft_bottle_label_q1_clean",
+    "noise_id": "raft_bottle_label_q1_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q1",
+    "mode": "noise_after",
+    "clean_id": "raft_swallowing_q1_clean",
+    "noise_id": "raft_swallowing_q1_noise_after",
+    "clean_grade": "pass",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q1",
+    "mode": "noise_middle",
+    "clean_id": "raft_bottle_label_q1_clean",
+    "noise_id": "raft_bottle_label_q1_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q2",
+    "mode": "noise_after",
+    "clean_id": "raft_hinge_axis_q2_clean",
+    "noise_id": "raft_hinge_axis_q2_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q0",
+    "mode": "noise_middle",
+    "clean_id": "raft_swallowing_q0_clean",
+    "noise_id": "raft_swallowing_q0_noise_middle",
+    "clean_grade": "partial",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q2",
+    "mode": "noise_middle",
+    "clean_id": "raft_learning_q2_clean",
+    "noise_id": "raft_learning_q2_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q2",
+    "mode": "noise_middle",
+    "clean_id": "raft_swallowing_q2_clean",
+    "noise_id": "raft_swallowing_q2_noise_middle",
+    "clean_grade": "partial",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q0",
+    "mode": "noise_middle",
+    "clean_id": "raft_bottle_label_q0_clean",
+    "noise_id": "raft_bottle_label_q0_noise_middle",
+    "clean_grade": "pass",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": true
+  },
+  {
+    "question_id": "swallowing_q1",
+    "mode": "noise_before",
+    "clean_id": "raft_swallowing_q1_clean",
+    "noise_id": "raft_swallowing_q1_noise_before",
+    "clean_grade": "pass",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q0",
+    "mode": "noise_before",
+    "clean_id": "raft_hinge_axis_q0_clean",
+    "noise_id": "raft_hinge_axis_q0_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q1",
+    "mode": "noise_before",
+    "clean_id": "raft_hinge_axis_q1_clean",
+    "noise_id": "raft_hinge_axis_q1_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q0",
+    "mode": "noise_after",
+    "clean_id": "raft_bottle_label_q0_clean",
+    "noise_id": "raft_bottle_label_q0_noise_after",
+    "clean_grade": "pass",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q2",
+    "mode": "noise_after",
+    "clean_id": "raft_swallowing_q2_clean",
+    "noise_id": "raft_swallowing_q2_noise_after",
+    "clean_grade": "partial",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q0",
+    "mode": "noise_middle",
+    "clean_id": "raft_learning_q0_clean",
+    "noise_id": "raft_learning_q0_noise_middle",
+    "clean_grade": "pass",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": true
+  },
+  {
+    "question_id": "hinge_axis_q0",
+    "mode": "noise_after",
+    "clean_id": "raft_hinge_axis_q0_clean",
+    "noise_id": "raft_hinge_axis_q0_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q0",
+    "mode": "noise_after",
+    "clean_id": "raft_learning_q0_clean",
+    "noise_id": "raft_learning_q0_noise_after",
+    "clean_grade": "pass",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q1",
+    "mode": "noise_before",
+    "clean_id": "raft_bottle_label_q1_clean",
+    "noise_id": "raft_bottle_label_q1_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q2",
+    "mode": "noise_after",
+    "clean_id": "raft_bottle_label_q2_clean",
+    "noise_id": "raft_bottle_label_q2_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q1",
+    "mode": "noise_middle",
+    "clean_id": "raft_hinge_axis_q1_clean",
+    "noise_id": "raft_hinge_axis_q1_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q0",
+    "mode": "noise_before",
+    "clean_id": "raft_learning_q0_clean",
+    "noise_id": "raft_learning_q0_noise_before",
+    "clean_grade": "pass",
+    "noise_grade": "pass",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q2",
+    "mode": "noise_after",
+    "clean_id": "raft_learning_q2_clean",
+    "noise_id": "raft_learning_q2_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q0",
+    "mode": "noise_before",
+    "clean_id": "raft_bottle_label_q0_clean",
+    "noise_id": "raft_bottle_label_q0_noise_before",
+    "clean_grade": "pass",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": true
+  },
+  {
+    "question_id": "learning_q1",
+    "mode": "noise_after",
+    "clean_id": "raft_learning_q1_clean",
+    "noise_id": "raft_learning_q1_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q2",
+    "mode": "noise_before",
+    "clean_id": "raft_bottle_label_q2_clean",
+    "noise_id": "raft_bottle_label_q2_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q2",
+    "mode": "noise_middle",
+    "clean_id": "raft_hinge_axis_q2_clean",
+    "noise_id": "raft_hinge_axis_q2_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "hinge_axis_q1",
+    "mode": "noise_after",
+    "clean_id": "raft_hinge_axis_q1_clean",
+    "noise_id": "raft_hinge_axis_q1_noise_after",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q0",
+    "mode": "noise_before",
+    "clean_id": "raft_swallowing_q0_clean",
+    "noise_id": "raft_swallowing_q0_noise_before",
+    "clean_grade": "partial",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "swallowing_q2",
+    "mode": "noise_before",
+    "clean_id": "raft_swallowing_q2_clean",
+    "noise_id": "raft_swallowing_q2_noise_before",
+    "clean_grade": "partial",
+    "noise_grade": "partial",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "bottle_label_q2",
+    "mode": "noise_middle",
+    "clean_id": "raft_bottle_label_q2_clean",
+    "noise_id": "raft_bottle_label_q2_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q2",
+    "mode": "noise_before",
+    "clean_id": "raft_learning_q2_clean",
+    "noise_id": "raft_learning_q2_noise_before",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  },
+  {
+    "question_id": "learning_q1",
+    "mode": "noise_middle",
+    "clean_id": "raft_learning_q1_clean",
+    "noise_id": "raft_learning_q1_noise_middle",
+    "clean_grade": "fail",
+    "noise_grade": "fail",
+    "clean_pass_noise_not_pass": false
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "adapter_sha256": "a39ead911c0c818909fe46c678fced0132d49bf0749a44ee55860b48986ccb46",
+  "validation_sha256": "b887f2fe334b70c94f5f8864a12385c9cb9e7e4c906adfe7d569a3fc20c492de",
+  "precision": "fp16",
+  "thinking": false,
+  "do_sample": false,
+  "max_new_tokens": 256
+}

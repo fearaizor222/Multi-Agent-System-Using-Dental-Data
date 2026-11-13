@@ -1,0 +1,31 @@
+{
+  "source_sha256": {
+    "train.jsonl": "dcdb35e0fc1f35939af465af6b413f2a3986466d0caffa483105f759853cbe12",
+    "val.jsonl": "799e05ce20f334f340a0e791600ace4c33de8a4d55c02273ee170867f1a14274",
+    "train.metadata.jsonl": "e319cf04d45b311ae264929a5d30ac1d26e4a5a9e3ff27bf4e577c40b5645f61",
+    "val.metadata.jsonl": "277e290c3b6924ba3d31c5545c39d6b223e1013220ec8f591537436bb545ed48"
+  },
+  "split_method": "document_id disjoint; seed=42; approximately 15% documents held out",
+  "validation_documents": [
+    "DPH-CH03",
+    "DPH-CH09",
+    "DPH-CH10",
+    "DPH-GLOSSARY",
+    "OHA-CH01",
+    "RHM1-CH11"
+  ],
+  "counts": {
+    "train": 822,
+    "validation": 106
+  },
+  "labels": {
+    "train": {
+      "draft": 722,
+      "insufficient_evidence": 100
+    },
+    "validation": {
+      "draft": 93,
+      "insufficient_evidence": 13
+    }
+  }
+}

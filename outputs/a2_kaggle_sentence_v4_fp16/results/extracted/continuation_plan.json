@@ -1,0 +1,12 @@
+{
+  "dataset": "a2_sentence_selection_v4",
+  "parent_run": "vunguyen25552/dental-a2-qwen3-v4/1",
+  "parent_checkpoint": "epoch_0.5",
+  "parent_adapter_sha256": "e3b5a36f19bff6df97234b967678a81208039df7908bc4a19883b723fde96a66",
+  "additional_epochs": 1.5,
+  "optimizer_state_resumed": false,
+  "note": "Adapter warm start with fresh optimizer and shuffle. Not an exact continuation of the interrupted sample order or LR schedule. Checkpoint tags refer to this additional training stage.",
+  "precision_policy": "Native BF16 only on supported hardware; T4 uses FP16",
+  "speed_guard": "Stop if first five optimizer steps average more than 60 seconds",
+  "test_used": false
+}

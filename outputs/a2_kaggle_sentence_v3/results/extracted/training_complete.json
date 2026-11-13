@@ -1,0 +1,9 @@
+{
+  "best_loss_checkpoint": "/kaggle/working/a2_sentence_v3_kaggle_01/checkpoints/checkpoint-132",
+  "exported_epoch": 2,
+  "export_policy": "final epoch, no best-loss reload",
+  "best_validation_loss": 0.17531536519527435,
+  "global_step": 264,
+  "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+  "optimizer_state_resumed": false
+}

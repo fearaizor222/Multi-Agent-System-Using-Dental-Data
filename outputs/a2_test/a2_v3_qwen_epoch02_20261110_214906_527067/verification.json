@@ -1,0 +1,75 @@
+{
+  "verified": true,
+  "samples": 93,
+  "identity": {
+    "source_run": "a2_qwen3_17b_20261110_194806_350795",
+    "selected_epoch": 2,
+    "selected_checkpoint": "/vol/runs/a2_qwen3_17b_20261110_194806_350795/checkpoints/checkpoint-252",
+    "adapter_sha256": "47f476ce9ee66b4568694e2c8b6b7e696a38aab0dc756d871d768476974a774d",
+    "checkpoint_sha256": "47f476ce9ee66b4568694e2c8b6b7e696a38aab0dc756d871d768476974a774d",
+    "weights_equal_to_epoch2": true,
+    "dataset_sha256": {
+      "train.jsonl": "a465d1173f45d9306a0d2ecd69534c17e0c588e35158e550f79cf77ef794570c",
+      "train.metadata.jsonl": "b3773977a63b1ed95fbe70ba3bdd8534c87700b8052a244ac1ecfdf43cd258c2",
+      "val.jsonl": "1347f20543b6bae111d00c3a805d6a4084af82270f53a7d7728a3923bcdeb205",
+      "val.metadata.jsonl": "16a70326bb2f9a145e7b447c6245abeffdedbe796ee1b0127a7fdd2cd18db1d9",
+      "test.jsonl": "ea20db436ce15db26b8df9517b29a4352fe2492cb0f3fdc618169323d2c0135d",
+      "test.metadata.jsonl": "b8953551e5b64df3c592ec8a0385118bf7517258542334e67cf838e4be8455ae"
+    },
+    "dataset_version": "a2-v3-repaired-20261110-r1",
+    "model": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "training_executed": false,
+    "test_used_for_selection": false,
+    "max_new_tokens": 512,
+    "gpu": "NVIDIA A10"
+  },
+  "test": {
+    "schema_valid": 1.0,
+    "status_correct": 0.967741935483871,
+    "citation_ids_valid": 1.0,
+    "exact_match": 0.11827956989247312,
+    "count": 93,
+    "per_status": {
+      "draft": {
+        "support": 82,
+        "precision": 0.9759036144578314,
+        "recall": 0.9878048780487805,
+        "f1": 0.9818181818181818
+      },
+      "insufficient_evidence": {
+        "support": 11,
+        "precision": 0.9,
+        "recall": 0.8181818181818182,
+        "f1": 0.8571428571428572
+      }
+    },
+    "status_macro_f1": 0.9194805194805196,
+    "confusion_matrix": [
+      [
+        81,
+        1,
+        0
+      ],
+      [
+        2,
+        9,
+        0
+      ]
+    ],
+    "confusion_labels": {
+      "rows": [
+        "draft",
+        "insufficient_evidence"
+      ],
+      "columns": [
+        "draft",
+        "insufficient_evidence",
+        "invalid"
+      ]
+    }
+  },
+  "elapsed_seconds": 489.182788473,
+  "scope": "Held-out v3 reference-label agreement; not clinical correctness. Frozen epoch2, no training/selection on test.",
+  "at_token_limit": 0
+}

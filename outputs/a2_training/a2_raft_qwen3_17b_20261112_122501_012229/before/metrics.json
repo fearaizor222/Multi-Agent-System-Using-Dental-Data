@@ -1,0 +1,50 @@
+{
+  "schema_valid": 1.0,
+  "status_correct": 0.2916666666666667,
+  "citation_ids_valid": 1.0,
+  "exact_match": 0.2638888888888889,
+  "quoted_draft_count": 3,
+  "draft_quotes_verbatim_fraction": 0.6666666666666666,
+  "reference_evidence_match": 0.2916666666666667,
+  "reference_proof_coverage": 0.014705882352941176,
+  "grounding_metric_scope": "Verbatim quote and reference-span checks only; semantic support requires source-reading.",
+  "count": 72,
+  "per_status": {
+    "draft": {
+      "support": 52,
+      "precision": 0.6666666666666666,
+      "recall": 0.038461538461538464,
+      "f1": 0.07272727272727274
+    },
+    "insufficient_evidence": {
+      "support": 20,
+      "precision": 0.2753623188405797,
+      "recall": 0.95,
+      "f1": 0.42696629213483145
+    }
+  },
+  "status_macro_f1": 0.2498467824310521,
+  "confusion_matrix": [
+    [
+      2,
+      50,
+      0
+    ],
+    [
+      1,
+      19,
+      0
+    ]
+  ],
+  "confusion_labels": {
+    "rows": [
+      "draft",
+      "insufficient_evidence"
+    ],
+    "columns": [
+      "draft",
+      "insufficient_evidence",
+      "invalid"
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "a1_available_xray_01",
+    "group_id": "a1_available_xray",
+    "category": "service",
+    "split": "test",
+    "input": {
+      "message": "Bên mình có chụp phim toàn cảnh không?",
+      "history": [],
+      "attachments": [],
+      "capabilities": {
+        "A2": true,
+        "A5": true,
+        "lookup_clinic_service": true
+      }
+    },
+    "expected": {
+      "decision": "route",
+      "targets": [
+        "lookup_clinic_service"
+      ],
+      "service_topics": [
+        "availability"
+      ],
+      "image_ids": [],
+      "resolved_request": "Tra cứu dịch vụ chụp phim nha khoa tại phòng khám.",
+      "message": null
+    },
+    "raw_output": "{\"decision\":\"clarify\",\"targets\":[],\"service_topics\":[],\"image_ids\":[],\"resolved_request\":null,\"message\":\"Bạn muốn kiểm tra phòng khám có cung cấp dịch vụ nào?\"}",
+    "elapsed_seconds": 3.4032,
+    "generated_tokens": 40,
+    "raw_json_valid": true,
+    "schema_valid": true,
+    "context_valid": true,
+    "decision_correct": false,
+    "targets_correct": false,
+    "service_topics_correct": false,
+    "image_ids_correct": true,
+    "control_exact": false,
+    "predicted": {
+      "decision": "clarify",
+      "targets": [],
+      "service_topics": [],
+      "image_ids": [],
+      "resolved_request": null,
+      "message": "Bạn muốn kiểm tra phòng khám có cung cấp dịch vụ nào?"
+    },
+    "error": null
+  },
+  {
+    "id": "a1_ctx_same_price_01",
+    "group_id": "a1_ctx_same_price",
+    "category": "context",
+    "split": "test",
+    "input": {
+      "message": "Giá bao nhiêu ạ?",
+      "history": [
+        {
+          "role": "user",
+          "content": "Mình muốn tìm hiểu làm máng nhai."
+        },
+        {
+          "role": "assistant",
+          "content": "Bạn cứ hỏi thêm về chủ đề này."
+        }
+      ],
+      "attachments": [],
+      "capabilities": {
+        "A2": true,
+        "A5": true,
+        "lookup_clinic_service": true
+      }
+    },
+    "expected": {
+      "decision": "route",
+      "targets": [
+        "lookup_clinic_service"
+      ],
+      "service_topics": [
+        "pricing"
+      ],
+      "image_ids": [],
+      "resolved_request": "Tra cứu giá làm máng nhai tại phòng khám.",
+      "message": null
+    },
+    "raw_output": "{\"decision\":\"clarify\",\"targets\":[],\"service_topics\":[],\"image_ids\":[],\"resolved_request\":null,\"message\":\"Bạn muốn tra giá dịch vụ nào?\"}",
+    "elapsed_seconds": 2.9389,
+    "generated_tokens": 34,
+    "raw_json_valid": true,
+    "schema_valid": true,
+    "context_valid": true,
+    "decision_correct": false,
+    "targets_correct": false,
+    "service_topics_correct": false,
+    "image_ids_correct": true,
+    "control_exact": false,
+    "predicted": {
+      "decision": "clarify",
+      "targets": [],
+      "service_topics": [],
+      "image_ids": [],
+      "resolved_request": null,
+      "message": "Bạn muốn tra giá dịch vụ nào?"
+    },
+    "error": null
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "selected": {
+    "run": "day28_run02",
+    "epoch": 1,
+    "control_exact": 38,
+    "validation_count": 59,
+    "selection_score": [
+      0.6440677966101694,
+      0.711948051948052,
+      0.9830508474576272,
+      1.0
+    ],
+    "adapter_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run02\\epoch_01\\adapter",
+    "dataset_manifest_sha256": "1d1b32c0b41671bd725d4f0f4c8e4d4aef0098e2a04597ae06321978dd292bdb",
+    "test_evaluated": false
+  },
+  "candidates": [
+    {
+      "run": "day28_run01",
+      "epoch": 2,
+      "control_exact": 24,
+      "validation_count": 59,
+      "selection_score": [
+        0.4067796610169492,
+        0.22666666666666666,
+        0.9322033898305084,
+        0.9322033898305084
+      ],
+      "adapter_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run01\\epoch_02\\adapter",
+      "dataset_manifest_sha256": "1d1b32c0b41671bd725d4f0f4c8e4d4aef0098e2a04597ae06321978dd292bdb",
+      "test_evaluated": false
+    },
+    {
+      "run": "day28_run02",
+      "epoch": 1,
+      "control_exact": 38,
+      "validation_count": 59,
+      "selection_score": [
+        0.6440677966101694,
+        0.711948051948052,
+        0.9830508474576272,
+        1.0
+      ],
+      "adapter_dir": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run02\\epoch_01\\adapter",
+      "dataset_manifest_sha256": "1d1b32c0b41671bd725d4f0f4c8e4d4aef0098e2a04597ae06321978dd292bdb",
+      "test_evaluated": false
+    }
+  ],
+  "rule": "control_exact, decision_macro_f1, context_valid, schema_valid; ties keep earlier run",
+  "test_evaluated": false,
+  "runtime_integrated": false
+}

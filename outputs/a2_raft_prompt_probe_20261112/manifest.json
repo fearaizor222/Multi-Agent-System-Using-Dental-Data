@@ -1,0 +1,13 @@
+{
+  "count": 32,
+  "generations": 64,
+  "dataset_files_sha256": {
+    "schema.json": "0875a7448d2ed2c0433b4b2e6ac4627180d3d0b70afd31f5194dc8fe99305ecf",
+    "seed_review.json": "9a13272ce682fa3d3d1408d56a7b1b0bf97f3fff54a69fb140e6f994897d2b78",
+    "train.jsonl": "627ebd800dd86b7cf35df87fbf753ba6473480f7b39d839714c0015c381e7bf9",
+    "train.metadata.jsonl": "aa9bc8fa71b661065720c6aaf5c8cae1d163dc4b5b7bdf2f78aafc48cd0f8d23",
+    "val.jsonl": "23ebc58df4acde792b41d41c0bbb29bdf5a217326d849447697fc94944761b16",
+    "val.metadata.jsonl": "b3f274edebc4c58539763ffcf3c65175b9480feb71905a5867f6bd36e740cd35"
+  },
+  "scope": "32 selected validation variants from 4 families and 12 distinct questions; paired same A2 v3 weights, contexts, questions and decoding; prompt/schema differs. No training."
+}

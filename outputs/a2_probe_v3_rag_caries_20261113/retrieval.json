@@ -1,0 +1,687 @@
+{
+  "question": "Sâu răng là gì?",
+  "evidence": [
+    {
+      "evidence_id": "I1",
+      "source_id": "DPH-CH19",
+      "chunk_id": "chunk-0cb2cd547fcd6eba308deeeb43fdad982d7bab4c4fbbe7c4a5ccb6d90497a2dc",
+      "warehouse": "internal",
+      "title": "Chapter 19: Current Oral Epidemiological Findings",
+      "content": "Chapter 19: Current Oral Epidemiological Findings\nChapter 19: Current Oral Epidemiological Findings\nremain in some population\n groups.6\n\n268  UNIT III • DENTAL HYGIENE RESEARCH\nEPIDEMIOLOGY  See Table 19-2 and Figure 19-2  for information\n about tooth loss for adults age 20 to 64 years \nand other selected population groups. The same populations\n that suffer from severe generalized periodontitis \nhave fewer remaining teeth than other populations.\nRISK FACTORS  Risk factors for tooth loss include dental \ncaries. In addition, tooth loss can be caused by periodontal \ndiseases associated with the risk indicators of age, male \ngender, smoking, lack of professional maintenance, \ninadequate oral hygiene, diabetes mellitus, hypertension, \nrheumatoid arthritis, and anterior tooth type. Trauma can \nDid You Know?\nMany individuals believe that if one of their parents lost all \nof their teeth, they are destined for the same fate, but as \nnoted, only a very small percentage of the US population \nexperiences total tooth loss.\nalso lead to tooth loss. Maintaining a healthy dentition and \nwearing athletic mouth guards during sporting events are \nthe best ways to avoid tooth loss.\nDental Caries\nDental caries, commonly referred to as tooth decay, is one \nof the most common of all diseases, second only to the \ncommon cold. It usually occurs in children and young \nadults, but any person can experience it. It is a common \ncause of tooth loss in young people. Bacterial plaque converts\n all foods, especially sugar and starches, into acids that \nsubsequently dissolve the enamel surface of the tooth, \ncalled demineralization. If left untreated, demineralization \nprogresses to",
+      "metadata": {
+        "schema_version": "public-chunk-v1",
+        "chunk_id": "chunk-0cb2cd547fcd6eba308deeeb43fdad982d7bab4c4fbbe7c4a5ccb6d90497a2dc",
+        "document_id": "DPH-CH19",
+        "document_revision": "145c25777ff1c52f9f795c8213badd1c34fa1f311796ffa4a144d1741bb0c7d3",
+        "section_id": "DPH-CH19:s0001",
+        "heading_path": [
+          "Chapter 19: Current Oral Epidemiological Findings"
+        ],
+        "source": "dph",
+        "source_url": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+        "language": "en",
+        "token_count": 389,
+        "spans": [
+          {
+            "block_id": "DPH-CH19:b00013",
+            "start": 0,
+            "end": 1577
+          }
+        ],
+        "locators": [
+          {
+            "url": null,
+            "source_id": null,
+            "path": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+            "pdf_page": 284,
+            "printed_page": null,
+            "bbox": null
+          }
+        ],
+        "chunking": {
+          "algorithm": "blocks-with-source-spans-v2",
+          "max_tokens": 380,
+          "overlap_words": 16,
+          "tokenizer": "intfloat/multilingual-e5-small",
+          "passage_prefix": "passage: "
+        },
+        "quality_flags": [],
+        "warehouse": "internal",
+        "source_type": "internal",
+        "doc_level": "section",
+        "parent_id": "DPH-CH19",
+        "content_includes_title": true,
+        "import_format": "public-chunk-v1",
+        "source_name": "Chapter 19: Current Oral Epidemiological Findings",
+        "source_validation": "Imported locators retained; original PDFs not verified by this adapter.",
+        "imported_token_count": 380,
+        "token_count_recalculated": true,
+        "retrieval": {
+          "method": "bilingual_hybrid_rerank_v1",
+          "rrf_k": 60,
+          "dense_weight": 0.6,
+          "bm25_weight": 0.4,
+          "candidate_k": 30,
+          "dense_rank": 27,
+          "dense_score": 0.8364735841751099,
+          "rrf_rank": 27,
+          "rrf_score": 0.006896551724137931,
+          "rerank_logit": 2.2242655754089355,
+          "reranker": "BAAI/bge-reranker-v2-m3",
+          "reranker_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+          "query_variants": [
+            {
+              "text": "Sâu răng là gì?",
+              "language": "vi"
+            },
+            {
+              "text": "What is dental caries?",
+              "language": "en"
+            }
+          ],
+          "rerank_query": "What is dental caries?",
+          "language_rank": 1,
+          "candidate_k_per_query": 30,
+          "language_rank_score": 0.01639344262295082
+        }
+      }
+    },
+    {
+      "evidence_id": "I2",
+      "source_id": "DPH-CH19",
+      "chunk_id": "chunk-787d4cb08a75d3997c7d2aa343caa8f5557385fe3a6314578b8299678cde66af",
+      "warehouse": "internal",
+      "title": "Chapter 19: Current Oral Epidemiological Findings",
+      "content": "Chapter 19: Current Oral Epidemiological Findings\nChapter 19: Current Oral Epidemiological Findings\ncaries \nand nursing bottle decay, is a syndrome characterized \nby severe decay in the teeth of infants or young children. \nFrequent and prolonged drinking from a bottle (especially \nat bedtime) increases the risk of this disease, which first \n­affects the maxillary primary anterior teeth.\nTable 19–3  Percentage of Third Grade Students with Untreated Tooth Decay\nSort list by: State Percent with Untreated Tooth Decay\nState\nSchool Year\nPercent with  \nUntreated  \nTooth Decay\nResponse \nRate1 \n(%)\nPercent eligible for the  \nNational School Lunch Program2\nSample\nState\nSchools3\nStudents4\nAlabama\n2005–2007\n%\nCI\nN\n27.6\n(25.5–29.7)\n9301\n73\n51\nNR\n56\nAlaska\n2007–2008\n%\nCI\nN\n26.25\n(23.2–29.3)\n826\n48\n42\nNR\n46\nArizona\n2009–2010\n%\nCI\nN\n40.4\n(36.8–44.1)\n3150\n37\n51\nNR\n48\n(continued)\n\n270  UNIT III • DENTAL HYGIENE RESEARCH\nState\nSchool Year\nPercent with  \nUntreated  \nTooth Decay\nResponse \nRate1 \n(%)\nPercent eligible for the  \nNational School Lunch Program2\nSample\nState\nSchools3\nStudents4\nArkansas\n2009–2010\n%\nCI\nN\n29.05\n(27.1–30.0)\n4239\n53\n55\nNR\n65\nCalifornia\n2004–2005\n%\nCI\nN\n28.7\n(27.0–30.4)\n10444\n52\n64\nNR\n57\nColorado\n2006–2007\n%\nCI\nN\n24.5\n(23.0–26.1)\n3012\n79\n40\nNR\n41\nConnecticut\n2006–2007\n%\nCI\nN\n17.8\n(14.8–20.8)\n8755\n81\n37\nNR\n35\nDelaware\n2001–2002\n%\nCI\nN\n29.9",
+      "metadata": {
+        "schema_version": "public-chunk-v1",
+        "chunk_id": "chunk-787d4cb08a75d3997c7d2aa343caa8f5557385fe3a6314578b8299678cde66af",
+        "document_id": "DPH-CH19",
+        "document_revision": "145c25777ff1c52f9f795c8213badd1c34fa1f311796ffa4a144d1741bb0c7d3",
+        "section_id": "DPH-CH19:s0001",
+        "heading_path": [
+          "Chapter 19: Current Oral Epidemiological Findings"
+        ],
+        "source": "dph",
+        "source_url": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+        "language": "en",
+        "token_count": 385,
+        "spans": [
+          {
+            "block_id": "DPH-CH19:b00016",
+            "start": 0,
+            "end": 1261
+          }
+        ],
+        "locators": [
+          {
+            "url": null,
+            "source_id": null,
+            "path": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+            "pdf_page": 286,
+            "printed_page": null,
+            "bbox": null
+          }
+        ],
+        "chunking": {
+          "algorithm": "blocks-with-source-spans-v2",
+          "max_tokens": 380,
+          "overlap_words": 16,
+          "tokenizer": "intfloat/multilingual-e5-small",
+          "passage_prefix": "passage: "
+        },
+        "quality_flags": [],
+        "warehouse": "internal",
+        "source_type": "internal",
+        "doc_level": "section",
+        "parent_id": "DPH-CH19",
+        "content_includes_title": true,
+        "import_format": "public-chunk-v1",
+        "source_name": "Chapter 19: Current Oral Epidemiological Findings",
+        "source_validation": "Imported locators retained; original PDFs not verified by this adapter.",
+        "imported_token_count": 376,
+        "token_count_recalculated": true,
+        "retrieval": {
+          "method": "bilingual_hybrid_rerank_v1",
+          "rrf_k": 60,
+          "dense_weight": 0.6,
+          "bm25_weight": 0.4,
+          "candidate_k": 30,
+          "dense_rank": 11,
+          "dense_score": 0.8415771722793579,
+          "rrf_rank": 15,
+          "rrf_score": 0.008450704225352112,
+          "rerank_logit": 0.30693885684013367,
+          "reranker": "BAAI/bge-reranker-v2-m3",
+          "reranker_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+          "query_variants": [
+            {
+              "text": "Sâu răng là gì?",
+              "language": "vi"
+            },
+            {
+              "text": "What is dental caries?",
+              "language": "en"
+            }
+          ],
+          "rerank_query": "What is dental caries?",
+          "language_rank": 2,
+          "candidate_k_per_query": 30,
+          "language_rank_score": 0.016129032258064516
+        }
+      }
+    },
+    {
+      "evidence_id": "I3",
+      "source_id": "DPH-CH04",
+      "chunk_id": "chunk-dd90d9c490c6bd65ab8e228997fecc2fbf813dc67b2db22460f62b1d3b803053",
+      "warehouse": "internal",
+      "title": "Chapter 4: Dental Hygiene Care Delivery in the Global Community",
+      "content": "Chapter 4: Dental Hygiene Care Delivery in the Global Community\nChapter 4: Dental Hygiene Care Delivery in the Global Community\norientation, play an \nimportant role in providing access to oral health care. The \nmajority of the world’s dental hygienists practice in societies\n that have a high demand for prevention, esthetics, and \nDid You Know?\nDental caries and periodontal diseases are the most  \nwidespread of all human diseases.\nAnother data bank is maintained by the Fédération \nDentaire lnternationale (FDI), the organization that represents\n the international community of dentists.10 In\n\nepidemiological evidence in DMFT scores, results showed \nthat existing epidemiological data are inadequate and the \nstudies performed to gather the data are not comparable. \nNo universally accepted criteria appear to be used for the \ndiagnosis of caries, and most international surveys lack \ninterexaminer calibration to ensure consistency.16 In addition\n, sampling facilities tend to lack dental chairs, lights, \nand a supply of compressed air. These factors lead to lower \nestimates of caries experience.\naddition to some epidemiological data on nearly 130 countries\n, the FDI Web site provides detailed information \nabout dentistry and the dental team in participating member\n countries including demographics and numbers concerning\n the dental workforce, institutions for dental and \ndental hygiene education, type of oral health care system, \nfluoridation levels, existence of a public health policy, and \ninformation on free dental coverage for children. However, \nfigures pertaining to the dental hygienist workforce must \nbe viewed with caution, especially for countries in which \nthe profession has not been officially introduced or schools \nare reported but are not accredited.\nThe Council of European Chief Dental Officers \n(CECDO) maintains another",
+      "metadata": {
+        "schema_version": "public-chunk-v1",
+        "chunk_id": "chunk-dd90d9c490c6bd65ab8e228997fecc2fbf813dc67b2db22460f62b1d3b803053",
+        "document_id": "DPH-CH04",
+        "document_revision": "db1516d9187f5755bb6ced899166d0b77bfc22399992e82db97e61f645fe0364",
+        "section_id": "DPH-CH04:s0001",
+        "heading_path": [
+          "Chapter 4: Dental Hygiene Care Delivery in the Global Community"
+        ],
+        "source": "dph",
+        "source_url": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+        "language": "en",
+        "token_count": 393,
+        "spans": [
+          {
+            "block_id": "DPH-CH04:b00006",
+            "start": 0,
+            "end": 1729
+          }
+        ],
+        "locators": [
+          {
+            "url": null,
+            "source_id": null,
+            "path": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+            "pdf_page": 65,
+            "printed_page": null,
+            "bbox": null
+          }
+        ],
+        "chunking": {
+          "algorithm": "blocks-with-source-spans-v2",
+          "max_tokens": 380,
+          "overlap_words": 16,
+          "tokenizer": "intfloat/multilingual-e5-small",
+          "passage_prefix": "passage: "
+        },
+        "quality_flags": [],
+        "warehouse": "internal",
+        "source_type": "internal",
+        "doc_level": "section",
+        "parent_id": "DPH-CH04",
+        "content_includes_title": true,
+        "import_format": "public-chunk-v1",
+        "source_name": "Chapter 4: Dental Hygiene Care Delivery in the Global Community",
+        "source_validation": "Imported locators retained; original PDFs not verified by this adapter.",
+        "imported_token_count": 380,
+        "token_count_recalculated": true,
+        "retrieval": {
+          "method": "bilingual_hybrid_rerank_v1",
+          "rrf_k": 60,
+          "dense_weight": 0.6,
+          "bm25_weight": 0.4,
+          "candidate_k": 30,
+          "dense_rank": 2,
+          "dense_score": 0.8523073196411133,
+          "rrf_rank": 7,
+          "rrf_score": 0.00967741935483871,
+          "rerank_logit": 0.23670844733715057,
+          "reranker": "BAAI/bge-reranker-v2-m3",
+          "reranker_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+          "query_variants": [
+            {
+              "text": "Sâu răng là gì?",
+              "language": "vi"
+            },
+            {
+              "text": "What is dental caries?",
+              "language": "en"
+            }
+          ],
+          "rerank_query": "What is dental caries?",
+          "language_rank": 3,
+          "candidate_k_per_query": 30,
+          "language_rank_score": 0.015873015873015872
+        }
+      }
+    },
+    {
+      "evidence_id": "I4",
+      "source_id": "DPH-CH19",
+      "chunk_id": "chunk-dd7f3d328a2c1287a3822b01b31df4d24a3b3d3212bd2386a4c3ddcb112e632a",
+      "warehouse": "internal",
+      "title": "Chapter 19: Current Oral Epidemiological Findings",
+      "content": "Chapter 19: Current Oral Epidemiological Findings\nChapter 19: Current Oral Epidemiological Findings\nsubsequently dissolve the enamel surface of the tooth, \ncalled demineralization. If left untreated, demineralization \nprogresses to form a “cavity.” Most recent efforts have \nfocused on the remineralization of demineralized tooth \nsurface, as opposed to restoring the subsequent cavity.\nEPIDEMIOLOGY  Dental caries remains the most prevalent \nchronic disease in both children and adults even though \nit is largely preventable. Although caries has significantly \nTable 19–2  Tooth Loss for Adults Ages 20 to 64 Years, by State\nState\nYes %\nNo %\nAlabama\n54.7\n45.3\nAlaska\n45.1\n54.9\nAmerican Samoa\n–\n–\nArizona\n33.8\n66.2\nArkansas\n50.4\n49.6\nCalifornia\n33.6\n66.4\nColorado\n35.4\n64.6\nConnecticut\n38.3\n61.7\nDelaware\n42.4\n57.6\nDC\n45.3\n54.7\nFlorida\n41.5\n58.5\nGeorgia\n49.2\n50.8\nGuam\nN/A\nN/A\nHawaii\n30.7\n69.3\n(continued)\nState\nYes %\nNo %\nIdaho\n38.1\n61.9\nIllinois\n45.5\n54.5\nIndiana\n45.1\n54.9\nIowa\n42.3\n57.7\nKansas\n42.7\n57.3\nKentucky\n52.1\n47.9\nLouisiana\n44.7\n55.3\nMaine\n46.9\n53.1\nMaryland\n40.9\n59.1\nMassachusetts\n43.9\n56.1\nMichigan\n39.2\n60.8\nMinnesota\n36.6\n63.4\nMississippi\n58.2\n41.8\nMissouri\n53.5\n46.5\nFIGURE 19–2  Early Childhood Caries\nNRT/Shutterstock\n\nState\nYes %\nNo %\nMontana\n41.3\n58.7\nNebraska\n38.6\n61.4\nNevada\n42.1\n57.9\nNew Hampshire\n43.4\n56.6\nNew Jersey\n43.4\n56.6\nNew Mexico\n41.2\n58.8",
+      "metadata": {
+        "schema_version": "public-chunk-v1",
+        "chunk_id": "chunk-dd7f3d328a2c1287a3822b01b31df4d24a3b3d3212bd2386a4c3ddcb112e632a",
+        "document_id": "DPH-CH19",
+        "document_revision": "145c25777ff1c52f9f795c8213badd1c34fa1f311796ffa4a144d1741bb0c7d3",
+        "section_id": "DPH-CH19:s0001",
+        "heading_path": [
+          "Chapter 19: Current Oral Epidemiological Findings"
+        ],
+        "source": "dph",
+        "source_url": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+        "language": "en",
+        "token_count": 389,
+        "spans": [
+          {
+            "block_id": "DPH-CH19:b00014",
+            "start": 0,
+            "end": 1276
+          }
+        ],
+        "locators": [
+          {
+            "url": null,
+            "source_id": null,
+            "path": "data/raw/Dental_Public_Health_n_Research_-_Nathe_Christine.pdf",
+            "pdf_page": 285,
+            "printed_page": null,
+            "bbox": null
+          }
+        ],
+        "chunking": {
+          "algorithm": "blocks-with-source-spans-v2",
+          "max_tokens": 380,
+          "overlap_words": 16,
+          "tokenizer": "intfloat/multilingual-e5-small",
+          "passage_prefix": "passage: "
+        },
+        "quality_flags": [],
+        "warehouse": "internal",
+        "source_type": "internal",
+        "doc_level": "section",
+        "parent_id": "DPH-CH19",
+        "content_includes_title": true,
+        "import_format": "public-chunk-v1",
+        "source_name": "Chapter 19: Current Oral Epidemiological Findings",
+        "source_validation": "Imported locators retained; original PDFs not verified by this adapter.",
+        "imported_token_count": 380,
+        "token_count_recalculated": true,
+        "retrieval": {
+          "method": "adjacent_context_v1",
+          "parent_hit_id": "chunk-0cb2cd547fcd6eba308deeeb43fdad982d7bab4c4fbbe7c4a5ccb6d90497a2dc",
+          "overlap_characters": 129
+        }
+      }
+    }
+  ],
+  "retrieval": {
+    "query_expansion": {
+      "queries": [
+        {
+          "text": "Sâu răng là gì?",
+          "language": "vi"
+        },
+        {
+          "text": "What is dental caries?",
+          "language": "en"
+        }
+      ],
+      "translator": {
+        "repo": "facebook/nllb-200-distilled-600M",
+        "revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+        "device": "cpu",
+        "quantization": "dynamic_int8_linear",
+        "purpose": "search_query_translation_only"
+      },
+      "protected_input": "dental caries là gì?",
+      "protected_terms": [
+        {
+          "source": "sâu răng",
+          "target": "dental caries"
+        }
+      ],
+      "error": null
+    },
+    "translation_warnings": [],
+    "relevance_filter": {
+      "minimum_logit": 0.0,
+      "dropped": [
+        {
+          "chunk_id": "chunk-135c12cba39f2604352302c1c8ef85c6e12db69d5e0bf0e358842e03400344e9",
+          "rerank_logit": -1.5968027114868164
+        },
+        {
+          "chunk_id": "chunk-a0deb7308a6bab705ded58119341251435ae5b96415a3bf9775c44e71eac3e3b",
+          "rerank_logit": -3.4308056831359863
+        },
+        {
+          "chunk_id": "chunk-0cb275c0a8530c9c2884abcff5a343f9bb3205ae8dace0fd7a17276df24ec2b5",
+          "rerank_logit": -4.044191360473633
+        },
+        {
+          "chunk_id": "chunk-8a4d182e2e28e88ab9a01d1c5067daab59507b97fa337b0204dfa85b6dfa8c6b",
+          "rerank_logit": -4.86078405380249
+        },
+        {
+          "chunk_id": "chunk-0e0e98e28c56285c6c3ec0a5ab0b815550d5bb2aa074d5ac51db8a11f1d653d2",
+          "rerank_logit": -5.1465044021606445
+        },
+        {
+          "chunk_id": "chunk-9a43747cce88b5a756dc9f0f2fa6bbcfd98bb0c3044c9714b50c518e78f8d83c",
+          "rerank_logit": -5.221234321594238
+        },
+        {
+          "chunk_id": "chunk-b887dd56284bee1b029d120288a07b1f75312669f2884c1e7a7a82474b8f32ac",
+          "rerank_logit": -5.289045810699463
+        },
+        {
+          "chunk_id": "chunk-74caa8e7ff700413039d69eb9ce8470fd8be3de4ecac9ccb7f1810fc346fa5e0",
+          "rerank_logit": -5.319591522216797
+        },
+        {
+          "chunk_id": "chunk-4238d5b3b3cba0d90d11f3fd3e4460dad9abc3e67ab84901697e41bba25b8383",
+          "rerank_logit": -5.520533561706543
+        },
+        {
+          "chunk_id": "chunk-80603a5b7dc9ce917acfdc0d3e08558e5695d31bf4bb8c14fe82d148dcef3a1d",
+          "rerank_logit": -5.579848289489746
+        },
+        {
+          "chunk_id": "chunk-a7ad7474918a6405c41c9d3e1d1db63ae071bf6cbee9c0987a8d630d3e6441fc",
+          "rerank_logit": -5.692134857177734
+        },
+        {
+          "chunk_id": "chunk-7896790d57880f974604e7ea2426ca3c8650ef88bf000f723fe81bcc634f5ffc",
+          "rerank_logit": -5.751266956329346
+        },
+        {
+          "chunk_id": "chunk-b9559f3fa73eaf0772ad91a95ccd1b7401bb32c056e624d3c10575c0240be795",
+          "rerank_logit": -5.844243049621582
+        },
+        {
+          "chunk_id": "chunk-07fc09c56cabe28096e07e67faf07e58d62dcb0be50f49ce115283df4de177cf",
+          "rerank_logit": -5.85988187789917
+        },
+        {
+          "chunk_id": "chunk-1242d6c1575c0e7288ad5f54273d713da203b4e23840090341c08045e3aace3f",
+          "rerank_logit": -5.963326930999756
+        },
+        {
+          "chunk_id": "chunk-bc2a592af1d2485193a8be3a5bd05ee1d4afc40c005b17318096752d813fabfa",
+          "rerank_logit": -6.102365493774414
+        },
+        {
+          "chunk_id": "chunk-3c102570d13d48c7f9d129f341d9448adf6dbdd6076f359cd17c29cdda1dfbce",
+          "rerank_logit": -6.2988691329956055
+        },
+        {
+          "chunk_id": "chunk-c592ce04d6a8b0c7590dfaf5e494ec5179c537277f21179f94a0f1d20bd39a7e",
+          "rerank_logit": -6.303736686706543
+        },
+        {
+          "chunk_id": "chunk-0dfb7fa4b4b4b1180016a0118cfac23c672f7aa7b1442f25df2f760a0fa87230",
+          "rerank_logit": -6.381829261779785
+        },
+        {
+          "chunk_id": "chunk-e696b225671e48ce719acc2eb16feb02dc9176f3c457aef6059891814d3c2a9e",
+          "rerank_logit": -6.457818508148193
+        },
+        {
+          "chunk_id": "chunk-9f8732025d852303cb3e4f2eddcc8c480af86e18162d4c080e330a542d65edd4",
+          "rerank_logit": -6.502259254455566
+        },
+        {
+          "chunk_id": "chunk-86e98fd3804ac106e262d7ad24dcef53af0a3431b04108fc9f96d7684a2e8aa1",
+          "rerank_logit": -6.625301361083984
+        },
+        {
+          "chunk_id": "chunk-9575799f6027340ec13f555c5df818b61c1d5bce7bb7f2eaf68b3c3ad56b2cc7",
+          "rerank_logit": -6.650279521942139
+        },
+        {
+          "chunk_id": "chunk-56364c7c8ffebc9a9cad23be537f1ca1a07d93c59e7a6d3681c30de98fa3f55b",
+          "rerank_logit": -6.676605224609375
+        },
+        {
+          "chunk_id": "chunk-e4e7dec3ef0ef604705a873bbb9bb51929a0c7e62d2578d225f244ef50042f96",
+          "rerank_logit": -6.697648525238037
+        },
+        {
+          "chunk_id": "chunk-6992db023a64151f1e061baecbc815affa6340bf3258caa230a5c5b464cb160b",
+          "rerank_logit": -6.903870105743408
+        },
+        {
+          "chunk_id": "chunk-f49d16cdeed5bce70c80a20e973f83c5a1da3927f5b9766943fda12fc574c0e5",
+          "rerank_logit": -6.962275505065918
+        },
+        {
+          "chunk_id": "chunk-72a6c2ec2be1a9f6982f742d8c90597a9c9c4d696ba9d1d6dbab2605f5ee3410",
+          "rerank_logit": -7.017534255981445
+        },
+        {
+          "chunk_id": "chunk-cf618862ce32f8fc4df91f018facf57b9847f90eabcb369853db3e5711268a24",
+          "rerank_logit": -7.499260902404785
+        },
+        {
+          "chunk_id": "chunk-5b1e2394572078cf2d6cd50b8b442630dceb7f5f9df7105711c476d544ba6789",
+          "rerank_logit": -7.610228061676025
+        },
+        {
+          "chunk_id": "chunk-9b20068401e09e137ad8f726340f7c8e8ee18f59eab9f6c57b5ad321833c1d57",
+          "rerank_logit": -0.2528044879436493
+        },
+        {
+          "chunk_id": "chunk-866203e8f94112e0b664fa468512f1f2352f7f6e3ac870e4b12cfa5916ecf9a9",
+          "rerank_logit": -0.3624351918697357
+        },
+        {
+          "chunk_id": "chunk-6fe6286f1370f2a046cc168c689e8317137d28c68a4c800b976b18df9f450a56",
+          "rerank_logit": -0.3851196765899658
+        },
+        {
+          "chunk_id": "chunk-634aa0603270d85ef820ea4ab6a0b681b6c8dbd54b4b9e8076bb294403c2d567",
+          "rerank_logit": -0.4648926258087158
+        },
+        {
+          "chunk_id": "chunk-80bf38d27824ad79fd3f4cac0eebac5ebe623b6c80a751224606d4bb2fd99830",
+          "rerank_logit": -0.580990195274353
+        },
+        {
+          "chunk_id": "chunk-ffa98d9f536a675bdb208ec753800f2bcb188b681272f3a92e45414ef6eb7d0a",
+          "rerank_logit": -0.7656999826431274
+        },
+        {
+          "chunk_id": "chunk-efd1e628052673da241612d008bff3b35b332ac51ba7bb7379504b3dcdfcec4c",
+          "rerank_logit": -0.8178927898406982
+        },
+        {
+          "chunk_id": "chunk-839671486eb52c716d17d607ea3e7b554b2ea64826440ab7958b1ca661e9032d",
+          "rerank_logit": -0.9145028591156006
+        },
+        {
+          "chunk_id": "chunk-fcc196acfa038ee61b0d798834f53efed8017fa715683b3d933063d93027ed9c",
+          "rerank_logit": -0.9508841633796692
+        },
+        {
+          "chunk_id": "chunk-3b81c40d4b78c7a56049b11738f8d88a4fafa663f3177b7c210fe35efa27f78a",
+          "rerank_logit": -0.9997057914733887
+        },
+        {
+          "chunk_id": "chunk-11885bd4b2c41ce2ba48eb1cdc3794b71a1aa10d89818c535c5e36ec6e47d8da",
+          "rerank_logit": -1.1043888330459595
+        },
+        {
+          "chunk_id": "chunk-c629bfd18f68ef33957eade7de279a37eadcd20b9a9ba21074bb134b899840c6",
+          "rerank_logit": -1.287813663482666
+        },
+        {
+          "chunk_id": "chunk-64d91bf544dfbf163e3276ff57dd2d9f2e1ef011f2cd369b5c7ac45265571408",
+          "rerank_logit": -1.3578141927719116
+        },
+        {
+          "chunk_id": "chunk-72ccf122ca99343ead4ae5f6d143da0d91a5ddbd8118ba264f418afc6848f23f",
+          "rerank_logit": -1.4732716083526611
+        },
+        {
+          "chunk_id": "chunk-5a8087dcff8246c34bab33aa24be9427eaddcf906df4d17b1f8fd69186316776",
+          "rerank_logit": -1.6476771831512451
+        },
+        {
+          "chunk_id": "chunk-1f8aa24ebb156aa9c1ba2779c2a39153183a6b25e5b6faf2dc6a8169282ff313",
+          "rerank_logit": -1.6567134857177734
+        },
+        {
+          "chunk_id": "chunk-9a84d7467517959339aba1176dfc32d0335e87c72876ddf963dab0284ec9b516",
+          "rerank_logit": -1.7694072723388672
+        },
+        {
+          "chunk_id": "chunk-2074b6c6309f620c22511f77ec7c69817acd21e8226473565ca437592dbcdbbe",
+          "rerank_logit": -1.8934340476989746
+        },
+        {
+          "chunk_id": "chunk-a034449e5989ece34ef3ef6937c33c05195b6ef570cefcdb673de49a3fb7d0bc",
+          "rerank_logit": -1.970495581626892
+        },
+        {
+          "chunk_id": "chunk-32f488beffe4f1a9f31aa9b86de74e35f67b083aeed489e9b3016ba17dcc0798",
+          "rerank_logit": -1.9803085327148438
+        },
+        {
+          "chunk_id": "chunk-c7270ecf5ef8d6a846057472fbed4fd32b5a93b0cdab1f8407c5b3faad44f24c",
+          "rerank_logit": -2.8130054473876953
+        },
+        {
+          "chunk_id": "chunk-47f29a78a919ec969fe03c7d5603e181dcf8e876901cdb85358caa1241349e10",
+          "rerank_logit": -5.227181911468506
+        },
+        {
+          "chunk_id": "chunk-12c4dca4563253f10d4887d8e899db7c0a87442c9df7a53b2758bec47035290e",
+          "rerank_logit": -5.4304118156433105
+        },
+        {
+          "chunk_id": "chunk-94bda756a956339930af553fab8624dfa4c193ca72cecd503147d6e8636ac70c",
+          "rerank_logit": -6.269656658172607
+        },
+        {
+          "chunk_id": "chunk-c6db371179fdb0d16da08fcd5fff827cb948dcd0a1dbbd184923a8210aee922a",
+          "rerank_logit": -6.503537178039551
+        },
+        {
+          "chunk_id": "chunk-c9dd38184ac285dda25afab7c3f81ca7c2dfb9f382e17dbb817894641fbde847",
+          "rerank_logit": -7.074312210083008
+        },
+        {
+          "chunk_id": "chunk-a47d1d0329920fe03996598643ffa022b65f377cfac0ce1ff9691b8a20c75c88",
+          "rerank_logit": -7.101638317108154
+        }
+      ]
+    },
+    "strategy": "bilingual_hybrid_rerank_v1",
+    "branches": [
+      {
+        "query": {
+          "text": "Sâu răng là gì?",
+          "language": "vi"
+        },
+        "candidate_ids": [
+          "chunk-135c12cba39f2604352302c1c8ef85c6e12db69d5e0bf0e358842e03400344e9",
+          "chunk-1242d6c1575c0e7288ad5f54273d713da203b4e23840090341c08045e3aace3f",
+          "chunk-8a4d182e2e28e88ab9a01d1c5067daab59507b97fa337b0204dfa85b6dfa8c6b",
+          "chunk-b887dd56284bee1b029d120288a07b1f75312669f2884c1e7a7a82474b8f32ac",
+          "chunk-a0deb7308a6bab705ded58119341251435ae5b96415a3bf9775c44e71eac3e3b",
+          "chunk-74caa8e7ff700413039d69eb9ce8470fd8be3de4ecac9ccb7f1810fc346fa5e0",
+          "chunk-0cb275c0a8530c9c2884abcff5a343f9bb3205ae8dace0fd7a17276df24ec2b5",
+          "chunk-4238d5b3b3cba0d90d11f3fd3e4460dad9abc3e67ab84901697e41bba25b8383",
+          "chunk-9a43747cce88b5a756dc9f0f2fa6bbcfd98bb0c3044c9714b50c518e78f8d83c",
+          "chunk-b9559f3fa73eaf0772ad91a95ccd1b7401bb32c056e624d3c10575c0240be795",
+          "chunk-f49d16cdeed5bce70c80a20e973f83c5a1da3927f5b9766943fda12fc574c0e5",
+          "chunk-bc2a592af1d2485193a8be3a5bd05ee1d4afc40c005b17318096752d813fabfa",
+          "chunk-0e0e98e28c56285c6c3ec0a5ab0b815550d5bb2aa074d5ac51db8a11f1d653d2",
+          "chunk-e696b225671e48ce719acc2eb16feb02dc9176f3c457aef6059891814d3c2a9e",
+          "chunk-0dfb7fa4b4b4b1180016a0118cfac23c672f7aa7b1442f25df2f760a0fa87230",
+          "chunk-cf618862ce32f8fc4df91f018facf57b9847f90eabcb369853db3e5711268a24",
+          "chunk-80603a5b7dc9ce917acfdc0d3e08558e5695d31bf4bb8c14fe82d148dcef3a1d",
+          "chunk-c592ce04d6a8b0c7590dfaf5e494ec5179c537277f21179f94a0f1d20bd39a7e",
+          "chunk-6992db023a64151f1e061baecbc815affa6340bf3258caa230a5c5b464cb160b",
+          "chunk-72a6c2ec2be1a9f6982f742d8c90597a9c9c4d696ba9d1d6dbab2605f5ee3410",
+          "chunk-e4e7dec3ef0ef604705a873bbb9bb51929a0c7e62d2578d225f244ef50042f96",
+          "chunk-3c102570d13d48c7f9d129f341d9448adf6dbdd6076f359cd17c29cdda1dfbce",
+          "chunk-9f8732025d852303cb3e4f2eddcc8c480af86e18162d4c080e330a542d65edd4",
+          "chunk-a7ad7474918a6405c41c9d3e1d1db63ae071bf6cbee9c0987a8d630d3e6441fc",
+          "chunk-86e98fd3804ac106e262d7ad24dcef53af0a3431b04108fc9f96d7684a2e8aa1",
+          "chunk-7896790d57880f974604e7ea2426ca3c8650ef88bf000f723fe81bcc634f5ffc",
+          "chunk-56364c7c8ffebc9a9cad23be537f1ca1a07d93c59e7a6d3681c30de98fa3f55b",
+          "chunk-07fc09c56cabe28096e07e67faf07e58d62dcb0be50f49ce115283df4de177cf",
+          "chunk-9575799f6027340ec13f555c5df818b61c1d5bce7bb7f2eaf68b3c3ad56b2cc7",
+          "chunk-5b1e2394572078cf2d6cd50b8b442630dceb7f5f9df7105711c476d544ba6789"
+        ]
+      },
+      {
+        "query": {
+          "text": "What is dental caries?",
+          "language": "en"
+        },
+        "candidate_ids": [
+          "chunk-ffa98d9f536a675bdb208ec753800f2bcb188b681272f3a92e45414ef6eb7d0a",
+          "chunk-9b20068401e09e137ad8f726340f7c8e8ee18f59eab9f6c57b5ad321833c1d57",
+          "chunk-efd1e628052673da241612d008bff3b35b332ac51ba7bb7379504b3dcdfcec4c",
+          "chunk-72ccf122ca99343ead4ae5f6d143da0d91a5ddbd8118ba264f418afc6848f23f",
+          "chunk-839671486eb52c716d17d607ea3e7b554b2ea64826440ab7958b1ca661e9032d",
+          "chunk-80bf38d27824ad79fd3f4cac0eebac5ebe623b6c80a751224606d4bb2fd99830",
+          "chunk-dd90d9c490c6bd65ab8e228997fecc2fbf813dc67b2db22460f62b1d3b803053",
+          "chunk-11885bd4b2c41ce2ba48eb1cdc3794b71a1aa10d89818c535c5e36ec6e47d8da",
+          "chunk-2074b6c6309f620c22511f77ec7c69817acd21e8226473565ca437592dbcdbbe",
+          "chunk-1f8aa24ebb156aa9c1ba2779c2a39153183a6b25e5b6faf2dc6a8169282ff313",
+          "chunk-866203e8f94112e0b664fa468512f1f2352f7f6e3ac870e4b12cfa5916ecf9a9",
+          "chunk-c6db371179fdb0d16da08fcd5fff827cb948dcd0a1dbbd184923a8210aee922a",
+          "chunk-9a84d7467517959339aba1176dfc32d0335e87c72876ddf963dab0284ec9b516",
+          "chunk-634aa0603270d85ef820ea4ab6a0b681b6c8dbd54b4b9e8076bb294403c2d567",
+          "chunk-787d4cb08a75d3997c7d2aa343caa8f5557385fe3a6314578b8299678cde66af",
+          "chunk-3b81c40d4b78c7a56049b11738f8d88a4fafa663f3177b7c210fe35efa27f78a",
+          "chunk-c9dd38184ac285dda25afab7c3f81ca7c2dfb9f382e17dbb817894641fbde847",
+          "chunk-c629bfd18f68ef33957eade7de279a37eadcd20b9a9ba21074bb134b899840c6",
+          "chunk-fcc196acfa038ee61b0d798834f53efed8017fa715683b3d933063d93027ed9c",
+          "chunk-94bda756a956339930af553fab8624dfa4c193ca72cecd503147d6e8636ac70c",
+          "chunk-a034449e5989ece34ef3ef6937c33c05195b6ef570cefcdb673de49a3fb7d0bc",
+          "chunk-a47d1d0329920fe03996598643ffa022b65f377cfac0ce1ff9691b8a20c75c88",
+          "chunk-64d91bf544dfbf163e3276ff57dd2d9f2e1ef011f2cd369b5c7ac45265571408",
+          "chunk-32f488beffe4f1a9f31aa9b86de74e35f67b083aeed489e9b3016ba17dcc0798",
+          "chunk-5a8087dcff8246c34bab33aa24be9427eaddcf906df4d17b1f8fd69186316776",
+          "chunk-6fe6286f1370f2a046cc168c689e8317137d28c68a4c800b976b18df9f450a56",
+          "chunk-0cb2cd547fcd6eba308deeeb43fdad982d7bab4c4fbbe7c4a5ccb6d90497a2dc",
+          "chunk-12c4dca4563253f10d4887d8e899db7c0a87442c9df7a53b2758bec47035290e",
+          "chunk-c7270ecf5ef8d6a846057472fbed4fd32b5a93b0cdab1f8407c5b3faad44f24c",
+          "chunk-47f29a78a919ec969fe03c7d5603e181dcf8e876901cdb85358caa1241349e10"
+        ]
+      }
+    ],
+    "candidate_count": 60,
+    "selected_ids": [
+      "chunk-0cb2cd547fcd6eba308deeeb43fdad982d7bab4c4fbbe7c4a5ccb6d90497a2dc",
+      "chunk-787d4cb08a75d3997c7d2aa343caa8f5557385fe3a6314578b8299678cde66af",
+      "chunk-dd90d9c490c6bd65ab8e228997fecc2fbf813dc67b2db22460f62b1d3b803053"
+    ],
+    "context_ids": [
+      "chunk-0cb2cd547fcd6eba308deeeb43fdad982d7bab4c4fbbe7c4a5ccb6d90497a2dc",
+      "chunk-787d4cb08a75d3997c7d2aa343caa8f5557385fe3a6314578b8299678cde66af",
+      "chunk-dd90d9c490c6bd65ab8e228997fecc2fbf813dc67b2db22460f62b1d3b803053",
+      "chunk-dd7f3d328a2c1287a3822b01b31df4d24a3b3d3212bd2386a4c3ddcb112e632a"
+    ]
+  },
+  "seconds": 77.08627440000055,
+  "config": {
+    "index_dir": "data/vectorstore/e5_small_v1",
+    "internal_index": "data/vectorstore/e5_small_internal_v3_import1392/internal",
+    "public_index": "data/vectorstore/e5_small_v1/public",
+    "candidate_k": 30,
+    "bilingual_queries": true,
+    "context_neighbors": 1,
+    "query_translation_dir": "data/models/facebook--nllb-200-distilled-600M/f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+    "internal_min_rerank_logit": 0.0
+  }
+}

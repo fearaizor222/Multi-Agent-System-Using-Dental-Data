@@ -1,0 +1,16 @@
+{
+  "completed_adapter": "v3 epoch 2",
+  "question": "Sâu răng là gì?",
+  "original_context": {
+    "tokens": 13587,
+    "configured_limit": 4096,
+    "outcome": "Input exceeds runtime budget; diagnostic full-context generation attempt failed with CUDA OOM before producing an answer"
+  },
+  "whitespace_normalized_context": {
+    "tokens": 3516,
+    "chunks_retained": 4,
+    "outcome": "Generated but does not explain definition/mechanism; selects prevalence sentence; mistranslates common cold as ho thông thường"
+  },
+  "retrieval_assessment": "Top-1 internal chunk contains bacterial plaque -> acids -> enamel demineralization; adjacent context explains progression to cavity",
+  "scope": "One diagnostic case, no A1/A3/A4; no training; production config unchanged"
+}

@@ -1,0 +1,20 @@
+{
+  "run": "a2_raft_qwen3_17b_20261112_122501_012229",
+  "rows": 72,
+  "automatic_metrics_reproduced": true,
+  "paired_prompt_messages_identical": true,
+  "adapter_matches_verified_checkpoint": true,
+  "overlapping_paired_cases": 32,
+  "identical_overlapping_raw_outputs": 26,
+  "different_overlapping_raw_outputs": 6,
+  "input_sha256": {
+    "validation.jsonl": "bec0761793aa67cc196b98d821aa9e0f917f416124c64db83ccca8c3302dcaef",
+    "after/predictions.jsonl": "48500b905d6bab669312cc3490d2bbeca96d5c0669232bd8fca251a968bfb4f3",
+    "paired_probe/predictions.jsonl": "a273eb863cb87bb2075a62db9466d7f64194248d25caf960db45d9d2a03fc6fa",
+    "metrics.json": "0a5f596afd4375a24b434c1d097c0158fe32f351026a584ec06b9e386a80c884",
+    "adapter/adapter_model.safetensors": "d7a8df9611ecfb3adefa255da9cc019b8d22f5690127a51f14b23935497dc5b7"
+  },
+  "new_inference": false,
+  "training_run": false,
+  "independent_test_used": false
+}

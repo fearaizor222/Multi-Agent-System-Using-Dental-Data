@@ -1,0 +1,43 @@
+{
+  "base_model": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "adapter_run": "a2_qwen3_17b_20261110_194806_350795",
+  "selected_epoch": 2,
+  "adapter_sha256": "47f476ce9ee66b4568694e2c8b6b7e696a38aab0dc756d871d768476974a774d",
+  "benchmark_manifest": {
+    "count": 52,
+    "heldout_count": 48,
+    "known_regression_count": 4,
+    "seed": 20261111,
+    "cases_sha256": "af800480ef4e5c125ecfde5f65047afce116a46b3742fb2b049f72636de491a0",
+    "system_sha256": "ab284aee578deb8db35580a82bc1de402e9b5c3bff2eba99c1643e690a6c4db5",
+    "heldout_files_sha256": {
+      "test.jsonl": "ea20db436ce15db26b8df9517b29a4352fe2492cb0f3fdc618169323d2c0135d",
+      "test.metadata.jsonl": "b8953551e5b64df3c592ec8a0385118bf7517258542334e67cf838e4be8455ae"
+    },
+    "modes": {
+      "missing_evidence": 11,
+      "direct": 30,
+      "multi_source": 6,
+      "focus_distractor": 2,
+      "focus": 2,
+      "partial_answer": 1
+    },
+    "scope": "A2-only frozen diagnostic comparison. Selected heldout subset previously evaluated, plus known failures; not a new blind clinical benchmark. All source contexts from internal corpus.",
+    "grading": "Source-reading for faithfulness, question focus, translation, omissions and abstention; exact wording not required."
+  },
+  "gpu": "NVIDIA A10",
+  "variants": {
+    "base": "same frozen checkpoint with all LoRA layers disabled",
+    "v3": "A2 v3 epoch2 enabled"
+  },
+  "quantization": "NF4 double / BF16 compute; same shared weights",
+  "max_new_tokens": 512,
+  "do_sample": false,
+  "thinking_enabled": false,
+  "training_executed": false,
+  "other_agents_executed": false,
+  "rag_executed": false,
+  "nli_executed": false,
+  "format_repair_attempts": 0
+}

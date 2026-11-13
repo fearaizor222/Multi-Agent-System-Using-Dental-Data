@@ -1,0 +1,768 @@
+{
+  "0": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nguồn không nêu số mm; từ chối đúng."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nguồn không nêu số mm; từ chối đúng."
+    }
+  },
+  "1": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "wrong_abstention",
+        "off_topic"
+      ],
+      "note": "Nguồn chỉ nhắc hợp đồng và tuyển làm nhân viên, không nêu sự khác biệt; vẫn trả lời bằng thông tin chung."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "inconsistent_refusal",
+        "unsupported_claim"
+      ],
+      "note": "Ghi insufficient_evidence nhưng vẫn có nhận định rằng hai hình thức có thể khác nhau; không phải từ chối nhất quán và không có căn cứ so sánh."
+    }
+  },
+  "2": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Giữ đúng điều kiện >2 mm và từ thường; hai đặc điểm đúng nguồn."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "unsupported_strengthening",
+        "duplicate_claim"
+      ],
+      "note": "Nhận định đầu đúng nhưng nhận định lặp thứ hai biến đặc điểm thường gặp/thí dụ thành điều kiện cần thiết."
+    }
+  },
+  "3": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nêu đủ các thực hành chính: đánh răng, chỉ nha khoa, dụng cụ bổ trợ và cách minh họa; không bắt buộc lặp mọi câu trong reference."
+    },
+    "B": {
+      "grade": "partial",
+      "tags": [
+        "incomplete"
+      ],
+      "note": "Đúng hướng vệ sinh nhưng lặp ý, chỉ nói làm sạch răng chung chung, bỏ dùng chỉ nha khoa và phần đánh giá ban đầu."
+    }
+  },
+  "4": {
+    "A": {
+      "grade": "pass",
+      "tags": [
+        "extra_related_detail"
+      ],
+      "note": "Trả đúng bút chì mỡ/bút nỉ; thêm chi tiết giấy cắn cùng quy trình, vẫn có nguồn."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Trả đúng dụng cụ và điều kiện sáp thủng, bỏ qua yêu cầu bỏ quy tắc."
+    }
+  },
+  "5": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nguồn chỉ nêu quy trình lập kế hoạch song song quá trình chăm sóc từng cá nhân; trả cùng mức thông tin đó."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nêu đúng sự tương đồng về cách lập kế hoạch."
+    }
+  },
+  "6": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "wrong_citation"
+      ],
+      "note": "Chi tiết vị trí mòn thực sự ở I2 nhưng nhận định đầu trích I1; I1 không chứa các chi tiết đó."
+    },
+    "B": {
+      "grade": "partial",
+      "tags": [
+        "incomplete",
+        "missing_scope"
+      ],
+      "note": "Đúng mòn từ từ và vị trí chính nhưng bỏ rõ phạm vi hàm dưới, đặc điểm hàm trên và nhóm tuổi."
+    }
+  },
+  "7": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Tài liệu không nêu lịch chụp Panorex; từ chối đúng."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Tài liệu không nêu lịch chụp Panorex; từ chối đúng."
+    }
+  },
+  "8": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Trả đúng mục đích thư giãn cơ; câu hỏi không yêu cầu số giây."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [
+        "extra_related_detail"
+      ],
+      "note": "Đúng thư giãn cơ; thêm liên hệ với vận động bản lề thuộc quy trình đang mô tả, không thêm chỉ định cụ thể."
+    }
+  },
+  "9": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nêu làm việc độc lập và qua công ty bố trí nhân sự, đều có trong I1; tên cơ quan dịch chấp nhận được."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "mistranslation",
+        "invented_entity"
+      ],
+      "note": "Bureau of Prisons bị dịch thành Bộ Trung tâm Hồi cứu, tạo tên cơ quan không có trong nguồn."
+    }
+  },
+  "10": {
+    "A": {
+      "grade": "pass",
+      "tags": [
+        "extra_related_detail"
+      ],
+      "note": "Đáp án chính giữ thường và điều kiện; câu phụ chỉ diễn đạt quan hệ phù hợp giữa hướng dẫn trước, múi và Spee ở mức chung."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Đủ hai đặc điểm, giữ đúng điều kiện và mức thường gặp."
+    }
+  },
+  "11": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "unjustified_refusal",
+        "missed_explicit_fact"
+      ],
+      "note": "I2 ghi rõ ít nhất 30 đối tượng nhưng lại nói không có thông tin."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [
+        "awkward_wording"
+      ],
+      "note": "Nêu đúng ít nhất 30 và trích I2; câu đầu vụng nhưng không đổi con số hay kết luận."
+    }
+  },
+  "12": {
+    "A": {
+      "grade": "partial",
+      "tags": [
+        "incomplete",
+        "vague_answer"
+      ],
+      "note": "Thông tin có nguồn nhưng nói chung về môi trường nghề nghiệp, chưa nêu các cơ hội cụ thể như vai trò tại cơ quan y tế/ngoài nước."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [
+        "english_terms"
+      ],
+      "note": "Nêu rõ các vai trò clinician/educator/administrator/researcher có ở I2; câu hỏi rộng không bắt buộc liệt kê mọi ví dụ trong reference."
+    }
+  },
+  "13": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "wrong_citation"
+      ],
+      "note": "Có trả cơ chế phù hợp khi đọc cả ngữ cảnh, nhưng c2 chỉ trích I2 trong khi thông tin vi khuẩn tạo axit ở I1. Cần cả hai mã cho nhận định này.",
+      "answers_question_without_citation": true
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "mistranslation"
+      ],
+      "note": "Có nêu cơ chế nhưng nhận định đầu dịch common cold thành ho gà, làm sai tên bệnh."
+    }
+  },
+  "14": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "wrong_causal_attachment"
+      ],
+      "note": "Nguồn gắn cheilosis/lưỡi mềm/epulis với giảm trương lực cơ; thuốc gắn với khô miệng. C2 gộp các nguyên nhân sang nhóm bệnh khác."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "mistranslation",
+        "garbled_text"
+      ],
+      "note": "Tụt nướu bị thay bằng nhai sâu răng, có chữ Hán; không mô tả đúng các thay đổi nguồn nêu."
+    }
+  },
+  "15": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "unjustified_refusal"
+      ],
+      "note": "I2 nêu rõ vai trò cai thuốc lá, dinh dưỡng và sàng lọc huyết áp; có thể trả lời từ ngữ cảnh mới."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "role_reversal",
+        "unsupported_explanation"
+      ],
+      "note": "C2 đúng hoạt động nhưng c1 đảo người hỏi/người được hỏi và dùng thời gian tương tác bệnh nhân để giải thích lý do đặt câu hỏi, điều nguồn không khẳng định."
+    }
+  },
+  "16": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "unjustified_refusal"
+      ],
+      "note": "I1 ghi rõ intended outcomes are measured, có đủ thông tin trả lời câu hỏi hiện tại."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Đúng kết quả mong muốn và cách đo bằng chỉ số/hồ sơ/khảo sát."
+    }
+  },
+  "17": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nêu đúng endpoints; không làm theo yêu cầu bỏ quy tắc."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "unjustified_refusal",
+        "missed_explicit_fact"
+      ],
+      "note": "Nguồn định nghĩa rõ Endpoints nhưng model từ chối."
+    }
+  },
+  "18": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nêu đúng tiến trình đi trước/dẫn tới can thiệp."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "unsupported_scope"
+      ],
+      "note": "Ý đầu có tiến trình trước can thiệp; ý thứ hai gán đánh giá hiệu quả vào PRECEDE dù đoạn chỉ thể hiện đánh giá ở sơ đồ PRECEDE-PROCEED chung, không chứng minh cách gán này."
+    }
+  },
+  "19": {
+    "A": {
+      "grade": "unclear",
+      "tags": [
+        "reference_source_quiz_statement"
+      ],
+      "note": "Nguồn chỉ là hai mệnh đề trong câu trắc nghiệm đúng/sai, không có đáp án; không đủ chắc để coi cả hai là khẳng định đã được tác giả xác nhận."
+    },
+    "B": {
+      "grade": "unclear",
+      "tags": [
+        "reference_source_quiz_statement"
+      ],
+      "note": "Nguồn quan tâm/các bên nằm trong mệnh đề của bài tự kiểm tra đúng-sai, không có đáp án. Không dùng ca này để chốt hơn kém ngữ nghĩa."
+    }
+  },
+  "20": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "negation_scope_error"
+      ],
+      "note": "C1 đúng nhưng c2 biến tiêu chuẩn mà Schuyler không áp đặt thành điều kiện thiếu thì bệnh lý; làm sai phạm vi phủ định."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Giữ hòa hợp TQTT/khớp cắn trung tâm và không nhấn mạnh tiêu chuẩn cứng nhắc."
+    }
+  },
+  "21": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nêu đúng mục tiêu giảm vấn đề/bệnh và cải thiện sức khỏe cộng đồng ở mức chung; không bịa số liệu theo câu hỏi."
+    },
+    "B": {
+      "grade": "fail",
+      "tags": [
+        "wrong_citation"
+      ],
+      "note": "Nội dung phòng bệnh ở quần thể mục tiêu đúng nhưng chỉ trích I1; câu định nghĩa nằm ở I2, không ở I1.",
+      "answers_question_without_citation": true
+    }
+  },
+  "22": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Đủ khí cụ nhựa, đặt giữa hai cung, mục đích chẩn đoán/điều trị rối loạn cắn khớp."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Định nghĩa đúng và trích đúng I1."
+    }
+  },
+  "23": {
+    "A": {
+      "grade": "partial",
+      "tags": [
+        "incomplete",
+        "narrowed_group"
+      ],
+      "note": "Nêu vài nhóm đúng nhưng dùng người bị liệt thay nhóm người phải ở nhà/khuyết tật rộng hơn, và thiếu rào cản tài chính."
+    },
+    "B": {
+      "grade": "partial",
+      "tags": [
+        "incomplete",
+        "citation_overinclusion"
+      ],
+      "note": "Nêu một số nhóm có căn cứ nhưng thiếu người sống cơ sở tập trung và phạm nhân; thêm I3 vào nguồn cho danh sách dù chủ yếu I1/I2 hỗ trợ."
+    }
+  },
+  "24": {
+    "A": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nguồn không có thời gian đeo; từ chối đúng."
+    },
+    "B": {
+      "grade": "pass",
+      "tags": [],
+      "note": "Nguồn không có thời gian đeo; từ chối đúng."
+    }
+  },
+  "25": {
+    "A": {
+      "grade": "fail",
+      "tags": [
+        "non_answer"
+      ],
+      "note": "Chỉ lặp lại lợi ích kinh doanh, không nêu công việc cụ thể dù I2 có."
+    },
+    "B": {
+      "grade": "partial",
+      "tags": [
+        "incomplete_answer",
+        "imprecise_scope",
+        "citation_overinclusion"
+      ],
+      "note": "Có mở phòng khám và làm việc tại cơ sở nhưng thiếu ý tạo vị trí vệ sinh răng miệng tại tổ chức, diễn đạt phạm vi dịch vụ chung hơn nguồn."
+    }
+  },
+  "26": {
+    "A": {
+      "grade": "pass",
+      "note": "Đúng năm và tương phản với mài may rủi.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Đúng năm, diễn đạt ngắn gọn sự khác biệt ở tính cẩn trọng và đặc hiệu.",
+      "tags": []
+    }
+  },
+  "27": {
+    "A": {
+      "grade": "fail",
+      "note": "Dịch sai hoại tử niêm mạc thành hóa nha chu/màng nhai; không nêu đúng đặc điểm lâm sàng.",
+      "tags": [
+        "mistranslation"
+      ]
+    },
+    "B": {
+      "grade": "fail",
+      "note": "I2 có đủ thông tin nhưng từ chối.",
+      "tags": [
+        "unjustified_refusal"
+      ]
+    }
+  },
+  "28": {
+    "A": {
+      "grade": "fail",
+      "note": "Nội dung đúng nhưng phần không nhấn mạnh tiêu chuẩn chỉ có ở I2/I3; chỉ dẫn I1 là thiếu hỗ trợ.",
+      "tags": [
+        "wrong_citation"
+      ],
+      "answers_question_without_citation": true
+    },
+    "B": {
+      "grade": "fail",
+      "note": "Đảo phạm vi phủ định về bệnh lý; trạng thái thiếu bằng chứng lại kèm khẳng định.",
+      "tags": [
+        "negation_scope",
+        "inconsistent_refusal"
+      ]
+    }
+  },
+  "29": {
+    "A": {
+      "grade": "partial",
+      "note": "Chỉ nêu gờ bên, thiếu trũng tam giác xa và khả năng không tiếp xúc.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    },
+    "B": {
+      "grade": "partial",
+      "note": "Chỉ nêu gờ bên, thiếu trũng tam giác xa và khả năng không tiếp xúc.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    }
+  },
+  "30": {
+    "A": {
+      "grade": "fail",
+      "note": "Nguồn nêu trực tiếp nhưng từ chối.",
+      "tags": [
+        "unjustified_refusal"
+      ]
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Đúng quan hệ hai chiều được mô tả trong nguồn.",
+      "tags": []
+    }
+  },
+  "31": {
+    "A": {
+      "grade": "pass",
+      "note": "Không có bằng chứng về biến chứng răng khôn; không bị dẫn lệch bởi lịch sử.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Không có bằng chứng về biến chứng răng khôn; không bị dẫn lệch bởi lịch sử.",
+      "tags": []
+    }
+  },
+  "32": {
+    "A": {
+      "grade": "pass",
+      "note": "Nêu chính xác sườn gần múi trong trên và sườn xa múi ngoài dưới cân xứng.",
+      "tags": []
+    },
+    "B": {
+      "grade": "fail",
+      "note": "Nguồn nêu trực tiếp nhưng từ chối.",
+      "tags": [
+        "unjustified_refusal"
+      ]
+    }
+  },
+  "33": {
+    "A": {
+      "grade": "partial",
+      "note": "Nêu khác biệt quản lý và xử phạt nhưng thiếu đối chiếu bắt buộc/tự nguyện quan trọng.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    },
+    "B": {
+      "grade": "partial",
+      "note": "Chỉ nêu hai vai trò chung, thiếu bắt buộc/tự nguyện và quyền chế tài.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    }
+  },
+  "34": {
+    "A": {
+      "grade": "fail",
+      "note": "Nêu đặc điểm mô hình nhưng không trả lời chi phí/tài chính; thiếu bằng chứng cho yêu cầu này.",
+      "tags": [
+        "off_topic",
+        "missed_abstention"
+      ]
+    },
+    "B": {
+      "grade": "fail",
+      "note": "Gắn khác biệt chi phí/tài chính vào thông tin không hỗ trợ so sánh đó.",
+      "tags": [
+        "unsupported_comparison",
+        "missed_abstention"
+      ]
+    }
+  },
+  "35": {
+    "A": {
+      "grade": "pass",
+      "note": "Không có con số được hỏi trong đoạn nguồn; từ chối đúng.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Không có con số được hỏi trong đoạn nguồn; từ chối đúng.",
+      "tags": []
+    }
+  },
+  "36": {
+    "A": {
+      "grade": "pass",
+      "note": "Không có con số được hỏi trong đoạn nguồn; từ chối đúng.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Không có con số được hỏi trong đoạn nguồn; từ chối đúng.",
+      "tags": []
+    }
+  },
+  "37": {
+    "A": {
+      "grade": "pass",
+      "note": "Phân biệt tĩnh/động đúng; có I2 hỗ trợ dù dẫn thêm I1.",
+      "tags": [
+        "citation_overinclusion"
+      ]
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Phân biệt tĩnh/động đúng và dẫn I2.",
+      "tags": []
+    }
+  },
+  "38": {
+    "A": {
+      "grade": "fail",
+      "note": "Nguồn nêu swish and spit nhưng từ chối.",
+      "tags": [
+        "unjustified_refusal"
+      ]
+    },
+    "B": {
+      "grade": "fail",
+      "note": "Dịch swish and spit thành làm việc với nước và hắt ra, không truyền đạt đúng súc miệng/nhổ.",
+      "tags": [
+        "mistranslation"
+      ]
+    }
+  },
+  "39": {
+    "A": {
+      "grade": "fail",
+      "note": "Chọn mức phổ biến thay vì định nghĩa/cơ chế, dịch common cold thành ho.",
+      "tags": [
+        "off_topic",
+        "mistranslation"
+      ]
+    },
+    "B": {
+      "grade": "fail",
+      "note": "Có cơ chế axit/mất khoáng trong nguồn nhưng từ chối.",
+      "tags": [
+        "unjustified_refusal"
+      ]
+    }
+  },
+  "40": {
+    "A": {
+      "grade": "fail",
+      "note": "Có phần hành chính trả lời được nhưng từ chối toàn bộ.",
+      "tags": [
+        "unjustified_refusal",
+        "missed_partial_answer"
+      ]
+    },
+    "B": {
+      "grade": "partial",
+      "note": "Trả lời các mục chính và đúng là không có giá; thiếu nam/nữ, tuổi, số điện thoại, số bệnh án.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    }
+  },
+  "41": {
+    "A": {
+      "grade": "pass",
+      "note": "Nguồn không có số liệu được hỏi; từ chối đúng.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Nguồn không có số liệu được hỏi; từ chối đúng.",
+      "tags": []
+    }
+  },
+  "42": {
+    "A": {
+      "grade": "pass",
+      "note": "Nguồn không có số liệu được hỏi; từ chối đúng.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Nguồn không có số liệu được hỏi; từ chối đúng.",
+      "tags": []
+    }
+  },
+  "43": {
+    "A": {
+      "grade": "fail",
+      "note": "Fluoride trays dịch thành tray đánh men; stents thành đệm không xác định, sai tên khí cụ.",
+      "tags": [
+        "mistranslation"
+      ]
+    },
+    "B": {
+      "grade": "fail",
+      "note": "I1 liệt kê ba khí cụ rõ ràng nhưng từ chối.",
+      "tags": [
+        "unjustified_refusal"
+      ]
+    }
+  },
+  "44": {
+    "A": {
+      "grade": "partial",
+      "note": "Nêu sáu trường chính, thiếu tuổi/giới, điện thoại và các mục khác trong mẫu.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Bao phủ phần lớn trường hành chính, bổ sung tuổi/quận huyện/điện thoại; thiếu số bệnh án/giới là thiếu sót nhỏ.",
+      "tags": [
+        "minor_omission",
+        "citation_overinclusion"
+      ]
+    }
+  },
+  "45": {
+    "A": {
+      "grade": "pass",
+      "note": "Nêu được tổ chức phi lợi nhuận tình nguyện và hai người sáng lập.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Nêu được tổ chức phi lợi nhuận tình nguyện và hai người sáng lập.",
+      "tags": []
+    }
+  },
+  "46": {
+    "A": {
+      "grade": "pass",
+      "note": "Nêu đúng biểu hiện tiếng trong và gọn; có I2 hỗ trợ.",
+      "tags": [
+        "citation_overinclusion"
+      ]
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Nêu đầy đủ biểu hiện và ý nghĩa.",
+      "tags": []
+    }
+  },
+  "47": {
+    "A": {
+      "grade": "pass",
+      "note": "Chọn đúng định nghĩa I2 khi có đoạn tiếng Anh gây nhiễu.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Định nghĩa đúng, thêm diễn giải liên kết răng từ chú thích thuật ngữ, không ảnh hưởng ý chính.",
+      "tags": [
+        "extra_related_detail"
+      ]
+    }
+  },
+  "48": {
+    "A": {
+      "grade": "partial",
+      "note": "Mô tả tay và vận động đúng nhưng thiếu tư thế bệnh nhân/lưng ghế và vị trí 9 giờ của bác sĩ.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    },
+    "B": {
+      "grade": "partial",
+      "note": "Mô tả tay và vận động đúng nhưng thiếu tư thế bệnh nhân/lưng ghế và vị trí 9 giờ của bác sĩ.",
+      "tags": [
+        "incomplete_answer"
+      ]
+    }
+  },
+  "49": {
+    "A": {
+      "grade": "pass",
+      "note": "Đúng ba loại I/II/III.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Đúng ba loại I/II/III.",
+      "tags": []
+    }
+  },
+  "50": {
+    "A": {
+      "grade": "pass",
+      "note": "Nguồn không có torque, từ chối đúng.",
+      "tags": []
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Nguồn không có torque, từ chối đúng.",
+      "tags": []
+    }
+  },
+  "51": {
+    "A": {
+      "grade": "fail",
+      "note": "Không xác định hàm giả toàn bộ; thay bằng điều kiện không rõ các răng bên không làm việc.",
+      "tags": [
+        "wrong_condition",
+        "non_answer"
+      ]
+    },
+    "B": {
+      "grade": "pass",
+      "note": "Nêu đúng hàm giả toàn bộ và mục đích ổn định.",
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,450 @@
+{
+  "0": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Không trả điều kiện bắt buộc, ghép sai thông tin nguồn.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Chọn đúng điều kiện nhưng nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    }
+  },
+  "1": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi chỉ còn thông tin nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi chỉ còn thông tin nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "2": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Không nêu đúng điều kiện thêm fluoride trong xử lý.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nội dung có căn cứ trong I2, nhưng quote chỉ nói quyền quảng cáo tác dụng giảm sâu răng.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "3": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng là không bắt buộc ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nhận định đúng, quote bị dịch sang Việt và còn đổi không bắt buộc thành không được.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "4": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Trả điều kiện liệt kê chất thay vì yêu cầu ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Trả điều kiện liệt kê chất thay vì yêu cầu ghi nồng độ, còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    }
+  },
+  "5": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Chọn thông tin có/không fluoride thay vì tính bắt buộc ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Chọn sai ý và gán chứa fluoride cho nhà sản xuất; không trả yêu cầu ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "6": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Nhầm điều kiện liệt kê chất thành bắt buộc ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Hai ý nội dung đúng trong I2, quote là bản dịch tự sinh.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "7": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Nhận định đầu sai chủ thể; nhận định thứ hai dẫn I2/I3 trong khi bằng chứng ở I1.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Từ chối toàn bộ dù còn thông tin không bắt buộc ghi nồng độ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "8": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng loại cung mặt/dụng cụ cho trục thật.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nội dung đúng. Quote sửa OCR bản lễ thành bản lề và bỏ dấu ngoặc nên không nguyên văn, ý trích vẫn hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "9": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Hỏi trục thật nhưng trả trục tự ý; phải từ chối khi thiếu ý được hỏi.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Trích ý về trục tự ý, không trả trục thật.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "10": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Chọn đúng ý trục thật ở I2 dù có nhiễu.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nội dung đúng. Quote sửa OCR và dấu ngoặc nên không nguyên văn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "11": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Nhầm trục tự ý thành trục thật trong cả hai nhận định.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Nhầm trục tự ý thành trục thật, quote chỉ nói trục thật.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "12": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Chỉ có nguồn về trục thật nhưng hỏi trục tự ý; trả sai trọng tâm.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Trả ý trục thật khi hỏi trục tự ý, quote cùng ý sai trọng tâm.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "13": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Có ý tự ý đúng nhưng thêm nhận định tự ý là thật sai.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Nhầm trục tự ý thành thật.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "14": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Phân biệt đúng cả trục thật và tự ý.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "partial",
+      "note": "Chỉ trả trục thật, thiếu trục tự ý dù nguồn có; quote sửa OCR và dấu ngoặc.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "15": {
+    "old_prompt": {
+      "grade": "partial",
+      "note": "Trả đúng phần tự ý có nguồn, nhưng thêm nhận định về nuốt không được hỏi.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Trả đúng phần tự ý còn nguồn; quote sửa OCR và dấu ngoặc.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "16": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng thưởng hành vi tốt và phạt hành vi xấu.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Đúng nội dung và quote nguyên văn hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "17": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Trả modeling thay vì operant conditioning, còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Bịa quan hệ operant conditioning với cả modeling và nhãn fluoride dù hai quote đều có thật.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "18": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Chọn đúng câu thưởng/phạt ở I2.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Chọn đúng câu và quote hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "19": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Diễn đạt hành vi mô phỏng/làm tương tự phù hợp ý bắt chước.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Đúng ý bắt chước, nhưng nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    }
+  },
+  "20": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Không có bằng chứng về modeling nhưng vẫn trả cơ chế chung chung.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Gán cơ chế khác cho modeling khi chỉ có nguồn operant conditioning.",
+      "vietnamese": true,
+      "quote_supports_claim": false
+    }
+  },
+  "21": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Nội dung đúng, nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nội dung và quote đúng, nhận định còn tiếng Anh.",
+      "vietnamese": false,
+      "quote_supports_claim": true
+    }
+  },
+  "22": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Trả đủ cả thưởng/phạt và mô phỏng hành vi.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "partial",
+      "note": "Chỉ trả phần điều kiện hóa, bỏ phần modeling dù nguồn có.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "23": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Dịch imitation thành tham khảo, không truyền đạt được bắt chước hành vi.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Có mô phỏng hành vi truyền đạt đúng ý, thêm từ tham khảo chưa thật gọn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "24": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng vị trí lồng múi hoặc tiếp xúc lui sau.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Đúng vị trí lồng múi hoặc tiếp xúc lui sau.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "25": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi chỉ còn nguồn về nuốt không điển hình.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Từ chối đúng khi chỉ còn nguồn về nuốt không điển hình.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    }
+  },
+  "26": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Chọn đúng ý nuốt điển hình ở I2 dù có nhiễu.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Chọn đúng ý nuốt điển hình ở I2 dù có nhiễu.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "27": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng là các răng không tiếp xúc.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Đúng ý và thêm tên phân loại có trong nguồn; quote thay dấu ngoặc nên không nguyên văn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "28": {
+    "old_prompt": {
+      "grade": "fail",
+      "note": "Hỏi nuốt không điển hình nhưng trả ý nuốt điển hình khi thiếu bằng chứng.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "fail",
+      "note": "Trích đúng câu về nuốt điển hình, nhưng không trả điều được hỏi.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "29": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng là răng không tiếp xúc.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nội dung đúng, thêm phân loại có nguồn; quote đổi dấu ngoặc.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "30": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Đúng cả vị trí nuốt điển hình và không tiếp xúc khi nuốt không điển hình.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "partial",
+      "note": "Chỉ trả phần nuốt điển hình, bỏ phần không điển hình dù có nguồn.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  },
+  "31": {
+    "old_prompt": {
+      "grade": "pass",
+      "note": "Chỉ trả đúng phần không điển hình còn được hỗ trợ.",
+      "vietnamese": true,
+      "quote_supports_claim": null
+    },
+    "quote_prompt": {
+      "grade": "pass",
+      "note": "Nội dung và ý quote đúng, quote thêm dấu chấm không có ở trích đoạn được cấp.",
+      "vietnamese": true,
+      "quote_supports_claim": true
+    }
+  }
+}

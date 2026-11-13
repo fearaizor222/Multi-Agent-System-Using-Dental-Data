@@ -1,0 +1,8 @@
+{
+  "source_run": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a1_training\\day28_run01",
+  "raw_predictions_sha256": "9f7c3d5d6b561ea158ca81bb723f65f0836fdb7cddee851abddef33b565f4b90",
+  "metrics_sha256": "394945cf7a160b018520af46cf684be5b518e3841474ff65b1dda767cdcf1752",
+  "validation_examples_verified": 59,
+  "score_recalculation": "passed",
+  "three_raw_replays_match": true
+}

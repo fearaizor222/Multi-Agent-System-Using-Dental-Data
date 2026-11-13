@@ -1,0 +1,209 @@
+[
+  {
+    "idx": 0,
+    "question": "Sâu răng là gì?",
+    "in_tok": 3536,
+    "seconds": 29.35,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S11\"], \"text\": \"Dental caries, còn gọi là sâu răng, là bệnh thường gặp nhất, chỉ đứng sau cảm lạnh.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Dental caries, còn gọi là sâu răng, là bệnh thường gặp nhất, chỉ đứng sau cảm lạnh.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Dental Caries Dental caries, commonly referred to as tooth decay, is one of the most common of all diseases, second only to the common cold."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  },
+  {
+    "idx": 1,
+    "question": "Máng nhai là gì?",
+    "in_tok": 2843,
+    "seconds": 12.45,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Máng nhai là khí cụ bằng nhựa đặt giữa hai cung răng để chẩn đoán và điều trị rối loạn cắn khớp.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Định nghĩa Máng nhai sử dụng trong thực hành cắn khớp có thể định nghĩa như sau: Máng nhai là một khí cụ bằng nhựa đặt giữa hai cung răng được thực hiện với mục đích chẩn đoán và điều trị rối loạn cắn khớp."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  },
+  {
+    "idx": 2,
+    "question": "Kích thước dọc là gì?",
+    "in_tok": 3266,
+    "seconds": 13.09,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Định nghĩa Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động)."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  },
+  {
+    "idx": 3,
+    "question": "Cung mặt là gì?",
+    "in_tok": 3635,
+    "seconds": 129.97,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Cung mặt là dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Cung mặt là dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "1. ĐỊNH NGHĨA “Cung mặt là một dụng cụ cho phép xác định vị trí tương đối của sống hàm và răng trên so với điểm giữa hõm khớp thái dương hàm theo ba chiều trong không gian” (Landa, .J.5., 1954)."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  },
+  {
+    "idx": 4,
+    "question": "Tương quan trung tâm là gì?",
+    "in_tok": 3559,
+    "seconds": 85.54,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S7\"], \"text\": \"Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Tương quan trung tâm là tương quan hàm sọ không phụ thuộc vào răng, giữa lồi cầu xương hàm dưới và hõm khớp xương thái dương qua trung gian đĩa khớp.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Tương quan †rung tâm (TQTT) Tương quan trung tâm là một tương quan hàm sọ, không phụ thuộc vào răng, là tương quan giữa lỗi cầu của xương hàm dưới và hõm khớp của xương thái dương qua trung gian đĩa khớp."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  },
+  {
+    "idx": 5,
+    "question": "Theo tài liệu, khi chưa tìm được nguyên nhân rõ ràng của loạn năng hệ thống nhai thì nên xử trí ban đầu như thế nào?",
+    "in_tok": 3595,
+    "seconds": 67.4,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S3\"], \"text\": \"Đoạn nói việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Đoạn nói việc điều trị ban đầu tập trung vào việc giảm triệu chứng và hy vọng làm giảm các rối loạn.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Loại bỏ các yếu tố nguyên nhân là bước đầu tiên trong điều trị tất cả các bệnh, nhưng đối với loạn năng khớp cắn, loạn năng thái dương hàm và rối loạn cơ, có thể không tìm được yếu tố nguyên nhân rõ ràng, vì thế việc điều trị đầu tiên phải là điều trị triệu chứng."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  },
+  {
+    "idx": 6,
+    "question": "Theo tài liệu, khi dùng máng nhai để giảm hoạt động cơ cắn, ngừng đeo máng thì hiệu quả có được duy trì không?",
+    "in_tok": 2805,
+    "seconds": 4.82,
+    "raw_output": "{\"status\": \"insufficient_evidence\", \"claims\": []}",
+    "resolved_status": "insufficient_evidence",
+    "resolved_output": {
+      "status": "insufficient_evidence",
+      "claims": []
+    },
+    "res_err": null
+  },
+  {
+    "idx": 7,
+    "question": "Theo tài liệu, mài điều chỉnh khớp cắn có hoàn tất trong một lần hẹn không, và các lần hẹn cách nhau bao lâu?",
+    "in_tok": 2949,
+    "seconds": 17.1,
+    "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S4\"], \"text\": \"Không; thường không thể hoàn tất trong một lần hẹn.\"}, {\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S5\"], \"text\": \"Khoảng cách có thể thay đổi từ 7 đến 10 ngày.\"}]}",
+    "resolved_status": "draft",
+    "resolved_output": {
+      "status": "draft",
+      "claims": [
+        {
+          "text": "Không; thường không thể hoàn tất trong một lần hẹn.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Việc mài chỉnh thường không thể hoàn tất trong một lần hẹn."
+            }
+          ]
+        },
+        {
+          "text": "Khoảng cách có thể thay đổi từ 7 đến 10 ngày.",
+          "evidence_ids": [
+            "I1"
+          ],
+          "supporting_quotes": [
+            {
+              "evidence_id": "I1",
+              "quote": "Khoảng cách giữa hai lần hẹn có thể thay đổi từ 7 đến 10 ngày để tạo điều kiện thời gian cho những hoạt động thích ứng."
+            }
+          ]
+        }
+      ]
+    },
+    "res_err": null
+  }
+]

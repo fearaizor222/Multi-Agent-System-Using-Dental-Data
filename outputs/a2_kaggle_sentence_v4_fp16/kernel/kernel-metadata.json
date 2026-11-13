@@ -1,0 +1,16 @@
+{
+  "id": "vunguyen25552/dental-a2-qwen3-v4-fp16",
+  "title": "Dental A2 Qwen3 v4 FP16",
+  "code_file": "train.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "vunguyen25552/dental-a2-v4-fp16-continuation"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

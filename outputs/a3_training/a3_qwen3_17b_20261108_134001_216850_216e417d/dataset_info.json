@@ -1,0 +1,41 @@
+{
+  "source_sha256": {
+    "train.jsonl": "c83b8b00dacf0f1ff07e807a5b9f7a3a42c5ea6632c8620da3305b0efa8ea64b",
+    "val.jsonl": "a033d414974f799b32e4ad7d9fea7a14a94e9b85c3579a376ef411e36b5ee88c",
+    "train.metadata.jsonl": "477988a6588ac1c2f6ea3da92a67b1a08afe3b1b226e0a274b78d614d0f8fc62",
+    "val.metadata.jsonl": "b8a90bf947e170384fe4b5b467e7dec841c6fe4d86ac921abedbc6e94be94da2"
+  },
+  "split_method": "Preserve supplied train.jsonl / val.jsonl; no resplit or relabeling",
+  "counts": {
+    "train": 1056,
+    "validation": 191
+  },
+  "labels": {
+    "train": {
+      "draft_support": {
+        "supported": 887,
+        "insufficient": 114,
+        "contradicted": 55
+      },
+      "public_support": {
+        "supported": 709,
+        "contradicted": 222,
+        "insufficient": 125
+      }
+    },
+    "validation": {
+      "draft_support": {
+        "supported": 158,
+        "insufficient": 22,
+        "contradicted": 11
+      },
+      "public_support": {
+        "supported": 128,
+        "contradicted": 40,
+        "insufficient": 23
+      }
+    }
+  },
+  "validation_main_chunks_seen_in_train_including_distractors": 37,
+  "scope": "Synthetic labels with known audit issues; validation used for checkpoint selection, not independent test or clinical validation."
+}

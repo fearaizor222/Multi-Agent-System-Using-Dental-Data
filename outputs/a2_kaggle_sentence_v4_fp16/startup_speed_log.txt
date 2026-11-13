@@ -1,0 +1,500 @@
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+
+0.00s - to python to disable frozen modules.
+
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+
+0.00s - to python to disable frozen modules.
+
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+
+Extracting bundle: /kaggle/input/datasets/vunguyen25552/dental-a2-v4-fp16-continuation/a2_sentence_v4_fp16_bundle.bundle
+
+Workspace ready: /kaggle/working/a2_v4_fp16_work
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+
+bigframes 2.51.0 requires google-cloud-bigquery-storage<3.0.0,>=2.30.0, which is not installed.
+
+ydata-profiling 4.18.4 requires matplotlib<=3.10,>=3.5, but you have matplotlib 3.10.8 which is incompatible.
+
+gradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+
+diffusers 0.42.0 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+
+bigframes 2.51.0 requires google-cloud-bigquery-storage<3.0.0,>=2.30.0, which is not installed.
+
+ydata-profiling 4.18.4 requires matplotlib<=3.10,>=3.5, but you have matplotlib 3.10.8 which is incompatible.
+
+gradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+
+diffusers 0.42.0 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+
+bigframes 2.51.0 requires google-cloud-bigquery-storage<3.0.0,>=2.30.0, which is not installed.
+
+ydata-profiling 4.18.4 requires matplotlib<=3.10,>=3.5, but you have matplotlib 3.10.8 which is incompatible.
+
+gradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+
+diffusers 0.42.0 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+Fri Nov 13 09:47:56 2026       
+
++-----------------------------------------------------------------------------------------+
+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
+
++-----------------------------------------+------------------------+----------------------+
+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+
+|                                         |                        |               MIG M. |
+
+|=========================================+========================+======================|
+
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+
+| N/A   42C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+
+|                                         |                        |                  N/A |
+
++-----------------------------------------+------------------------+----------------------+
+
+|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |
+
+| N/A   41C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+
+|                                         |                        |                  N/A |
+
++-----------------------------------------+------------------------+----------------------+
+
+
+
++-----------------------------------------------------------------------------------------+
+
+| Processes:                                                                              |
+
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+
+|        ID   ID                                                               Usage      |
+
+|=========================================================================================|
+
+|  No running processes found                                                             |
+
++-----------------------------------------------------------------------------------------+
+
+Fri Nov 13 09:47:56 2026       
+
++-----------------------------------------------------------------------------------------+
+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
+
++-----------------------------------------+------------------------+----------------------+
+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+
+|                                         |                        |               MIG M. |
+
+|=========================================+========================+======================|
+
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+
+| N/A   42C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+
+|                                         |                        |                  N/A |
+
++-----------------------------------------+------------------------+----------------------+
+
+|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |
+
+| N/A   41C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+
+|                                         |                        |                  N/A |
+
++-----------------------------------------+------------------------+----------------------+
+
+
+
++-----------------------------------------------------------------------------------------+
+
+| Processes:                                                                              |
+
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+
+|        ID   ID                                                               Usage      |
+
+|=========================================================================================|
+
+|  No running processes found                                                             |
+
++-----------------------------------------------------------------------------------------+
+
+{
+
+  "ready": true,
+
+  "dataset_version": "a2_sentence_selection_v4",
+
+  "max_length": 4096,
+
+  "max_new_tokens": 384,
+
+  "initial_adapter_sha256": "e3b5a36f19bff6df97234b967678a81208039df7908bc4a19883b723fde96a66",
+
+  "lengths": {
+
+    "train": {
+
+      "count": 1076,
+
+      "max_tokens": 3462,
+
+      "p95_tokens": 3074,
+
+      "max_assistant_tokens": 139
+
+    },
+
+    "val": {
+
+      "count": 84,
+
+      "max_tokens": 2560,
+
+      "p95_tokens": 2507,
+
+      "max_assistant_tokens": 110
+
+    },
+
+    "challenge": {
+
+      "count": 80,
+
+      "max_tokens": 3853,
+
+      "p95_tokens": 3778,
+
+      "max_assistant_tokens": 96
+
+    }
+
+  },
+
+  "truncated_samples": 0,
+
+  "weights_loaded": false,
+
+  "training_executed": false,
+
+  "test_used": false
+
+}
+
+{
+
+  "ready": true,
+
+  "dataset_version": "a2_sentence_selection_v4",
+
+  "max_length": 4096,
+
+  "max_new_tokens": 384,
+
+  "initial_adapter_sha256": "e3b5a36f19bff6df97234b967678a81208039df7908bc4a19883b723fde96a66",
+
+  "lengths": {
+
+    "train": {
+
+      "count": 1076,
+
+      "max_tokens": 3462,
+
+      "p95_tokens": 3074,
+
+      "max_assistant_tokens": 139
+
+    },
+
+    "val": {
+
+      "count": 84,
+
+      "max_tokens": 2560,
+
+      "p95_tokens": 2507,
+
+      "max_assistant_tokens": 110
+
+    },
+
+    "challenge": {
+
+      "count": 80,
+
+      "max_tokens": 3853,
+
+      "p95_tokens": 3778,
+
+      "max_assistant_tokens": 96
+
+    }
+
+  },
+
+  "truncated_samples": 0,
+
+  "weights_loaded": false,
+
+  "training_executed": false,
+
+  "test_used": false
+
+}
+
+{"gpu": "Tesla T4", "compute_capability": [7, 5], "compute_dtype": "torch.float16", "native_bf16": false, "training": true}
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+{"gpu": "Tesla T4", "compute_capability": [7, 5], "compute_dtype": "torch.float16", "native_bf16": false, "training": true}
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|âââââ     | 1/2 [00:07<00:07,  7.85s/it]Fetching 2 files: 100%|ââââââââââ| 2/2 [00:07<00:00,  3.93s/it]
+
+Fetching 2 files:  50%|âââââ     | 1/2 [00:07<00:07,  7.85s/it]Fetching 2 files: 100%|ââââââââââ| 2/2 [00:07<00:00,  3.93s/it]
+
+
+
+Fetching 2 files:  50%|âââââ     | 1/2 [00:07<00:07,  7.85s/it]Fetching 2 files: 100%|ââââââââââ| 2/2 [00:07<00:00,  3.93s/it]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+
+  torch._check_is_size(blocksize)
+
+/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+
+  torch._check_is_size(blocksize)
+
+
+
+/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+
+  torch._check_is_size(blocksize)
+
+Loading checkpoint shards:  50%|âââââ     | 1/2 [00:02<00:02,  2.66s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.19s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.41s/it]
+
+Loading checkpoint shards:  50%|âââââ     | 1/2 [00:02<00:02,  2.66s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.19s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.41s/it]
+
+
+
+Loading checkpoint shards:  50%|âââââ     | 1/2 [00:02<00:02,  2.66s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.19s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.41s/it]
+
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+
+
+
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+
+  0%|          | 0/203 [00:00<?, ?it/s]  0%|          | 0/203 [00:00<?, ?it/s]
+
+  0%|          | 0/203 [00:00<?, ?it/s]  0%|          | 1/203 [00:26<1:29:30, 26.58s/it]  0%|          | 1/203 [00:26<1:29:30, 26.58s/it]
+
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+
+0.00s - to python to disable frozen modules.
+
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+
+Extracting bundle: /kaggle/input/datasets/vunguyen25552/dental-a2-v4-fp16-continuation/a2_sentence_v4_fp16_bundle.bundle
+
+Workspace ready: /kaggle/working/a2_v4_fp16_work
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+
+bigframes 2.51.0 requires google-cloud-bigquery-storage<3.0.0,>=2.30.0, which is not installed.
+
+ydata-profiling 4.18.4 requires matplotlib<=3.10,>=3.5, but you have matplotlib 3.10.8 which is incompatible.
+
+gradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+
+diffusers 0.42.0 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+
+
+Fri Nov 13 09:47:56 2026       
+
++-----------------------------------------------------------------------------------------+
+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
+
++-----------------------------------------+------------------------+----------------------+
+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+
+|                                         |                        |               MIG M. |
+
+|=========================================+========================+======================|
+
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+
+| N/A   42C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+
+|                                         |                        |                  N/A |
+
+|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |
+
+| N/A   41C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+
+| Processes:                                                                              |
+
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+
+|        ID   ID                                                               Usage      |
+
+|=========================================================================================|
+
+|  No running processes found                                                             |
+
+{
+
+  "ready": true,
+
+  "dataset_version": "a2_sentence_selection_v4",
+
+  "max_length": 4096,
+
+  "max_new_tokens": 384,
+
+  "initial_adapter_sha256": "e3b5a36f19bff6df97234b967678a81208039df7908bc4a19883b723fde96a66",
+
+  "lengths": {
+
+    "train": {
+
+      "count": 1076,
+
+      "max_tokens": 3462,
+
+      "p95_tokens": 3074,
+
+      "max_assistant_tokens": 139
+
+    },
+
+    "val": {
+
+      "count": 84,
+
+      "max_tokens": 2560,
+
+      "p95_tokens": 2507,
+
+      "max_assistant_tokens": 110
+
+    "challenge": {
+
+      "count": 80,
+
+      "max_tokens": 3853,
+
+      "p95_tokens": 3778,
+
+      "max_assistant_tokens": 96
+
+    }
+
+  },
+
+  "truncated_samples": 0,
+
+  "weights_loaded": false,
+
+  "training_executed": false,
+
+  "test_used": false
+
+}
+
+{"gpu": "Tesla T4", "compute_capability": [7, 5], "compute_dtype": "torch.float16", "native_bf16": false, "training": true}
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|âââââ     | 1/2 [00:07<00:07,  7.85s/it]Fetching 2 files: 100%|ââââââââââ| 2/2 [00:07<00:00,  3.93s/it]
+
+Fetching 2 files:  50%|âââââ     | 1/2 [00:07<00:07,  7.85s/it]Fetching 2 files: 100%|ââââââââââ| 2/2 [00:07<00:00,  3.93s/it]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+
+  torch._check_is_size(blocksize)
+
+/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+
+Loading checkpoint shards:  50%|âââââ     | 1/2 [00:02<00:02,  2.66s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.19s/it]Loading checkpoint shards: 100%|ââââââââââ| 2/2 [00:02<00:00,  1.41s/it]
+
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+
+  0%|          | 0/203 [00:00<?, ?it/s]  0%|          | 0/203 [00:00<?, ?it/s]
+
+  0%|          | 0/203 [00:00<?, ?it/s]  0%|          | 1/203 [00:26<1:29:30, 26.58s/it]  0%|          | 1/203 [00:26<1:29:30, 26.58s/it]
+
+  0%|          | 1/203 [00:26<1:29:30, 26.58s/it]  1%|          | 2/203 [00:50<1:24:26, 25.21s/it]  1%|          | 2/203 [00:50<1:24:26, 25.21s/it]
+
+  1%|          | 2/203 [00:50<1:24:26, 25.21s/it]  1%|â         | 3/203 [01:15<1:23:15, 24.98s/it]  1%|â         | 3/203 [01:15<1:23:15, 24.98s/it]
+
+  1%|â         | 3/203 [01:15<1:23:15, 24.98s/it]  2%|â         | 4/203 [01:47<1:31:55, 27.71s/it]  2%|â         | 4/203 [01:47<1:31:55, 27.71s/it]
+
+TRAINING_SPEED_CHECK {"steps": 5, "seconds_per_step": 26.65910011799999, "estimated_training_hours": 1.5032770344316662, "precision": "fp16"}
+

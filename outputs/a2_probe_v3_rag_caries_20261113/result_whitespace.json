@@ -1,0 +1,31 @@
+{
+  "question": "Sâu răng là gì?",
+  "adapter_sha256": "f80acf2d73be13e3ff2f8a6ccb18fca22a79e24baa73eda901a683f7fcb4a067",
+  "epoch": 2,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"text\": \"Dental caries, thường gọi là sâu răng, là một trong những bệnh phổ biến nhất, chỉ đứng sau bệnh ho thông thường.\", \"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S11\"]}]}",
+  "whitespace_normalized": true,
+  "training_runtime_token_budget": 4096,
+  "diagnostic_full_context_override": false,
+  "seconds": 28.90302359999987,
+  "input_tokens": 3516,
+  "generated_tokens": 63,
+  "generation_limit_hit": false,
+  "scope": "A2 only; production internal RAG; frozen v3 training protocol; no other agents or rule-based drafting; all retrieved chunks retained, only whitespace normalized",
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Dental caries, thường gọi là sâu răng, là một trong những bệnh phổ biến nhất, chỉ đứng sau bệnh ho thông thường.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Dental Caries Dental caries, commonly referred to as tooth decay, is one of the most common of all diseases, second only to the common cold."
+          }
+        ]
+      }
+    ]
+  }
+}

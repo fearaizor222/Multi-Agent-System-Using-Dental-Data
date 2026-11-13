@@ -1,0 +1,12 @@
+{
+  "base_model": "vilm/vinallama-2.7b-chat",
+  "revision": "b31d5f1306494b2bf10ecb0c6031077af3f5b39a",
+  "epoch": 1,
+  "optimizer_steps": 600,
+  "dataset_manifest_sha256": "8e5d74049d238678308404ca9302df6c601e3dc19acf36ce880d08a38fe068a4",
+  "files_sha256": {
+    "adapter_config.json": "1bd29e9a6456f863173ef6b0de4c912c620d3d1e0bea893c6f12d366df962603",
+    "adapter_model.safetensors": "21ab56332b8ea2de169584d21f05af6e389deed3d80d12a101f8607b9e5de8f7",
+    "README.md": "913fdb96df17a36983a9a9ebd5f848b4496e97f6238f3a0ac532b2a8d0bd6d9b"
+  }
+}

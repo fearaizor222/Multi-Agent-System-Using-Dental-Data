@@ -1,0 +1,53 @@
+{
+  "schema_valid": 0.9761904761904762,
+  "status_correct": 0.6071428571428571,
+  "citation_ids_valid": 0.9761904761904762,
+  "exact_match": 0.011904761904761904,
+  "count": 84,
+  "per_status": {
+    "draft": {
+      "support": 52,
+      "precision": 0.6219512195121951,
+      "recall": 0.9807692307692307,
+      "f1": 0.7611940298507464
+    },
+    "insufficient_evidence": {
+      "support": 32,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "status_macro_f1": 0.3805970149253732,
+  "confusion_matrix": [
+    [
+      51,
+      0,
+      1
+    ],
+    [
+      31,
+      0,
+      1
+    ]
+  ],
+  "confusion_labels": {
+    "rows": [
+      "draft",
+      "insufficient_evidence"
+    ],
+    "columns": [
+      "draft",
+      "insufficient_evidence",
+      "invalid"
+    ]
+  },
+  "generation_limit_hit_fraction": 0.0,
+  "valid_sentence_ids": 0.9761904761904762,
+  "selection_set_exact": 0.7115384615384616,
+  "selection_f1_on_answerable": 0.8493589743589743,
+  "sentence_micro_precision": 0.4661016949152542,
+  "sentence_micro_recall": 0.9166666666666666,
+  "sentence_micro_f1": 0.6179775280898877,
+  "metric_scope": "Lexical reference sentence matching, best claim permutation by IDs. Does NOT measure claim semantics, relevance beyond reference, or clinical correctness. Verbatim copying is by code, not a model score."
+}

@@ -1,0 +1,4 @@
+﻿id,category,message,expected_decision,predicted_decision,control_exact,schema_valid,context_valid,error,raw_output
+a1_splint_01,knowledge,Máng nhai là gì?,route,route,True,True,True,,"{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm kiến thức chung về máng nhai."",""message"":null}"
+a1_splint_02,knowledge,Cho mình tìm hiểu về máng nhai với.,route,route,True,True,True,,"{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm kiến thức chung về máng nhai."",""message"":null}"
+a1_splint_03,knowledge,mang nhai co nghia la gi vay ad,route,route,True,True,True,,"{""decision"":""route"",""targets"":[""A2""],""service_topics"":[],""image_ids"":[],""resolved_request"":""Tìm kiến thức chung về răng sâu và cách chăm sóc."",""message"":null}"

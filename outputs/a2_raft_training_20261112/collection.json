@@ -1,0 +1,17 @@
+{
+  "run": "a2_raft_qwen3_17b_20261112_122501_012229",
+  "training": {
+    "status": "completed"
+  },
+  "experiment": {
+    "status": "completed"
+  },
+  "predictions": {
+    "before": 72,
+    "after": 72,
+    "paired_probe": 64
+  },
+  "folder": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_training\\a2_raft_qwen3_17b_20261112_122501_012229",
+  "saved_epoch": 3.0,
+  "saved_global_step": 54
+}

@@ -1,0 +1,126 @@
+{
+  "json_valid": 0.011834319526627219,
+  "schema_valid": 0.0,
+  "quote_ids_valid": 0.0,
+  "quote_set_match": 0.0,
+  "both_labels_correct": 0.0,
+  "assessment_exact_match": 0.0,
+  "full_json_exact_match": 0.0,
+  "draft_support_correct": 0.0,
+  "public_support_correct": 0.0,
+  "count": 169,
+  "decisions": {
+    "draft_support": {
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          113
+        ],
+        [
+          0,
+          0,
+          0,
+          24
+        ],
+        [
+          0,
+          0,
+          0,
+          32
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "supported",
+          "contradicted",
+          "insufficient"
+        ],
+        "columns": [
+          "supported",
+          "contradicted",
+          "insufficient",
+          "invalid"
+        ]
+      },
+      "per_label": {
+        "supported": {
+          "support": 113,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "contradicted": {
+          "support": 24,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "insufficient": {
+          "support": 32,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "macro_f1": 0.0
+    },
+    "public_support": {
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          110
+        ],
+        [
+          0,
+          0,
+          0,
+          26
+        ],
+        [
+          0,
+          0,
+          0,
+          33
+        ]
+      ],
+      "confusion_labels": {
+        "rows": [
+          "supported",
+          "contradicted",
+          "insufficient"
+        ],
+        "columns": [
+          "supported",
+          "contradicted",
+          "insufficient",
+          "invalid"
+        ]
+      },
+      "per_label": {
+        "supported": {
+          "support": 110,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "contradicted": {
+          "support": 26,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "insufficient": {
+          "support": 33,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "macro_f1": 0.0
+    }
+  }
+}

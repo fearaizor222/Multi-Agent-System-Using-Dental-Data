@@ -1,0 +1,78 @@
+{
+  "completed": true,
+  "count": 3,
+  "correct": {
+    "raw_json_valid": 3,
+    "schema_valid": 2,
+    "context_valid": 2,
+    "decision_correct": 0,
+    "targets_correct": 0,
+    "service_topics_correct": 2,
+    "image_ids_correct": 2,
+    "control_exact": 0
+  },
+  "rates": {
+    "raw_json_valid": 1.0,
+    "schema_valid": 0.6666666666666666,
+    "context_valid": 0.6666666666666666,
+    "decision_correct": 0.0,
+    "targets_correct": 0.0,
+    "service_topics_correct": 0.6666666666666666,
+    "image_ids_correct": 0.6666666666666666,
+    "control_exact": 0.0
+  },
+  "decision_macro_f1": 0.0,
+  "per_decision": {
+    "route": {
+      "support": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "clarify": {
+      "support": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "handoff": {
+      "support": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "out_of_scope": {
+      "support": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "respond": {
+      "support": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "by_category": {
+    "knowledge": {
+      "count": 3,
+      "control_exact": 0,
+      "schema_valid": 2
+    }
+  },
+  "confusion": [
+    {
+      "expected": "route",
+      "predicted": "invalid",
+      "count": 1
+    },
+    {
+      "expected": "route",
+      "predicted": "respond",
+      "count": 2
+    }
+  ],
+  "total_generation_seconds": 47.5706,
+  "scope": "Synthetic validation control decisions; response wording and resolved_request semantics not automatically judged."
+}

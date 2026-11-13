@@ -1,0 +1,33 @@
+{
+  "question": "Kích thước dọc là gì?",
+  "kind": "definition",
+  "input_tokens": 3266,
+  "adapter_sha256": "01942c2c8e2d4ad6354a3f230dedea679946c4bddbb728184509dbde4642e46b",
+  "checkpoint": "epoch_1.0",
+  "context_replay": true,
+  "whitespace_normalized": true,
+  "v4_ocr_normalization": true,
+  "original_retrieval": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\outputs\\a2_probe_v3_verified_definitions_20261113\\retrieval_0.json",
+  "all_retrieved_chunks_retained": true,
+  "raw_output": "{\"status\": \"draft\", \"claims\": [{\"evidence_ids\": [\"I1\"], \"sentence_ids\": [\"I1:S6\"], \"text\": \"Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.\"}]}",
+  "seconds": 13.06610539999383,
+  "generation_tokens": 65,
+  "generation_limit_hit": false,
+  "resolved_output": {
+    "status": "draft",
+    "claims": [
+      {
+        "text": "Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên đến một điểm ở hàm dưới.",
+        "evidence_ids": [
+          "I1"
+        ],
+        "supporting_quotes": [
+          {
+            "evidence_id": "I1",
+            "quote": "Định nghĩa Kích thước dọc là số đo chiều cao tầng dưới mặt, từ một điểm ở hàm trên (thành phần cố định) đến một điểm ở hàm dưới (thành phần di động)."
+          }
+        ]
+      }
+    ]
+  }
+}

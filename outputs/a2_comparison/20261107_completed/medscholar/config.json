@@ -1,0 +1,18 @@
+{
+  "model": "yasserrmd/MedScholar-1.5B",
+  "revision": "c4a837a196bbf0fb08396fd8176bfc6bf10b647f",
+  "model_id": "medscholar_15b",
+  "chat_template": "{% for m in messages %}{% if m['role'] == 'system' %}{{ '### Question:\\n' + m['content'] + '\\n\\n' }}{% elif m['role'] == 'user' %}{{ m['content'] + '\\n\\n### Answer:\\n' }}{% elif m['role'] == 'assistant' %}{{ m['content'] + eos_token }}{% endif %}{% endfor %}",
+  "eos_token_id": 151643,
+  "epochs": 2,
+  "learning_rate": 0.0001,
+  "max_length": 3072,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 4,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "seed": 42,
+  "quantization": "NF4 double quantization / BF16",
+  "checkpoint_selection": "lowest validation loss",
+  "gpu": "NVIDIA L4"
+}
