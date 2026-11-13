@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fixture tự viết để kiểm tra parser; không phải một bài nghiên cứu thật. -->
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/">
+  <GetRecord><record><metadata>
+    <article xmlns="" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="review-article" xml:lang="en">
+      <front>
+        <journal-meta><journal-title-group><journal-title>Parser test journal</journal-title></journal-title-group></journal-meta>
+        <article-meta>
+          <article-id pub-id-type="pmc">999999999</article-id>
+          <article-id pub-id-type="pmid">123456</article-id>
+          <article-id pub-id-type="doi">10.0000/parser-test</article-id>
+          <title-group><article-title>Dental parser <italic>test</italic></article-title></title-group>
+          <pub-date pub-type="epub"><day>3</day><month>2</month><year>2024</year></pub-date>
+          <permissions><license xlink:href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</license></permissions>
+          <abstract><p>Abstract text with 0.5 mg.</p></abstract>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="s1"><title>First section</title>
+          <p>alpha<italic>beta</italic> and source <xref ref-type="bibr" rid="r1">1</xref>.</p>
+          <sec id="s11"><title>Nested section</title><p>Nested paragraph.</p></sec>
+          <p>Paragraph after nested section.</p>
+          <list><list-item><p>First item.</p></list-item><list-item><p>Second item.</p></list-item></list>
+          <table-wrap id="t1"><label>Table 1</label><caption><p>Table caption.</p></caption>
+            <table><thead><tr><th rowspan="2">Group</th><th colspan="2">Values</th></tr><tr><th>A</th><th>B</th></tr></thead>
+              <tbody><tr><td>Example</td><td>10</td><td>20</td></tr></tbody></table>
+            <table-wrap-foot><fn><p>Units: mg.</p></fn></table-wrap-foot>
+          </table-wrap>
+          <fig id="f1"><label>Figure 1</label><caption><p>Caption kept.</p></caption><graphic xlink:href="image.png"/></fig>
+        </sec>
+        <sec id="s2"><title>Second section</title><p>Last paragraph.</p></sec>
+      </body>
+      <back><ref-list><ref id="r1"><mixed-citation>Reference excluded from retrieval.</mixed-citation></ref></ref-list></back>
+    </article>
+  </metadata></record></GetRecord>
+</OAI-PMH>

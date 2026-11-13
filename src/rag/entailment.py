@@ -2,6 +2,10 @@
 from src.core.model_registry import checked_model
 
 
+class ClaimTooLong(ValueError):
+    """Nhận định cần viết ngắn/tách ý trước khi đưa vào NLI."""
+
+
 def aggregate_predictions(predictions, threshold=0.8):
     if not 0.5 < threshold <= 1:
         raise ValueError("Ngưỡng NLI phải thuộc (0.5, 1]")
@@ -31,11 +35,15 @@ class LocalEntailment:
             raise ValueError("Model NLI có nhãn không đúng cấu hình")
         self.threshold = threshold
 
-    def assess(self, claim, evidence):
-        import torch
+    def validate_claim(self, claim):
         hypothesis = self.tokenizer(claim, add_special_tokens=False, verbose=False)["input_ids"]
         if len(hypothesis) > 128:
-            raise ValueError("Nhận định quá dài cho NLI; cần tách nhỏ hơn")
+            raise ClaimTooLong(f"Nhận định có {len(hypothesis)} token NLI, vượt 128; cần tách nhỏ hơn")
+        return hypothesis
+
+    def assess(self, claim, evidence):
+        import torch
+        hypothesis = self.validate_claim(claim)
         budget = min(384, 512 - len(hypothesis) - self.tokenizer.num_special_tokens_to_add(pair=True))
         predictions = []
         for item in evidence:

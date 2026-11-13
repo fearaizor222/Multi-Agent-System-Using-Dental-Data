@@ -21,7 +21,8 @@ def file_sha256(path):
 
 def passage_body(document):
     # Chunk công khai đã chứa tên tài liệu và đường dẫn đề mục.
-    if document.metadata.get("warehouse") == "public":
+    if (document.metadata.get("warehouse") == "public"
+            or document.metadata.get("content_includes_title") is True):
         return document.content
     return document.title + "\n" + document.content
 

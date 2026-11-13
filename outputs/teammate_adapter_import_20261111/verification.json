@@ -1,0 +1,45 @@
+[
+  {
+    "adapter": "dental_agent5_drafting_adapter",
+    "directory": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\models\\dental_agent5_drafting_adapter",
+    "base_directory": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\data\\models\\Qwen--Qwen2.5-1.5B-Instruct\\989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "peft_version": "0.21.2",
+    "tensor_count": 392,
+    "all_finite": true,
+    "dimensions_match": true,
+    "renamed_language_model_tensor_keys": 0,
+    "revision_in_adapter": null,
+    "inference_run": false,
+    "hashes": {
+      "adapter_config.json": "4eb022b8cf413097dc1f44f41c94d0803d26ea813be5c70c2f68c9057ce6c00e",
+      "adapter_model.safetensors": "9a4161ae1cc7b88df253b6a8e6ac55f4ab77a63e05a730db0d8d436285cfdab3",
+      "chat_template.jinja": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "README.md": "b0057ecdd9582cb395bb022ffde8ffdd42f45dd8ee311c1c9547c8c1fe4b35bb",
+      "tokenizer.json": "9e2b7649a086fbb9771cd78ec5b7ffa7069e16a82424a382950fedfa1e057861",
+      "tokenizer_config.json": "04b1682c59acbd057f4c9072297faa73d56fc9de053094c659cdb4c464f58f86"
+    }
+  },
+  {
+    "adapter": "dental_qwen2_vl_adapter",
+    "directory": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\models\\dental_qwen2_vl_adapter",
+    "base_directory": "D:\\Project\\DATN\\Multi-Agent-System-Using-Dental-Data-main\\data\\models\\Qwen--Qwen2-VL-2B-Instruct\\895c3a49bc3fa70a340399125c650a463535e71c",
+    "base_model": "Qwen/Qwen2-VL-2B-Instruct",
+    "peft_version": "0.21.2",
+    "tensor_count": 392,
+    "all_finite": true,
+    "dimensions_match": true,
+    "renamed_language_model_tensor_keys": 392,
+    "revision_in_adapter": null,
+    "inference_run": false,
+    "hashes": {
+      "adapter_config.json": "2004e417f0713858e6ff782a01984d5818d2422196cc85daff27915f1d125d8d",
+      "adapter_model.safetensors": "23d49a7488df07924c282f39fe6820b56e331035fedaa0c6b53a3e7240b22d03",
+      "chat_template.jinja": "a0bc6f6fc7a29a80017a433e8f03a1cc1236e838a944a2d034295a60c4f2fddb",
+      "processor_config.json": "7a63b88f353d789ebe243ea0c63bbb1a06dcbdddcbb271afd701fb7c75adf1b5",
+      "README.md": "313aff386dbacab31964761befa916bc9af054ea35db0a8d8106ff52204e49ee",
+      "tokenizer.json": "312c03cb421e18f41c20c3e35f3302479a3a8f8b1f06779fd900326a0d32c22f",
+      "tokenizer_config.json": "f9fdfeb30c54fa8e8182dd20535960b864a781738a683c6168068322801de3c2"
+    }
+  }
+]

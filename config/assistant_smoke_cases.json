@@ -1,0 +1,13 @@
+{
+  "scope": "Kiểm tra kỹ thuật A1 → A2 → A3 model local và A4 theo quy tắc; không phải benchmark độc lập hoặc đánh giá y khoa.",
+  "cases": [
+    {"id":"greeting","input":{"message":"Xin chào bạn."},"expected_statuses":["respond"],"expected_targets":[]},
+    {"id":"unclear","input":{"message":"Giúp em với ạ."},"expected_statuses":["clarify"],"expected_targets":[]},
+    {"id":"service_disabled","input":{"message":"Cho tôi hỏi phòng khám có mở cửa buổi tối không?"},"expected_statuses":["handoff"],"expected_targets":[]},
+    {"id":"personal_handoff","input":{"message":"Quyết định giúp tôi phải nhổ hay chữa tủy chiếc răng này."},"expected_statuses":["handoff"],"expected_targets":[]},
+    {"id":"image_disabled","input":{"message":"Trích chữ trong ảnh tài liệu này.","attachments":[{"id":"page1","filename":"tai_lieu.png","kind":"document","readable":true}],"capabilities":{"A2":true,"A5":true,"lookup_clinic_service":true}},"expected_statuses":["handoff","blocked"],"expected_targets":[]},
+    {"id":"knowledge","input":{"message":"Máng nhai là gì?"},"expected_statuses":["knowledge_result"],"expected_targets":["A2"],"expect_a3":true,"expect_a4":true},
+    {"id":"followup","continue_from":"knowledge","input":{"message":"Cấu tạo của khí cụ đó như thế nào?"},"expected_statuses":["knowledge_result"],"expected_targets":["A2"],"expect_a3":true,"expect_a4":true},
+    {"id":"switch_service","continue_from":"followup","input":{"message":"Bỏ phần kiến thức, tôi chỉ muốn hỏi chi phí làm máng ở phòng khám."},"expected_statuses":["handoff"],"expected_targets":[]}
+  ]
+}

@@ -27,6 +27,14 @@ class FixedPublicEvidence:
         return [doc.model_copy(deep=True) for doc in self.documents[:top_k]]
 
 
+def public_result_row(case, check):
+    unchecked = check["status"] == "not_checked"
+    actual = "not_checked" if unchecked else check["public_support"]
+    return {"case_id": case["id"], "expected_public": case["expected_public"], "actual_public": actual,
+            "claim_status": check["status"], "matched": not unchecked and actual == case["expected_public"],
+            "model_error": unchecked, "error_type": check.get("error_type", "")}
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
@@ -64,13 +72,11 @@ def main():
                 result = agent.run(case["question"], draft, internal)
                 check = result["checks"][0]
                 record["result"] = result
-                actual = check["public_support"]
-                row = {"case_id": case["id"], "expected_public": case["expected_public"], "actual_public": actual,
-                       "claim_status": check["status"], "matched": actual == case["expected_public"], "model_error": False}
+                row = public_result_row(case, check)
             except (ValueError, RuntimeError, IndexError, TypeError) as exc:
                 record["error"] = type(exc).__name__ + ": " + str(exc)
                 row = {"case_id": case["id"], "expected_public": case["expected_public"], "actual_public": "model_error",
-                       "claim_status": "not_evaluated", "matched": False, "model_error": True}
+                       "claim_status": "not_evaluated", "matched": False, "model_error": True, "error_type": type(exc).__name__}
             row["elapsed_ms"] = (time.perf_counter() - start) * 1000
             record.update(metrics=row, model_calls=agent.last_trace)
             records.append(record)
@@ -80,7 +86,8 @@ def main():
             print(f"{len(rows)}/{len(fixture['cases'])} {case['id']}: {row['actual_public']} (expected {case['expected_public']})", flush=True)
     summary = {"run_at": datetime.now(timezone.utc).isoformat(), "cases_sha256": hashlib.sha256(fixture_bytes).hexdigest(),
         "case_count": len(rows), "scope": fixture["scope"], "matched_public_labels": sum(row["matched"] for row in rows),
-        "model_output_errors": sum(row["model_error"] for row in rows),
+        "model_output_errors": sum(row["error_type"] == "ModelOutputError" for row in rows),
+        "technical_error_cases": sum(row["model_error"] for row in rows),
         "false_support_cases": [row["case_id"] for row in rows if row["actual_public"] == "supported" and row["expected_public"] != "supported"],
         "missed_support_cases": [row["case_id"] for row in rows if row["expected_public"] == "supported" and row["actual_public"] != "supported"],
         "median_case_ms": statistics.median(row["elapsed_ms"] for row in rows),
@@ -103,7 +110,7 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
     lines = ["# Kiểm tra A3 ngày 22/10", "", fixture["scope"], "",
-        f"Khớp nhãn công khai đã chọn: {summary['matched_public_labels']}/{len(rows)}. Lỗi đầu ra model: {summary['model_output_errors']}.",
+        f"Khớp nhãn công khai đã chọn: {summary['matched_public_labels']}/{len(rows)}. Lỗi kỹ thuật/chưa đánh giá: {summary['technical_error_cases']}.",
         "Lỗi model được ghi riêng, không tính là trả lời đúng hoặc kiểm chứng đúng.", "",
         "| Ca | Nhãn tham chiếu | Kết quả công khai | Kết quả nhận định |", "|---|---|---|---|"]
     lines.extend(f"| {row['case_id']} | {row['expected_public']} | {row['actual_public']} | {row['claim_status']} |" for row in rows)

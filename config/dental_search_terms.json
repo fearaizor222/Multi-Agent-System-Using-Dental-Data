@@ -1,0 +1,216 @@
+{
+  "purpose": "Terminology for search queries only; never answer evidence. Original questions and original source chunks are preserved.",
+  "terms": [
+    {
+      "vi": [
+        "sâu răng sữa"
+      ],
+      "en": [
+        "caries in primary teeth"
+      ]
+    },
+    {
+      "vi": [
+        "sâu răng"
+      ],
+      "en": [
+        "dental caries",
+        "tooth decay"
+      ]
+    },
+    {
+      "vi": [
+        "máng nhai"
+      ],
+      "en": [
+        "occlusal splint",
+        "bite splint"
+      ]
+    },
+    {
+      "vi": [
+        "nghiến răng"
+      ],
+      "en": [
+        "bruxism"
+      ]
+    },
+    {
+      "vi": [
+        "khớp thái dương hàm"
+      ],
+      "en": [
+        "temporomandibular joint"
+      ]
+    },
+    {
+      "vi": [
+        "rối loạn khớp thái dương hàm"
+      ],
+      "en": [
+        "temporomandibular disorder"
+      ]
+    },
+    {
+      "vi": [
+        "giá khớp thích ứng"
+      ],
+      "en": [
+        "adjustable dental articulator"
+      ]
+    },
+    {
+      "vi": [
+        "giá khớp"
+      ],
+      "en": [
+        "dental articulator",
+        "articulator"
+      ]
+    },
+    {
+      "vi": [
+        "mảng bám răng",
+        "mảng bám"
+      ],
+      "en": [
+        "dental plaque"
+      ]
+    },
+    {
+      "vi": [
+        "hủy khoáng",
+        "khử khoáng"
+      ],
+      "en": [
+        "demineralization"
+      ]
+    },
+    {
+      "vi": [
+        "tái khoáng"
+      ],
+      "en": [
+        "remineralization"
+      ]
+    },
+    {
+      "vi": [
+        "men răng"
+      ],
+      "en": [
+        "tooth enamel",
+        "enamel"
+      ]
+    },
+    {
+      "vi": [
+        "ngà răng"
+      ],
+      "en": [
+        "dentin",
+        "dentine"
+      ]
+    },
+    {
+      "vi": [
+        "viêm nướu",
+        "viêm lợi"
+      ],
+      "en": [
+        "gingivitis"
+      ]
+    },
+    {
+      "vi": [
+        "viêm nha chu"
+      ],
+      "en": [
+        "periodontitis"
+      ]
+    },
+    {
+      "vi": [
+        "viêm tủy"
+      ],
+      "en": [
+        "pulpitis"
+      ]
+    },
+    {
+      "vi": [
+        "răng khôn"
+      ],
+      "en": [
+        "third molar",
+        "wisdom tooth"
+      ]
+    },
+    {
+      "vi": [
+        "răng sữa"
+      ],
+      "en": [
+        "primary teeth",
+        "deciduous teeth"
+      ]
+    },
+    {
+      "vi": [
+        "nhiễm fluor"
+      ],
+      "en": [
+        "dental fluorosis"
+      ]
+    },
+    {
+      "vi": [
+        "fluor"
+      ],
+      "en": [
+        "fluoride"
+      ]
+    },
+    {
+      "vi": [
+        "mất răng"
+      ],
+      "en": [
+        "tooth loss"
+      ]
+    },
+    {
+      "vi": [
+        "chỉnh nha"
+      ],
+      "en": [
+        "orthodontics"
+      ]
+    },
+    {
+      "vi": [
+        "sức khỏe răng miệng"
+      ],
+      "en": [
+        "oral health"
+      ]
+    },
+    {
+      "vi": [
+        "cắn khớp",
+        "khớp cắn"
+      ],
+      "en": [
+        "occlusion"
+      ]
+    },
+    {
+      "vi": [
+        "lồi cầu"
+      ],
+      "en": [
+        "condyle"
+      ]
+    }
+  ]
+}

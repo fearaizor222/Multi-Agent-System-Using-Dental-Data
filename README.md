@@ -1,150 +1,140 @@
-# 🦷 Multi-Agent System Using Dental Data with LangGraph & Hybrid RAG
+# Kho dữ liệu và trợ lý nha khoa local
 
-Hệ thống **Multi-Agent** chuyên khoa Răng Hàm Mặt xây dựng trên nền tảng **LangChain**, **LangGraph** và định hướng tích hợp **Hybrid RAG** (Dense Vector + Sparse BM25 với thuật toán Reciprocal Rank Fusion - RRF).
+Thu thập và xử lý ba nguồn: PDF Bộ Y tế, MSD tiếng Việt và bài toàn văn PMC.
+Code hiện có phần tạo kho dữ liệu, chỉ mục truy xuất và luồng thử nghiệm **A1 → A2 → A3 → A4**. A1–A3 dùng model local; A4 tổng hợp theo quy tắc từ các nhận định được hỗ trợ. Chạy trợ lý hoặc chat nhiều lượt theo [hướng dẫn A4 và cách chạy](docs/a4_synthesis.md). A5 và công cụ dịch vụ đang tắt.
 
-Dự án được cấu trúc theo tiêu chuẩn mã nguồn chuyên nghiệp, có tính module hóa cao, phù hợp cho **Đồ án tốt nghiệp / Nghiên cứu chuyên sâu về Hệ thống Đa Tác tử trong Y tế**.
+## Dữ liệu hiện có
 
----
+| Nguồn | Phạm vi | Số tài liệu | Số chunk |
+|---|---|---:|---:|
+| Bộ Y tế | Trang PDF 8–201, gồm 57 chương của hướng dẫn năm 2015 | 1 | 3.005 |
+| MSD tiếng Việt | Mục Rối loạn nha khoa, bản chuyên gia | 46 | 1.285 |
+| PMC | Toàn văn Open Access, chia theo 12 nhóm chủ đề | 200 | 19.121 |
+| Tổng | | 247 | 23.411 |
 
-## 🏛️ 1. Kiến trúc Hệ Thống (Architecture)
+Đây là kết quả đợt thu thập ngày 15/10/2026. Các bài PMC tiếng Anh được giữ nguyên.
+Kho đã có embedding/chỉ mục và được nối vào luồng tạo nháp/đối chiếu nguồn. Xem [truy xuất](docs/retrieval.md) và [A2–A3](docs/agents_and_reranking.md). Phần dưới mô tả quy trình thu thập và chuẩn hóa kho dữ liệu.
 
-### Mô hình Multi-Agent Supervisor Pattern
-Hệ thống sử dụng mô hình điều phối phân cấp (**Supervisor Pattern**). Trưởng nhóm điều phối (`Supervisor Agent`) phân tích truy vấn của bệnh nhân và định tuyến luồng xử lý tới các Agent chuyên trách:
-
-```mermaid
-flowchart TD
-    START([Bắt đầu / Bệnh nhân hỏi]) --> Supervisor[👔 Supervisor Agent]
-    
-    Supervisor -->|Cần tra cứu y văn| RAG[🔍 RAG Retriever Agent\nHybrid Search: Vector + BM25]
-    Supervisor -->|Đã có dữ liệu y khoa| Consultant[🩺 Dental Consultant Agent\nBác sĩ tư vấn lâm sàng]
-    
-    RAG -->|Trả về tài liệu y khoa| Supervisor
-    Consultant -->|Trả lời hoàn tất| Supervisor
-    
-    Supervisor -->|Kết thúc luồng| END([Hoàn thành & Trả lời bệnh nhân])
-
-    subgraph Hybrid RAG Engine
-        RAG -.-> Dense[Dense Search\nEmbeddings + VectorDB]
-        RAG -.-> Sparse[Sparse Search\nBM25 Okapi]
-        Dense -.-> RRF[Reciprocal Rank Fusion\n(RRF) Re-ranking]
-        Sparse -.-> RRF
-    end
-```
-
-### Các Agent trong hệ thống
-1. **`Supervisor Agent`**: Giám sát ngữ cảnh hội thoại, quyết định thứ tự thực thi của các Worker Agent hoặc kết thúc quy trình (`FINISH`).
-2. **`RAG Retriever Agent`**: Chịu trách nhiệm truy vấn kho tri thức bệnh lý nha khoa bằng cơ chế **Hybrid RAG** (kết hợp tìm kiếm ngữ nghĩa Dense và từ khóa chính xác BM25).
-3. **`Dental Consultant Agent`**: Đóng vai trò bác sĩ chuyên khoa Răng Hàm Mặt, tổng hợp dữ liệu y văn từ RAG để đưa ra lời giải thích bệnh học, cảnh báo cấp cứu (Triage) và hướng dẫn bệnh nhân.
-
----
-
-## 🔬 2. Cơ chế Hybrid RAG (Định hướng tương lai)
-
-Trong lĩnh vực nha khoa, các truy vấn thường chứa:
-- **Thuật ngữ chuyên môn / Số hiệu răng cụ thể**: Ví dụ `Răng số 6`, `Răng 48`, `Viêm tủy cấp`, `Composite`, `Chữa tủy nội nha`. Đây là điểm mạnh của **Sparse Search (BM25)**.
-- **Mô tả triệu chứng tự nhiên theo ngôn ngữ người bệnh**: Ví dụ `uống nước đá bị buốt nhói lên tận óc`, `đánh răng hay bị chảy máu`. Đây là điểm mạnh của **Dense Vector Search (Embedding)**.
-
-Do đó, kiến trúc **Hybrid RAG** giải quyết bài toán dung hợp bằng công thức **Reciprocal Rank Fusion (RRF)**:
-
-$$\text{RRF\_Score}(d) = w_{\text{dense}} \cdot \frac{1}{k + \text{rank}_{\text{dense}}(d)} + w_{\text{sparse}} \cdot \frac{1}{k + \text{rank}_{\text{sparse}}(d)}$$
-
-*(với hằng số làm mượt tiêu chuẩn $k = 60$, tỷ trọng mặc định $w_{\text{dense}} = 0.6, w_{\text{sparse}} = 0.4$)*.
-
----
-
-## 📂 3. Cấu trúc Dự Án (Project Structure)
+## Cấu trúc thư mục
 
 ```text
-DoAnTotNghiep/
-├── config/
-│   └── settings.yaml             # Cấu hình chi tiết các tham số Agent & RAG
-├── data/
-│   ├── raw/
-│   │   └── dental_knowledge_sample.json # Dữ liệu tri thức nha khoa mẫu
-│   ├── processed/                # Dữ liệu sau khi làm sạch / chunking
-│   └── vectorstore/              # Thư mục lưu trữ ChromaDB index
-├── src/
-│   ├── core/
-│   │   ├── config.py             # Pydantic Settings đọc cấu hình từ .env
-│   │   ├── llm.py                # LLM Factory (Google Gemini, Ollama, MockLLM)
-│   │   └── logger.py             # Logger hiển thị màu sắc định dạng Rich
-│   ├── agents/
-│   │   ├── base.py               # Node wrapper & bộ khung Agent
-│   │   ├── supervisor.py         # Supervisor Agent điều phối
-│   │   ├── rag_retriever_agent.py # Agent phụ trách tìm kiếm Hybrid RAG
-│   │   └── dental_consultant.py  # Agent bác sĩ tư vấn nha khoa
-│   ├── graph/
-│   │   ├── state.py              # Schema AgentState của LangGraph
-│   │   └── workflow.py           # Định nghĩa và compile StateGraph
-│   ├── rag/
-│   │   ├── base.py               # Interface BaseRetriever & DentalDocument
-│   │   ├── bm25_retriever.py     # Sparse BM25 Keyword Search
-│   │   ├── vector_store.py       # Dense Vector Search (Embeddings)
-│   │   ├── hybrid_retriever.py   # Dung hợp RRF Dense + Sparse
-│   │   └── sample_data.py        # Helper nạp dữ liệu nha khoa mẫu
-│   └── tools/
-│       └── dental_tools.py       # Công cụ đánh giá cấp cứu, tra cứu giải phẫu răng
-├── tests/
-│   └── test_graph.py             # Unit tests kiểm tra Graph và Hybrid RAG
-├── main.py                       # CLI tương tác & Demo luồng Multi-Agent
-├── .env.example                  # Template khai báo biến môi trường
-├── requirements.txt              # Danh sách thư viện phụ thuộc
-└── README.md
+config/
+    pmc_topics.json                 Chủ đề và câu truy vấn tìm bài PMC
+    schemas/                        JSON Schema của tài liệu và chunk
+scripts/
+    collect_public_bulk.py          Thu thập hàng loạt MSD hoặc PMC
+    process_byt_pdf.py              Đọc PDF Bộ Y tế
+    reprocess_public_bulk.py        Xử lý lại từ bản gốc, không tải lại
+    collect_table_images.py         Lưu ảnh của các bảng PMC không có ô văn bản
+    check_public_bulk.py            Kiểm tra dữ liệu và chia chunk
+    export_public_catalog.py        Xuất danh sách và bản đọc từng tài liệu
+src/data/
+    bulk_public.py                  Tìm bài, tải, cache và ghi tiến độ
+    public_schema.py                Cấu trúc tài liệu, mã băm và phiên bản
+    public_chunks.py                Chia đoạn, giữ liên kết về nguồn
+    public_catalog.py               Hiển thị nội dung tài liệu đã xử lý
+    sources/
+        byt.py                      Bộ đọc PDF Bộ Y tế
+        msd.py                      Bộ đọc HTML MSD
+        msd_http.py                 URL, robots và tải HTML MSD
+        pmc.py                      Bộ đọc JATS/XML PMC
+        markup.py                   Xử lý văn bản và bảng HTML/XML
+data/raw/public_v1/                 PDF, HTML, XML, ảnh bảng và cache
+data/processed/public_v1/corpus/    Tài liệu chuẩn hóa, phiên bản và chunk
+outputs/public_v1_bulk/             Danh sách, bản đọc và kết quả kiểm tra
+tests/                             Kiểm tra bộ đọc, chunk và thu thập
 ```
 
----
+## Môi trường
 
-## 🚀 4. Hướng Dẫn Cài Đặt & Chạy Thử
+Python 3.11. Môi trường ảo trên máy hiện tại nằm ở thư mục DATN cha.
+Mở terminal tại thư mục chứa README này:
 
-### Bước 1: Tạo môi trường ảo Python
-```bash
-python -m venv venv
-# Trên Windows PowerShell:
-.\venv\Scripts\Activate.ps1
-# Trên Linux/macOS:
-source venv/bin/activate
+```powershell
+..\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-### Bước 2: Cài đặt thư viện phụ thuộc
-```bash
-pip install -r requirements.txt
+Chunk sử dụng tokenizer `intfloat/multilingual-e5-small`. Máy hiện tại đã có cache;
+trên máy khác tải tokenizer một lần trước khi kiểm tra kho:
+
+```powershell
+..\.venv\Scripts\python.exe -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('intfloat/multilingual-e5-small')"
 ```
 
-### Bước 3: Cấu hình API Key Google Gemini
-File `.env` đã được chuẩn bị sẵn. Bạn chỉ cần đảm bảo biến `GOOGLE_API_KEY` đã được điền:
-```env
-LLM_PROVIDER=google
-GOOGLE_MODEL_NAME=gemini-2.5-flash
-GOOGLE_API_KEY=your_google_api_key_here
-EMBEDDING_PROVIDER=google
-GOOGLE_EMBEDDING_MODEL=models/gemini-embedding-001
+Không cần API key hay model sinh câu trả lời để chạy riêng phần thu thập/xử lý dữ liệu này. Chạy trợ lý cần các model local và hai môi trường đã nêu trong hướng dẫn tích hợp.
+
+## Chạy từ đầu
+
+### 1. Thu thập và chuẩn hóa từng nguồn
+
+```powershell
+..\.venv\Scripts\python.exe scripts\process_byt_pdf.py "..\Bản-cuối-20150728-HD-CĐĐT-RHM.pdf"
+..\.venv\Scripts\python.exe -u scripts\collect_public_bulk.py msd
+..\.venv\Scripts\python.exe -u scripts\collect_public_bulk.py pmc --target 200
 ```
 
-> 💡 **Ghi chú**: Dự án sử dụng mô hình thế hệ mới **`gemini-2.5-flash`** cho các tác tử hội thoại và **`models/gemini-embedding-001`** cho quá trình Dense Vector Embeddings trong Hybrid RAG.
+PDF đầu vào hiện nằm ở DATN cha. Khi chuyển máy, có thể truyền đường dẫn PDF khác.
+MSD và PMC giữ cache để tiếp tục khi chạy lại. PMC tìm metadata qua Europe PMC,
+còn toàn văn tải từ NIH/NLM PMC Cloud. Khoảng ngày tìm bài hiện đặt đến 15/10/2026.
 
-### Bước 4: Chạy chương trình
-```bash
-python main.py
-```
-Hoặc kiểm tra nhanh với câu hỏi tùy ý:
-```bash
-python main.py "Tôi bị đau buốt răng hàm dưới khi nhai, nướu hơi sưng thì nên xử lý thế nào?"
-```
+### 2. Lưu ảnh bảng, kiểm tra và chia đoạn
 
-### Bước 5: Chạy kiểm thử tự động (Unit Tests)
-```bash
-pytest -v tests/
+```powershell
+..\.venv\Scripts\python.exe scripts\collect_table_images.py
+..\.venv\Scripts\python.exe -u scripts\check_public_bulk.py
 ```
 
----
+Chỉ khi kiểm tra đạt, script mới ghi file `chunks.jsonl` chính thức.
+Mỗi chunk tối đa 380 token, tính cả tên tài liệu, đề mục và `passage:`.
 
-## 🔮 5. Định Hướng Phát Triển Tiếp Theo
+### 3. Xuất bản xem dữ liệu
 
-1. **Bổ sung Agent Chuyên Biệt Mới**:
-   - `Dental Triage Agent`: Phân loại khẩn cấp (áp-xe, chấn thương hàm mặt).
-   - `Appointment Agent`: Hỗ trợ đặt lịch hẹn và kết nối với hệ thống quản lý phòng khám (HIS/EMR).
-   - `Dental Imaging Agent`: Tích hợp mô hình thị giác máy tính (Vision) phân tích phim X-quang Panorama / ConeBeam CT.
-2. **Nâng cấp Hybrid RAG**:
-   - Tích hợp **Cross-Encoder Re-ranker** (như `bge-reranker-large` hoặc Cohere Rerank) sau bước RRF.
-   - Kết nối cơ sở dữ liệu Vector Database lưu trữ phân tán (ChromaDB / Qdrant / Milvus).
-   - Tích hợp Graph RAG (Knowledge Graph) biểu diễn mối quan hệ giữa Răng - Bệnh lý - Vi khuẩn - Thuốc.
+```powershell
+..\.venv\Scripts\python.exe scripts\export_public_catalog.py
+```
+
+Mở `outputs/public_v1_bulk/index.html`, bấm tên tài liệu để đọc nội dung đã xử lý.
+`documents.csv` là danh sách tài liệu; `review_items.csv` liệt kê các bảng cần rà lại.
+
+## Xử lý lại khi sửa bộ đọc
+
+```powershell
+..\.venv\Scripts\python.exe -u scripts\reprocess_public_bulk.py
+```
+
+Lệnh này đọc lại các bản gốc đã lưu, không gọi mạng. Có thể thêm `--source byt`,
+`--source msd` hoặc `--source pmc`. Sau đó chạy lại bước lưu ảnh bảng, kiểm tra và xuất
+bản xem để các kết quả khớp với phiên bản tài liệu mới.
+
+## Chạy tests
+
+```powershell
+..\.venv\Scripts\python.exe -m pytest -q
+```
+
+Tests không gọi mạng và không tải lại kho dữ liệu. Fixture XML trong tests là dữ
+liệu tự tạo để kiểm tra bộ đọc, không đưa vào kho tài liệu thật.
+
+## Những phần cần rà lại
+
+- 29 khối bảng PDF có tiêu đề cột được suy ra từ bố cục.
+- 14 bảng PMC chỉ có ảnh: đã lưu ảnh gốc, chưa OCR phần chữ/số trong ảnh.
+- Chú thích hình được giữ; nội dung bên trong hình chưa được phân tích.
+- Kiểm tra tự động xác nhận cấu trúc và toàn vẹn dữ liệu; chưa đánh giá độ đúng
+  chuyên môn của từng tài liệu.
+
+Chi tiết: [quy trình thu thập](docs/public_bulk.md) và
+[cấu trúc tài liệu, chunk](docs/public_data_schema.md).
+
+Code, cấu hình và hướng dẫn dùng để đưa lên Git. Dữ liệu tải về, kết quả xử lý,
+bản xem và môi trường ảo đều được Git bỏ qua.
+
+## Web thử nghiệm bốn agent
+
+```powershell
+..\.venv\Scripts\python.exe -X utf8 -m scripts.run_web
+```
+
+Mở http://127.0.0.1:8000. A1 và A2 dùng Qwen3 1.7B với hai adapter đã fine tune;
+A3 và A4 dùng Qwen3 1.7B gốc. Chưa tích hợp xử lý ảnh.
+Chi tiết cấu hình, cách chạy và vị trí kết quả: [web thử nghiệm](docs/web_test.md).

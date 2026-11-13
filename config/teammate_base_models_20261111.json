@@ -1,0 +1,20 @@
+{
+  "scope": {
+    "inference_allowed": false,
+    "benchmark_allowed": false,
+    "gradient_probe_allowed": false,
+    "finetuning_allowed": false
+  },
+  "models": [
+    {
+      "id": "Qwen2.5-1.5B-Instruct",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+    },
+    {
+      "id": "Qwen2-VL-2B-Instruct",
+      "repo": "Qwen/Qwen2-VL-2B-Instruct",
+      "revision": "895c3a49bc3fa70a340399125c650a463535e71c"
+    }
+  ]
+}

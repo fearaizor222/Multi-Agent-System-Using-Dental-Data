@@ -1,0 +1,48 @@
+{
+  "text_models": {
+    "python": "../.venv-a1/Scripts/python.exe",
+    "base_model": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "model_dir": "data/models/Qwen--Qwen3-1.7B/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "a1_run_dir": "outputs/a1_training/qwen3_17b_v4_20261106_213145_386069",
+    "a2_run_dir": "outputs/a2_training/a2_qwen3_17b_20261110_194806_350795",
+    "timeout_seconds": 600,
+    "max_input_tokens": 4096,
+    "generation_tokens": {
+      "A1": 256,
+      "A2": 512,
+      "A3": 512,
+      "A4": 512
+    },
+    "worker_module": "scripts.integrated_worker",
+    "a3_run_dir": "outputs/a3_training/a3_qwen3_17b_20261109_122845_028798_50aa903b"
+  },
+  "knowledge": {
+    "index_dir": "data/vectorstore/e5_small_v1",
+    "internal_index": "data/vectorstore/e5_small_internal_v3_import1392/internal",
+    "public_index": "data/vectorstore/e5_small_v1/public",
+    "candidate_k": 30,
+    "bilingual_queries": true,
+    "context_neighbors": 1,
+    "query_translation_dir": "data/models/facebook--nllb-200-distilled-600M/f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+    "internal_min_rerank_logit": 0.0
+  },
+  "synthesis": {
+    "enabled": true,
+    "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_dir": "data/models/Qwen--Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "adapter_dir": "models/dental_agent5_drafting_adapter",
+    "max_input_tokens": 4096,
+    "max_new_tokens": 768
+  },
+  "vision": {
+    "enabled": true,
+    "base_model": "Qwen/Qwen2-VL-2B-Instruct",
+    "revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+    "model_dir": "data/models/Qwen--Qwen2-VL-2B-Instruct/895c3a49bc3fa70a340399125c650a463535e71c",
+    "adapter_dir": "models/dental_qwen2_vl_adapter",
+    "max_input_tokens": 4096,
+    "max_new_tokens": 768
+  }
+}

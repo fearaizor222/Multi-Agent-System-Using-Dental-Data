@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dental Agent Lab</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand"><span class="mark">D</span><div>Dental Agent Lab<small>Không gian thử nghiệm</small></div></div>
+    <button class="new" id="new-chat">＋ Hội thoại mới</button>
+    <div class="section-label">CÁC AGENT</div>
+    <div class="agent"><span class="agent-id">A1</span><div><strong>Tiếp nhận và phân luồng</strong><small>Qwen3 1.7B · Fine tuned</small></div></div>
+    <div class="agent"><span class="agent-id">A2</span><div><strong>Soạn nháp từ tài liệu</strong><small>Qwen3 1.7B · Fine tuned</small></div></div>
+    <div class="agent"><span class="agent-id base">A3</span><div><strong>Đối chiếu bằng chứng</strong><small>Qwen3 1.7B · Fine tuned</small></div></div>
+    <div class="agent"><span class="agent-id">TH</span><div><strong>Tổng hợp câu trả lời</strong><small>Qwen2.5 1.5B · Fine tuned</small></div></div>
+    <div class="agent"><span class="agent-id">Ảnh</span><div><strong>Phân tích ảnh thử nghiệm</strong><small>Qwen2-VL 2B · Fine tuned</small></div></div><div class="sidebar-note">Ảnh được phân tích riêng, chưa qua kiểm chứng A3.</div>
+    <div class="local"><span></span> Chạy trên máy của bạn</div>
+  </aside>
+  <main>
+    <header><div><strong>Trợ lý kiến thức nha khoa</strong><small>Tiếp nhận → tra cứu → đối chiếu → tổng hợp</small></div><span id="status" class="status loading">Đang khởi động</span></header>
+    <div class="conversation" id="conversation" aria-live="polite">
+      <div id="welcome" class="welcome"><div class="welcome-icon">D</div><h1>Bắt đầu một câu hỏi nha khoa</h1><p>Thử đặt câu hỏi để xem các agent phối hợp<br>với tài liệu nội bộ và nguồn công khai.</p><div class="suggestions"><button>Máng nhai là gì?</button><button>Sâu răng là gì?</button><button>Làm sao phòng ngừa sâu răng?</button></div></div>
+    </div>
+    <div id="progress" class="progress" hidden><span class="spinner"></span><span id="stage"></span><span id="elapsed"></span></div>
+    <div class="composer-area"><div id="notice" class="notice">Lần khởi động đầu cần thời gian nạp model và kho tài liệu.</div><label class="image-upload">Ảnh thử nghiệm (JPG/PNG/WEBP, tối đa 6 MB)<input id="image" type="file" accept="image/png,image/jpeg,image/webp" disabled></label><form id="chat-form"><textarea id="message" rows="2" maxlength="2000" placeholder="Nhập câu hỏi của bạn..." aria-label="Câu hỏi" disabled></textarea><button id="send" type="submit" disabled aria-label="Gửi câu hỏi">↑</button></form><div class="hint">Enter để gửi · Shift + Enter để xuống dòng · Ngữ cảnh gồm tối đa 6 lượt gần nhất</div></div>
+  </main>
+</div>
+</body></html>

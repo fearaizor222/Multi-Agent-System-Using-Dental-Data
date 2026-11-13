@@ -5,15 +5,10 @@ import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
-from src.core.llm import get_llm
 from src.agents.contracts import Draft, DraftClaim, Evidence
 from src.agents.verification import VerificationAgent
-from src.graph.knowledge_pipeline import create_knowledge_pipeline
+from src.graph.runtime import index_paths, load_runtime
 from src.rag.embedding_store import INDEX_ROOT, ROOT
-from src.rag.local_embeddings import LocalE5Embeddings
-from src.rag.reranker import LocalReranker
-from src.rag.reranked_retriever import RerankedRetriever
-from src.rag.entailment import LocalEntailment
 
 
 def main():
@@ -23,21 +18,19 @@ def main():
     parser.add_argument("--provider", choices=["huggingface", "google", "ollama"], default="huggingface")
     parser.add_argument("--candidate-k", type=int, default=10)
     parser.add_argument("--index-dir", type=Path, default=INDEX_ROOT)
+    parser.add_argument("--internal-index", type=Path, help="Chọn riêng index nội bộ mới")
+    parser.add_argument("--public-index", type=Path, help="Chọn riêng index công khai")
     parser.add_argument("--check-faults", action="store_true", help="Thử mã chunk sai và nhận định cố ý sửa sai; lưu tách với kết quả tự sinh")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     if args.output is None:
-        args.output = ROOT / "outputs/agent_checks/day21" / (datetime.now(timezone.utc).strftime("run_%Y%m%d_%H%M%S") + ".json")
+        args.output = ROOT / "outputs/agent_checks" / (datetime.now(timezone.utc).strftime("run_%Y%m%d_%H%M%S") + ".json")
     if not args.question.strip() or args.candidate_k < 3:
         parser.error("Cần câu hỏi không rỗng và candidate-k >= 3")
     if args.output.exists():
         parser.error("File đầu ra đã có; chọn --output khác để giữ lượt chạy trước")
-    encoder, reranker = LocalE5Embeddings(), LocalReranker()
-    internal = RerankedRetriever.from_disk(args.index_dir / "internal", reranker, encoder, args.candidate_k)
-    public = RerankedRetriever.from_disk(args.index_dir / "public", reranker, encoder, args.candidate_k)
-    llm = get_llm(streaming=False, override_provider=args.provider)
-    entailment = LocalEntailment()
-    pipeline = create_knowledge_pipeline(internal, public, llm, entailment=entailment)
+    runtime = load_runtime(index_paths(args.index_dir, args.internal_index, args.public_index), args.candidate_k, args.provider)
+    pipeline, llm, public, entailment = runtime.pipeline, runtime.llm, runtime.public, runtime.entailment
     result = {}
     seen_steps = 0
     for state in pipeline.stream({"question": args.question, "trace": [], "model_calls": []}, stream_mode="values"):
@@ -68,8 +61,8 @@ def main():
                 fault_cases.append({"name": "changed_claim_text", "controlled_input": True,
                     "error": str(exc), "model_calls": verifier.last_trace.copy()})
         result["controlled_fault_checks"] = fault_cases
-    result["models"] = {"reranker": reranker.identity, "llm": getattr(llm, "identity", {"provider": args.provider}),
-                        "entailment": entailment.identity, "nli_threshold": entailment.threshold}
+    result["models"] = runtime.models
+    result["indices"] = runtime.indices
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print("Luồng:", " → ".join(item["step"] for item in result["trace"]))

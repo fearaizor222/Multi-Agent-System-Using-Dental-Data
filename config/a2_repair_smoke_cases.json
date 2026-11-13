@@ -1,0 +1,7 @@
+{
+  "scope": "Hai ca hồi quy định nghĩa qua A1/A2/A3 thật và A4; yêu cầu có câu trả lời được kiểm chứng. Không phải đánh giá độ chính xác y khoa hoặc benchmark độc lập.",
+  "cases": [
+    {"id":"caries_definition","input":{"message":"sâu răng là gì"},"expected_statuses":["knowledge_result"],"expected_targets":["A2"],"expect_a3":true,"expect_a4":true,"expected_final_statuses":["answered"],"expected_evidence_basis":"public_cross_source"},
+    {"id":"splint_definition","input":{"message":"Máng nhai là gì?"},"expected_statuses":["knowledge_result"],"expected_targets":["A2"],"expect_a3":true,"expect_a4":true,"expected_final_statuses":["answered"],"expected_evidence_basis":"internal_public"}
+  ]
+}
